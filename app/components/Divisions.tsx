@@ -65,10 +65,10 @@ export default function Divisions() {
           <p className="font-mono text-xs tracking-widest text-accent-gold">
             SOFTWARE
           </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
             Seven divisions, seven premium systems.
           </h2>
-          <p className="mt-4 text-lg text-muted">
+          <p className="mt-4 text-xl text-muted">
             STIV builds a dedicated, exclusive system for each division of
             your enterprise — licensed independently, so you invest only in
             what your teams actually run.

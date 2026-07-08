@@ -62,7 +62,7 @@ export default function Pricing() {
           <p className="font-mono text-xs tracking-widest text-accent-gold">
             PRICING
           </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
             License by division. Or license it all.
           </h2>
         </Reveal>
@@ -100,11 +100,11 @@ export default function Pricing() {
                     </span>
                   )}
 
-                  <h3 className="text-lg font-medium">{tier.name}</h3>
-                  <p className="mt-2 text-sm text-muted">{tier.description}</p>
+                  <h3 className="text-xl font-medium">{tier.name}</h3>
+                  <p className="mt-2 text-base text-muted">{tier.description}</p>
 
                   <div className="mt-6 flex items-baseline gap-1">
-                    <span className="text-4xl font-semibold tracking-tight">
+                    <span className="text-5xl font-semibold tracking-tight">
                       {tier.price}
                     </span>
                     {tier.period && (

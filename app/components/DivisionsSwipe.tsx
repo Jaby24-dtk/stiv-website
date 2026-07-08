@@ -110,10 +110,10 @@ export default function DivisionsSwipe({
             className="absolute inset-x-6 flex flex-col items-center text-center"
           >
             <IconTile icon={Icon} size="lg" />
-            <h3 className="mt-6 text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h3 className="mt-6 text-5xl font-semibold tracking-tight sm:text-6xl">
               <ScrambleText text={name} active={activeIndex === i} />
             </h3>
-            <p className="mt-4 max-w-md text-lg leading-relaxed text-muted">
+            <p className="mt-4 max-w-md text-xl leading-relaxed text-muted">
               {description}
             </p>
             <span className="mt-6 font-mono text-xs text-muted">

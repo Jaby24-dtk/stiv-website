@@ -14,10 +14,10 @@ export default function Stats() {
         {stats.map(({ value, label }, i) => (
           <Reveal key={label} delay={i * 80}>
             <div className="text-center sm:text-left">
-              <p className="text-3xl font-semibold tracking-tight text-gradient sm:text-4xl">
+              <p className="text-4xl font-semibold tracking-tight text-gradient sm:text-5xl">
                 {value}
               </p>
-              <p className="mt-1 text-sm text-muted">{label}</p>
+              <p className="mt-1 text-base text-muted">{label}</p>
             </div>
           </Reveal>
         ))}

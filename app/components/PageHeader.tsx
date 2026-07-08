@@ -16,11 +16,11 @@ export default function PageHeader({
         <p className="font-mono text-xs tracking-widest text-accent-gold">
           {eyebrow}
         </p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
+        <h1 className="mt-3 text-5xl font-semibold tracking-tight sm:text-6xl">
           {title}
         </h1>
         {description && (
-          <p className="mt-4 text-lg leading-relaxed text-muted">
+          <p className="mt-4 text-xl leading-relaxed text-muted">
             {description}
           </p>
         )}

@@ -36,14 +36,14 @@ export default function Hero() {
             Est. 2026 · Singapore
           </div>
 
-          <h1 className="text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
+          <h1 className="text-6xl font-semibold leading-[1.02] tracking-tight sm:text-8xl">
             Premium software for
             <br />
             <CyclingText words={divisionWords} className="text-gradient" />
             .
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+          <p className="mt-6 max-w-xl text-xl leading-relaxed text-muted">
             STIV designs exclusive, purpose-built software for every division
             of your enterprise — Executive, Sales, Marketing, Finance,
             Operations, Legal, Support. Prefer a single system across the
@@ -70,10 +70,10 @@ export default function Hero() {
           </div>
 
           <div className="mt-12 flex items-center gap-3 border-t border-white/10 pt-6">
-            <span className="text-3xl font-semibold tabular-nums text-gradient">
+            <span className="text-4xl font-semibold tabular-nums text-gradient">
               14,382
             </span>
-            <span className="max-w-[14rem] text-sm text-muted">
+            <span className="max-w-[14rem] text-base text-muted">
               hours reclaimed by customers this week
             </span>
           </div>

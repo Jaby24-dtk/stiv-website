@@ -43,10 +43,10 @@ export default function Security() {
             <p className="font-mono text-xs tracking-widest text-accent-gold">
               SECURITY
             </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
               Autonomy you can audit.
             </h2>
-            <p className="mt-4 text-lg text-muted">
+            <p className="mt-4 text-xl text-muted">
               Giving AI agents real access to your business only works if you
               can trust — and verify — everything they touch.
             </p>
@@ -56,8 +56,8 @@ export default function Security() {
             {items.map(({ icon: Icon, title, description }, i) => (
               <Reveal key={title} delay={i * 80}>
                 <IconTile icon={Icon} size="sm" />
-                <h3 className="mt-4 text-base font-medium">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
+                <h3 className="mt-4 text-lg font-medium">{title}</h3>
+                <p className="mt-2 text-base leading-relaxed text-muted">
                   {description}
                 </p>
               </Reveal>

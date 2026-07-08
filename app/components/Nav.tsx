@@ -41,7 +41,7 @@ export default function Nav() {
             className="h-8 w-8 rounded-lg object-contain"
             priority
           />
-          <span className="text-lg font-semibold tracking-tight text-white">
+          <span className="text-xl font-semibold tracking-tight text-white">
             STIV
           </span>
         </Link>

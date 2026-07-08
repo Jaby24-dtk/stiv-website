@@ -10,10 +10,10 @@ export default function CTA() {
       <div className="glass-panel glow-ring relative overflow-hidden rounded-3xl p-12 text-center sm:p-16">
         <AuroraBackground variant="subtle" />
         <div className="relative">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
             Put seven divisions to work this week.
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-muted">
+          <p className="mx-auto mt-4 max-w-xl text-xl text-muted">
             See STIV run against a copy of your own data in a 30-minute call —
             no sales deck, just the workspace.
           </p>

@@ -40,7 +40,7 @@ export default function HowItWorks() {
           <p className="font-mono text-xs tracking-widest text-accent-gold">
             HOW IT WORKS
           </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h2 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
             From onboarding to autonomy.
           </h2>
         </Reveal>
@@ -54,8 +54,8 @@ export default function HowItWorks() {
                   0{i + 1}
                 </span>
               </div>
-              <h3 className="mt-4 text-base font-medium">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
+              <h3 className="mt-4 text-lg font-medium">{title}</h3>
+              <p className="mt-2 text-base leading-relaxed text-muted">
                 {description}
               </p>
               {i < steps.length - 1 && (

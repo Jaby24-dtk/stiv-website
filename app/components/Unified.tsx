@@ -9,7 +9,7 @@ export default function Unified() {
 
       <div className="border-t border-white/10 px-6 py-20 text-center lg:px-8">
         <Reveal className="mx-auto max-w-2xl">
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             One assistant. Every division. Exclusively yours.
           </h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">

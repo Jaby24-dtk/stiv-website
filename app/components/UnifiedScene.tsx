@@ -187,10 +187,10 @@ export default function UnifiedScene() {
                 <p className="font-mono text-xs tracking-widest text-accent-gold">
                   {stage.eyebrow}
                 </p>
-                <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+                <h2 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
                   {stage.title}
                 </h2>
-                <p className="mt-4 text-lg text-muted">{stage.body}</p>
+                <p className="mt-4 text-xl text-muted">{stage.body}</p>
               </div>
             ))}
           </div>
