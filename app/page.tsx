@@ -1,4 +1,3 @@
-import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Divisions from "./components/Divisions";
 import Unified from "./components/Unified";
@@ -6,22 +5,17 @@ import HowItWorks from "./components/HowItWorks";
 import Security from "./components/Security";
 import Pricing from "./components/Pricing";
 import CTA from "./components/CTA";
-import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col">
-      <Nav />
-      <main className="flex-1">
-        <Hero />
-        <Divisions />
-        <Unified />
-        <HowItWorks />
-        <Security />
-        <Pricing />
-        <CTA />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <Hero />
+      <Divisions />
+      <Unified />
+      <HowItWorks />
+      <Security />
+      <Pricing />
+      <CTA />
+    </>
   );
 }

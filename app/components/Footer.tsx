@@ -1,30 +1,31 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const columns = [
   {
     title: "Product",
     links: [
-      { label: "Software", href: "#divisions" },
-      { label: "Unified", href: "#unified" },
-      { label: "How it works", href: "#how-it-works" },
-      { label: "Security", href: "#security" },
-      { label: "Pricing", href: "#pricing" },
+      { label: "Software", href: "/#divisions" },
+      { label: "Unified", href: "/#unified" },
+      { label: "How it works", href: "/#how-it-works" },
+      { label: "Security", href: "/#security" },
+      { label: "Pricing", href: "/#pricing" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Blog", href: "#" },
+      { label: "About", href: "/about" },
+      { label: "Careers", href: "/careers" },
+      { label: "Blog", href: "/blog" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy", href: "#" },
-      { label: "Terms", href: "#" },
-      { label: "Subprocessors", href: "#" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+      { label: "Subprocessors", href: "/subprocessors" },
     ],
   },
 ];
@@ -56,12 +57,12 @@ export default function Footer() {
               <ul className="mt-4 flex flex-col gap-3">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-sm text-muted transition-colors hover:text-foreground"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

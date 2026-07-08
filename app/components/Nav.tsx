@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const links = [
-  { href: "#divisions", label: "Software" },
-  { href: "#unified", label: "Unified" },
-  { href: "#how-it-works", label: "How it works" },
-  { href: "#security", label: "Security" },
-  { href: "#pricing", label: "Pricing" },
+  { href: "/#divisions", label: "Software" },
+  { href: "/#unified", label: "Unified" },
+  { href: "/#how-it-works", label: "How it works" },
+  { href: "/#security", label: "Security" },
+  { href: "/#pricing", label: "Pricing" },
 ];
 
 export default function Nav() {
@@ -31,7 +32,7 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <a href="#top" className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center gap-2.5">
           <Image
             src="/stiv-logo-mark.png"
             alt="STIV"
@@ -41,17 +42,17 @@ export default function Nav() {
             priority
           />
           <span className="text-lg font-semibold tracking-tight">STIV</span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm text-muted transition-colors hover:text-foreground"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -63,12 +64,12 @@ export default function Nav() {
             </span>
             All 7 systems operational
           </div>
-          <a
-            href="#book-demo"
+          <Link
+            href="/#book-demo"
             className="rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
           >
             Book a demo
-          </a>
+          </Link>
         </div>
 
         <button
@@ -94,22 +95,22 @@ export default function Nav() {
         <div className="border-t border-white/10 bg-background px-6 py-4 md:hidden">
           <div className="flex flex-col gap-4">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className="text-sm text-muted hover:text-foreground"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#book-demo"
+            <Link
+              href="/#book-demo"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-center text-sm font-semibold text-slate-950"
             >
               Book a demo
-            </a>
+            </Link>
           </div>
         </div>
       )}
