@@ -8,12 +8,12 @@ import {
   Headset,
 } from "lucide-react";
 
-const agents = [
+const divisions = [
   {
     name: "Executive",
     icon: BarChart3,
     description:
-      "Synthesizes every agent's activity into a single briefing — decisions, risks, and what needs your sign-off.",
+      "Synthesizes every division's activity into a single briefing — decisions, risks, and what needs your sign-off.",
   },
   {
     name: "Sales",
@@ -53,31 +53,34 @@ const agents = [
   },
 ];
 
-export default function Agents() {
+export default function Divisions() {
   return (
-    <section id="agents" className="border-t border-white/10 px-6 py-24 lg:px-8">
+    <section
+      id="divisions"
+      className="border-t border-white/10 px-6 py-24 lg:px-8"
+    >
       <div className="mx-auto max-w-7xl">
         <div className="max-w-2xl">
-          <p className="font-mono text-xs tracking-widest text-accent-teal">
-            AGENTS
+          <p className="font-mono text-xs tracking-widest text-accent-gold">
+            SOFTWARE
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Seven specialists, one workspace.
+            Seven divisions, seven premium systems.
           </h2>
           <p className="mt-4 text-lg text-muted">
-            Each agent is scoped to a function you already have — no new
-            headcount, no new tools to learn. They read what you read, and
-            act with the same judgment you&apos;d expect from a trusted hire.
+            STIV builds a dedicated, exclusive system for each division of
+            your enterprise — licensed independently, so you invest only in
+            what your teams actually run.
           </p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-3">
-          {agents.map(({ name, icon: Icon, description }) => (
+          {divisions.map(({ name, icon: Icon, description }) => (
             <div
               key={name}
               className="group relative bg-background p-7 transition-colors hover:bg-panel"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-accent-teal transition-colors group-hover:border-accent-teal/40">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-accent-gold transition-colors group-hover:border-accent-gold/40">
                 <Icon className="h-5 w-5" />
               </div>
               <h3 className="mt-5 text-lg font-medium">{name}</h3>
@@ -88,13 +91,13 @@ export default function Agents() {
           ))}
           <div className="flex flex-col justify-center bg-background p-7 lg:col-span-2">
             <p className="text-sm text-muted">
-              Need something more specific to your org chart?
+              Want every division running as one exclusive system?
             </p>
             <a
-              href="#book-demo"
-              className="mt-3 inline-flex w-fit items-center gap-1 text-sm font-semibold text-accent-teal hover:underline"
+              href="#unified"
+              className="mt-3 inline-flex w-fit items-center gap-1 text-sm font-semibold text-accent-gold hover:underline"
             >
-              Talk to us about custom agents →
+              See STIV Unified →
             </a>
           </div>
         </div>

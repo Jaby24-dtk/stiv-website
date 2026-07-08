@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "STIV — Your AI-powered organization",
+  title: "STIV — Premium software, division by division",
   description:
-    "STIV brings together specialized AI agents — Executive, Sales, Marketing, Finance, Operations, Legal, Support — into one unified workspace that runs your business in the background.",
+    "STIV designs exclusive, purpose-built software for every division of your enterprise — Executive, Sales, Marketing, Finance, Operations, Legal, Support. Or unify them all into one exclusive assistant with STIV Unified.",
 };
 
 export default function RootLayout({

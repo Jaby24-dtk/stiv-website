@@ -20,7 +20,7 @@ const sidebarItems = [
 
 export default function WorkspacePreview() {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-panel/80 shadow-[0_0_80px_-20px_rgba(124,134,255,0.35)] backdrop-blur">
+    <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-panel/80 shadow-[0_0_80px_-20px_rgba(184,115,74,0.35)] backdrop-blur">
       <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
         <div className="flex items-center gap-2">
           <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
@@ -30,8 +30,8 @@ export default function WorkspacePreview() {
             stiv.app / workspace
           </span>
         </div>
-        <div className="flex items-center gap-1.5 text-xs text-accent-teal">
-          <span className="h-1.5 w-1.5 animate-pulse-soft rounded-full bg-accent-teal" />
+        <div className="flex items-center gap-1.5 text-xs text-accent-gold">
+          <span className="h-1.5 w-1.5 animate-pulse-soft rounded-full bg-accent-gold" />
           live
         </div>
       </div>
@@ -39,7 +39,7 @@ export default function WorkspacePreview() {
       <div className="grid grid-cols-[128px_1fr] sm:grid-cols-[150px_1fr]">
         <div className="border-r border-white/10 p-3">
           <p className="px-2 pb-2 font-mono text-[10px] tracking-widest text-muted">
-            AGENTS
+            DIVISIONS
           </p>
           <div className="flex flex-col gap-1">
             {sidebarItems.map(({ label, icon: Icon, active }) => (
@@ -66,9 +66,9 @@ export default function WorkspacePreview() {
             <p className="text-sm">what&apos;s blocking Q3 close?</p>
           </div>
 
-          <div className="rounded-xl border border-accent-indigo/30 bg-accent-indigo/10 p-3">
-            <p className="mb-1 font-mono text-[10px] tracking-widest text-accent-indigo">
-              FINANCE AGENT
+          <div className="rounded-xl border border-accent-bronze/30 bg-accent-bronze/10 p-3">
+            <p className="mb-1 font-mono text-[10px] tracking-widest text-accent-bronze">
+              FINANCE SYSTEM
             </p>
             <p className="text-sm text-foreground/90">
               3 accounts unreconciled — drafting variance summary now...
@@ -77,7 +77,7 @@ export default function WorkspacePreview() {
 
           <div className="rounded-xl border border-white/10 bg-white/5 p-3">
             <p className="mb-1 font-mono text-[10px] tracking-widest text-muted">
-              EXECUTIVE AGENT
+              EXECUTIVE SYSTEM
             </p>
             <p className="text-sm text-foreground/90">
               Adding this to Monday&apos;s briefing under Risks.
@@ -90,7 +90,7 @@ export default function WorkspacePreview() {
               <span className="h-1 w-1 animate-pulse-soft rounded-full bg-muted [animation-delay:200ms]" />
               <span className="h-1 w-1 animate-pulse-soft rounded-full bg-muted [animation-delay:400ms]" />
             </span>{" "}
-            Finance Agent is drafting…
+            Finance System is drafting…
           </p>
 
           <div className="rounded-xl border border-white/10 bg-white/5 p-3">
@@ -108,8 +108,8 @@ export default function WorkspacePreview() {
               />
               <defs>
                 <linearGradient id="chart-gradient" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="var(--accent-indigo)" />
-                  <stop offset="100%" stopColor="var(--accent-teal)" />
+                  <stop offset="0%" stopColor="var(--accent-bronze)" />
+                  <stop offset="100%" stopColor="var(--accent-gold)" />
                 </linearGradient>
               </defs>
             </svg>

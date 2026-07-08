@@ -1,6 +1,7 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
-import Agents from "./components/Agents";
+import Divisions from "./components/Divisions";
+import Unified from "./components/Unified";
 import HowItWorks from "./components/HowItWorks";
 import Security from "./components/Security";
 import Pricing from "./components/Pricing";
@@ -13,7 +14,8 @@ export default function Home() {
       <Nav />
       <main className="flex-1">
         <Hero />
-        <Agents />
+        <Divisions />
+        <Unified />
         <HowItWorks />
         <Security />
         <Pricing />

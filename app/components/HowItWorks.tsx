@@ -35,7 +35,7 @@ export default function HowItWorks() {
     >
       <div className="mx-auto max-w-7xl">
         <div className="max-w-2xl">
-          <p className="font-mono text-xs tracking-widest text-accent-teal">
+          <p className="font-mono text-xs tracking-widest text-accent-gold">
             HOW IT WORKS
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -47,7 +47,7 @@ export default function HowItWorks() {
           {steps.map(({ icon: Icon, title, description }, i) => (
             <div key={title} className="relative">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-panel text-accent-indigo">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-panel text-accent-bronze">
                   <Icon className="h-5 w-5" />
                 </div>
                 <span className="font-mono text-xs text-muted">

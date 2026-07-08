@@ -36,7 +36,7 @@ export default function Security() {
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
           <div>
-            <p className="font-mono text-xs tracking-widest text-accent-teal">
+            <p className="font-mono text-xs tracking-widest text-accent-gold">
               SECURITY
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -51,7 +51,7 @@ export default function Security() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             {items.map(({ icon: Icon, title, description }) => (
               <div key={title}>
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-accent-teal">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-accent-gold">
                   <Icon className="h-4 w-4" />
                 </div>
                 <h3 className="mt-4 text-base font-medium">{title}</h3>

@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const links = [
-  { href: "#agents", label: "Agents" },
+  { href: "#divisions", label: "Software" },
+  { href: "#unified", label: "Unified" },
   { href: "#how-it-works", label: "How it works" },
   { href: "#security", label: "Security" },
   { href: "#pricing", label: "Pricing" },
@@ -30,9 +32,14 @@ export default function Nav() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <a href="#top" className="flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent-indigo to-accent-teal text-sm font-bold text-slate-950">
-            S
-          </span>
+          <Image
+            src="/stiv-logo-mark.png"
+            alt="STIV"
+            width={32}
+            height={32}
+            className="h-8 w-8 rounded-lg object-contain"
+            priority
+          />
           <span className="text-lg font-semibold tracking-tight">STIV</span>
         </a>
 
@@ -51,14 +58,14 @@ export default function Nav() {
         <div className="hidden items-center gap-3 md:flex">
           <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-muted">
             <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-teal/70" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-teal" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-gold/70" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-gold" />
             </span>
-            All 7 agents operational
+            All 7 systems operational
           </div>
           <a
             href="#book-demo"
-            className="rounded-full bg-gradient-to-r from-accent-indigo to-accent-teal px-4 py-2 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
+            className="rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
           >
             Book a demo
           </a>
@@ -99,7 +106,7 @@ export default function Nav() {
             <a
               href="#book-demo"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-gradient-to-r from-accent-indigo to-accent-teal px-4 py-2 text-center text-sm font-semibold text-slate-950"
+              className="mt-2 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-center text-sm font-semibold text-slate-950"
             >
               Book a demo
             </a>

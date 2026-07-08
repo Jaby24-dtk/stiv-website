@@ -1,49 +1,50 @@
 import { Check } from "lucide-react";
+import Tilt from "./Tilt";
 
 const tiers = [
   {
-    name: "Starter",
-    price: "$490",
+    name: "Single Division",
+    price: "$1,500",
     period: "/mo",
-    description: "For small teams automating their first function.",
+    description: "License one division's software — start where it matters most.",
     features: [
-      "2 agents of your choice",
+      "1 division of your choice",
       "1 workspace",
       "Standard integrations",
       "Email support",
     ],
-    cta: "Start with Starter",
-    featured: false,
+    cta: "Choose a division",
+    badge: null as string | null,
   },
   {
-    name: "Growth",
-    price: "$1,900",
+    name: "Full Suite",
+    price: "$8,200",
     period: "/mo",
-    description: "For teams ready to run most of the business through STIV.",
+    description: "All seven divisions, licensed and deployed independently.",
     features: [
-      "All 7 agents",
+      "All 7 divisions",
       "Unlimited workspaces",
       "Custom integrations",
       "Approval workflows",
       "Priority support",
     ],
     cta: "Book a demo",
-    featured: true,
+    badge: "Most popular",
   },
   {
-    name: "Enterprise",
+    name: "STIV Unified",
     price: "Custom",
     period: "",
-    description: "For regulated orgs that need dedicated infrastructure.",
+    description: "One exclusive assistant that runs the whole company.",
     features: [
-      "Everything in Growth",
-      "Dedicated data residency",
-      "Custom agent development",
-      "SSO & audit exports",
+      "Every division, unified",
+      "Bespoke build on your business",
+      "Dedicated infrastructure",
+      "White-glove onboarding",
       "Dedicated success manager",
     ],
-    cta: "Talk to sales",
-    featured: false,
+    cta: "Enquire about Unified",
+    badge: "By application",
   },
 ];
 
@@ -52,63 +53,85 @@ export default function Pricing() {
     <section id="pricing" className="border-t border-white/10 px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-2xl">
-          <p className="font-mono text-xs tracking-widest text-accent-teal">
+          <p className="font-mono text-xs tracking-widest text-accent-gold">
             PRICING
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Priced like a hire. Works like seven.
+            License by division. Or license it all.
           </h2>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {tiers.map((tier) => (
-            <div
-              key={tier.name}
-              className={`relative flex flex-col rounded-2xl border p-8 ${
-                tier.featured
-                  ? "border-accent-indigo/40 bg-panel shadow-[0_0_60px_-20px_rgba(124,134,255,0.45)]"
-                  : "border-white/10 bg-panel/40"
-              }`}
-            >
-              {tier.featured && (
-                <span className="absolute -top-3 left-8 rounded-full bg-gradient-to-r from-accent-indigo to-accent-teal px-3 py-1 text-xs font-semibold text-slate-950">
-                  Most popular
-                </span>
-              )}
+          {tiers.map((tier) => {
+            const isPopular = tier.badge === "Most popular";
+            const isUnified = tier.badge === "By application";
 
-              <h3 className="text-lg font-medium">{tier.name}</h3>
-              <p className="mt-2 text-sm text-muted">{tier.description}</p>
-
-              <div className="mt-6 flex items-baseline gap-1">
-                <span className="text-4xl font-semibold tracking-tight">
-                  {tier.price}
-                </span>
-                {tier.period && (
-                  <span className="text-sm text-muted">{tier.period}</span>
-                )}
-              </div>
-
-              <ul className="mt-8 flex flex-1 flex-col gap-3">
-                {tier.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2.5 text-sm">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-teal" />
-                    <span className="text-foreground/90">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="#book-demo"
-                className={`mt-8 inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:scale-[1.02] ${
-                  tier.featured
-                    ? "bg-gradient-to-r from-accent-indigo to-accent-teal text-slate-950"
-                    : "border border-white/15 text-foreground/90 hover:bg-white/5"
-                }`}
+            return (
+              <Tilt
+                key={tier.name}
+                max={5}
+                glare={false}
+                className="h-full rounded-2xl"
               >
-                {tier.cta}
-              </a>
-            </div>
-          ))}
+                <div
+                  className={`relative flex h-full flex-col rounded-2xl border p-8 ${
+                    isPopular
+                      ? "border-accent-bronze/40 bg-panel shadow-[0_0_60px_-20px_rgba(184,115,74,0.45)]"
+                      : isUnified
+                        ? "border-accent-gold/30 bg-panel/60"
+                        : "border-white/10 bg-panel/40"
+                  }`}
+                >
+                  {tier.badge && (
+                    <span
+                      className={`absolute -top-3 left-8 rounded-full px-3 py-1 text-xs font-semibold ${
+                        isPopular
+                          ? "bg-gradient-to-r from-accent-bronze to-accent-gold text-slate-950"
+                          : "border border-accent-gold/40 bg-background text-accent-gold"
+                      }`}
+                    >
+                      {tier.badge}
+                    </span>
+                  )}
+
+                  <h3 className="text-lg font-medium">{tier.name}</h3>
+                  <p className="mt-2 text-sm text-muted">{tier.description}</p>
+
+                  <div className="mt-6 flex items-baseline gap-1">
+                    <span className="text-4xl font-semibold tracking-tight">
+                      {tier.price}
+                    </span>
+                    {tier.period && (
+                      <span className="text-sm text-muted">{tier.period}</span>
+                    )}
+                  </div>
+
+                  <ul className="mt-8 flex flex-1 flex-col gap-3">
+                    {tier.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-start gap-2.5 text-sm"
+                      >
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-gold" />
+                        <span className="text-foreground/90">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href="#book-demo"
+                    className={`mt-8 inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:scale-[1.02] ${
+                      isPopular
+                        ? "bg-gradient-to-r from-accent-bronze to-accent-gold text-slate-950"
+                        : "border border-white/15 text-foreground/90 hover:bg-white/5"
+                    }`}
+                  >
+                    {tier.cta}
+                  </a>
+                </div>
+              </Tilt>
+            );
+          })}
         </div>
       </div>
     </section>

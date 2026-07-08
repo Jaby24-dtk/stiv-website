@@ -1,7 +1,9 @@
+import Image from "next/image";
+
 const columns = [
   {
     title: "Product",
-    links: ["Agents", "How it works", "Security", "Pricing"],
+    links: ["Software", "Unified", "How it works", "Security", "Pricing"],
   },
   {
     title: "Company",
@@ -20,13 +22,17 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
           <div className="col-span-2 sm:col-span-1">
             <div className="flex items-center gap-2.5">
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-accent-indigo to-accent-teal text-xs font-bold text-slate-950">
-                S
-              </span>
+              <Image
+                src="/stiv-logo-mark.png"
+                alt="STIV"
+                width={28}
+                height={28}
+                className="h-7 w-7 rounded-lg object-contain"
+              />
               <span className="text-base font-semibold">STIV</span>
             </div>
             <p className="mt-4 max-w-xs text-sm text-muted">
-              Your AI-powered organization. Est. 2026, Singapore.
+              Premium software, division by division. Est. 2026, Singapore.
             </p>
           </div>
 
