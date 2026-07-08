@@ -1,5 +1,6 @@
 import { Plug, GraduationCap, CheckCircle2, TrendingUp } from "lucide-react";
 import IconTile from "./IconTile";
+import Reveal from "./Reveal";
 
 const steps = [
   {
@@ -35,18 +36,18 @@ export default function HowItWorks() {
       className="border-t border-white/10 px-6 py-24 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <p className="font-mono text-xs tracking-widest text-accent-gold">
             HOW IT WORKS
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
             From onboarding to autonomy.
           </h2>
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map(({ icon: Icon, title, description }, i) => (
-            <div key={title} className="relative">
+            <Reveal key={title} delay={i * 80} className="relative">
               <div className="flex items-center gap-3">
                 <IconTile icon={Icon} size="sm" />
                 <span className="font-mono text-xs text-muted">
@@ -60,7 +61,7 @@ export default function HowItWorks() {
               {i < steps.length - 1 && (
                 <div className="absolute right-[-1rem] top-5 hidden h-px w-8 bg-gradient-to-r from-white/20 to-transparent lg:block" />
               )}
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

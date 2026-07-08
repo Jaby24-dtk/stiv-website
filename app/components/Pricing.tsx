@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import Tilt from "./Tilt";
 import AuroraBackground from "./AuroraBackground";
+import Reveal from "./Reveal";
 
 const tiers = [
   {
@@ -57,23 +58,23 @@ export default function Pricing() {
     >
       <AuroraBackground variant="subtle" />
       <div className="relative mx-auto max-w-7xl">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <p className="font-mono text-xs tracking-widest text-accent-gold">
             PRICING
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
             License by division. Or license it all.
           </h2>
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {tiers.map((tier) => {
+          {tiers.map((tier, tierIndex) => {
             const isPopular = tier.badge === "Most popular";
             const isUnified = tier.badge === "By application";
 
             return (
+              <Reveal key={tier.name} delay={tierIndex * 100} className="h-full">
               <Tilt
-                key={tier.name}
                 max={5}
                 glare={false}
                 className="h-full rounded-2xl"
@@ -135,6 +136,7 @@ export default function Pricing() {
                   </a>
                 </div>
               </Tilt>
+              </Reveal>
             );
           })}
         </div>

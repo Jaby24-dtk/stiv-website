@@ -1,6 +1,8 @@
 import { Sparkles } from "lucide-react";
 import Tilt from "./Tilt";
 import AuroraBackground from "./AuroraBackground";
+import Reveal from "./Reveal";
+import Magnetic from "./Magnetic";
 
 const highlights = [
   "Every division fused into one command layer",
@@ -13,6 +15,7 @@ export default function Unified() {
   return (
     <section id="unified" className="border-t border-white/10 px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
+        <Reveal>
         <Tilt max={3} glare={false} className="rounded-3xl">
           <div className="glass-panel glow-ring relative overflow-hidden rounded-3xl p-10 sm:p-14">
             <AuroraBackground variant="subtle" />
@@ -34,12 +37,14 @@ export default function Unified() {
                   business, briefed on everything, answerable only to you.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <a
-                    href="#book-demo"
-                    className="shine-sweep rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
-                  >
-                    Enquire about Unified
-                  </a>
+                  <Magnetic>
+                    <a
+                      href="#book-demo"
+                      className="shine-sweep inline-flex rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
+                    >
+                      Enquire about Unified
+                    </a>
+                  </Magnetic>
                   <span className="text-sm text-muted">
                     Custom pricing · by application
                   </span>
@@ -67,6 +72,7 @@ export default function Unified() {
             </div>
           </div>
         </Tilt>
+        </Reveal>
       </div>
     </section>
   );

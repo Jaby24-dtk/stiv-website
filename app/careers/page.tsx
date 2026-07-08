@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Code2, Handshake, Headset, ShieldCheck } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import IconTile from "../components/IconTile";
+import Reveal from "../components/Reveal";
 
 export const metadata: Metadata = {
   title: "Careers — STIV",
@@ -57,8 +58,8 @@ export default function CareersPage() {
           </p>
 
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">
-            {areas.map(({ icon: Icon, title, description }) => (
-              <div key={title} className="flex gap-4">
+            {areas.map(({ icon: Icon, title, description }, i) => (
+              <Reveal key={title} delay={i * 80} className="flex gap-4">
                 <IconTile icon={Icon} />
                 <div>
                   <h3 className="text-base font-medium">{title}</h3>
@@ -66,7 +67,7 @@ export default function CareersPage() {
                     {description}
                   </p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

@@ -1,4 +1,6 @@
 import Hero from "./components/Hero";
+import Marquee from "./components/Marquee";
+import Stats from "./components/Stats";
 import Divisions from "./components/Divisions";
 import Unified from "./components/Unified";
 import HowItWorks from "./components/HowItWorks";
@@ -10,6 +12,8 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <Marquee />
+      <Stats />
       <Divisions />
       <Unified />
       <HowItWorks />

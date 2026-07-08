@@ -1,6 +1,7 @@
 import { ShieldCheck, KeyRound, ScrollText, UserCheck } from "lucide-react";
 import IconTile from "./IconTile";
 import AuroraBackground from "./AuroraBackground";
+import Reveal from "./Reveal";
 
 const items = [
   {
@@ -38,7 +39,7 @@ export default function Security() {
       <AuroraBackground variant="subtle" />
       <div className="relative mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
-          <div>
+          <Reveal>
             <p className="font-mono text-xs tracking-widest text-accent-gold">
               SECURITY
             </p>
@@ -49,17 +50,17 @@ export default function Security() {
               Giving AI agents real access to your business only works if you
               can trust — and verify — everything they touch.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-            {items.map(({ icon: Icon, title, description }) => (
-              <div key={title}>
+            {items.map(({ icon: Icon, title, description }, i) => (
+              <Reveal key={title} delay={i * 80}>
                 <IconTile icon={Icon} size="sm" />
                 <h3 className="mt-4 text-base font-medium">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
                   {description}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

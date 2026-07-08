@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import IconTile from "./IconTile";
 import AuroraBackground from "./AuroraBackground";
+import Reveal from "./Reveal";
 
 const divisions = [
   {
@@ -63,7 +64,7 @@ export default function Divisions() {
     >
       <AuroraBackground variant="subtle" />
       <div className="relative mx-auto max-w-7xl">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <p className="font-mono text-xs tracking-widest text-accent-gold">
             SOFTWARE
           </p>
@@ -75,22 +76,21 @@ export default function Divisions() {
             your enterprise — licensed independently, so you invest only in
             what your teams actually run.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-3">
-          {divisions.map(({ name, icon: Icon, description }) => (
-            <div
-              key={name}
-              className="group relative bg-background p-7 transition-all duration-300 hover:bg-panel hover:shadow-[0_20px_60px_-30px_rgba(184,115,74,0.4)]"
-            >
-              <div className="transition-transform duration-300 group-hover:-translate-y-0.5">
-                <IconTile icon={Icon} />
+          {divisions.map(({ name, icon: Icon, description }, i) => (
+            <Reveal key={name} delay={(i % 3) * 80}>
+              <div className="group relative h-full bg-background p-7 transition-all duration-300 hover:bg-panel hover:shadow-[0_20px_60px_-30px_rgba(184,115,74,0.4)]">
+                <div className="transition-transform duration-300 group-hover:-translate-y-0.5">
+                  <IconTile icon={Icon} />
+                </div>
+                <h3 className="mt-5 text-lg font-medium">{name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {description}
+                </p>
               </div>
-              <h3 className="mt-5 text-lg font-medium">{name}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {description}
-              </p>
-            </div>
+            </Reveal>
           ))}
           <div className="flex flex-col justify-center bg-background p-7 lg:col-span-2">
             <p className="text-sm text-muted">

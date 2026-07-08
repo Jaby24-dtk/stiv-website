@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Layers, ShieldCheck, Gem, Users } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import IconTile from "../components/IconTile";
+import Reveal from "../components/Reveal";
 
 export const metadata: Metadata = {
   title: "About — STIV",
@@ -47,7 +48,7 @@ export default function AboutPage() {
       />
 
       <section className="px-6 py-20 lg:px-8">
-        <div className="mx-auto max-w-3xl text-lg leading-relaxed text-muted">
+        <Reveal className="mx-auto max-w-3xl text-lg leading-relaxed text-muted">
           <p>
             STIV was founded in 2026 in Singapore on a simple observation:
             enterprise software usually forces a choice between generic
@@ -61,7 +62,7 @@ export default function AboutPage() {
             through a single exclusive assistant, STIV Unified brings every
             division under one command layer.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="border-t border-white/10 px-6 py-20 lg:px-8">
@@ -70,8 +71,8 @@ export default function AboutPage() {
             What we believe
           </h2>
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">
-            {values.map(({ icon: Icon, title, description }) => (
-              <div key={title} className="flex gap-4">
+            {values.map(({ icon: Icon, title, description }, i) => (
+              <Reveal key={title} delay={i * 80} className="flex gap-4">
                 <IconTile icon={Icon} />
                 <div>
                   <h3 className="text-base font-medium">{title}</h3>
@@ -79,7 +80,7 @@ export default function AboutPage() {
                     {description}
                   </p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
