@@ -20,7 +20,7 @@ const sidebarItems = [
 
 export default function WorkspacePreview() {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-panel/80 shadow-[0_0_80px_-20px_rgba(184,115,74,0.35)] backdrop-blur">
+    <div className="glass-panel glow-ring relative overflow-hidden rounded-2xl shadow-[0_0_90px_-20px_rgba(184,115,74,0.45)]">
       <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
         <div className="flex items-center gap-2">
           <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />

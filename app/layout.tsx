@@ -31,6 +31,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <div className="grain-overlay" aria-hidden />
         <div className="flex flex-1 flex-col">
           <Nav />
           <main className="flex-1">{children}</main>

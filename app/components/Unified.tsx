@@ -1,5 +1,6 @@
 import { Sparkles } from "lucide-react";
 import Tilt from "./Tilt";
+import AuroraBackground from "./AuroraBackground";
 
 const highlights = [
   "Every division fused into one command layer",
@@ -13,8 +14,9 @@ export default function Unified() {
     <section id="unified" className="border-t border-white/10 px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <Tilt max={3} glare={false} className="rounded-3xl">
-          <div className="relative overflow-hidden rounded-3xl border border-accent-gold/25 bg-[radial-gradient(ellipse_90%_100%_at_50%_0%,rgba(236,202,156,0.14),transparent)] p-10 sm:p-14">
-            <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div className="glass-panel glow-ring relative overflow-hidden rounded-3xl p-10 sm:p-14">
+            <AuroraBackground variant="subtle" />
+            <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div>
                 <p className="inline-flex items-center gap-2 font-mono text-xs tracking-widest text-accent-gold">
                   <Sparkles className="h-3.5 w-3.5" />
@@ -34,7 +36,7 @@ export default function Unified() {
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   <a
                     href="#book-demo"
-                    className="rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
+                    className="shine-sweep rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
                   >
                     Enquire about Unified
                   </a>
@@ -50,7 +52,14 @@ export default function Unified() {
                     key={item}
                     className="flex items-start gap-3 text-sm text-foreground/90"
                   >
-                    <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-accent-gold" />
+                    <span
+                      className="mt-1 h-2 w-2 shrink-0 rounded-full"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, var(--accent-bronze), var(--accent-gold))",
+                        boxShadow: "0 0 12px rgba(236,202,156,0.6)",
+                      }}
+                    />
                     {item}
                   </li>
                 ))}

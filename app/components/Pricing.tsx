@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import Tilt from "./Tilt";
+import AuroraBackground from "./AuroraBackground";
 
 const tiers = [
   {
@@ -50,8 +51,12 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t border-white/10 px-6 py-24 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section
+      id="pricing"
+      className="relative overflow-hidden border-t border-white/10 px-6 py-24 lg:px-8"
+    >
+      <AuroraBackground variant="subtle" />
+      <div className="relative mx-auto max-w-7xl">
         <div className="max-w-2xl">
           <p className="font-mono text-xs tracking-widest text-accent-gold">
             PRICING
@@ -74,12 +79,12 @@ export default function Pricing() {
                 className="h-full rounded-2xl"
               >
                 <div
-                  className={`relative flex h-full flex-col rounded-2xl border p-8 ${
+                  className={`relative flex h-full flex-col rounded-2xl p-8 ${
                     isPopular
-                      ? "border-accent-bronze/40 bg-panel shadow-[0_0_60px_-20px_rgba(184,115,74,0.45)]"
+                      ? "glass-panel glow-ring shadow-[0_0_60px_-20px_rgba(184,115,74,0.45)]"
                       : isUnified
-                        ? "border-accent-gold/30 bg-panel/60"
-                        : "border-white/10 bg-panel/40"
+                        ? "glass-panel border border-accent-gold/25"
+                        : "border border-white/10 bg-panel/40"
                   }`}
                 >
                   {tier.badge && (
@@ -122,7 +127,7 @@ export default function Pricing() {
                     href="#book-demo"
                     className={`mt-8 inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:scale-[1.02] ${
                       isPopular
-                        ? "bg-gradient-to-r from-accent-bronze to-accent-gold text-slate-950"
+                        ? "shine-sweep bg-gradient-to-r from-accent-bronze to-accent-gold text-slate-950"
                         : "border border-white/15 text-foreground/90 hover:bg-white/5"
                     }`}
                   >

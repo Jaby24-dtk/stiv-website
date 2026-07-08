@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Layers, ShieldCheck, Gem, Users } from "lucide-react";
 import PageHeader from "../components/PageHeader";
+import IconTile from "../components/IconTile";
 
 export const metadata: Metadata = {
   title: "About — STIV",
@@ -71,9 +72,7 @@ export default function AboutPage() {
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2">
             {values.map(({ icon: Icon, title, description }) => (
               <div key={title} className="flex gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-accent-gold">
-                  <Icon className="h-5 w-5" />
-                </div>
+                <IconTile icon={Icon} />
                 <div>
                   <h3 className="text-base font-medium">{title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted">

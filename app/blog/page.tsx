@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Newspaper } from "lucide-react";
 import PageHeader from "../components/PageHeader";
+import IconTile from "../components/IconTile";
 
 export const metadata: Metadata = {
   title: "Blog — STIV",
@@ -18,10 +19,8 @@ export default function BlogPage() {
       />
 
       <section className="px-6 py-24 lg:px-8">
-        <div className="mx-auto flex max-w-xl flex-col items-center gap-4 rounded-2xl border border-white/10 bg-panel/40 px-10 py-16 text-center">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-accent-gold">
-            <Newspaper className="h-5 w-5" />
-          </div>
+        <div className="glass-panel mx-auto flex max-w-xl flex-col items-center gap-4 rounded-2xl px-10 py-16 text-center">
+          <IconTile icon={Newspaper} size="lg" />
           <h2 className="text-lg font-medium">New posts coming soon</h2>
           <p className="text-sm text-muted">
             We&apos;re heads-down on the product right now. Check back

@@ -1,4 +1,5 @@
 import { Plug, GraduationCap, CheckCircle2, TrendingUp } from "lucide-react";
+import IconTile from "./IconTile";
 
 const steps = [
   {
@@ -47,9 +48,7 @@ export default function HowItWorks() {
           {steps.map(({ icon: Icon, title, description }, i) => (
             <div key={title} className="relative">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-panel text-accent-bronze">
-                  <Icon className="h-5 w-5" />
-                </div>
+                <IconTile icon={Icon} size="sm" />
                 <span className="font-mono text-xs text-muted">
                   0{i + 1}
                 </span>
@@ -59,7 +58,7 @@ export default function HowItWorks() {
                 {description}
               </p>
               {i < steps.length - 1 && (
-                <div className="absolute right-[-1rem] top-5 hidden h-px w-8 bg-white/10 lg:block" />
+                <div className="absolute right-[-1rem] top-5 hidden h-px w-8 bg-gradient-to-r from-white/20 to-transparent lg:block" />
               )}
             </div>
           ))}

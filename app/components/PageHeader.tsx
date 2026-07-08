@@ -1,3 +1,5 @@
+import AuroraBackground from "./AuroraBackground";
+
 export default function PageHeader({
   eyebrow,
   title,
@@ -8,8 +10,9 @@ export default function PageHeader({
   description?: string;
 }) {
   return (
-    <div className="border-b border-white/10 bg-grid px-6 pb-16 pt-16 lg:px-8 lg:pt-20">
-      <div className="mx-auto max-w-3xl text-center">
+    <div className="relative overflow-hidden border-b border-white/10 bg-grid px-6 pb-16 pt-16 lg:px-8 lg:pt-20">
+      <AuroraBackground variant="subtle" />
+      <div className="relative mx-auto max-w-3xl text-center">
         <p className="font-mono text-xs tracking-widest text-accent-gold">
           {eyebrow}
         </p>

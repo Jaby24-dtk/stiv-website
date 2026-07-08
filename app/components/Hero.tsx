@@ -1,6 +1,7 @@
 import { Sparkles, ArrowRight } from "lucide-react";
 import WorkspacePreview from "./WorkspacePreview";
 import HeroParallax from "./HeroParallax";
+import AuroraBackground from "./AuroraBackground";
 import Tilt from "./Tilt";
 
 export default function Hero() {
@@ -9,6 +10,7 @@ export default function Hero() {
       id="top"
       className="relative overflow-hidden bg-grid px-6 pb-24 pt-20 lg:px-8 lg:pt-28"
     >
+      <AuroraBackground />
       <HeroParallax />
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
@@ -35,7 +37,7 @@ export default function Hero() {
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
               href="#book-demo"
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
+              className="shine-sweep group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
             >
               Book a demo
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
