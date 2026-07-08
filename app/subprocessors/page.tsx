@@ -14,6 +14,26 @@ const subprocessors = [
     purpose: "Application hosting and content delivery",
     location: "United States",
   },
+  {
+    name: "Supabase Inc.",
+    purpose: "Database and data storage",
+    location: "United States",
+  },
+  {
+    name: "Anthropic, PBC",
+    purpose: "AI systems within each division's software",
+    location: "United States",
+  },
+  {
+    name: "Zoho Corporation",
+    purpose: "Transactional and business email delivery",
+    location: "India",
+  },
+  {
+    name: "Google LLC (Google Analytics)",
+    purpose: "Website analytics",
+    location: "United States",
+  },
 ];
 
 export default function SubprocessorsPage() {
@@ -62,10 +82,9 @@ export default function SubprocessorsPage() {
         </div>
 
         <p className="text-sm leading-relaxed text-muted">
-          Additional subprocessors used for email delivery, data storage,
-          and the underlying AI systems within each division&apos;s software will
-          be added to this list as they are engaged. To request the current
-          full list or be notified of changes, contact{" "}
+          This list will be updated as we add or change subprocessors. To
+          request the current full list or be notified of changes, contact
+          {" "}
           <a
             href="mailto:privacy@iamstivai.com"
             className="underline hover:text-foreground"
