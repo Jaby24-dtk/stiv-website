@@ -4,7 +4,7 @@ import { useRef, type ReactNode, type CSSProperties, useState } from "react";
 
 export default function Magnetic({
   children,
-  strength = 0.35,
+  strength = 0.5,
 }: {
   children: ReactNode;
   strength?: number;
