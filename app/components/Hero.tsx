@@ -2,6 +2,7 @@ import { Sparkles, ArrowRight } from "lucide-react";
 import WorkspacePreview from "./WorkspacePreview";
 import HeroParallax from "./HeroParallax";
 import HeroScene from "./HeroScene";
+import HeroParticles from "./HeroParticles";
 import AuroraBackground from "./AuroraBackground";
 import CyclingText from "./CyclingText";
 import Tilt from "./Tilt";
@@ -25,6 +26,7 @@ export default function Hero() {
     >
       <AuroraBackground />
       <HeroParallax />
+      <HeroParticles />
       <HeroScene />
 
       <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">

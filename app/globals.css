@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #07080a;
-  --foreground: #f0ece6;
-  --panel: #121012;
-  --muted: #9b9089;
+  --background: #040508;
+  --foreground: #d8d8d8;
+  --panel: #0c0c0c;
+  --panel-light: #17181c;
+  --muted: #8f8a86;
   --accent-bronze: #b8734a;
   --accent-gold: #ecca9c;
 }
@@ -13,16 +14,35 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-panel: var(--panel);
+  --color-panel-light: var(--panel-light);
   --color-muted: var(--muted);
   --color-accent-bronze: var(--accent-bronze);
   --color-accent-gold: var(--accent-gold);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-tight);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.045em;
+}
+
+h1 {
+  letter-spacing: -0.055em;
+}
+
+.nav-link {
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  font-size: 0.8125rem;
+}
+
+.header-invert {
+  mix-blend-mode: difference;
 }
 
 .text-gradient {
@@ -194,6 +214,19 @@ body {
 }
 
 .reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Text-only reveal: brightens into view rather than appearing from nothing */
+.reveal-text {
+  opacity: 0.1;
+  transform: translateY(16px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-text.reveal-visible {
   opacity: 1;
   transform: translateY(0);
 }

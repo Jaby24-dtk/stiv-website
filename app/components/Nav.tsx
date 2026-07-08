@@ -32,7 +32,7 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <Link href="/" className="flex items-center gap-2.5">
+        <Link href="/" className="header-invert flex items-center gap-2.5">
           <Image
             src="/stiv-logo-mark.png"
             alt="STIV"
@@ -41,15 +41,17 @@ export default function Nav() {
             className="h-8 w-8 rounded-lg object-contain"
             priority
           />
-          <span className="text-lg font-semibold tracking-tight">STIV</span>
+          <span className="text-lg font-semibold tracking-tight text-white">
+            STIV
+          </span>
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="header-invert hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-muted transition-colors hover:text-foreground"
+              className="nav-link text-white/70 transition-colors hover:text-white"
             >
               {link.label}
             </Link>
