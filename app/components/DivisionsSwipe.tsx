@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import IconTile from "./IconTile";
+import ScrambleText from "./ScrambleText";
+import RotatingEarth from "./RotatingEarth";
 import { ensureGsapPlugins, gsap } from "./gsapConfig";
 
 type Division = {
@@ -18,6 +20,8 @@ export default function DivisionsSwipe({
 }) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const activeIndexRef = useRef(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -30,6 +34,8 @@ export default function DivisionsSwipe({
     }
 
     ensureGsapPlugins();
+
+    let raf = 0;
 
     const ctx = gsap.context(() => {
       gsap.set(cards, { yPercent: -140, opacity: 0 });
@@ -56,13 +62,39 @@ export default function DivisionsSwipe({
           at
         );
       });
+
+      // Track which card is actually the most-visible one on every frame,
+      // rather than reverse-engineering it from scroll progress: the
+      // timeline's card-to-card timing isn't evenly spaced, so a linear
+      // progress formula drifts out of sync with what's really on screen.
+      function tick() {
+        let bestIndex = 0;
+        let bestOpacity = -1;
+        cards.forEach((card, i) => {
+          const opacity = Number(gsap.getProperty(card, "opacity"));
+          if (opacity > bestOpacity) {
+            bestOpacity = opacity;
+            bestIndex = i;
+          }
+        });
+        if (bestIndex !== activeIndexRef.current) {
+          activeIndexRef.current = bestIndex;
+          setActiveIndex(bestIndex);
+        }
+        raf = requestAnimationFrame(tick);
+      }
+      raf = requestAnimationFrame(tick);
     }, section);
 
-    return () => ctx.revert();
+    return () => {
+      cancelAnimationFrame(raf);
+      ctx.revert();
+    };
   }, [divisions]);
 
   return (
     <div ref={sectionRef} className="relative h-screen overflow-hidden bg-background">
+      <RotatingEarth />
       <div className="pointer-events-none absolute inset-x-0 top-8 z-10 flex justify-center">
         <p className="font-mono text-xs tracking-widest text-accent-gold">
           SOFTWARE — SCROLL TO EXPLORE
@@ -79,7 +111,7 @@ export default function DivisionsSwipe({
           >
             <IconTile icon={Icon} size="lg" />
             <h3 className="mt-6 text-3xl font-semibold tracking-tight sm:text-4xl">
-              {name}
+              <ScrambleText text={name} active={activeIndex === i} />
             </h3>
             <p className="mt-4 max-w-md text-lg leading-relaxed text-muted">
               {description}

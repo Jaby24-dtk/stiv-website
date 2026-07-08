@@ -71,7 +71,7 @@ export default function HeroParallax() {
       <div
         ref={glow}
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_50%_at_20%_20%,rgba(184,115,74,0.16),transparent),radial-gradient(ellipse_50%_40%_at_85%_15%,rgba(236,202,156,0.12),transparent)] will-change-transform"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_50%_at_20%_20%,rgba(255,255,255,0.14),transparent),radial-gradient(ellipse_50%_40%_at_85%_15%,rgba(200,200,200,0.1),transparent)] will-change-transform"
       />
       <div
         ref={ring1}

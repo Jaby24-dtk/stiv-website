@@ -73,10 +73,10 @@ function Nodes({ progressRef }: { progressRef: React.RefObject<number> }) {
       <mesh ref={coreRef}>
         <icosahedronGeometry args={[0.85, 1]} />
         <meshStandardMaterial
-          color="#ecca9c"
+          color="#e0e0e0"
           metalness={0.85}
           roughness={0.2}
-          emissive="#c98a5e"
+          emissive="#2a2a2a"
           emissiveIntensity={0.35}
           flatShading
         />
@@ -91,10 +91,10 @@ function Nodes({ progressRef }: { progressRef: React.RefObject<number> }) {
         >
           <sphereGeometry args={[0.26, 16, 16]} />
           <meshStandardMaterial
-            color="#b8734a"
+            color="#8a8a8a"
             metalness={0.7}
             roughness={0.3}
-            emissive="#7a4a2c"
+            emissive="#1e1e1e"
             emissiveIntensity={0.4}
           />
         </mesh>
@@ -165,8 +165,8 @@ export default function UnifiedScene() {
       <div className="absolute inset-y-0 right-0 left-[38%]">
         <Canvas camera={{ position: [0, 0, 6], fov: 45 }} dpr={[1, 1.5]}>
           <ambientLight intensity={0.6} />
-          <pointLight position={[4, 3, 4]} intensity={90} color="#ecca9c" />
-          <pointLight position={[-4, -2, 2]} intensity={45} color="#b8734a" />
+          <pointLight position={[4, 3, 4]} intensity={90} color="#ffffff" />
+          <pointLight position={[-4, -2, 2]} intensity={45} color="#8a8a8a" />
           <Nodes progressRef={progressRef} />
         </Canvas>
       </div>

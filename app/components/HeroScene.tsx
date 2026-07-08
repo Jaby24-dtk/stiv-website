@@ -36,10 +36,10 @@ function Crystal() {
     <mesh ref={meshRef} position={[1.6, 0, -1]}>
       <icosahedronGeometry args={[1, 0]} />
       <meshStandardMaterial
-        color="#c98a5e"
+        color="#b8b8b8"
         metalness={0.9}
         roughness={0.15}
-        emissive="#5a3620"
+        emissive="#1a1a1a"
         emissiveIntensity={0.25}
         flatShading
         transparent
@@ -55,8 +55,8 @@ export default function HeroScene() {
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={[1, 1.5]}>
         <Suspense fallback={null}>
           <ambientLight intensity={0.6} />
-          <pointLight position={[4, 4, 4]} intensity={80} color="#ecca9c" />
-          <pointLight position={[-4, -2, 2]} intensity={40} color="#b8734a" />
+          <pointLight position={[4, 4, 4]} intensity={80} color="#ffffff" />
+          <pointLight position={[-4, -2, 2]} intensity={40} color="#8a8a8a" />
           <Crystal />
           <Sparkles
             count={40}
@@ -64,7 +64,7 @@ export default function HeroScene() {
             size={2}
             speed={0.3}
             opacity={0.5}
-            color="#ecca9c"
+            color="#ffffff"
           />
           <Environment preset="city" environmentIntensity={0.3} />
         </Suspense>

@@ -18,9 +18,9 @@ export default function IconTile({
       className={`relative flex shrink-0 items-center justify-center rounded-xl ${dimensions.box}`}
       style={{
         background:
-          "linear-gradient(135deg, rgba(184,115,74,0.9), rgba(236,202,156,0.9))",
+          "linear-gradient(135deg, rgba(110,110,110,0.9), rgba(255,255,255,0.9))",
         boxShadow:
-          "0 8px 24px -8px rgba(184,115,74,0.55), inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.15)",
+          "0 8px 24px -8px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.15)",
       }}
     >
       <Icon className={`${dimensions.icon} text-slate-950`} strokeWidth={2.25} />

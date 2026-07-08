@@ -89,7 +89,7 @@ export default function HeroParticles() {
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < linkDist) {
             const opacity = (1 - dist / linkDist) * 0.18;
-            ctx!.strokeStyle = `rgba(236,202,156,${opacity})`;
+            ctx!.strokeStyle = `rgba(255,255,255,${opacity})`;
             ctx!.lineWidth = 1;
             ctx!.beginPath();
             ctx!.moveTo(a.x, a.y);
@@ -105,8 +105,8 @@ export default function HeroParticles() {
         const dist = Math.sqrt(dx * dx + dy * dy);
         const near = dist < 120;
         ctx!.fillStyle = near
-          ? "rgba(236,202,156,0.9)"
-          : "rgba(184,115,74,0.55)";
+          ? "rgba(255,255,255,0.9)"
+          : "rgba(150,150,150,0.55)";
         ctx!.beginPath();
         ctx!.arc(n.x, n.y, n.r, 0, Math.PI * 2);
         ctx!.fill();

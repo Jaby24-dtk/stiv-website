@@ -5,9 +5,9 @@
   --foreground: #d8d8d8;
   --panel: #0c0c0c;
   --panel-light: #17181c;
-  --muted: #8f8a86;
-  --accent-bronze: #b8734a;
-  --accent-gold: #ecca9c;
+  --muted: #8a8a8a;
+  --accent-bronze: #6e6e6e;
+  --accent-gold: #ffffff;
 }
 
 @theme inline {

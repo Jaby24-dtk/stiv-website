@@ -82,7 +82,7 @@ export default function Pricing() {
                 <div
                   className={`relative flex h-full flex-col rounded-2xl p-8 ${
                     isPopular
-                      ? "glass-panel glow-ring shadow-[0_0_60px_-20px_rgba(184,115,74,0.45)]"
+                      ? "glass-panel glow-ring shadow-[0_0_60px_-20px_rgba(255,255,255,0.45)]"
                       : isUnified
                         ? "glass-panel border border-accent-gold/25"
                         : "border border-white/10 bg-panel/40"
