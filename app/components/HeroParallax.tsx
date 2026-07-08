@@ -6,6 +6,7 @@ export default function HeroParallax() {
   const glow = useRef<HTMLDivElement>(null);
   const ring1 = useRef<HTMLDivElement>(null);
   const ring2 = useRef<HTMLDivElement>(null);
+  const grid = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -30,6 +31,11 @@ export default function HeroParallax() {
       if (ring2.current) {
         ring2.current.style.transform = `translate3d(${mouseX * -12}px, ${
           mouseY * -10 + scrollY * 0.09
+        }px, 0)`;
+      }
+      if (grid.current) {
+        grid.current.style.transform = `translate3d(${mouseX * 4}px, ${
+          mouseY * 4 + scrollY * 0.03
         }px, 0)`;
       }
     }
@@ -57,6 +63,11 @@ export default function HeroParallax() {
 
   return (
     <>
+      <div
+        ref={grid}
+        aria-hidden
+        className="bg-grid pointer-events-none absolute inset-[-10%] -z-20 will-change-transform"
+      />
       <div
         ref={glow}
         aria-hidden

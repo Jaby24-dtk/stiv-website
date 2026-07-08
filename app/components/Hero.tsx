@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-grid px-6 pb-24 pt-20 lg:px-8 lg:pt-28"
+      className="relative overflow-hidden px-6 pb-24 pt-20 lg:px-8 lg:pt-28"
     >
       <AuroraBackground />
       <HeroParallax />
