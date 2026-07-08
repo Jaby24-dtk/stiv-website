@@ -1,3 +1,5 @@
+"use client";
+
 import {
   BarChart3,
   Briefcase,
@@ -7,8 +9,7 @@ import {
   Scale,
   Headset,
 } from "lucide-react";
-import IconTile from "./IconTile";
-import AuroraBackground from "./AuroraBackground";
+import DivisionsSwipe from "./DivisionsSwipe";
 import Reveal from "./Reveal";
 
 const divisions = [
@@ -58,13 +59,9 @@ const divisions = [
 
 export default function Divisions() {
   return (
-    <section
-      id="divisions"
-      className="relative overflow-hidden border-t border-white/10 px-6 py-24 lg:px-8"
-    >
-      <AuroraBackground variant="subtle" />
-      <div className="relative mx-auto max-w-7xl">
-        <Reveal className="max-w-2xl">
+    <section id="divisions" className="relative border-t border-white/10">
+      <div className="px-6 pt-24 lg:px-8">
+        <Reveal className="mx-auto max-w-2xl">
           <p className="font-mono text-xs tracking-widest text-accent-gold">
             SOFTWARE
           </p>
@@ -77,33 +74,20 @@ export default function Divisions() {
             what your teams actually run.
           </p>
         </Reveal>
+      </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-3">
-          {divisions.map(({ name, icon: Icon, description }, i) => (
-            <Reveal key={name} delay={(i % 3) * 80}>
-              <div className="group relative h-full bg-background p-7 transition-all duration-300 hover:bg-panel hover:shadow-[0_20px_60px_-30px_rgba(184,115,74,0.4)]">
-                <div className="transition-transform duration-300 group-hover:-translate-y-0.5">
-                  <IconTile icon={Icon} />
-                </div>
-                <h3 className="mt-5 text-lg font-medium">{name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {description}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-          <div className="flex flex-col justify-center bg-background p-7 lg:col-span-2">
-            <p className="text-sm text-muted">
-              Want every division running as one exclusive system?
-            </p>
-            <a
-              href="#unified"
-              className="mt-3 inline-flex w-fit items-center gap-1 text-sm font-semibold text-accent-gold hover:underline"
-            >
-              See STIV Unified →
-            </a>
-          </div>
-        </div>
+      <DivisionsSwipe divisions={divisions} />
+
+      <div className="border-t border-white/10 px-6 py-16 text-center lg:px-8">
+        <p className="text-sm text-muted">
+          Want every division running as one exclusive system?
+        </p>
+        <a
+          href="#unified"
+          className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent-gold hover:underline"
+        >
+          See STIV Unified →
+        </a>
       </div>
     </section>
   );

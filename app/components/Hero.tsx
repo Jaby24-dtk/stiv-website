@@ -1,9 +1,21 @@
 import { Sparkles, ArrowRight } from "lucide-react";
 import WorkspacePreview from "./WorkspacePreview";
 import HeroParallax from "./HeroParallax";
+import HeroScene from "./HeroScene";
 import AuroraBackground from "./AuroraBackground";
+import CyclingText from "./CyclingText";
 import Tilt from "./Tilt";
 import Magnetic from "./Magnetic";
+
+const divisionWords = [
+  "Executive",
+  "Sales",
+  "Marketing",
+  "Finance",
+  "Operations",
+  "Legal",
+  "Support",
+];
 
 export default function Hero() {
   return (
@@ -13,8 +25,9 @@ export default function Hero() {
     >
       <AuroraBackground />
       <HeroParallax />
+      <HeroScene />
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2">
         <div>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-muted">
             <Sparkles className="h-3.5 w-3.5 text-accent-gold" />
@@ -22,9 +35,10 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
-            Premium software,
+            Premium software for
             <br />
-            <span className="text-gradient">division by division.</span>
+            <CyclingText words={divisionWords} className="text-gradient" />
+            .
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
