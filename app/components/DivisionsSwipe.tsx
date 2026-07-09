@@ -58,7 +58,7 @@ export default function DivisionsSwipe({
         tl.to(card, { yPercent: 0, opacity: 1, duration: 1, ease: "power2.out" }, at);
         tl.to(
           cards[i - 1],
-          { xPercent: -130, opacity: 0, duration: 1, ease: "power2.in" },
+          { xPercent: -130, opacity: 0, duration: 1, ease: "power2.out" },
           at
         );
       });

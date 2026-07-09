@@ -60,7 +60,7 @@ const divisions = [
 export default function Divisions() {
   return (
     <section id="divisions" className="relative border-t border-white/10">
-      <div className="px-6 pt-24 lg:px-8">
+      <div className="px-6 pb-16 pt-24 lg:px-8">
         <Reveal variant="text" className="mx-auto max-w-2xl">
           <p className="font-mono text-xs tracking-widest text-accent-gold">
             SOFTWARE

@@ -56,12 +56,13 @@ export default function CyclingText({
   }, [words]);
 
   return (
-    <span
-      ref={containerRef}
-      className={`relative inline-block align-bottom ${className}`}
-    >
+    <span ref={containerRef} className="relative inline-block align-bottom">
       {words.map((word, i) => (
-        <span key={word} data-word={i} className="whitespace-nowrap">
+        <span
+          key={word}
+          data-word={i}
+          className={`whitespace-nowrap ${className}`}
+        >
           {word}
         </span>
       ))}
