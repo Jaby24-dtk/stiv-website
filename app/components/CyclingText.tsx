@@ -33,7 +33,7 @@ export default function CyclingText({
     const tl = gsap.timeline({ repeat: -1 });
     items.forEach((item, i) => {
       const next = items[(i + 1) % items.length];
-      tl.to(item, { opacity: 0, y: -16, duration: 0.5, ease: "power2.in" }, "+=1.4")
+      tl.to(item, { opacity: 0, y: -16, duration: 0.4, ease: "power2.in" }, "+=1.0")
         .set(item, { position: "absolute" })
         .set(next, { position: "relative" })
         .fromTo(
@@ -42,7 +42,7 @@ export default function CyclingText({
           {
             opacity: 1,
             y: 0,
-            duration: 0.5,
+            duration: 0.4,
             ease: "power2.out",
             immediateRender: false,
           },
