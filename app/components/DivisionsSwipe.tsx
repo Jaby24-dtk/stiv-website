@@ -52,13 +52,19 @@ export default function DivisionsSwipe({
         },
       });
 
+      // Each transition needs a hold gap after it so the card it lands on
+      // has an actual resting scroll position — without one, the next
+      // transition starts the instant this one ends and every middle card
+      // is permanently mid-crossfade, so scroll never "settles" on it.
+      const TRANSITION = 1;
+      const HOLD = 0.5;
       cards.forEach((card, i) => {
         if (i === 0) return;
-        const at = i - 0.35;
-        tl.to(card, { yPercent: 0, opacity: 1, duration: 1, ease: "power2.out" }, at);
+        const at = HOLD + (i - 1) * (TRANSITION + HOLD);
+        tl.to(card, { yPercent: 0, opacity: 1, duration: TRANSITION, ease: "power2.out" }, at);
         tl.to(
           cards[i - 1],
-          { xPercent: -130, opacity: 0, duration: 1, ease: "power2.out" },
+          { xPercent: -130, opacity: 0, duration: TRANSITION, ease: "power2.out" },
           at
         );
       });
