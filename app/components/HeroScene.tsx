@@ -2,7 +2,7 @@
 
 import { useRef, useState, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Sparkles, Environment } from "@react-three/drei";
+import { Sparkles, Environment, Lightformer } from "@react-three/drei";
 import * as THREE from "three";
 
 function Crystal() {
@@ -66,7 +66,35 @@ export default function HeroScene() {
             opacity={0.5}
             color="#ffffff"
           />
-          <Environment preset="city" environmentIntensity={0.3} />
+          {/* Procedural lighting rig instead of a preset: presets fetch an
+              HDR from a third-party CDN at runtime, which has been getting
+              rate-limited (429) in production and taking down the WebGL
+              context. This renders the same soft studio reflections with
+              no network dependency. */}
+          <Environment resolution={256} environmentIntensity={0.3}>
+            <Lightformer
+              form="rect"
+              color="#ffffff"
+              intensity={4}
+              scale={[6, 3, 1]}
+              position={[0, 3, -2]}
+            />
+            <Lightformer
+              form="rect"
+              color="#8a8a8a"
+              intensity={2}
+              scale={[4, 2, 1]}
+              position={[-3, -1, 2]}
+            />
+            <Lightformer
+              form="rect"
+              color="#d4af6a"
+              intensity={1.5}
+              scale={[3, 3, 1]}
+              position={[3, 0, 1]}
+              rotation={[0, Math.PI / 2, 0]}
+            />
+          </Environment>
         </Suspense>
       </Canvas>
     </div>
