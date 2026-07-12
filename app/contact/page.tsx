@@ -79,7 +79,7 @@ export default function ContactPage() {
                   name="Name"
                   type="text"
                   required
-                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-foreground focus:border-accent-bronze focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-foreground focus:border-accent-bronze focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -92,7 +92,7 @@ export default function ContactPage() {
                   type="email"
                   required
                   placeholder="you@company.com"
-                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-accent-bronze focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-accent-bronze focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -103,7 +103,7 @@ export default function ContactPage() {
                   id="message"
                   name="Message"
                   rows={4}
-                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-foreground focus:border-accent-bronze focus:outline-none"
+                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-foreground focus:border-accent-bronze focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 />
               </div>
               <button

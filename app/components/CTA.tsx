@@ -27,8 +27,9 @@ export default function CTA() {
               type="email"
               name="Email"
               required
+              aria-label="Email address"
               placeholder="you@company.com"
-              className="w-full rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-foreground placeholder:text-muted focus:border-accent-bronze focus:outline-none"
+              className="w-full rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-foreground placeholder:text-muted focus:border-accent-bronze focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             />
             <Magnetic>
               <button

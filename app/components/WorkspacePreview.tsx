@@ -67,7 +67,7 @@ export default function WorkspacePreview() {
           </div>
 
           <div className="rounded-xl border border-accent-bronze/30 bg-accent-bronze/10 p-3">
-            <p className="mb-1 font-mono text-[10px] tracking-widest text-accent-bronze">
+            <p className="mb-1 font-mono text-[10px] tracking-widest text-accent-gold">
               FINANCE SYSTEM
             </p>
             <p className="text-sm text-foreground/90">
