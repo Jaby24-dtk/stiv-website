@@ -47,7 +47,7 @@ export default function CookieConsent() {
 
       {consent === null && (
         <div className="fixed inset-x-0 bottom-0 z-[60] px-6 pb-6 lg:px-8">
-          <div className="glass-panel mx-auto flex max-w-3xl flex-col gap-4 rounded-2xl border border-white/10 p-6 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)] sm:flex-row sm:items-center sm:justify-between">
+          <div className="mx-auto flex max-w-3xl flex-col gap-4 rounded-2xl border border-white/10 bg-background/98 p-6 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm leading-relaxed text-muted">
               We use analytics cookies to understand how the site is used.
               Non-essential cookies aren&apos;t set until you accept. See our{" "}
