@@ -160,6 +160,97 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "stiv-unified-explained",
+    title: "STIV Unified: one assistant, every division, still yours",
+    description:
+      "Seven independent systems are the starting point. Here's what changes — and what doesn't — when a company moves to one exclusive assistant instead.",
+    date: "2026-07-11",
+    readTime: "4 min read",
+    category: "Product",
+    content: [
+      {
+        type: "p",
+        text: "Running Executive, Sales, Marketing, Finance, Operations, Legal, and Support as seven independent systems works well for most companies, most of the time — you invest only in what a given team actually runs, and each system stays exclusively built for its division. STIV Unified exists for the companies that have outgrown that arrangement and want one system that sees the whole company at once.",
+      },
+      {
+        type: "h2",
+        text: "Four things that change under Unified",
+      },
+      {
+        type: "ul",
+        items: [
+          "Seven systems become one command layer — every division fused into a single exclusive assistant, briefed on everything, answerable only to you.",
+          "It's trained on your business specifically — custom-trained on your data, your brand voice, and your approval gates, not a generic model.",
+          "Infrastructure becomes dedicated — a single deployment built and hosted for one company, not shared tenancy.",
+          "Accountability becomes singular — one team, dedicated infrastructure, and white-glove onboarding, rather than seven systems each with their own operational surface.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "What doesn't change",
+      },
+      {
+        type: "p",
+        text: "The approval model doesn't change. Every consequential action — emails, contracts, payments — still routes through a human-defined approval gate, the same as it does for a single division system. Unifying seven divisions into one assistant doesn't mean giving up the audit trail or the sign-off requirements; it means one assistant now carries all seven, with the same accountability standards applied uniformly across the company instead of division by division.",
+      },
+      {
+        type: "h2",
+        text: "Who it's for",
+      },
+      {
+        type: "p",
+        text: "STIV Unified is priced custom and by application, deliberately: it's a bespoke build on a specific company's business, not a fourth pricing tier to self-serve into. In practice, that means it tends to fit companies that already know exactly which divisions they'd unify and why — not companies still deciding whether they need division software at all. For that earlier stage, starting with a single division, or the Full Suite of all seven run independently, is the more honest starting point.",
+      },
+    ],
+  },
+  {
+    slug: "choosing-single-division-full-suite-or-unified",
+    title: "Single Division, Full Suite, or Unified: how to choose where to start",
+    description:
+      "Three ways to license STIV, and the honest answer for which one fits a company that's never run division-specific software before.",
+    date: "2026-07-12",
+    readTime: "4 min read",
+    category: "Guide",
+    content: [
+      {
+        type: "p",
+        text: "STIV is licensed three ways, and the right starting point depends less on company size than on how confident you already are about which division needs software built specifically for it.",
+      },
+      {
+        type: "h2",
+        text: "Single Division — $1,500/mo",
+      },
+      {
+        type: "p",
+        text: "One division of your choice, one workspace, standard integrations, and email support. This is the starting point for a company that has one clear, painful bottleneck — a Finance team drowning in reconciliation, a Legal team behind on contract review — and wants to prove the model against that one workflow before expanding. It's also the lowest-commitment way to see how an approval-gated agent behaves against your own playbooks before trusting it with more.",
+      },
+      {
+        type: "h2",
+        text: "Full Suite — $8,200/mo",
+      },
+      {
+        type: "p",
+        text: "All seven divisions, licensed and deployed independently, with unlimited workspaces, custom integrations, approval workflows, and priority support. This fits a company that already knows it wants Executive, Sales, Marketing, Finance, Operations, Legal, and Support each running their own dedicated system — without waiting to unify them into a single assistant. Each division still operates independently under Full Suite; you're licensing breadth, not fusing the systems together.",
+      },
+      {
+        type: "h2",
+        text: "STIV Unified — custom, by application",
+      },
+      {
+        type: "p",
+        text: "One exclusive assistant that runs the whole company: every division unified, a bespoke build on your business, dedicated infrastructure, white-glove onboarding, and a dedicated success manager. This is the right fit once a company has already run divisions independently long enough to know exactly which ones it wants fused into a single command layer — not a default for a company still evaluating whether division-specific software is worth it at all.",
+      },
+      {
+        type: "h2",
+        text: "The honest recommendation",
+      },
+      {
+        type: "p",
+        text: "If you're not sure yet, start with Single Division on whichever team is loudest about its bottleneck right now. The approval gate, audit trail, and onboarding sequence are the same regardless of tier — Full Suite and Unified just apply that same model to more of the company at once, once you've seen it work on one division first.",
+      },
+    ],
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
