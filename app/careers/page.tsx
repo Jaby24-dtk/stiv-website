@@ -5,9 +5,16 @@ import IconTile from "../components/IconTile";
 import Reveal from "../components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Careers — STIV",
+  title: "Careers",
   description:
     "STIV is a small, exacting team building premium software for the enterprise. See where we're looking for talent.",
+  alternates: { canonical: "/careers" },
+  openGraph: {
+    title: "Careers — STIV",
+    description:
+      "STIV is a small, exacting team building premium software for the enterprise. See where we're looking for talent.",
+    url: "/careers",
+  },
 };
 
 const areas = [

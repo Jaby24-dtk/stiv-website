@@ -4,8 +4,14 @@ import PageHeader from "../components/PageHeader";
 import { LegalBody, LegalSection } from "../components/LegalSection";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — STIV",
+  title: "Privacy Policy",
   description: "How STIV collects, uses, and protects your information.",
+  alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "Privacy Policy — STIV",
+    description: "How STIV collects, uses, and protects your information.",
+    url: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {

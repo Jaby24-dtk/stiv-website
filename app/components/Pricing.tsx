@@ -50,6 +50,40 @@ const tiers = [
   },
 ];
 
+const pricingJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "STIV",
+  description: "Purpose-built software licensed division by division for Executive, Sales, Marketing, Finance, Operations, Legal, and Support teams — or unified into one exclusive assistant with STIV Unified.",
+  brand: {
+    "@type": "Brand",
+    name: "STIV",
+  },
+  offers: tiers.map((tier) => ({
+    "@type": "Offer",
+    name: tier.name,
+    description: tier.description,
+    ...(tier.price.startsWith("$")
+      ? {
+          price: tier.price.replace(/[^0-9.]/g, ""),
+          priceCurrency: "USD",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: tier.price.replace(/[^0-9.]/g, ""),
+            priceCurrency: "USD",
+            billingIncrement: 1,
+            unitCode: "MON",
+          },
+        }
+      : {
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            description: "Custom pricing, by application",
+          },
+        }),
+  })),
+};
+
 export default function Pricing() {
   return (
     <section
@@ -57,6 +91,10 @@ export default function Pricing() {
       className="relative overflow-hidden border-t border-white/10 px-6 py-24 lg:px-8"
     >
       <AuroraBackground variant="subtle" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
+      />
       <div className="relative mx-auto max-w-7xl">
         <Reveal className="max-w-2xl">
           <p className="font-mono text-xs tracking-widest text-accent-gold">

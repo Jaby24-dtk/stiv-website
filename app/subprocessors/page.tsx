@@ -4,8 +4,14 @@ import PageHeader from "../components/PageHeader";
 import { LegalBody } from "../components/LegalSection";
 
 export const metadata: Metadata = {
-  title: "Subprocessors — STIV",
+  title: "Subprocessors",
   description: "Third parties STIV engages to help deliver the Service.",
+  alternates: { canonical: "/subprocessors" },
+  openGraph: {
+    title: "Subprocessors — STIV",
+    description: "Third parties STIV engages to help deliver the Service.",
+    url: "/subprocessors",
+  },
 };
 
 const subprocessors = [

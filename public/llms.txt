@@ -1,0 +1,48 @@
+# STIV
+
+> STIV designs exclusive, purpose-built software for every division of an enterprise — Executive, Sales, Marketing, Finance, Operations, Legal, and Support. Each division runs its own dedicated system, licensed independently. Companies that want one system across the whole company can run STIV Unified instead, a single exclusive assistant covering every division.
+
+STIV is a software company founded in 2026, headquartered in Singapore. Its products are AI agent systems built specifically for one enterprise division at a time, rather than a single general-purpose assistant.
+
+## Divisions
+
+STIV builds a dedicated system for each of seven divisions:
+
+- **Executive** — synthesizes every division's activity into a single briefing covering decisions, risks, and what needs sign-off.
+- **Sales** — qualifies inbound leads, drafts follow-ups, and keeps the pipeline moving between calls.
+- **Marketing** — plans campaigns, drafts on-brand copy, and reports on what's driving pipeline.
+- **Finance** — reconciles accounts, flags variance, and drafts reports.
+- **Operations** — watches workflows for bottlenecks and clears busywork.
+- **Legal** — reviews contracts against a playbook and redlines the parts needing human review.
+- **Support** — resolves tickets it can, and hands off the rest with full context attached.
+
+## STIV Unified
+
+STIV Unified combines all seven divisions into one exclusive assistant that runs the whole company, with a bespoke build on the customer's business, dedicated infrastructure, and a dedicated success manager. Pricing is custom and by application.
+
+## How it works
+
+1. **Connect your stack** — link inbox, CRM, accounting, and docs; agents read what's already there, no migration required.
+2. **Agents learn your business** — agents study playbooks, past decisions, and tone until output matches the team's own work.
+3. **They act, you approve** — every consequential action routes through a human-defined approval gate; nothing ships without a human in the loop.
+4. **Leverage compounds** — as trust builds, teams widen what runs autonomously.
+
+## Security
+
+STIV is architected around SOC 2 control objectives from day one, with data residency options for regulated teams. Data is encrypted in transit and at rest. Every agent's access is scoped to only what its role requires. Every agent decision is logged, timestamped, and reversible.
+
+## Pricing
+
+- **Single Division** — $1,500/mo. One division of your choice, one workspace, standard integrations, email support.
+- **Full Suite** — $8,200/mo. All 7 divisions, unlimited workspaces, custom integrations, approval workflows, priority support.
+- **STIV Unified** — custom pricing, by application. Every division unified into one exclusive assistant, bespoke build, dedicated infrastructure, white-glove onboarding, dedicated success manager.
+
+## Pages
+
+- [Homepage](https://www.iamstivai.com/): overview, divisions, pricing, security.
+- [About](https://www.iamstivai.com/about): company background and values.
+- [Blog](https://www.iamstivai.com/blog): notes from STIV on building enterprise software.
+- [Careers](https://www.iamstivai.com/careers): open roles.
+- [Privacy Policy](https://www.iamstivai.com/privacy)
+- [Terms of Service](https://www.iamstivai.com/terms)
+- [Subprocessors](https://www.iamstivai.com/subprocessors)

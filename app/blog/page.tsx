@@ -5,8 +5,14 @@ import PageHeader from "../components/PageHeader";
 import IconTile from "../components/IconTile";
 
 export const metadata: Metadata = {
-  title: "Blog — STIV",
+  title: "Blog",
   description: "Notes from STIV on building premium enterprise software.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog — STIV",
+    description: "Notes from STIV on building premium enterprise software.",
+    url: "/blog",
+  },
 };
 
 export default function BlogPage() {

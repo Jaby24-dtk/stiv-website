@@ -6,6 +6,7 @@ import Unified from "./components/Unified";
 import HowItWorks from "./components/HowItWorks";
 import Security from "./components/Security";
 import Pricing from "./components/Pricing";
+import FAQ from "./components/FAQ";
 import CTA from "./components/CTA";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <HowItWorks />
       <Security />
       <Pricing />
+      <FAQ />
       <CTA />
     </>
   );

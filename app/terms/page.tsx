@@ -4,8 +4,14 @@ import PageHeader from "../components/PageHeader";
 import { LegalBody, LegalSection } from "../components/LegalSection";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — STIV",
+  title: "Terms of Service",
   description: "The terms that govern your use of STIV's software.",
+  alternates: { canonical: "/terms" },
+  openGraph: {
+    title: "Terms of Service — STIV",
+    description: "The terms that govern your use of STIV's software.",
+    url: "/terms",
+  },
 };
 
 export default function TermsPage() {
