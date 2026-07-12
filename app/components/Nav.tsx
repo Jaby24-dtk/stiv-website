@@ -10,6 +10,7 @@ const links = [
   { href: "/#how-it-works", label: "How it works" },
   { href: "/#security", label: "Security" },
   { href: "/#pricing", label: "Pricing" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export default function Nav() {

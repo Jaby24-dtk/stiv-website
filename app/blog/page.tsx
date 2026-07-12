@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Newspaper } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import PageHeader from "../components/PageHeader";
-import IconTile from "../components/IconTile";
+import Reveal from "../components/Reveal";
+import { posts } from "./posts";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -25,19 +26,46 @@ export default function BlogPage() {
       />
 
       <section className="px-6 py-24 lg:px-8">
-        <div className="glass-panel mx-auto flex max-w-xl flex-col items-center gap-4 rounded-2xl px-10 py-16 text-center">
-          <IconTile icon={Newspaper} size="lg" />
-          <h2 className="text-lg font-medium">New posts coming soon</h2>
-          <p className="text-sm text-muted">
-            We&apos;re heads-down on the product right now. Check back
-            shortly, or follow along by booking a demo.
-          </p>
-          <Link
-            href="/#book-demo"
-            className="mt-2 inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
-          >
-            Book a demo
-          </Link>
+        <div className="mx-auto flex max-w-3xl flex-col divide-y divide-white/10 border-t border-white/10">
+          {posts.map((post, i) => {
+            const formattedDate = new Date(post.date).toLocaleDateString(
+              "en-US",
+              { year: "numeric", month: "long", day: "numeric" },
+            );
+
+            return (
+              <Reveal key={post.slug} delay={i * 80}>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="group flex flex-col gap-3 py-10"
+                >
+                  <div className="flex items-center gap-3 font-mono text-xs tracking-widest text-accent-gold">
+                    <span>{post.category.toUpperCase()}</span>
+                    <span aria-hidden className="text-white/20">
+                      ·
+                    </span>
+                    <time dateTime={post.date} className="text-muted">
+                      {formattedDate}
+                    </time>
+                    <span aria-hidden className="text-white/20">
+                      ·
+                    </span>
+                    <span className="text-muted">{post.readTime}</span>
+                  </div>
+                  <h2 className="text-2xl font-semibold tracking-tight transition-colors group-hover:text-accent-gold sm:text-3xl">
+                    {post.title}
+                  </h2>
+                  <p className="max-w-xl text-base leading-relaxed text-muted">
+                    {post.description}
+                  </p>
+                  <span className="mt-1 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/90">
+                    Read more
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
     </>

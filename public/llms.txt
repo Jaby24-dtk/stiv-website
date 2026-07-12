@@ -37,6 +37,12 @@ STIV is architected around SOC 2 control objectives from day one, with data resi
 - **Full Suite** — $8,200/mo. All 7 divisions, unlimited workspaces, custom integrations, approval workflows, priority support.
 - **STIV Unified** — custom pricing, by application. Every division unified into one exclusive assistant, bespoke build, dedicated infrastructure, white-glove onboarding, dedicated success manager.
 
+## Blog
+
+- [Why one AI assistant can't run your whole company](https://www.iamstivai.com/blog/why-one-assistant-cant-run-your-company): the case for division-specific software over one generalist assistant.
+- [Inside STIV's approval gates: how agents earn autonomy](https://www.iamstivai.com/blog/how-stivs-approval-gates-work): how STIV's human-approval, audit-trail, and encryption model works.
+- [The first 30 days with STIV: connect, learn, act, compound](https://www.iamstivai.com/blog/first-30-days-with-stiv): what onboarding looks like in practice, stage by stage.
+
 ## Pages
 
 - [Homepage](https://www.iamstivai.com/): overview, divisions, pricing, security.
