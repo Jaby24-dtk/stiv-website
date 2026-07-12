@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Check } from "lucide-react";
 import Tilt from "./Tilt";
 import AuroraBackground from "./AuroraBackground";
@@ -84,7 +85,11 @@ const pricingJsonLd = {
   })),
 };
 
-export default function Pricing() {
+export default function Pricing({
+  showHeading = true,
+}: {
+  showHeading?: boolean;
+}) {
   return (
     <section
       id="pricing"
@@ -96,14 +101,16 @@ export default function Pricing() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
       />
       <div className="relative mx-auto max-w-7xl">
-        <Reveal className="max-w-2xl">
-          <p className="font-mono text-xs tracking-widest text-accent-gold">
-            PRICING
-          </p>
-          <h2 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-            License by division. Or license it all.
-          </h2>
-        </Reveal>
+        {showHeading && (
+          <Reveal className="max-w-2xl">
+            <p className="font-mono text-xs tracking-widest text-accent-gold">
+              PRICING
+            </p>
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
+              License by division. Or license it all.
+            </h2>
+          </Reveal>
+        )}
 
         <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {tiers.map((tier, tierIndex) => {
@@ -162,8 +169,8 @@ export default function Pricing() {
                     ))}
                   </ul>
 
-                  <a
-                    href="#book-demo"
+                  <Link
+                    href="/contact"
                     className={`mt-8 inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:scale-[1.02] ${
                       isPopular
                         ? "shine-sweep bg-gradient-to-r from-accent-bronze to-accent-gold text-slate-950"
@@ -171,7 +178,7 @@ export default function Pricing() {
                     }`}
                   >
                     {tier.cta}
-                  </a>
+                  </Link>
                 </div>
               </Tilt>
               </Reveal>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import UnifiedScene from "./UnifiedScene";
 import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
@@ -14,12 +15,12 @@ export default function Unified() {
           </h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Magnetic>
-              <a
-                href="#book-demo"
+              <Link
+                href="/contact"
                 className="shine-sweep inline-flex rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
               >
                 Enquire about Unified
-              </a>
+              </Link>
             </Magnetic>
             <span className="text-sm text-muted">
               Custom pricing · by application

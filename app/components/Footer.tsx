@@ -6,10 +6,10 @@ const columns = [
     title: "Product",
     links: [
       { label: "Software", href: "/#divisions" },
-      { label: "Unified", href: "/#unified" },
+      { label: "Unified", href: "/unified" },
       { label: "How it works", href: "/#how-it-works" },
-      { label: "Security", href: "/#security" },
-      { label: "Pricing", href: "/#pricing" },
+      { label: "Security", href: "/security" },
+      { label: "Pricing", href: "/pricing" },
     ],
   },
   {
@@ -18,6 +18,7 @@ const columns = [
       { label: "About", href: "/about" },
       { label: "Careers", href: "/careers" },
       { label: "Blog", href: "/blog" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {

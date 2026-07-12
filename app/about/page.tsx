@@ -99,7 +99,7 @@ export default function AboutPage() {
             See it running against your own business.
           </h2>
           <Link
-            href="/#book-demo"
+            href="/contact"
             className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
           >
             Book a demo

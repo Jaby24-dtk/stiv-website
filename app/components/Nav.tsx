@@ -68,7 +68,7 @@ export default function Nav() {
             All 7 systems operational
           </div>
           <Link
-            href="/#book-demo"
+            href="/contact"
             className="rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
           >
             Book a demo
@@ -108,7 +108,7 @@ export default function Nav() {
               </Link>
             ))}
             <Link
-              href="/#book-demo"
+              href="/contact"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-center text-sm font-semibold text-slate-950"
             >

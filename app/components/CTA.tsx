@@ -17,9 +17,15 @@ export default function CTA() {
             See STIV run against a copy of your own data in a 30-minute call —
             no sales deck, just the workspace.
           </p>
-          <form className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row">
+          <form
+            action="mailto:director@iamstivai.com?subject=Demo%20request%20from%20iamstivai.com"
+            method="post"
+            encType="text/plain"
+            className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
+          >
             <input
               type="email"
+              name="Email"
               required
               placeholder="you@company.com"
               className="w-full rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-foreground placeholder:text-muted focus:border-accent-bronze focus:outline-none"

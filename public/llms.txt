@@ -45,9 +45,23 @@ STIV is architected around SOC 2 control objectives from day one, with data resi
 - [STIV Unified: one assistant, every division, still yours](https://www.iamstivai.com/blog/stiv-unified-explained): what changes and what doesn't when a company unifies all seven divisions into one assistant.
 - [Single Division, Full Suite, or Unified: how to choose where to start](https://www.iamstivai.com/blog/choosing-single-division-full-suite-or-unified): a guide to STIV's three pricing tiers and which fits which company.
 
+## Software, by division
+
+- [Executive](https://www.iamstivai.com/software/executive)
+- [Sales](https://www.iamstivai.com/software/sales)
+- [Marketing](https://www.iamstivai.com/software/marketing)
+- [Finance](https://www.iamstivai.com/software/finance)
+- [Operations](https://www.iamstivai.com/software/operations)
+- [Legal](https://www.iamstivai.com/software/legal)
+- [Support](https://www.iamstivai.com/software/support)
+
 ## Pages
 
 - [Homepage](https://www.iamstivai.com/): overview, divisions, pricing, security.
+- [Pricing](https://www.iamstivai.com/pricing): Single Division, Full Suite, and STIV Unified tiers.
+- [STIV Unified](https://www.iamstivai.com/unified): the one-assistant-for-the-whole-company option.
+- [Security & Trust](https://www.iamstivai.com/security): encryption, approval gates, audit trail, SOC 2 control objectives.
+- [Contact](https://www.iamstivai.com/contact): book a demo or reach careers/privacy/legal.
 - [About](https://www.iamstivai.com/about): company background and values.
 - [Blog](https://www.iamstivai.com/blog): notes from STIV on building enterprise software.
 - [Careers](https://www.iamstivai.com/careers): open roles.

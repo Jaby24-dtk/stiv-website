@@ -1,61 +1,9 @@
 "use client";
 
-import {
-  BarChart3,
-  Briefcase,
-  Megaphone,
-  Landmark,
-  Settings,
-  Scale,
-  Headset,
-} from "lucide-react";
+import Link from "next/link";
 import DivisionsSwipe from "./DivisionsSwipe";
 import Reveal from "./Reveal";
-
-const divisions = [
-  {
-    name: "Executive",
-    icon: BarChart3,
-    description:
-      "Synthesizes every division's activity into a single briefing — decisions, risks, and what needs your sign-off.",
-  },
-  {
-    name: "Sales",
-    icon: Briefcase,
-    description:
-      "Qualifies inbound leads, drafts follow-ups, and keeps your pipeline moving between calls.",
-  },
-  {
-    name: "Marketing",
-    icon: Megaphone,
-    description:
-      "Plans campaigns, drafts copy on-brand, and reports on what's actually driving pipeline.",
-  },
-  {
-    name: "Finance",
-    icon: Landmark,
-    description:
-      "Reconciles accounts, flags variance, and drafts the reports your controller usually stays late for.",
-  },
-  {
-    name: "Operations",
-    icon: Settings,
-    description:
-      "Watches your workflows for bottlenecks and quietly clears the busywork before it piles up.",
-  },
-  {
-    name: "Legal",
-    icon: Scale,
-    description:
-      "Reviews contracts against your playbook and redlines the parts that need a human's eyes.",
-  },
-  {
-    name: "Support",
-    icon: Headset,
-    description:
-      "Resolves the tickets it can, and hands off the rest with full context already attached.",
-  },
-];
+import { divisions } from "../lib/divisions";
 
 export default function Divisions() {
   return (
@@ -77,6 +25,27 @@ export default function Divisions() {
       </div>
 
       <DivisionsSwipe divisions={divisions} />
+
+      <div className="border-t border-white/10 px-6 py-12 text-center lg:px-8">
+        <p className="text-sm text-muted">Explore each division</p>
+        <div className="mx-auto mt-4 flex max-w-2xl flex-wrap items-center justify-center gap-x-2 gap-y-2 text-sm">
+          {divisions.map((division, i) => (
+            <span key={division.slug} className="flex items-center gap-2">
+              <Link
+                href={`/software/${division.slug}`}
+                className="font-semibold text-foreground/90 transition-colors hover:text-accent-gold"
+              >
+                {division.name}
+              </Link>
+              {i < divisions.length - 1 && (
+                <span aria-hidden className="text-white/20">
+                  ·
+                </span>
+              )}
+            </span>
+          ))}
+        </div>
+      </div>
 
       <div className="border-t border-white/10 px-6 py-16 text-center lg:px-8">
         <p className="text-sm text-muted">
