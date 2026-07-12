@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Sparkles, ArrowRight } from "lucide-react";
 import WorkspacePreview from "./WorkspacePreview";
 import HeroParallax from "./HeroParallax";
-import HeroScene from "./HeroScene";
+import HeroScene from "./DynamicHeroScene";
 import HeroParticles from "./HeroParticles";
 import AuroraBackground from "./AuroraBackground";
 import CyclingText from "./CyclingText";
