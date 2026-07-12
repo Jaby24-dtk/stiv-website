@@ -60,13 +60,16 @@ export default function Nav() {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
-          <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-muted">
+          <Link
+            href="/status"
+            className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-muted transition-colors hover:border-white/20 hover:text-foreground"
+          >
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-gold/70" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-gold" />
             </span>
             All 7 systems operational
-          </div>
+          </Link>
           <Link
             href="/contact"
             className="rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"

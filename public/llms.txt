@@ -61,7 +61,9 @@ STIV is architected around SOC 2 control objectives from day one, with data resi
 - [Pricing](https://www.iamstivai.com/pricing): Single Division, Full Suite, and STIV Unified tiers.
 - [STIV Unified](https://www.iamstivai.com/unified): the one-assistant-for-the-whole-company option.
 - [Security & Trust](https://www.iamstivai.com/security): encryption, approval gates, audit trail, SOC 2 control objectives.
+- [Integrations](https://www.iamstivai.com/integrations): inbox, CRM, accounting, and docs — standard vs custom by tier.
 - [Contact](https://www.iamstivai.com/contact): book a demo or reach careers/privacy/legal.
+- [Status](https://www.iamstivai.com/status): operational status of each division system.
 - [About](https://www.iamstivai.com/about): company background and values.
 - [Blog](https://www.iamstivai.com/blog): notes from STIV on building enterprise software.
 - [Careers](https://www.iamstivai.com/careers): open roles.

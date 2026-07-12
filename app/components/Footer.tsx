@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import CookiePreferencesLink from "./CookiePreferencesLink";
 
 const columns = [
   {
@@ -7,9 +8,11 @@ const columns = [
     links: [
       { label: "Software", href: "/#divisions" },
       { label: "Unified", href: "/unified" },
+      { label: "Integrations", href: "/integrations" },
       { label: "How it works", href: "/#how-it-works" },
       { label: "Security", href: "/security" },
       { label: "Pricing", href: "/pricing" },
+      { label: "Status", href: "/status" },
     ],
   },
   {
@@ -71,9 +74,16 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} STIV. All rights reserved.</p>
-          <p>Made for teams who&apos;d rather build than babysit process.</p>
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-xs sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-muted">
+            © {new Date().getFullYear()} STIV. All rights reserved.
+          </p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <p className="text-muted">
+              Made for teams who&apos;d rather build than babysit process.
+            </p>
+            <CookiePreferencesLink />
+          </div>
         </div>
       </div>
     </footer>
