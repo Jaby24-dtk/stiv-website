@@ -43,6 +43,9 @@ export const metadata: Metadata = {
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
   },
+  verification: {
+    google: "n30_jxeyyE6gD1kxI8LzSc26tdqWliRAomJM9zolAnA",
+  },
 };
 
 const organizationJsonLd = {
