@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
+import AnalyticsEvents from "./components/AnalyticsEvents";
 import { serializeJsonLd } from "./lib/json-ld";
 import {
   CONTACT_EMAIL,
@@ -163,6 +164,7 @@ export default function RootLayout({
         </div>
 
         <CookieConsent />
+        <AnalyticsEvents />
       </body>
     </html>
   );

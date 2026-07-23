@@ -47,6 +47,13 @@ and access is by application.
 - Legal: playbook-based contract review and human-directed redlining.
 - Support: ticket resolution and contextual escalation.
 
+## Buyer guides and solutions
+
+- AI finance automation: https://www.iamstivai.com/solutions/ai-finance-automation
+- AI contract review: https://www.iamstivai.com/solutions/ai-contract-review
+- AI sales follow-up: https://www.iamstivai.com/solutions/ai-sales-follow-up
+- Enterprise AI governance: https://www.iamstivai.com/solutions/enterprise-ai-governance
+
 ## Implementation model
 
 1. Connect the customer's existing inbox, CRM, accounting tools, and documents.

@@ -57,6 +57,13 @@ STIV is architected around SOC 2 control objectives from day one, with data resi
 - [Legal](https://www.iamstivai.com/software/legal)
 - [Support](https://www.iamstivai.com/software/support)
 
+## Solutions
+
+- [AI finance automation](https://www.iamstivai.com/solutions/ai-finance-automation)
+- [AI contract review](https://www.iamstivai.com/solutions/ai-contract-review)
+- [AI sales follow-up](https://www.iamstivai.com/solutions/ai-sales-follow-up)
+- [Enterprise AI governance](https://www.iamstivai.com/solutions/enterprise-ai-governance)
+
 ## Pages
 
 - [Homepage](https://www.iamstivai.com/): overview, divisions, pricing, security.
