@@ -21,6 +21,7 @@ const columns = [
       { label: "About", href: "/about" },
       { label: "Careers", href: "/careers" },
       { label: "Blog", href: "/blog" },
+      { label: "Community Impact", href: "https://impact.iamstivai.com" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -63,6 +64,9 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
+                      {...(link.href.startsWith("https://")
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                       className="text-sm text-muted transition-colors hover:text-foreground"
                     >
                       {link.label}

@@ -4,6 +4,7 @@ import { KeyRound, UserCheck, ScrollText, ShieldCheck, ArrowRight } from "lucide
 import PageHeader from "../components/PageHeader";
 import IconTile from "../components/IconTile";
 import Reveal from "../components/Reveal";
+import { serializeJsonLd } from "../lib/json-ld";
 
 export const metadata: Metadata = {
   title: "Security & Trust",
@@ -86,7 +87,7 @@ export default function SecurityPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqJsonLd) }}
       />
       <PageHeader
         eyebrow="SECURITY & TRUST"
