@@ -4,6 +4,7 @@ import Tilt from "./Tilt";
 import AuroraBackground from "./AuroraBackground";
 import Reveal from "./Reveal";
 import { serializeJsonLd } from "../lib/json-ld";
+import { ORGANIZATION_ID, SITE_URL } from "../lib/site";
 
 const tiers = [
   {
@@ -54,15 +55,18 @@ const tiers = [
 
 const pricingJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Product",
-  name: "STIV",
-  description: "Purpose-built software licensed division by division for Executive, Sales, Marketing, Finance, Operations, Legal, and Support teams — or unified into one exclusive assistant with STIV Unified.",
-  brand: {
-    "@type": "Brand",
-    name: "STIV",
-  },
+  "@type": "Service",
+  "@id": `${SITE_URL}/pricing#service`,
+  name: "STIV enterprise software",
+  serviceType: "Enterprise AI software",
+  url: `${SITE_URL}/pricing`,
+  provider: { "@id": ORGANIZATION_ID },
+  areaServed: "Worldwide",
+  description:
+    "Purpose-built software licensed division by division for Executive, Sales, Marketing, Finance, Operations, Legal, and Support teams — or unified into one exclusive assistant with STIV Unified.",
   offers: tiers.map((tier) => ({
     "@type": "Offer",
+    url: `${SITE_URL}/pricing`,
     name: tier.name,
     description: tier.description,
     ...(tier.price.startsWith("$")
