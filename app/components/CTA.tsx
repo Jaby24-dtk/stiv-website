@@ -1,7 +1,6 @@
-import { ArrowRight } from "lucide-react";
 import AuroraBackground from "./AuroraBackground";
 import Reveal from "./Reveal";
-import Magnetic from "./Magnetic";
+import DemoForm from "./DemoForm";
 
 export default function CTA() {
   return (
@@ -17,30 +16,7 @@ export default function CTA() {
             See STIV run against a copy of your own data in a 30-minute call —
             no sales deck, just the workspace.
           </p>
-          <form
-            action="mailto:director@iamstivai.com?subject=Demo%20request%20from%20iamstivai.com"
-            method="post"
-            encType="text/plain"
-            className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
-          >
-            <input
-              type="email"
-              name="Email"
-              required
-              aria-label="Email address"
-              placeholder="you@company.com"
-              className="w-full rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-foreground placeholder:text-muted focus:border-accent-bronze focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            />
-            <Magnetic>
-              <button
-                type="submit"
-                className="shine-sweep group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
-              >
-                Book a demo
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </button>
-            </Magnetic>
-          </form>
+          <DemoForm compact source="homepage_cta" />
         </div>
       </div>
       </Reveal>

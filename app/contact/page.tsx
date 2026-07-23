@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Briefcase, ShieldCheck, Scale } from "lucide-react";
+import { Briefcase, ShieldCheck, Scale } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import IconTile from "../components/IconTile";
 import Reveal from "../components/Reveal";
+import DemoForm from "../components/DemoForm";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -64,56 +65,7 @@ export default function ContactPage() {
               A 30-minute call — no sales deck, just the workspace.
             </p>
 
-            <form
-              action="mailto:director@iamstivai.com?subject=Contact%20form%20submission%20from%20iamstivai.com"
-              method="post"
-              encType="text/plain"
-              className="mt-8 flex flex-col gap-4"
-            >
-              <div className="flex flex-col gap-2">
-                <label htmlFor="name" className="text-sm text-muted">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  name="Name"
-                  type="text"
-                  required
-                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-foreground focus:border-accent-bronze focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-sm text-muted">
-                  Work email
-                </label>
-                <input
-                  id="email"
-                  name="Email"
-                  type="email"
-                  required
-                  placeholder="you@company.com"
-                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-accent-bronze focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-sm text-muted">
-                  What division is the priority?
-                </label>
-                <textarea
-                  id="message"
-                  name="Message"
-                  rows={4}
-                  className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-foreground focus:border-accent-bronze focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                />
-              </div>
-              <button
-                type="submit"
-                className="shine-sweep group mt-2 inline-flex items-center justify-center gap-2 self-start rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
-              >
-                Send
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </button>
-            </form>
+            <DemoForm source="contact_page" />
           </Reveal>
 
           <Reveal delay={100}>
