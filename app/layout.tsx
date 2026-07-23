@@ -101,9 +101,16 @@ const siteJsonLd = {
       },
       description: DEFAULT_DESCRIPTION,
       foundingDate: "2026",
+      identifier: {
+        "@type": "PropertyValue",
+        propertyID: "Singapore UEN",
+        value: "202630466E",
+      },
       email: CONTACT_EMAIL,
       address: {
         "@type": "PostalAddress",
+        streetAddress: "50 Raffles Place #30-00, Singapore Land Towers",
+        postalCode: "048623",
         addressCountry: "SG",
         addressLocality: "Singapore",
       },

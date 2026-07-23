@@ -20,7 +20,7 @@ export default function PrivacyPage() {
       <PageHeader
         eyebrow="LEGAL"
         title="Privacy Policy"
-        description="Last updated July 8, 2026"
+        description="Last updated July 23, 2026"
       />
 
       <LegalBody>
@@ -28,7 +28,8 @@ export default function PrivacyPage() {
           <p>
             This Privacy Policy explains how{" "}
             <span className="text-foreground/90">
-              [STIV Pte. Ltd., Singapore UEN: to be confirmed]
+              STIV Pte. Ltd. (Singapore UEN 202630466E), registered at 50
+              Raffles Place #30-00, Singapore Land Towers, Singapore 048623
             </span>{" "}
             (&quot;STIV,&quot; &quot;we,&quot; &quot;us&quot;) collects, uses,
             discloses, and protects information in connection with our

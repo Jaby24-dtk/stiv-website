@@ -54,6 +54,11 @@ export default function Footer() {
             <p className="mt-4 max-w-xs text-sm text-muted">
               Premium software, division by division. Est. 2026, Singapore.
             </p>
+            <p className="mt-3 max-w-xs text-xs leading-relaxed text-muted">
+              STIV Pte. Ltd. · UEN 202630466E
+              <br />
+              50 Raffles Place #30-00, Singapore Land Towers, Singapore 048623
+            </p>
           </div>
 
           {columns.map((col) => (

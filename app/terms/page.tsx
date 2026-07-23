@@ -20,7 +20,7 @@ export default function TermsPage() {
       <PageHeader
         eyebrow="LEGAL"
         title="Terms of Service"
-        description="Last updated July 8, 2026"
+        description="Last updated July 23, 2026"
       />
 
       <LegalBody>
@@ -30,7 +30,8 @@ export default function TermsPage() {
             and use of the website and software (the &quot;Service&quot;)
             provided by{" "}
             <span className="text-foreground/90">
-              [STIV Pte. Ltd., Singapore UEN: to be confirmed]
+              STIV Pte. Ltd. (Singapore UEN 202630466E), registered at 50
+              Raffles Place #30-00, Singapore Land Towers, Singapore 048623
             </span>{" "}
             (&quot;STIV,&quot; &quot;we,&quot; &quot;us&quot;). By accessing
             or using the Service, you agree to be bound by these Terms. If
