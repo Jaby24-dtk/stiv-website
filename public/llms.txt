@@ -4,6 +4,8 @@
 
 STIV is a software company founded in 2026, headquartered in Singapore. Its products are AI agent systems built specifically for one enterprise division at a time, rather than a single general-purpose assistant.
 
+For a fuller machine-readable company reference, see [llms-full.txt](https://www.iamstivai.com/llms-full.txt).
+
 ## Divisions
 
 STIV builds a dedicated system for each of seven divisions:
@@ -67,6 +69,7 @@ STIV is architected around SOC 2 control objectives from day one, with data resi
 - [About](https://www.iamstivai.com/about): company background and values.
 - [Blog](https://www.iamstivai.com/blog): notes from STIV on building enterprise software.
 - [Careers](https://www.iamstivai.com/careers): open roles.
+- [Community Impact](https://impact.iamstivai.com/): STIV's social responsibility programs with Germonizer Pte Ltd, including the annual BERKZKADA Family Feeding Program and medicine donations to the Municipality of Macrohon every six months.
 - [Privacy Policy](https://www.iamstivai.com/privacy)
 - [Terms of Service](https://www.iamstivai.com/terms)
 - [Subprocessors](https://www.iamstivai.com/subprocessors)

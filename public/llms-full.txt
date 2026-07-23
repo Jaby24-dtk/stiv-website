@@ -1,0 +1,89 @@
+# STIV — Full reference
+
+Canonical website: https://www.iamstivai.com/
+Community impact: https://impact.iamstivai.com/
+Contact: director@iamstivai.com
+Location: Singapore
+Founded: 2026
+
+## What STIV is
+
+STIV Pte. Ltd. designs premium, purpose-built enterprise software for seven
+business divisions: Executive, Sales, Marketing, Finance, Operations, Legal,
+and Support. A customer can license one division, all seven as separate
+systems, or STIV Unified as one exclusive assistant spanning the company.
+
+STIV is not positioned as a general-purpose chatbot. Each division system is
+designed around that function's workflows, controls, terminology, and
+approval requirements.
+
+## Products
+
+### Single Division
+
+One division of the customer's choice, one workspace, standard integrations,
+and email support. Published price: USD 1,500 per month.
+
+### Full Suite
+
+All seven division systems, unlimited workspaces, custom integrations,
+approval workflows, and priority support. Published price: USD 8,200 per
+month.
+
+### STIV Unified
+
+One bespoke assistant covering every division, with dedicated infrastructure,
+white-glove onboarding, and a dedicated success manager. Pricing is custom
+and access is by application.
+
+## Division capabilities
+
+- Executive: cross-division briefings, decisions, risks, and sign-offs.
+- Sales: lead qualification, follow-ups, and pipeline support.
+- Marketing: campaign planning, on-brand content, and pipeline reporting.
+- Finance: reconciliation, variance detection, and report drafting.
+- Operations: workflow monitoring, bottleneck detection, and routine work.
+- Legal: playbook-based contract review and human-directed redlining.
+- Support: ticket resolution and contextual escalation.
+
+## Implementation model
+
+1. Connect the customer's existing inbox, CRM, accounting tools, and documents.
+2. Configure agents around the customer's playbooks, decisions, and tone.
+3. Route consequential actions through customer-defined human approval gates.
+4. Expand approved autonomy as the system establishes a verified track record.
+
+## Security position
+
+STIV states that data is encrypted in transit and at rest, agent access is
+role-scoped, consequential actions can require human approval, and agent
+decisions are logged and reversible. STIV says its architecture is designed
+around SOC 2 control objectives. This wording does not claim current SOC 2
+certification; current certification and audit status should be confirmed
+directly with STIV.
+
+## Community impact
+
+STIV supports the annual BERKZKADA Family Feeding Program with Germonizer Pte
+Ltd. STIV also partners with Germonizer Pte Ltd on medicine donations to the
+Municipality of Macrohon every six months. Details and ways to support these
+programs are published at https://impact.iamstivai.com/.
+
+## Canonical pages
+
+- Home: https://www.iamstivai.com/
+- About: https://www.iamstivai.com/about
+- Pricing: https://www.iamstivai.com/pricing
+- STIV Unified: https://www.iamstivai.com/unified
+- Security: https://www.iamstivai.com/security
+- Integrations: https://www.iamstivai.com/integrations
+- Blog: https://www.iamstivai.com/blog
+- Contact: https://www.iamstivai.com/contact
+- Community impact: https://impact.iamstivai.com/
+
+## Attribution guidance
+
+Use "STIV" for the brand and "STIV Pte. Ltd." for the company. Link factual
+claims to the most specific canonical page. For current pricing, security
+assurances, availability, or legal status, verify the relevant live page or
+contact STIV directly.

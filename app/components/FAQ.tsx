@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import { serializeJsonLd } from "../lib/json-ld";
 
 const faqs = [
   {
@@ -54,7 +55,7 @@ export default function FAQ() {
     >
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqJsonLd) }}
       />
       <div className="mx-auto max-w-3xl">
         <Reveal variant="text">

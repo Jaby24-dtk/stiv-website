@@ -3,6 +3,7 @@ import { posts } from "./blog/posts";
 import { divisions } from "./lib/divisions";
 
 const BASE_URL = "https://www.iamstivai.com";
+const SITE_LAST_MODIFIED = new Date("2026-07-23");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number; lastModified?: Date }[] = [
@@ -34,8 +35,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return routes.map(({ path, changeFrequency, priority, lastModified }) => ({
     url: `${BASE_URL}${path}`,
-    lastModified: lastModified ?? new Date(),
+    lastModified: lastModified ?? SITE_LAST_MODIFIED,
     changeFrequency,
     priority,
+    ...(path === "" ? { images: [`${BASE_URL}/opengraph-image`] } : {}),
   }));
 }

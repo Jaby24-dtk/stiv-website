@@ -5,8 +5,8 @@ import { ArrowLeft } from "lucide-react";
 import PageHeader from "../../components/PageHeader";
 import Reveal from "../../components/Reveal";
 import { getPostBySlug, posts } from "../posts";
-
-const SITE_URL = "https://www.iamstivai.com";
+import { serializeJsonLd } from "../../lib/json-ld";
+import { ORGANIZATION_ID, SITE_URL, WEBSITE_ID } from "../../lib/site";
 
 export function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
@@ -31,6 +31,14 @@ export async function generateMetadata({
       description: post.description,
       url: `/blog/${post.slug}`,
       publishedTime: post.date,
+      authors: [SITE_URL],
+      section: post.category,
+      tags: ["enterprise AI", "business automation", post.category],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} — STIV`,
+      description: post.description,
     },
   };
 }
@@ -52,30 +60,48 @@ export default async function BlogPostPage({
 
   const articleJsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.description,
-    datePublished: post.date,
-    author: {
-      "@type": "Organization",
-      name: "STIV",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "STIV",
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/stiv-logo-mark.png`,
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${SITE_URL}/blog/${post.slug}#article`,
+        headline: post.title,
+        description: post.description,
+        datePublished: post.date,
+        dateModified: post.date,
+        articleSection: post.category,
+        inLanguage: "en",
+        author: { "@id": ORGANIZATION_ID },
+        publisher: { "@id": ORGANIZATION_ID },
+        isPartOf: { "@id": WEBSITE_ID },
+        image: `${SITE_URL}/opengraph-image`,
+        mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
       },
-    },
-    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Blog",
+            item: `${SITE_URL}/blog`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: post.title,
+            item: `${SITE_URL}/blog/${post.slug}`,
+          },
+        ],
+      },
+    ],
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleJsonLd) }}
       />
       <PageHeader
         eyebrow={post.category.toUpperCase()}

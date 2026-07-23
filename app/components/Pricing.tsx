@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import Tilt from "./Tilt";
 import AuroraBackground from "./AuroraBackground";
 import Reveal from "./Reveal";
+import { serializeJsonLd } from "../lib/json-ld";
 
 const tiers = [
   {
@@ -98,7 +99,7 @@ export default function Pricing({
       <AuroraBackground variant="subtle" />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(pricingJsonLd) }}
       />
       <div className="relative mx-auto max-w-7xl">
         {showHeading && (

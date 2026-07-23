@@ -4,6 +4,18 @@ import "./globals.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import CookieConsent from "./components/CookieConsent";
+import { serializeJsonLd } from "./lib/json-ld";
+import {
+  CONTACT_EMAIL,
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  IMPACT_URL,
+  LEGAL_NAME,
+  ORGANIZATION_ID,
+  SITE_NAME,
+  SITE_URL,
+  WEBSITE_ID,
+} from "./lib/site";
 
 const interTight = Inter_Tight({
   variable: "--font-tight",
@@ -15,21 +27,45 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://www.iamstivai.com";
-const SITE_NAME = "STIV";
-const DEFAULT_TITLE = "STIV — Premium software, division by division";
-const DEFAULT_DESCRIPTION =
-  "STIV designs exclusive, purpose-built software for every division of your enterprise — Executive, Sales, Marketing, Finance, Operations, Legal, Support. Or unify them all into one exclusive assistant with STIV Unified.";
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
   title: {
     default: DEFAULT_TITLE,
     template: "%s — STIV",
   },
   description: DEFAULT_DESCRIPTION,
+  keywords: [
+    "enterprise AI software",
+    "AI agents for business",
+    "division-specific software",
+    "enterprise automation",
+    "human-in-the-loop AI",
+    "STIV Unified",
+  ],
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: LEGAL_NAME,
+  category: "Enterprise software",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   alternates: {
     canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   openGraph: {
     type: "website",
@@ -48,19 +84,53 @@ export const metadata: Metadata = {
   },
 };
 
-const organizationJsonLd = {
+const siteJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "STIV",
-  url: SITE_URL,
-  logo: `${SITE_URL}/stiv-logo-mark.png`,
-  description: DEFAULT_DESCRIPTION,
-  foundingDate: "2026",
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "SG",
-    addressLocality: "Singapore",
-  },
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID,
+      name: SITE_NAME,
+      legalName: LEGAL_NAME,
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/stiv-logo-mark.png`,
+        width: 512,
+        height: 512,
+      },
+      description: DEFAULT_DESCRIPTION,
+      foundingDate: "2026",
+      email: CONTACT_EMAIL,
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "SG",
+        addressLocality: "Singapore",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales and general enquiries",
+        email: CONTACT_EMAIL,
+        availableLanguage: "English",
+        areaServed: "Worldwide",
+      },
+      hasPart: {
+        "@type": "WebSite",
+        name: "STIV Community Impact",
+        url: IMPACT_URL,
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": WEBSITE_ID,
+      name: SITE_NAME,
+      alternateName: "STIV AI",
+      url: SITE_URL,
+      description: DEFAULT_DESCRIPTION,
+      publisher: { "@id": ORGANIZATION_ID },
+      inLanguage: "en",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -76,7 +146,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteJsonLd) }}
         />
         <div className="grain-overlay" aria-hidden />
         <div className="flex flex-1 flex-col">

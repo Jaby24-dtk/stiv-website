@@ -6,8 +6,8 @@ import PageHeader from "../../components/PageHeader";
 import IconTile from "../../components/IconTile";
 import Reveal from "../../components/Reveal";
 import { divisions, getDivisionBySlug } from "../../lib/divisions";
-
-const SITE_URL = "https://www.iamstivai.com";
+import { serializeJsonLd } from "../../lib/json-ld";
+import { ORGANIZATION_ID, SITE_URL } from "../../lib/site";
 
 export function generateStaticParams() {
   return divisions.map((division) => ({ slug: division.slug }));
@@ -31,6 +31,11 @@ export async function generateMetadata({
       description: division.summary,
       url: `/software/${division.slug}`,
     },
+    twitter: {
+      card: "summary_large_image",
+      title: `STIV for ${division.name} — STIV`,
+      description: division.summary,
+    },
   };
 }
 
@@ -45,35 +50,57 @@ export default async function DivisionPage({
 
   const serviceJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: `STIV ${division.name}`,
-    description: division.summary,
-    provider: {
-      "@type": "Organization",
-      name: "STIV",
-      url: SITE_URL,
-    },
-    areaServed: "Worldwide",
-    url: `${SITE_URL}/software/${division.slug}`,
-    offers: {
-      "@type": "Offer",
-      price: "1500",
-      priceCurrency: "USD",
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        price: "1500",
-        priceCurrency: "USD",
-        billingIncrement: 1,
-        unitCode: "MON",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${SITE_URL}/software/${division.slug}#service`,
+        name: `STIV ${division.name}`,
+        serviceType: `Enterprise AI software for ${division.name}`,
+        description: division.summary,
+        provider: { "@id": ORGANIZATION_ID },
+        areaServed: "Worldwide",
+        url: `${SITE_URL}/software/${division.slug}`,
+        offers: {
+          "@type": "Offer",
+          url: `${SITE_URL}/pricing`,
+          availability: "https://schema.org/InStock",
+          category: "subscription",
+          price: "1500",
+          priceCurrency: "USD",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: "1500",
+            priceCurrency: "USD",
+            billingDuration: "P1M",
+          },
+        },
       },
-    },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Software",
+            item: `${SITE_URL}/#divisions`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: division.name,
+            item: `${SITE_URL}/software/${division.slug}`,
+          },
+        ],
+      },
+    ],
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(serviceJsonLd) }}
       />
       <PageHeader
         eyebrow={`SOFTWARE — ${division.name.toUpperCase()}`}
