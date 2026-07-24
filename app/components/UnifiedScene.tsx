@@ -1,62 +1,200 @@
-import { Blocks, BrainCircuit, Network, UserRoundCheck } from "lucide-react";
+"use client";
+
+import { useEffect, useMemo, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import * as THREE from "three";
+import { ensureGsapPlugins, gsap } from "./gsapConfig";
+
+const NODE_COUNT = 7;
 
 const stages = [
   {
-    icon: Blocks,
-    title: "Seven systems",
-    body: "Executive, Sales, Marketing, Finance, Operations, Legal, and Support can each run independently.",
+    eyebrow: "STIV UNIFIED",
+    title: "Seven systems.",
+    body: "Executive, Sales, Marketing, Finance, Operations, Legal, Support — each running independently today.",
   },
   {
-    icon: Network,
-    title: "One command layer",
-    body: "Bring every division into one assistant, with a shared view of priorities, risks, and approvals.",
+    eyebrow: "STIV UNIFIED",
+    title: "One command layer.",
+    body: "Every division fused into a single exclusive assistant, briefed on everything, answerable only to you.",
   },
   {
-    icon: BrainCircuit,
-    title: "Grounded in your business",
-    body: "Configure STIV around your connected data, brand voice, playbooks, and approval policies.",
+    eyebrow: "STIV UNIFIED",
+    title: "Trained on your business.",
+    body: "Custom-trained on your data, your brand voice, and your approval gates — not a generic model.",
   },
   {
-    icon: UserRoundCheck,
-    title: "One accountable team",
-    body: "Dedicated infrastructure, guided onboarding, and a single success team across the deployment.",
+    eyebrow: "STIV UNIFIED",
+    title: "One point of accountability.",
+    body: "Dedicated infrastructure, white-glove onboarding, and a single team accountable across your company.",
   },
 ];
 
-export default function UnifiedScene() {
-  return (
-    <div className="border-t border-white/10 px-6 py-24 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="max-w-2xl">
-          <p className="font-mono text-xs tracking-widest text-accent-gold">
-            STIV UNIFIED
-          </p>
-          <h2 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-            Seven divisions. One governed command layer.
-          </h2>
-          <p className="mt-4 text-xl leading-relaxed text-muted">
-            When independent division software is no longer enough, unify it
-            without giving up role-scoped access, approvals, or accountability.
-          </p>
-        </div>
+function Nodes({ progressRef }: { progressRef: React.RefObject<number> }) {
+  const groupRef = useRef<THREE.Group>(null);
+  const nodeRefs = useRef<(THREE.Mesh | null)[]>([]);
+  const coreRef = useRef<THREE.Mesh>(null);
 
-        <ol className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {stages.map(({ icon: Icon, title, body }, index) => (
-            <li
-              key={title}
-              className="rounded-2xl border border-white/10 bg-white/[0.025] p-6"
-            >
-              <div className="flex items-center justify-between">
-                <Icon className="h-6 w-6 text-accent-gold" aria-hidden="true" />
-                <span className="font-mono text-xs text-muted" aria-hidden="true">
-                  0{index + 1}
-                </span>
+  const basePositions = useMemo(
+    () =>
+      Array.from({ length: NODE_COUNT }, (_, i) => {
+        const angle = (i / NODE_COUNT) * Math.PI * 2;
+        const radius = 2.3;
+        return new THREE.Vector3(
+          Math.cos(angle) * radius,
+          Math.sin(angle) * radius * 0.55,
+          Math.sin(angle * 1.7) * 0.9
+        );
+      }),
+    []
+  );
+
+  useFrame((_, delta) => {
+    const progress = progressRef.current ?? 0;
+    if (groupRef.current) {
+      groupRef.current.rotation.y += delta * (0.12 + progress * 0.25);
+    }
+    if (coreRef.current) {
+      const s = THREE.MathUtils.lerp(0.8, 1.3, progress);
+      coreRef.current.scale.setScalar(s);
+    }
+    nodeRefs.current.forEach((mesh, i) => {
+      if (!mesh) return;
+      const base = basePositions[i];
+      const target = base.clone().lerp(new THREE.Vector3(0, 0, 0), progress * 0.85);
+      mesh.position.lerp(target, 0.1);
+      const scale = THREE.MathUtils.lerp(1, 0.35, progress);
+      mesh.scale.setScalar(scale);
+    });
+  });
+
+  return (
+    <group ref={groupRef}>
+      <mesh ref={coreRef}>
+        <icosahedronGeometry args={[0.85, 1]} />
+        <meshStandardMaterial
+          color="#e0e0e0"
+          metalness={0.85}
+          roughness={0.2}
+          emissive="#2a2a2a"
+          emissiveIntensity={0.35}
+          flatShading
+        />
+      </mesh>
+      {basePositions.map((pos, i) => (
+        <mesh
+          key={i}
+          position={pos}
+          ref={(el) => {
+            nodeRefs.current[i] = el;
+          }}
+        >
+          <sphereGeometry args={[0.26, 16, 16]} />
+          <meshStandardMaterial
+            color="#8a8a8a"
+            metalness={0.7}
+            roughness={0.3}
+            emissive="#1e1e1e"
+            emissiveIntensity={0.4}
+          />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
+export default function UnifiedScene() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef(0);
+  const stageRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const stageEls = stageRefs.current.filter(Boolean) as HTMLDivElement[];
+      stageEls.forEach((el, i) => {
+        gsap.set(el, { opacity: i === stages.length - 1 ? 1 : 0 });
+      });
+      return;
+    }
+
+    ensureGsapPlugins();
+
+    const ctx = gsap.context(() => {
+      const stageEls = stageRefs.current.filter(Boolean) as HTMLDivElement[];
+      gsap.set(stageEls, { opacity: 0, y: 16 });
+      gsap.set(stageEls[0], { opacity: 1, y: 0 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: () => `+=${stages.length * 90}%`,
+          scrub: 0.6,
+          pin: true,
+          anticipatePin: 1,
+          onUpdate: (self) => {
+            progressRef.current = self.progress;
+          },
+        },
+      });
+
+      stageEls.forEach((el, i) => {
+        if (i === 0) return;
+        const at = i - 0.4;
+        tl.to(stageEls[i - 1], { opacity: 0, y: -16, duration: 0.6 }, at);
+        tl.fromTo(
+          el,
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 0.6, immediateRender: false },
+          at + 0.1
+        );
+      });
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div
+      ref={sectionRef}
+      className="relative h-screen overflow-hidden border-t border-white/10 bg-background"
+    >
+      <div className="absolute inset-y-0 right-0 left-[38%]">
+        <Canvas camera={{ position: [0, 0, 6], fov: 45 }} dpr={[1, 1.5]}>
+          <ambientLight intensity={0.6} />
+          <pointLight position={[4, 3, 4]} intensity={90} color="#ffffff" />
+          <pointLight position={[-4, -2, 2]} intensity={45} color="#8a8a8a" />
+          <Nodes progressRef={progressRef} />
+        </Canvas>
+      </div>
+
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+
+      <div className="pointer-events-none relative flex h-full items-center px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl">
+          <div className="relative max-w-lg">
+            {stages.map((stage, i) => (
+              <div
+                key={stage.title}
+                ref={(el) => {
+                  stageRefs.current[i] = el;
+                }}
+                className="absolute inset-0"
+              >
+                <p className="font-mono text-xs tracking-widest text-accent-gold">
+                  {stage.eyebrow}
+                </p>
+                <h2 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
+                  {stage.title}
+                </h2>
+                <p className="mt-4 text-xl text-muted">{stage.body}</p>
               </div>
-              <h3 className="mt-8 text-2xl font-semibold">{title}</h3>
-              <p className="mt-3 text-base leading-relaxed text-muted">{body}</p>
-            </li>
-          ))}
-        </ol>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

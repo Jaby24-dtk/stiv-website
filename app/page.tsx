@@ -1,7 +1,6 @@
 import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
 import Stats from "./components/Stats";
-import TrustStrip from "./components/TrustStrip";
 import Divisions from "./components/Divisions";
 import Unified from "./components/Unified";
 import HowItWorks from "./components/HowItWorks";
@@ -22,7 +21,7 @@ const homeJsonLd = {
   "@type": "WebPage",
   "@id": `${SITE_URL}/#webpage`,
   url: SITE_URL,
-  name: "STIV — Approval-Governed AI Software for Enterprise Teams",
+  name: "STIV — Premium software, division by division",
   description: DEFAULT_DESCRIPTION,
   isPartOf: { "@id": WEBSITE_ID },
   about: { "@id": ORGANIZATION_ID },
@@ -41,7 +40,6 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(homeJsonLd) }}
       />
       <Hero />
-      <TrustStrip />
       <Marquee />
       <Stats />
       <Divisions />

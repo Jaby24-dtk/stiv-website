@@ -80,10 +80,8 @@ export default function Nav() {
         </div>
 
         <button
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 md:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="mobile-navigation"
+          className="md:hidden"
+          aria-label="Toggle menu"
           onClick={() => setOpen((o) => !o)}
         >
           <div className="flex h-8 w-8 flex-col items-center justify-center gap-1.5">
@@ -101,14 +99,14 @@ export default function Nav() {
       </nav>
 
       {open && (
-        <div id="mobile-navigation" className="border-t border-white/10 bg-background px-6 py-4 md:hidden">
-          <div className="flex flex-col gap-1">
+        <div className="border-t border-white/10 bg-background px-6 py-4 md:hidden">
+          <div className="flex flex-col gap-4">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="flex min-h-11 items-center rounded-lg px-3 text-base text-muted hover:bg-white/5 hover:text-foreground"
+                className="text-sm text-muted hover:text-foreground"
               >
                 {link.label}
               </Link>
@@ -116,7 +114,7 @@ export default function Nav() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 flex min-h-11 items-center justify-center rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-center text-sm font-semibold text-slate-950"
+              className="mt-2 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-center text-sm font-semibold text-slate-950"
             >
               Request private access
             </Link>

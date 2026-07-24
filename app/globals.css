@@ -232,15 +232,6 @@ h1 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
-
   .aurora-blob-a,
   .aurora-blob-b,
   .aurora-blob-c,
@@ -254,9 +245,5 @@ h1 {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
-  }
-
-  .shine-sweep::after {
-    display: none;
   }
 }

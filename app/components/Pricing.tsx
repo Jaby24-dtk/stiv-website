@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Check } from "lucide-react";
+import Tilt from "./Tilt";
 import AuroraBackground from "./AuroraBackground";
 import Reveal from "./Reveal";
 import { serializeJsonLd } from "../lib/json-ld";
@@ -123,6 +124,11 @@ export default function Pricing({
 
             return (
               <Reveal key={tier.name} delay={tierIndex * 100} className="h-full">
+              <Tilt
+                max={5}
+                glare={false}
+                className="h-full rounded-2xl"
+              >
                 <div
                   className={`relative flex h-full flex-col rounded-2xl p-8 ${
                     isPopular
@@ -170,7 +176,7 @@ export default function Pricing({
 
                   <Link
                     href="/contact"
-                    className={`mt-8 inline-flex min-h-11 items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:scale-[1.02] ${
+                    className={`mt-8 inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:scale-[1.02] ${
                       isPopular
                         ? "shine-sweep bg-gradient-to-r from-accent-bronze to-accent-gold text-slate-950"
                         : "border border-white/15 text-foreground/90 hover:bg-white/5"
@@ -179,6 +185,7 @@ export default function Pricing({
                     {tier.cta}
                   </Link>
                 </div>
+              </Tilt>
               </Reveal>
             );
           })}
