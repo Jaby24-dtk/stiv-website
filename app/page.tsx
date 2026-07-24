@@ -44,12 +44,8 @@ export default function Home() {
       <div className="home-deferred">
         <Stats />
       </div>
-      <div className="home-deferred">
-        <Divisions />
-      </div>
-      <div className="home-deferred">
-        <Unified />
-      </div>
+      <Divisions />
+      <Unified />
       <div className="home-deferred">
         <HowItWorks />
       </div>
