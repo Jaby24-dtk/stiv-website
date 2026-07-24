@@ -73,7 +73,7 @@ export default function Footer() {
                       {...(link.href.startsWith("https://")
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}
-                      className="inline-flex min-h-11 items-center text-sm text-muted transition-colors hover:text-foreground"
+                      className="-mx-2 inline-flex min-h-11 min-w-11 items-center px-2 text-sm text-muted transition-colors hover:text-foreground"
                     >
                       {link.label}
                     </Link>

@@ -34,3 +34,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+### Production application delivery
+
+Configure these server-only environment variables in Vercel:
+
+- `ZOHO_SMTP_USER`
+- `ZOHO_SMTP_APP_PASSWORD`
+- `ZOHO_SMTP_HOST` (optional; defaults to `smtp.zoho.com`)
+- `ZOHO_SMTP_PORT` (optional; defaults to `465` and retries on `587`)
+- `LEADS_TO_EMAIL` (optional; defaults to `director@iamstivai.com`)
+
+For durable application throttling across serverless instances, connect Vercel
+KV or Upstash Redis. The application route automatically uses either variable
+pair:
+
+- `KV_REST_API_URL` and `KV_REST_API_TOKEN`
+- `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN`
+
+If no persistent store is configured, development and preview deployments use
+an in-memory fallback.

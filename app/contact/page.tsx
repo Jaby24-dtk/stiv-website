@@ -84,14 +84,14 @@ export default function ContactPage() {
                     <p className="mt-2 text-sm text-muted">{description}</p>
                     <a
                       href={`mailto:${email}`}
-                      className="mt-1 inline-block text-sm text-accent-gold hover:underline"
+                      className="-mx-2 mt-1 inline-flex min-h-11 items-center px-2 text-sm text-accent-gold hover:underline"
                     >
                       {email}
                     </a>
                     <div>
                       <Link
                         href={href}
-                        className="mt-1 inline-flex items-center gap-1 text-sm text-muted hover:text-foreground"
+                        className="-mx-2 mt-1 inline-flex min-h-11 items-center gap-1 px-2 text-sm text-muted hover:text-foreground"
                       >
                         {linkLabel} →
                       </Link>

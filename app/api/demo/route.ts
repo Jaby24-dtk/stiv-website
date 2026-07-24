@@ -5,6 +5,7 @@ export const runtime = "nodejs";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const recentRequests = new Map<string, number>();
+const RATE_LIMIT_WINDOW_SECONDS = 15;
 
 function text(value: unknown, maxLength: number) {
   return typeof value === "string"
@@ -38,6 +39,54 @@ function smtpTransport({
     greetingTimeout: 10_000,
     socketTimeout: 15_000,
   });
+}
+
+async function reserveRateLimit(ip: string) {
+  const redisUrl =
+    process.env.KV_REST_API_URL ?? process.env.UPSTASH_REDIS_REST_URL;
+  const redisToken =
+    process.env.KV_REST_API_TOKEN ?? process.env.UPSTASH_REDIS_REST_TOKEN;
+
+  if (redisUrl && redisToken) {
+    try {
+      const response = await fetch(`${redisUrl}/pipeline`, {
+        method: "POST",
+        headers: {
+          authorization: `Bearer ${redisToken}`,
+          "content-type": "application/json",
+        },
+        body: JSON.stringify([
+          [
+            "SET",
+            `stiv:demo-rate-limit:${ip}`,
+            "1",
+            "NX",
+            "EX",
+            RATE_LIMIT_WINDOW_SECONDS,
+          ],
+        ]),
+        cache: "no-store",
+      });
+
+      if (!response.ok) {
+        throw new Error(`Rate-limit store returned ${response.status}`);
+      }
+
+      const result = (await response.json()) as Array<{
+        result?: string | null;
+      }>;
+      return result[0]?.result !== "OK";
+    } catch (error) {
+      console.error("Persistent rate-limit store unavailable", { error });
+    }
+  }
+
+  const lastRequest = recentRequests.get(ip) ?? 0;
+  if (Date.now() - lastRequest < RATE_LIMIT_WINDOW_SECONDS * 1_000) {
+    return true;
+  }
+  recentRequests.set(ip, Date.now());
+  return false;
 }
 
 function qualificationSummary({
@@ -98,13 +147,6 @@ function qualificationSummary({
 export async function POST(request: Request) {
   const ip =
     request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
-  const lastRequest = recentRequests.get(ip) ?? 0;
-  if (Date.now() - lastRequest < 15_000) {
-    return NextResponse.json(
-      { error: "Please wait before sending another enquiry." },
-      { status: 429 },
-    );
-  }
 
   let body: Record<string, unknown>;
   try {
@@ -145,6 +187,13 @@ export async function POST(request: Request) {
     return NextResponse.json(
       { error: "Tell us a little more about the priority workflow." },
       { status: 400 },
+    );
+  }
+
+  if (await reserveRateLimit(ip)) {
+    return NextResponse.json(
+      { error: "Please wait before sending another enquiry." },
+      { status: 429 },
     );
   }
 
@@ -259,8 +308,6 @@ export async function POST(request: Request) {
       );
     }
   }
-
-  recentRequests.set(ip, Date.now());
 
   let acknowledgementSent = true;
   try {

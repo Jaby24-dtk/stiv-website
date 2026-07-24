@@ -1,14 +1,15 @@
 import type { NextConfig } from "next";
 
-// Static (non-nonce) CSP: keeps every route statically generated. Nonce-based
-// CSP would be stricter but forces dynamic rendering on every page, which
-// costs the static generation and CDN caching this whole site relies on for
-// its Core Web Vitals — not a trade worth making for a site with no
-// user-generated content (the only dangerouslySetInnerHTML usage here is
-// JSON.stringify() over our own static data, never user input).
+// Static (non-nonce) CSP: keeps every route statically generated. Inline event
+// handlers are explicitly blocked below. Next.js bootstrap scripts and the
+// site's animation styles still require inline element support; nonce-based
+// CSP would force every route into dynamic rendering and remove the CDN/static
+// performance advantage. Structured-data HTML is serialized from static,
+// trusted site data rather than user input.
 const cspHeader = `
   default-src 'self';
   script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.clarity.ms;
+  script-src-attr 'none';
   style-src 'self' 'unsafe-inline';
   img-src 'self' data: blob: https://www.google-analytics.com https://*.clarity.ms https://c.bing.com;
   font-src 'self';

@@ -205,6 +205,12 @@ h1 {
   animation: marquee 32s linear infinite;
 }
 
+/* Keep the full premium layout while deferring below-fold paint work. */
+.home-deferred {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
 /* Scroll reveal */
 .reveal {
   opacity: 0;

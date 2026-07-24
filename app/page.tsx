@@ -41,14 +41,30 @@ export default function Home() {
       />
       <Hero />
       <Marquee />
-      <Stats />
-      <Divisions />
-      <Unified />
-      <HowItWorks />
-      <Security />
-      <Pricing />
-      <FAQ />
-      <CTA />
+      <div className="home-deferred">
+        <Stats />
+      </div>
+      <div className="home-deferred">
+        <Divisions />
+      </div>
+      <div className="home-deferred">
+        <Unified />
+      </div>
+      <div className="home-deferred">
+        <HowItWorks />
+      </div>
+      <div className="home-deferred">
+        <Security />
+      </div>
+      <div className="home-deferred">
+        <Pricing />
+      </div>
+      <div className="home-deferred">
+        <FAQ />
+      </div>
+      <div className="home-deferred">
+        <CTA />
+      </div>
     </>
   );
 }
