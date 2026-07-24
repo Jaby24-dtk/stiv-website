@@ -46,6 +46,8 @@ export default function DemoForm({
         ok?: boolean;
         error?: string;
         fallback?: string;
+        reference?: string;
+        acknowledgementSent?: boolean;
       };
 
       if (!response.ok || !result.ok) {
@@ -65,8 +67,13 @@ export default function DemoForm({
       });
       setStatus({
         type: "success",
-        message:
-          "Application received. STIV reviews every request individually and will contact you if there is a strong fit.",
+        message: result.reference
+          ? `Application received. Your reference is ${result.reference}. ${
+              result.acknowledgementSent
+                ? "A confirmation has been sent to your work email."
+                : "Please save this reference for your records."
+            } STIV will contact you if there is a strong fit.`
+          : "Application received. STIV reviews every request individually and will contact you if there is a strong fit.",
       });
     } catch {
       setStatus({
