@@ -8,7 +8,7 @@ import type { NextConfig } from "next";
 // JSON.stringify() over our own static data, never user input).
 const cspHeader = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms;
+  script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.clarity.ms;
   style-src 'self' 'unsafe-inline';
   img-src 'self' data: blob: https://www.google-analytics.com https://*.clarity.ms https://c.bing.com;
   font-src 'self';
