@@ -170,7 +170,7 @@ export default async function BlogPostPage({
               href="/contact"
               className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
             >
-              Book a demo
+              Request private access
             </Link>
           </div>
         </Reveal>

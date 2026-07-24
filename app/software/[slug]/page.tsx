@@ -149,7 +149,7 @@ export default async function DivisionPage({
               href="/contact"
               className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
             >
-              Book a demo
+              Request private access
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

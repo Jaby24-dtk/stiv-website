@@ -23,7 +23,7 @@ export default function AnalyticsEvents() {
 
       if (cta || href === "/contact") {
         sendEvent("select_content", {
-          content_type: "demo_cta",
+          content_type: "private_briefing_cta",
           item_id: cta ?? "contact",
         });
       }
@@ -38,6 +38,12 @@ export default function AnalyticsEvents() {
 
     const handleSubmit = (event: SubmitEvent) => {
       const form = event.target as HTMLFormElement;
+      if (form.dataset.analyticsForm === "private_briefing_application") {
+        sendEvent("application_submit", {
+          form_type: "private_briefing",
+          form_location: window.location.pathname,
+        });
+      }
       if (form.action.startsWith("mailto:")) {
         sendEvent("generate_lead", {
           method: "email_form",
@@ -56,4 +62,3 @@ export default function AnalyticsEvents() {
 
   return null;
 }
-

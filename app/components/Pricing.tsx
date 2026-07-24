@@ -17,7 +17,7 @@ const tiers = [
       "Standard integrations",
       "Email support",
     ],
-    cta: "Choose a division",
+    cta: "Request private access",
     badge: null as string | null,
   },
   {
@@ -32,7 +32,7 @@ const tiers = [
       "Approval workflows",
       "Priority support",
     ],
-    cta: "Book a demo",
+    cta: "Apply for a briefing",
     badge: "Most popular",
   },
   {
@@ -47,7 +47,7 @@ const tiers = [
       "White-glove onboarding",
       "Dedicated success manager",
     ],
-    cta: "Enquire about Unified",
+    cta: "Apply for Unified",
     badge: "By application",
   },
 ];

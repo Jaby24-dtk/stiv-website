@@ -9,12 +9,12 @@ import DemoForm from "../components/DemoForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with STIV — book a demo, or reach the right team for careers, privacy, or legal.",
+    "Apply for a private STIV briefing, or reach the right team for careers, privacy, or legal.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact — STIV",
     description:
-      "Get in touch with STIV — book a demo, or reach the right team for careers, privacy, or legal.",
+      "Apply for a private STIV briefing, or reach the right team for careers, privacy, or legal.",
     url: "/contact",
   },
 };
@@ -50,19 +50,20 @@ export default function ContactPage() {
   return (
     <>
       <PageHeader
-        eyebrow="CONTACT"
-        title="Let's talk."
-        description="Tell us which division is loudest about its bottleneck right now, and we'll show you STIV running against a copy of your own data."
+        eyebrow="PRIVATE ACCESS"
+        title="Apply for a private briefing."
+        description="STIV demonstrations are reserved for qualified teams and built around a specific high-value workflow. Tell us where the leverage is, and we’ll assess the fit."
       />
 
       <section className="px-6 py-20 lg:px-8">
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)]">
           <Reveal>
             <h2 className="text-2xl font-semibold tracking-tight">
-              Book a demo
+              Private demonstration application
             </h2>
             <p className="mt-2 text-base text-muted">
-              A 30-minute call — no sales deck, just the workspace.
+              Every request is reviewed individually. Qualified applicants are
+              invited to a confidential working session tailored to their company.
             </p>
 
             <DemoForm source="contact_page" />

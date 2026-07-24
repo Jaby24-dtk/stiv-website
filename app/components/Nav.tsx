@@ -75,7 +75,7 @@ export default function Nav() {
             href="/contact"
             className="rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
           >
-            Book a demo
+            Request private access
           </Link>
         </div>
 
@@ -118,7 +118,7 @@ export default function Nav() {
               onClick={() => setOpen(false)}
               className="mt-2 flex min-h-11 items-center justify-center rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-center text-sm font-semibold text-slate-950"
             >
-              Book a demo
+              Request private access
             </Link>
           </div>
         </div>

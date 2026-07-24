@@ -38,12 +38,28 @@ export async function POST(request: Request) {
   const name = text(body.name, 100);
   const email = text(body.email, 200).toLowerCase();
   const company = text(body.company, 150);
+  const role = text(body.role, 120);
+  const companySize = text(body.companySize, 50);
+  const division = text(body.division, 80);
+  const timeline = text(body.timeline, 80);
   const message = text(body.message, 2_000);
   const source = text(body.source, 200) || "Website";
 
   if (!email || !EMAIL_PATTERN.test(email)) {
     return NextResponse.json(
       { error: "Enter a valid work email." },
+      { status: 400 },
+    );
+  }
+  if (!name || !company || !role || !companySize || !division || !timeline) {
+    return NextResponse.json(
+      { error: "Complete all required application fields." },
+      { status: 400 },
+    );
+  }
+  if (message.length < 30) {
+    return NextResponse.json(
+      { error: "Tell us a little more about the priority workflow." },
       { status: 400 },
     );
   }
@@ -57,11 +73,11 @@ export async function POST(request: Request) {
       {
         error: "Online delivery is being configured.",
         fallback: `mailto:${recipient}?subject=${encodeURIComponent(
-          "STIV demo request",
+          "STIV private briefing application",
         )}&body=${encodeURIComponent(
           `Name: ${name || "Not provided"}\nEmail: ${email}\nCompany: ${
             company || "Not provided"
-          }\nSource: ${source}\n\n${message}`,
+          }\nRole: ${role}\nCompany size: ${companySize}\nPriority division: ${division}\nTimeline: ${timeline}\nSource: ${source}\n\n${message}`,
         )}`,
       },
       { status: 503 },
@@ -84,11 +100,15 @@ export async function POST(request: Request) {
     from: `"STIV Website" <${smtpUser}>`,
     to: recipient,
     replyTo: email,
-    subject: `New STIV demo request${company ? ` — ${company}` : ""}`,
+    subject: `New STIV private briefing application — ${company}`,
     text: [
       `Name: ${name || "Not provided"}`,
       `Work email: ${email}`,
       `Company: ${company || "Not provided"}`,
+      `Role: ${role}`,
+      `Company size: ${companySize}`,
+      `Priority division: ${division}`,
+      `Evaluation timeline: ${timeline}`,
       `Source: ${source}`,
       "",
       message || "No additional message.",
@@ -97,4 +117,3 @@ export async function POST(request: Request) {
 
   return NextResponse.json({ ok: true });
 }
-

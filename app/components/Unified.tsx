@@ -17,7 +17,7 @@ export default function Unified() {
               href="/contact"
               className="shine-sweep inline-flex min-h-11 items-center rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
             >
-              Enquire about Unified
+              Apply for a private briefing
             </Link>
             <span className="text-sm text-muted">
               Custom pricing · by application
