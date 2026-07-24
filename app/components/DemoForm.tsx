@@ -42,19 +42,29 @@ export default function DemoForm({
           source,
         }),
       });
-      const result = (await response.json()) as {
+      const responseText = await response.text();
+      let result: {
         ok?: boolean;
         error?: string;
         fallback?: string;
         reference?: string;
         acknowledgementSent?: boolean;
-      };
+      } = {};
+      try {
+        result = JSON.parse(responseText) as typeof result;
+      } catch {
+        // Keep a useful fallback when an upstream service returns a non-JSON error.
+      }
 
       if (!response.ok || !result.ok) {
         setStatus({
           type: "error",
-          message: result.error ?? "We could not send your request.",
-          fallback: result.fallback,
+          message:
+            result.error ??
+            "Secure email delivery is temporarily unavailable. Please email us directly.",
+          fallback:
+            result.fallback ??
+            "mailto:director@iamstivai.com?subject=STIV%20private%20briefing%20application",
         });
         return;
       }
@@ -78,7 +88,8 @@ export default function DemoForm({
     } catch {
       setStatus({
         type: "error",
-        message: "We could not send your application. Please email us directly.",
+        message:
+          "The secure application service could not be reached. Please email us directly.",
         fallback:
           "mailto:director@iamstivai.com?subject=STIV%20private%20briefing%20application",
       });

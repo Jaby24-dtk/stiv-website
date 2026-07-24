@@ -17,6 +17,29 @@ function applicationReference() {
   return `STIV-${date}-${crypto.randomUUID().slice(0, 8).toUpperCase()}`;
 }
 
+function smtpTransport({
+  host,
+  port,
+  user,
+  password,
+}: {
+  host: string;
+  port: number;
+  user: string;
+  password: string;
+}) {
+  return nodemailer.createTransport({
+    host,
+    port,
+    secure: port === 465,
+    requireTLS: port !== 465,
+    auth: { user, pass: password },
+    connectionTimeout: 10_000,
+    greetingTimeout: 10_000,
+    socketTimeout: 15_000,
+  });
+}
+
 function qualificationSummary({
   companySize,
   timeline,
@@ -128,34 +151,24 @@ export async function POST(request: Request) {
   const smtpUser = process.env.ZOHO_SMTP_USER;
   const smtpPassword = process.env.ZOHO_SMTP_APP_PASSWORD;
   const recipient = process.env.LEADS_TO_EMAIL ?? "director@iamstivai.com";
+  const fallback = `mailto:${recipient}?subject=${encodeURIComponent(
+    "STIV private briefing application",
+  )}&body=${encodeURIComponent(
+    `Name: ${name || "Not provided"}\nEmail: ${email}\nCompany: ${
+      company || "Not provided"
+    }\nRole: ${role}\nCompany size: ${companySize}\nPriority division: ${division}\nTimeline: ${timeline}\nSource: ${source}\n\n${message}`,
+  )}`;
 
   if (!smtpUser || !smtpPassword) {
     return NextResponse.json(
       {
         error: "Online delivery is being configured.",
-        fallback: `mailto:${recipient}?subject=${encodeURIComponent(
-          "STIV private briefing application",
-        )}&body=${encodeURIComponent(
-          `Name: ${name || "Not provided"}\nEmail: ${email}\nCompany: ${
-            company || "Not provided"
-          }\nRole: ${role}\nCompany size: ${companySize}\nPriority division: ${division}\nTimeline: ${timeline}\nSource: ${source}\n\n${message}`,
-        )}`,
+        fallback,
       },
       { status: 503 },
     );
   }
 
-  recentRequests.set(ip, Date.now());
-
-  const transporter = nodemailer.createTransport({
-    host: process.env.ZOHO_SMTP_HOST ?? "smtp.zoho.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: smtpUser,
-      pass: smtpPassword,
-    },
-  });
   const qualification = qualificationSummary({
     companySize,
     timeline,
@@ -168,7 +181,7 @@ export async function POST(request: Request) {
     timeZone: "Asia/Singapore",
   }).format(new Date());
 
-  await transporter.sendMail({
+  const internalMessage = {
     from: `"STIV Website" <${smtpUser}>`,
     to: recipient,
     replyTo: email,
@@ -198,7 +211,56 @@ export async function POST(request: Request) {
           ? "Review the workflow and request clarification or approve a private briefing."
           : "Assess strategic fit and consider a tailored follow-up or nurture response.",
     ].join("\n"),
+  };
+
+  const smtpHost = process.env.ZOHO_SMTP_HOST ?? "smtp.zoho.com";
+  const configuredPort = Number.parseInt(
+    process.env.ZOHO_SMTP_PORT ?? "465",
+    10,
+  );
+  const primaryPort = Number.isFinite(configuredPort) ? configuredPort : 465;
+  const fallbackPort = primaryPort === 465 ? 587 : 465;
+  let transporter = smtpTransport({
+    host: smtpHost,
+    port: primaryPort,
+    user: smtpUser,
+    password: smtpPassword,
   });
+
+  try {
+    await transporter.sendMail(internalMessage);
+  } catch (primaryError) {
+    console.error("Primary application email delivery failed", {
+      reference,
+      port: primaryPort,
+      error: primaryError,
+    });
+    transporter = smtpTransport({
+      host: smtpHost,
+      port: fallbackPort,
+      user: smtpUser,
+      password: smtpPassword,
+    });
+    try {
+      await transporter.sendMail(internalMessage);
+    } catch (fallbackError) {
+      console.error("Fallback application email delivery failed", {
+        reference,
+        port: fallbackPort,
+        error: fallbackError,
+      });
+      return NextResponse.json(
+        {
+          error:
+            "Secure email delivery is temporarily unavailable. Please email us directly.",
+          fallback,
+        },
+        { status: 502 },
+      );
+    }
+  }
+
+  recentRequests.set(ip, Date.now());
 
   let acknowledgementSent = true;
   try {

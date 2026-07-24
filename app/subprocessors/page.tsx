@@ -40,6 +40,12 @@ const subprocessors = [
     purpose: "Website analytics",
     location: "United States",
   },
+  {
+    name: "Microsoft Corporation (Clarity)",
+    purpose:
+      "Consent-gated website analytics, heatmaps, and session interaction insights",
+    location: "United States",
+  },
 ];
 
 export default function SubprocessorsPage() {
@@ -48,7 +54,7 @@ export default function SubprocessorsPage() {
       <PageHeader
         eyebrow="LEGAL"
         title="Subprocessors"
-        description="Last updated July 8, 2026"
+        description="Last updated July 24, 2026"
       />
 
       <LegalBody>

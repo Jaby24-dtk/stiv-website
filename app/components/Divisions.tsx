@@ -33,7 +33,7 @@ export default function Divisions() {
             <span key={division.slug} className="flex items-center gap-2">
               <Link
                 href={`/software/${division.slug}`}
-                className="font-semibold text-foreground/90 transition-colors hover:text-accent-gold"
+                className="inline-flex min-h-11 items-center font-semibold text-foreground/90 transition-colors hover:text-accent-gold"
               >
                 {division.name}
               </Link>
@@ -53,7 +53,7 @@ export default function Divisions() {
         </p>
         <a
           href="#unified"
-          className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent-gold hover:underline"
+          className="mt-3 inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-accent-gold hover:underline"
         >
           See STIV Unified →
         </a>

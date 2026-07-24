@@ -34,7 +34,7 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <Link href="/" className="header-invert flex items-center gap-2.5">
+        <Link href="/" className="header-invert flex min-h-11 items-center gap-2.5">
           <Image
             src="/stiv-logo-mark.png"
             alt="STIV"
@@ -48,7 +48,7 @@ export default function Nav() {
           </span>
         </Link>
 
-        <div className="header-invert hidden items-center gap-8 md:flex">
+        <div className="header-invert hidden items-center gap-5 xl:flex 2xl:gap-8">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -60,10 +60,10 @@ export default function Nav() {
           ))}
         </div>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <Link
             href="/status"
-            className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-muted transition-colors hover:border-white/20 hover:text-foreground"
+            className="hidden min-h-11 items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-muted transition-colors hover:border-white/20 hover:text-foreground 2xl:flex"
           >
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-gold/70" />
@@ -73,15 +73,18 @@ export default function Nav() {
           </Link>
           <Link
             href="/contact"
-            className="rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
+            className="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
           >
             Request private access
           </Link>
         </div>
 
         <button
-          className="md:hidden"
-          aria-label="Toggle menu"
+          type="button"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 xl:hidden"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
           onClick={() => setOpen((o) => !o)}
         >
           <div className="flex h-8 w-8 flex-col items-center justify-center gap-1.5">
@@ -99,14 +102,17 @@ export default function Nav() {
       </nav>
 
       {open && (
-        <div className="border-t border-white/10 bg-background px-6 py-4 md:hidden">
-          <div className="flex flex-col gap-4">
+        <div
+          id="mobile-navigation"
+          className="border-t border-white/10 bg-background px-6 py-4 xl:hidden"
+        >
+          <div className="flex flex-col gap-1">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="text-sm text-muted hover:text-foreground"
+                className="flex min-h-11 items-center rounded-lg px-3 text-sm text-muted hover:bg-white/5 hover:text-foreground"
               >
                 {link.label}
               </Link>
@@ -114,7 +120,7 @@ export default function Nav() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-center text-sm font-semibold text-slate-950"
+              className="mt-2 inline-flex min-h-11 items-center justify-center rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-center text-sm font-semibold text-slate-950"
             >
               Request private access
             </Link>
