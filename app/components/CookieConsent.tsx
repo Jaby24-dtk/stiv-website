@@ -68,7 +68,7 @@ export default function CookieConsent() {
             <p className="text-sm leading-relaxed text-muted">
               We use analytics cookies to understand how the site is used.
               Non-essential cookies aren&apos;t set until you accept. See our{" "}
-              <Link href="/privacy" className="text-foreground underline">
+              <Link href="/privacy" className="inline-flex min-h-11 items-center text-foreground underline">
                 Privacy Policy
               </Link>
               .
@@ -77,14 +77,14 @@ export default function CookieConsent() {
               <button
                 type="button"
                 onClick={() => setConsent("denied")}
-                className="rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
+                className="min-h-11 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
               >
                 Decline
               </button>
               <button
                 type="button"
                 onClick={() => setConsent("granted")}
-                className="rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
+                className="min-h-11 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
               >
                 Accept
               </button>

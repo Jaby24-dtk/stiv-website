@@ -1,7 +1,6 @@
 import Link from "next/link";
-import UnifiedScene from "./DynamicUnifiedScene";
+import UnifiedScene from "./UnifiedScene";
 import Reveal from "./Reveal";
-import Magnetic from "./Magnetic";
 
 export default function Unified() {
   return (
@@ -14,14 +13,12 @@ export default function Unified() {
             One assistant. Every division. Exclusively yours.
           </h2>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Magnetic>
-              <Link
-                href="/contact"
-                className="shine-sweep inline-flex rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
-              >
-                Enquire about Unified
-              </Link>
-            </Magnetic>
+            <Link
+              href="/contact"
+              className="shine-sweep inline-flex min-h-11 items-center rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
+            >
+              Enquire about Unified
+            </Link>
             <span className="text-sm text-muted">
               Custom pricing · by application
             </span>

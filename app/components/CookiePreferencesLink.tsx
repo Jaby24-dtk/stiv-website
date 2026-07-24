@@ -7,7 +7,7 @@ export default function CookiePreferencesLink() {
     <button
       type="button"
       onClick={() => setConsent(null)}
-      className="text-sm text-muted transition-colors hover:text-foreground"
+      className="inline-flex min-h-11 items-center text-sm text-muted transition-colors hover:text-foreground"
     >
       Cookie preferences
     </button>
