@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/check-legal-placeholders.mjs",
     "build": "next build",
+    "check:legal": "node scripts/check-legal-placeholders.mjs",
     "start": "next start",
     "lint": "eslint",
     "indexnow": "node scripts/submit-indexnow.mjs"

@@ -215,10 +215,6 @@ export default function PrivacyPage() {
         <LegalSection title="12. Data Protection Officer">
           <p>
             Our Data Protection Officer can be reached at{" "}
-            <span className="text-foreground/90">
-              [DPO name to be confirmed]
-            </span>
-            ,{" "}
             <a
               href="mailto:privacy@iamstivai.com"
               className="underline hover:text-foreground"
