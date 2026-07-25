@@ -133,6 +133,7 @@ export default function UnifiedScene() {
           start: "top top",
           end: () => `+=${stages.length * 90}%`,
           scrub: 0.6,
+          fastScrollEnd: true,
           pin: true,
           anticipatePin: 1,
           onUpdate: (self) => {

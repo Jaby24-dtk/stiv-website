@@ -47,6 +47,7 @@ export default function DivisionsSwipe({
           start: "top top",
           end: () => `+=${cards.length * 90}%`,
           scrub: 0.8,
+          fastScrollEnd: true,
           pin: true,
           anticipatePin: 1,
         },
@@ -56,8 +57,11 @@ export default function DivisionsSwipe({
       // has an actual resting scroll position — without one, the next
       // transition starts the instant this one ends and every middle card
       // is permanently mid-crossfade, so scroll never "settles" on it.
-      const TRANSITION = 1;
-      const HOLD = 0.5;
+      // TRANSITION < HOLD keeps most of the scroll distance on a single
+      // settled card — with TRANSITION=1/HOLD=0.5 (6 transitions), 63% of
+      // the section was spent mid-crossfade, reading as cards overlapping.
+      const TRANSITION = 0.5;
+      const HOLD = 0.8;
       cards.forEach((card, i) => {
         if (i === 0) return;
         const at = HOLD + (i - 1) * (TRANSITION + HOLD);
