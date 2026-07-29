@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
@@ -10,6 +11,37 @@ import { ORGANIZATION_ID, SITE_URL, WEBSITE_ID } from "../../lib/site";
 
 export function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
+}
+
+const INLINE_LINK = /\[\[([a-z0-9-]+)\|([^\]]+)\]\]/g;
+
+function renderInline(text: string) {
+  const nodes: ReactNode[] = [];
+  let lastIndex = 0;
+
+  for (const match of text.matchAll(INLINE_LINK)) {
+    const [full, slug, label] = match;
+    const index = match.index ?? 0;
+    if (index > lastIndex) nodes.push(text.slice(lastIndex, index));
+
+    nodes.push(
+      getPostBySlug(slug) ? (
+        <Link
+          key={index}
+          href={`/blog/${slug}`}
+          className="font-semibold text-foreground underline decoration-white/30 underline-offset-2 transition-colors hover:text-accent-gold hover:decoration-accent-gold"
+        >
+          {label}
+        </Link>
+      ) : (
+        label
+      ),
+    );
+    lastIndex = index + full.length;
+  }
+
+  if (lastIndex < text.length) nodes.push(text.slice(lastIndex));
+  return nodes;
 }
 
 export async function generateMetadata({
@@ -141,7 +173,7 @@ export default async function BlogPostPage({
                           aria-hidden
                           className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-accent-gold"
                         />
-                        <span>{item}</span>
+                        <span>{renderInline(item)}</span>
                       </li>
                     ))}
                   </ul>
@@ -152,7 +184,7 @@ export default async function BlogPostPage({
                   key={i}
                   className="text-base leading-relaxed text-muted"
                 >
-                  {block.text}
+                  {renderInline(block.text)}
                 </p>
               );
             })}

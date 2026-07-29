@@ -251,6 +251,154 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "how-stiv-connects-without-a-migration",
+    title: "How STIV connects to your stack without a migration",
+    description:
+      "Agents read what's already there instead of replacing it. Here's what actually happens during the connect stage, and how access stays scoped.",
+    date: "2026-07-20",
+    readTime: "4 min read",
+    category: "Product",
+    content: [
+      {
+        type: "p",
+        text: "\"Connect your stack\" is easy to say and, in most enterprise software, hard to trust. It usually means an OAuth screen asking for broad access, followed by months of a vendor's implementation team mapping your data into their schema before anything useful happens. STIV is built to skip both parts.",
+      },
+      {
+        type: "h2",
+        text: "Read first, write only through a gate",
+      },
+      {
+        type: "p",
+        text: "When a division connects to your inbox, CRM, accounting system, or docs, the agent starts read-only. It's building context — how your team writes, what a normal deal or invoice looks like, which playbooks it should be following — before it's trusted to produce anything a human sees. Write access, when it's granted, still routes through the same approval gates covered in [[how-stivs-approval-gates-work|our piece on how STIV's approval gates work]].",
+      },
+      {
+        type: "h2",
+        text: "Scoped per division, not per company",
+      },
+      {
+        type: "p",
+        text: "A Sales system doesn't get standing access to your general ledger, and a Finance system doesn't get access to inbound lead conversations. Access is scoped to what a given division's role actually requires, which means adding a second division later doesn't widen what the first one can see — each system's blast radius stays fixed to its job.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Standard integrations connect in minutes for common tools — email, calendar, CRM, accounting, and docs platforms most teams already run.",
+          "Custom integrations (Full Suite and Unified) extend that to internal tools and less common systems via API.",
+          "Nothing is migrated or re-platformed — STIV reads your existing systems of record rather than becoming a new one.",
+          "Revoking access is immediate and doesn't require a support ticket or a contract amendment.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Why this matters more than the demo",
+      },
+      {
+        type: "p",
+        text: "The demo of any AI product looks impressive with clean, pre-loaded data. The real test is whether it can be trusted against your actual inbox, your actual pipeline, with all the inconsistency that implies — without you first spending a quarter cleaning it up for the tool's benefit. Reading what's already there, scoped narrowly, is what makes that possible on week one instead of after a migration project.",
+      },
+    ],
+  },
+  {
+    slug: "soc-2-data-residency-and-stivs-security-architecture",
+    title: "SOC 2, data residency, and what \"built for compliance\" actually means",
+    description:
+      "Encryption and audit logs are table stakes. Here's a closer look at the control objectives STIV is architected around, and why they matter before you connect real data.",
+    date: "2026-07-24",
+    readTime: "5 min read",
+    category: "Security",
+    content: [
+      {
+        type: "p",
+        text: "Every enterprise software vendor claims to take security seriously. The claim that actually matters is narrower: which specific controls is the architecture built around, and can you verify them before you connect a real inbox, a real CRM, or real financial data — not after.",
+      },
+      {
+        type: "h2",
+        text: "Architected around SOC 2 control objectives",
+      },
+      {
+        type: "p",
+        text: "STIV is built around SOC 2's five trust service criteria from the ground up rather than retrofitted later: security, availability, processing integrity, confidentiality, and privacy. In practice that shows up as access scoped per division and per role, encryption in transit and at rest by default, and every consequential action landing in a timestamped, reversible audit trail — the same audit trail described in [[how-stivs-approval-gates-work|our approval gates piece]].",
+      },
+      {
+        type: "h2",
+        text: "Data residency for regulated teams",
+      },
+      {
+        type: "p",
+        text: "Teams in regulated industries — finance, legal, healthcare-adjacent — often have a hard requirement about where data physically lives, not just how it's encrypted. STIV offers data residency options so that requirement is a configuration decision at onboarding, not a blocker discovered during procurement review.",
+      },
+      {
+        type: "h2",
+        text: "What this doesn't mean",
+      },
+      {
+        type: "p",
+        text: "\"Architected around SOC 2 control objectives\" is not the same claim as \"SOC 2 Type II certified,\" and we're careful not to blur the two. Certification is a point-in-time attestation from a third-party auditor; architecture is the design decisions that make passing that audit possible in the first place. If your procurement process requires a completed certification or a specific report, ask directly — the honest answer is more useful than a vague one.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Encryption in transit and at rest, by default, with no opt-out tier.",
+          "Per-division, per-role access scoping — covered in more depth in [[how-stiv-connects-without-a-migration|how STIV connects without a migration]].",
+          "Full audit trail: every agent decision logged, timestamped, and reversible.",
+          "Data residency options available for regulated teams at onboarding.",
+        ],
+      },
+      {
+        type: "p",
+        text: "The underlying principle is the same one behind the approval gate model: verify before you trust. Ask what's actually been built and audited, not just what's been claimed on a website — including this one.",
+      },
+    ],
+  },
+  {
+    slug: "how-to-measure-whether-a-stiv-division-is-working",
+    title: "How to measure whether a STIV division is working",
+    description:
+      "\"It feels like it's helping\" isn't a metric. Here's what to actually track in the first quarter, and what a division that isn't earning its keep looks like.",
+    date: "2026-07-28",
+    readTime: "4 min read",
+    category: "Guide",
+    content: [
+      {
+        type: "p",
+        text: "Most teams can tell you whether a new tool feels useful within a week. Whether it's actually worth what they're paying for it is a different question, and it's the one worth answering with numbers instead of a gut check — especially before deciding whether to expand from one division to Full Suite.",
+      },
+      {
+        type: "h2",
+        text: "The four numbers that matter",
+      },
+      {
+        type: "ul",
+        items: [
+          "Approval rate over time — what share of an agent's drafted actions get approved as-is, edited, or rejected, and whether that ratio is improving week over week.",
+          "Time-to-first-value — how long between connecting a division and the first agent output a human actually used, not just reviewed.",
+          "Hours reclaimed — the honest version of this is self-reported by the team doing the work, cross-checked against what's actually shipping through the approval gate.",
+          "Audit trail incidents — how many logged actions needed a correction after the fact. Zero forever is a red flag that approvals are being rubber-stamped, not a sign of perfection.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "What good looks like in month one",
+      },
+      {
+        type: "p",
+        text: "As described in [[first-30-days-with-stiv|the first 30 days with STIV]], month one is mostly the connect and learn stages — approval rates should be climbing but still well below where they'll settle, and most of a team's interaction with the system should be reviewing and correcting drafts rather than rubber-stamping them. If approval rate is already near 100% in week two, that's usually a sign the team isn't reading closely yet, not that the agent is unusually good.",
+      },
+      {
+        type: "h2",
+        text: "What a division that isn't working looks like",
+      },
+      {
+        type: "p",
+        text: "The clearest signal isn't a low approval rate — a low rate that's climbing is normal early on. It's a flat or declining approval rate past week four, combined with a team that's stopped engaging with drafts closely because they've learned not to trust them. That combination means the agent isn't learning from the correction signal it's being given, and it's worth a direct conversation about playbooks and data access before assuming the model itself is the problem.",
+      },
+      {
+        type: "p",
+        text: "None of this requires a dashboard you don't already have. The audit trail every action already generates — logged, timestamped, and reversible — is the same data you need to answer whether a division has earned its keep. The discipline is in actually looking at it monthly, not waiting for renewal to ask the question.",
+      },
+    ],
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
