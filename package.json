@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/check-legal-placeholders.mjs",
+    "prebuild": "node scripts/check-legal-placeholders.mjs && node scripts/sync-llms-txt.mjs",
+    "sync:llms": "node scripts/sync-llms-txt.mjs",
     "build": "next build",
     "check:legal": "node scripts/check-legal-placeholders.mjs",
     "start": "next start",
