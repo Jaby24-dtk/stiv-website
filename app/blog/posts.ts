@@ -270,7 +270,7 @@ export const posts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "When a division connects to your inbox, CRM, accounting system, or docs, the agent starts read-only. It's building context — how your team writes, what a normal deal or invoice looks like, which playbooks it should be following — before it's trusted to produce anything a human sees. Write access, when it's granted, still routes through the same approval gates covered in our piece on how STIV's approval gates work.",
+        text: "When a division connects to your inbox, CRM, accounting system, or docs, the agent starts read-only. It's building context — how your team writes, what a normal deal or invoice looks like, which playbooks it should be following — before it's trusted to produce anything a human sees. Write access, when it's granted, still routes through the same approval gates covered in [[how-stivs-approval-gates-work|our piece on how STIV's approval gates work]].",
       },
       {
         type: "h2",
@@ -318,7 +318,7 @@ export const posts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "STIV is built around SOC 2's five trust service criteria from the ground up rather than retrofitted later: security, availability, processing integrity, confidentiality, and privacy. In practice that shows up as access scoped per division and per role, encryption in transit and at rest by default, and every consequential action landing in a timestamped, reversible audit trail — the same audit trail described in our approval gates piece.",
+        text: "STIV is built around SOC 2's five trust service criteria from the ground up rather than retrofitted later: security, availability, processing integrity, confidentiality, and privacy. In practice that shows up as access scoped per division and per role, encryption in transit and at rest by default, and every consequential action landing in a timestamped, reversible audit trail — the same audit trail described in [[how-stivs-approval-gates-work|our approval gates piece]].",
       },
       {
         type: "h2",
@@ -340,7 +340,7 @@ export const posts: BlogPost[] = [
         type: "ul",
         items: [
           "Encryption in transit and at rest, by default, with no opt-out tier.",
-          "Per-division, per-role access scoping — covered in more depth in how STIV connects without a migration.",
+          "Per-division, per-role access scoping — covered in more depth in [[how-stiv-connects-without-a-migration|how STIV connects without a migration]].",
           "Full audit trail: every agent decision logged, timestamped, and reversible.",
           "Data residency options available for regulated teams at onboarding.",
         ],
@@ -383,7 +383,7 @@ export const posts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "As described in the first 30 days with STIV, month one is mostly the connect and learn stages — approval rates should be climbing but still well below where they'll settle, and most of a team's interaction with the system should be reviewing and correcting drafts rather than rubber-stamping them. If approval rate is already near 100% in week two, that's usually a sign the team isn't reading closely yet, not that the agent is unusually good.",
+        text: "As described in [[first-30-days-with-stiv|the first 30 days with STIV]], month one is mostly the connect and learn stages — approval rates should be climbing but still well below where they'll settle, and most of a team's interaction with the system should be reviewing and correcting drafts rather than rubber-stamping them. If approval rate is already near 100% in week two, that's usually a sign the team isn't reading closely yet, not that the agent is unusually good.",
       },
       {
         type: "h2",
