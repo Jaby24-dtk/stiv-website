@@ -65,11 +65,8 @@ export default function Nav() {
             href="/status"
             className="hidden min-h-11 items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-muted transition-colors hover:border-white/20 hover:text-foreground 2xl:flex"
           >
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-gold/70" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-gold" />
-            </span>
-            All 7 systems operational
+            <span className="h-1.5 w-1.5 rounded-full bg-accent-gold" />
+            Built for 99.5% uptime
           </Link>
           <Link
             href="/contact"
