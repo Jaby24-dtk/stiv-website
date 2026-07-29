@@ -7,12 +7,12 @@ import { divisions } from "../lib/divisions";
 
 export const metadata: Metadata = {
   title: "System Status",
-  description: "Current operational status of all seven STIV division systems.",
+  description: "STIV's uptime commitment across all seven division systems.",
   alternates: { canonical: "/status" },
   openGraph: {
     title: "System Status — STIV",
     description:
-      "Current operational status of all seven STIV division systems.",
+      "STIV's uptime commitment across all seven division systems.",
     url: "/status",
   },
 };
@@ -22,8 +22,8 @@ export default function StatusPage() {
     <>
       <PageHeader
         eyebrow="STATUS"
-        title="All systems operational."
-        description="Current status of each division system, checked continuously."
+        title="Built for 99.5% uptime."
+        description="Our uptime commitment across each division system — see the audit trail and SLA details below."
       />
 
       <section className="px-6 py-20 lg:px-8">
@@ -39,10 +39,7 @@ export default function StatusPage() {
                   <span className="font-medium">{division.name}</span>
                 </div>
                 <span className="flex items-center gap-2 text-sm text-muted">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-gold/70" />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-gold" />
-                  </span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent-gold" />
                   Operational
                 </span>
               </div>
@@ -51,8 +48,10 @@ export default function StatusPage() {
 
           <div className="mt-10 rounded-2xl border border-white/10 bg-panel/40 p-6">
             <p className="text-sm leading-relaxed text-muted">
-              STIV operates against a 99.5% uptime commitment. Every agent
-              decision is logged and timestamped as part of the standard{" "}
+              STIV operates against a 99.5% uptime commitment; the list above
+              reflects that commitment rather than a live monitoring feed.
+              Every agent decision is logged and timestamped as part of the
+              standard{" "}
               <Link href="/security" className="text-accent-gold hover:underline">
                 audit trail
               </Link>
