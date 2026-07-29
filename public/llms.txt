@@ -41,11 +41,14 @@ STIV is architected around SOC 2 control objectives from day one, with data resi
 
 ## Blog
 
-- [Why one AI assistant can't run your whole company](https://www.iamstivai.com/blog/why-one-assistant-cant-run-your-company): the case for division-specific software over one generalist assistant.
-- [Inside STIV's approval gates: how agents earn autonomy](https://www.iamstivai.com/blog/how-stivs-approval-gates-work): how STIV's human-approval, audit-trail, and encryption model works.
-- [The first 30 days with STIV: connect, learn, act, compound](https://www.iamstivai.com/blog/first-30-days-with-stiv): what onboarding looks like in practice, stage by stage.
-- [STIV Unified: one assistant, every division, still yours](https://www.iamstivai.com/blog/stiv-unified-explained): what changes and what doesn't when a company unifies all seven divisions into one assistant.
-- [Single Division, Full Suite, or Unified: how to choose where to start](https://www.iamstivai.com/blog/choosing-single-division-full-suite-or-unified): a guide to STIV's three pricing tiers and which fits which company.
+- [Why one AI assistant can't run your whole company](https://www.iamstivai.com/blog/why-one-assistant-cant-run-your-company): A generalist assistant treats Finance and Legal the same way. Here's why STIV builds a dedicated system for each division instead.
+- [Inside STIV's approval gates: how agents earn autonomy](https://www.iamstivai.com/blog/how-stivs-approval-gates-work): Giving software real access to your business only works if you can trust — and verify — everything it touches. Here's how STIV's approval model is built.
+- [The first 30 days with STIV: connect, learn, act, compound](https://www.iamstivai.com/blog/first-30-days-with-stiv): What actually happens between signing up and running division software on autopilot — in four stages, not one big migration.
+- [STIV Unified: one assistant, every division, still yours](https://www.iamstivai.com/blog/stiv-unified-explained): Seven independent systems are the starting point. Here's what changes — and what doesn't — when a company moves to one exclusive assistant instead.
+- [Single Division, Full Suite, or Unified: how to choose where to start](https://www.iamstivai.com/blog/choosing-single-division-full-suite-or-unified): Three ways to license STIV, and the honest answer for which one fits a company that's never run division-specific software before.
+- [How STIV connects to your stack without a migration](https://www.iamstivai.com/blog/how-stiv-connects-without-a-migration): Agents read what's already there instead of replacing it. Here's what actually happens during the connect stage, and how access stays scoped.
+- [SOC 2, data residency, and what "built for compliance" actually means](https://www.iamstivai.com/blog/soc-2-data-residency-and-stivs-security-architecture): Encryption and audit logs are table stakes. Here's a closer look at the control objectives STIV is architected around, and why they matter before you connect real data.
+- [How to measure whether a STIV division is working](https://www.iamstivai.com/blog/how-to-measure-whether-a-stiv-division-is-working): "It feels like it's helping" isn't a metric. Here's what to actually track in the first quarter, and what a division that isn't earning its keep looks like.
 
 ## Software, by division
 
