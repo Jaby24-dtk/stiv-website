@@ -399,6 +399,260 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "inside-stiv-legal-contract-review",
+    title: "Inside STIV Legal: what happens between upload and redline",
+    description:
+      "A walkthrough of how a contract actually moves through STIV Legal — from playbook match to the redline a human signs off on.",
+    date: "2026-08-01",
+    readTime: "4 min read",
+    category: "Product",
+    content: [
+      {
+        type: "p",
+        text: "Ask what an AI contract review tool actually does and most vendors give you a marketing answer: it reviews contracts. STIV Legal's answer is more specific, because the mechanism is more specific — every review runs against a playbook your legal team defines, not a generic sense of what a solid contract looks like.",
+      },
+      {
+        type: "h2",
+        text: "Step one: the playbook does the judging, not the model",
+      },
+      {
+        type: "p",
+        text: "Before STIV Legal reviews anything, your team defines approved positions, fallback language, and escalation rules for the agreement types it's permitted to touch. This is the part most AI contract tools skip, and it's the part that determines whether the output is useful. A model that's merely competent at contracts in the abstract doesn't know that your standard indemnification cap is 12 months of fees, or that a specific vendor category always needs a data processing addendum attached. Your playbook does.",
+      },
+      {
+        type: "h2",
+        text: "What gets flagged, and what gets left alone",
+      },
+      {
+        type: "ul",
+        items: [
+          "Clauses that match an approved position are left alone — no redline, no flag, because there's nothing for a human to weigh in on.",
+          "Clauses that deviate from the playbook get a targeted redline, with the fallback language proposed alongside the original.",
+          "Ambiguous language that doesn't clearly match or clearly deviate gets escalated to the designated reviewer with the relevant context attached, rather than silently guessed at.",
+          "Agreement types outside what the playbook covers aren't reviewed at all — STIV Legal doesn't improvise on a contract type it wasn't configured for.",
+        ],
+      },
+      {
+        type: "p",
+        text: "The result is a first pass that spends a reviewer's attention on the two or three clauses that actually depart from your standard position, instead of a full read-through of a routine NDA or MSA that was likely fine to begin with.",
+      },
+      {
+        type: "h2",
+        text: "The gate that doesn't move",
+      },
+      {
+        type: "p",
+        text: "None of this changes who has authority to send a redline or execute a document. Every output routes through the same approval model described in [[how-stivs-approval-gates-work|how STIV's approval gates work]] — an authorized reviewer signs off before anything leaves the building. What changes is how much of the document they have to read closely before they do.",
+      },
+      {
+        type: "p",
+        text: "This is deliberately not a replacement for legal judgment. It's a way of making sure the judgment your team already has gets applied to a contract in minutes instead of after end-of-day, and gets applied consistently across every agreement's routine terms — not just the ones a reviewer happens to remember to double-check.",
+      },
+    ],
+  },
+  {
+    slug: "inside-stiv-support-ticket-handoffs",
+    title: "Inside STIV Support: what happens when a ticket can't be resolved automatically",
+    description:
+      "Most of the interesting design decisions in a support agent show up in the tickets it doesn't close on its own. Here's how handoffs actually work.",
+    date: "2026-08-05",
+    readTime: "4 min read",
+    category: "Product",
+    content: [
+      {
+        type: "p",
+        text: "The easy part of an AI support agent is the ticket it can resolve outright — a password reset, a status lookup, a question already answered in the docs. The design decisions that actually matter show up in the tickets it can't close on its own, and what happens next.",
+      },
+      {
+        type: "h2",
+        text: "Resolve on policy, not on confidence",
+      },
+      {
+        type: "p",
+        text: "STIV Support resolves tickets against the resolution policy your team defines — a specific, bounded set of request types with a known-correct answer. It doesn't resolve a ticket because the agent seems confident about the answer; it resolves a ticket because that request type is on the list of things it's been authorized to close without a human. That distinction matters, because a model's confidence is not an audit trail, and a policy list is.",
+      },
+      {
+        type: "h2",
+        text: "What a handoff actually carries",
+      },
+      {
+        type: "p",
+        text: "When a ticket falls outside that policy — a billing dispute, anything touching an active account issue, a customer who's clearly frustrated — it hands off. The point of building this as a real handoff rather than a rejection is what travels with it:",
+      },
+      {
+        type: "ul",
+        items: [
+          "The full ticket history and any prior related tickets from the same customer, so the person picking it up isn't starting from zero.",
+          "What STIV Support already checked and ruled out, so a human isn't repeating diagnostic steps that already happened.",
+          "A plain note on why it escalated — not just that it did — so the reviewer knows what to look at first.",
+          "No re-explaining by the customer. The context moves with the ticket, not the other way around.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Watching for the pattern, not just the ticket",
+      },
+      {
+        type: "p",
+        text: "A single ticket is a data point. STIV Support also watches across tickets for the same underlying issue showing up repeatedly — a bug, a confusing product change, a documentation gap — and flags that pattern instead of treating each instance as an isolated case to close. That's the difference between a support agent that clears a queue and one that helps a team stop generating the same queue every week.",
+      },
+      {
+        type: "p",
+        text: "The measure of a support agent isn't how many tickets it closes on its own — it's whether the ones it hands off arrive better-prepared than they would have if a human had triaged them cold. Response times staying consistent during a volume spike is a side effect of that design, not the goal itself.",
+      },
+    ],
+  },
+  {
+    slug: "stiv-vs-hiring-more-headcount",
+    title: "STIV vs. hiring more headcount: how to actually compare the two",
+    description:
+      "The honest version of this comparison isn't AI versus humans. It's what a division's next dollar buys, and what it doesn't.",
+    date: "2026-08-08",
+    readTime: "5 min read",
+    category: "Guide",
+    content: [
+      {
+        type: "p",
+        text: "When a division is underwater — Finance behind on close, Legal behind on contract review, Support drowning in ticket volume — the default next move is usually to open a req. STIV is a real alternative to that req in some cases, and a poor substitute for it in others. The comparison is worth making honestly instead of picking a side first.",
+      },
+      {
+        type: "h2",
+        text: "What a hire buys that STIV doesn't",
+      },
+      {
+        type: "p",
+        text: "A new hire brings judgment that generalizes to situations nobody wrote a playbook for, accountability that's already legible to the rest of the org, and the ability to represent the company in a room. None of STIV's divisions are built to do those things, and pricing them as if they compete with a senior hire's judgment would be a category error. Single Division at $1,500/mo is not a claim that software replaces a controller or general counsel.",
+      },
+      {
+        type: "h2",
+        text: "What STIV buys that a hire doesn't",
+      },
+      {
+        type: "ul",
+        items: [
+          "Coverage of the repetitive share of a role — reconciliation, first-pass redlines, ticket triage, follow-up drafting — that consumes a skilled hire's time without using their judgment.",
+          "A start date measured by a connect-and-learn cycle, not a hiring cycle, req approval, and ramp time.",
+          "Cost that scales with what you license, not with headcount added as volume grows.",
+          "An audit trail on every action from day one — something you'd otherwise have to build separately around a new hire's output.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "The combination is usually the answer",
+      },
+      {
+        type: "p",
+        text: "In practice the two aren't mutually exclusive, and the most common outcome isn't \"STIV instead of a hire\" — it's a division that was about to justify a second or third hire on volume alone, where STIV absorbs enough of the repetitive load that the hire who does join is doing higher-judgment work from day one instead of triage. The [[how-stivs-approval-gates-work|approval gate model]] is what makes that combination safe: STIV drafts and flags, the person your team already trusts still decides.",
+      },
+      {
+        type: "h2",
+        text: "When headcount is the right answer, not STIV",
+      },
+      {
+        type: "p",
+        text: "If a division's bottleneck is judgment calls, relationship management, or novel situations with no precedent to draft against, a hire solves that and STIV doesn't. STIV is built for divisions where the pain is volume and consistency on well-understood work, not one where the pain is a lack of experienced judgment in the room. Being honest about which problem you actually have is most of the comparison.",
+      },
+    ],
+  },
+  {
+    slug: "what-a-rejected-approval-looks-like",
+    title: "What a rejected — or edited — approval actually looks like",
+    description:
+      "The approval gate isn't a yes/no switch. Here's what happens when a human edits or rejects what an agent drafted, and where that decision goes.",
+    date: "2026-08-12",
+    readTime: "4 min read",
+    category: "Security",
+    content: [
+      {
+        type: "p",
+        text: "Most descriptions of an approval gate stop at \"a human signs off before anything ships.\" That's true, but it undersells what the gate actually does, because approval isn't the only outcome — and the other two are where most of the interesting work happens.",
+      },
+      {
+        type: "h2",
+        text: "Three outcomes, not two",
+      },
+      {
+        type: "ul",
+        items: [
+          "Approved as-is — the draft goes out unchanged. This is the outcome you want to become more common over time, not the only one you should expect from the start.",
+          "Edited and approved — a reviewer changes the draft before it ships. The edit itself becomes part of the record, not just the fact that a change happened.",
+          "Rejected — the draft doesn't ship, and the reason is captured, not just the verdict.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Each of the three lands in the same audit trail — logged, timestamped, and attributable to the person who made the call — described in more depth in [[soc-2-data-residency-and-stivs-security-architecture|our piece on STIV's security architecture]]. Nothing about a rejection is quieter than an approval.",
+      },
+      {
+        type: "h2",
+        text: "Where the correction actually goes",
+      },
+      {
+        type: "p",
+        text: "An edit or a rejection isn't just a decision about that one draft — it's a signal about the playbook the agent is working from. If a Finance report keeps getting the same line item edited the same way, or a Legal redline keeps getting the same fallback clause swapped in, that's a playbook gap, not a one-off mistake. Reviewing the pattern in the audit trail, not just individual incidents, is how a playbook actually improves — the same discipline covered in [[how-to-measure-whether-a-stiv-division-is-working|how to measure whether a division is working]].",
+      },
+      {
+        type: "h2",
+        text: "Why a rejection isn't a failure state",
+      },
+      {
+        type: "p",
+        text: "Teams sometimes read a string of rejections as evidence the system isn't working. Early on, it's closer to the opposite — a healthy approval process should be rejecting and editing plenty in month one, because that's the correction signal the agent needs before autonomy expands to more of its output. A rejection rate near zero in week two, as covered in [[first-30-days-with-stiv|the first 30 days with STIV]], usually means a reviewer stopped reading closely, not that the drafts got perfect overnight.",
+      },
+      {
+        type: "p",
+        text: "The gate isn't there to eventually disappear. It's there so that when it does let more through unreviewed, that decision is backed by a record of exactly how the agent has handled disagreement — not just how often it happened to be right.",
+      },
+    ],
+  },
+  {
+    slug: "a-cfos-case-for-stiv-finance",
+    title: "A CFO's case for STIV Finance",
+    description:
+      "The pitch to a CFO isn't \"AI for finance.\" It's a specific set of guarantees about where the numbers come from and who's accountable for them.",
+    date: "2026-08-15",
+    readTime: "4 min read",
+    category: "Guide",
+    content: [
+      {
+        type: "p",
+        text: "A CFO evaluating STIV Finance isn't asking whether AI can draft a variance report — most tools can produce something that looks like one. The actual questions are narrower: where does every number trace back to, who signed off on it, and what happens the day it's wrong.",
+      },
+      {
+        type: "h2",
+        text: "The traceability question comes first",
+      },
+      {
+        type: "p",
+        text: "STIV Finance reconciles connected account data and drafts reports with figures traceable to their sources — not a summary generated from a prompt, but output tied back to the underlying records. That matters more to a CFO than speed, because a fast report a controller can't defend under audit is worse than a slow one they can.",
+      },
+      {
+        type: "h2",
+        text: "What still requires your sign-off",
+      },
+      {
+        type: "ul",
+        items: [
+          "Every entry, adjustment, or finalized report routes through an approval gate your team defines before it's final — STIV drafts and reconciles, your controller decides.",
+          "Variance flags are surfaced against patterns your team sets, not a generic anomaly model guessing at what's unusual for your business.",
+          "Access is scoped to Finance's connected data specifically — a Sales or Support agent, if you run one, doesn't get standing visibility into the general ledger.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "The month-one math",
+      },
+      {
+        type: "p",
+        text: "Single Division pricing at $1,500/mo is the number to weigh against a specific, current cost: hours spent on reconciliation and report drafting that a controller or analyst is doing manually today. It isn't priced or positioned as a replacement for the judgment a controller applies at close — it's priced as removing the repetitive preparation work that happens before that judgment gets applied. [[how-to-measure-whether-a-stiv-division-is-working|What to actually track]] in the first quarter is approval rate trend, time-to-first-value, and audit trail incidents — not a vague sense that close felt easier.",
+      },
+      {
+        type: "p",
+        text: "The honest pitch to a CFO is the same one on the security page: verify before you trust. Ask what's traceable, what's gated, and what's logged, and treat a vendor that can't answer those three specifically as a bigger risk than one that answers slowly.",
+      },
+    ],
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
