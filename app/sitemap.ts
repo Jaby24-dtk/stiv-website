@@ -2,12 +2,20 @@ import type { MetadataRoute } from "next";
 import { posts } from "./blog/posts";
 import { divisions } from "./lib/divisions";
 import { solutions } from "./lib/solutions";
+import { SITE_URL } from "./lib/site";
 
-const BASE_URL = "https://www.iamstivai.com";
-const SITE_LAST_MODIFIED = new Date("2026-07-23");
+const SITE_LAST_MODIFIED = new Date("2026-08-09");
+const latestPostDate = new Date(
+  Math.max(...posts.map((post) => new Date(post.date).getTime())),
+);
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number; lastModified?: Date }[] = [
+  const routes: {
+    path: string;
+    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+    priority: number;
+    lastModified?: Date;
+  }[] = [
     { path: "", changeFrequency: "weekly", priority: 1 },
     { path: "/about", changeFrequency: "monthly", priority: 0.8 },
     { path: "/solutions", changeFrequency: "weekly", priority: 0.8 },
@@ -17,7 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/integrations", changeFrequency: "monthly", priority: 0.6 },
     { path: "/contact", changeFrequency: "monthly", priority: 0.6 },
     { path: "/status", changeFrequency: "weekly", priority: 0.4 },
-    { path: "/blog", changeFrequency: "weekly", priority: 0.6 },
+    {
+      path: "/blog",
+      changeFrequency: "weekly",
+      priority: 0.6,
+      lastModified: latestPostDate,
+    },
     { path: "/careers", changeFrequency: "weekly", priority: 0.5 },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
     { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
@@ -41,10 +54,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return routes.map(({ path, changeFrequency, priority, lastModified }) => ({
-    url: `${BASE_URL}${path}`,
+    url: path ? `${SITE_URL}${path}` : `${SITE_URL}/`,
     lastModified: lastModified ?? SITE_LAST_MODIFIED,
     changeFrequency,
     priority,
-    ...(path === "" ? { images: [`${BASE_URL}/opengraph-image`] } : {}),
+    ...(path === "" ? { images: [`${SITE_URL}/opengraph-image`] } : {}),
   }));
 }
