@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-
-const BASE_URL = "https://www.iamstivai.com";
+import { SITE_URL } from "./lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,6 +7,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: "/api/",
+      },
+      {
+        userAgent: ["Googlebot", "Googlebot-Image"],
+        allow: "/",
+        disallow: "/api/",
       },
       // Explicitly welcome AI answer/generative engines so STIV can be
       // cited and summarized in AI search — GEO relies on these crawlers
@@ -31,7 +36,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: `${BASE_URL}/sitemap.xml`,
-    host: BASE_URL,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

@@ -110,6 +110,25 @@ export default async function DivisionPage({
 
       <section className="px-6 py-20 lg:px-8">
         <Reveal className="mx-auto max-w-3xl">
+          <div className="mb-14 grid gap-8 border-b border-white/10 pb-14 sm:grid-cols-2">
+            <div>
+              <p className="font-mono text-xs tracking-widest text-accent-gold">
+                WHO IT IS FOR
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-muted">
+                {division.audience}
+              </p>
+            </div>
+            <div>
+              <p className="font-mono text-xs tracking-widest text-accent-gold">
+                HOW IT FITS YOUR WORKFLOW
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-muted">
+                {division.workflowFit}
+              </p>
+            </div>
+          </div>
+
           <div className="flex items-center gap-4">
             <IconTile icon={division.icon} size="lg" />
             <h2 className="text-2xl font-semibold tracking-tight">
