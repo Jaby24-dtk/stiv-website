@@ -49,6 +49,11 @@ STIV is architected around SOC 2 control objectives from day one, with data resi
 - [How STIV connects to your stack without a migration](https://www.iamstivai.com/blog/how-stiv-connects-without-a-migration): Agents read what's already there instead of replacing it. Here's what actually happens during the connect stage, and how access stays scoped.
 - [SOC 2, data residency, and what "built for compliance" actually means](https://www.iamstivai.com/blog/soc-2-data-residency-and-stivs-security-architecture): Encryption and audit logs are table stakes. Here's a closer look at the control objectives STIV is architected around, and why they matter before you connect real data.
 - [How to measure whether a STIV division is working](https://www.iamstivai.com/blog/how-to-measure-whether-a-stiv-division-is-working): "It feels like it's helping" isn't a metric. Here's what to actually track in the first quarter, and what a division that isn't earning its keep looks like.
+- [Inside STIV Legal: what happens between upload and redline](https://www.iamstivai.com/blog/inside-stiv-legal-contract-review): A walkthrough of how a contract actually moves through STIV Legal — from playbook match to the redline a human signs off on.
+- [Inside STIV Support: what happens when a ticket can't be resolved automatically](https://www.iamstivai.com/blog/inside-stiv-support-ticket-handoffs): Most of the interesting design decisions in a support agent show up in the tickets it doesn't close on its own. Here's how handoffs actually work.
+- [STIV vs. hiring more headcount: how to actually compare the two](https://www.iamstivai.com/blog/stiv-vs-hiring-more-headcount): The honest version of this comparison isn't AI versus humans. It's what a division's next dollar buys, and what it doesn't.
+- [What a rejected — or edited — approval actually looks like](https://www.iamstivai.com/blog/what-a-rejected-approval-looks-like): The approval gate isn't a yes/no switch. Here's what happens when a human edits or rejects what an agent drafted, and where that decision goes.
+- [A CFO's case for STIV Finance](https://www.iamstivai.com/blog/a-cfos-case-for-stiv-finance): The pitch to a CFO isn't "AI for finance." It's a specific set of guarantees about where the numbers come from and who's accountable for them.
 
 ## Software, by division
 
