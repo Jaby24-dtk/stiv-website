@@ -14,6 +14,20 @@ function sendEvent(name: string, params: Record<string, string>) {
 
 export default function AnalyticsEvents() {
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get("utm_source");
+    const medium = params.get("utm_medium");
+    const campaign = params.get("utm_campaign");
+
+    if (source || medium || campaign) {
+      sendEvent("campaign_landing", {
+        campaign_source: source ?? "",
+        campaign_medium: medium ?? "",
+        campaign_name: campaign ?? "",
+        landing_page: window.location.pathname,
+      });
+    }
+
     const handleClick = (event: MouseEvent) => {
       const link = (event.target as HTMLElement).closest("a");
       if (!link) return;
@@ -32,6 +46,13 @@ export default function AnalyticsEvents() {
         sendEvent("contact", {
           method: "email",
           destination: href.slice("mailto:".length).split("?")[0],
+        });
+      }
+
+      if (href.includes("linkedin.com/company/stiv-pte-ltd")) {
+        sendEvent("select_content", {
+          content_type: "social_profile",
+          item_id: "linkedin_company_page",
         });
       }
     };
