@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import CookiePreferencesLink from "./CookiePreferencesLink";
+import { LINKEDIN_URL } from "../lib/site";
 
 const columns = [
   {
@@ -22,6 +23,7 @@ const columns = [
       { label: "About", href: "/about" },
       { label: "Careers", href: "/careers" },
       { label: "Blog", href: "/blog" },
+      { label: "LinkedIn", href: LINKEDIN_URL },
       { label: "Community Impact", href: "https://impact.iamstivai.com" },
       { label: "Contact", href: "/contact" },
     ],
