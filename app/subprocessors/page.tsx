@@ -46,6 +46,12 @@ const subprocessors = [
       "Consent-gated website analytics, heatmaps, and session interaction insights",
     location: "United States",
   },
+  {
+    name: "LinkedIn Corporation (Insight Tag)",
+    purpose:
+      "Consent-gated campaign attribution, conversion measurement, and audience insights",
+    location: "United States",
+  },
 ];
 
 export default function SubprocessorsPage() {
