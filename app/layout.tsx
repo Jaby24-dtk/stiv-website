@@ -31,7 +31,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  applicationName: SITE_NAME),
+  applicationName: SITE_NAME,
   title: {
     default: DEFAULT_TITLE,
     template: "%s — STIV",
