@@ -5,9 +5,17 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
 import Link from "next/link";
 
+declare global {
+  interface Window {
+    _linkedin_partner_id?: string;
+    _linkedin_data_partner_ids?: string[];
+  }
+}
+
 const CONSENT_KEY = "stiv-cookie-consent";
 const GA_ID = "G-45P3ZK5YCD";
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
+const LINKEDIN_PARTNER_ID = "9764020";
 
 type Consent = "granted" | "denied" | null;
 
@@ -48,6 +56,18 @@ export default function CookieConsent() {
       {consent === "granted" && (
         <>
           <GoogleAnalytics gaId={GA_ID} />
+          <Script id="linkedin-insight-init" strategy="afterInteractive">
+            {`
+              window._linkedin_partner_id = "${LINKEDIN_PARTNER_ID}";
+              window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+              window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
+            `}
+          </Script>
+          <Script
+            id="linkedin-insight"
+            src="https://snap.licdn.com/li.lms-analytics/insight.min.js"
+            strategy="afterInteractive"
+          />
           {CLARITY_ID && (
             <Script id="microsoft-clarity" strategy="afterInteractive">
               {`
