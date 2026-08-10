@@ -12,6 +12,7 @@ import {
   DEFAULT_TITLE,
   IMPACT_URL,
   LEGAL_NAME,
+  LINKEDIN_URL,
   ORGANIZATION_ID,
   SITE_NAME,
   SITE_URL,
@@ -30,7 +31,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  applicationName: SITE_NAME,
+  applicationName: SITE_NAME),
   title: {
     default: DEFAULT_TITLE,
     template: "%s — STIV",
@@ -122,6 +123,7 @@ const siteJsonLd = {
         availableLanguage: "English",
         areaServed: "Worldwide",
       },
+      sameAs: [LINKEDIN_URL],
       hasPart: {
         "@type": "WebSite",
         name: "STIV Community Impact",
