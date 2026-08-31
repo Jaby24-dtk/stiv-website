@@ -38,7 +38,7 @@ export default function DivisionsSwipe({
     let raf = 0;
 
     const ctx = gsap.context(() => {
-      gsap.set(cards, { yPercent: -140, opacity: 0 });
+      gsap.set(cards, { yPercent: 30, xPercent: 0, opacity: 0 });
       gsap.set(cards[0], { yPercent: 0, opacity: 1 });
 
       const tl = gsap.timeline({
@@ -65,13 +65,25 @@ export default function DivisionsSwipe({
       cards.forEach((card, i) => {
         if (i === 0) return;
         const at = HOLD + (i - 1) * (TRANSITION + HOLD);
+        // Both cards move only a short distance during the swap: the incoming
+        // one rises the last 30% into place, the outgoing one drifts 40% to
+        // the left. Keeping the travel small means the two genuinely overlap
+        // as a crossfade instead of one clearing the viewport (sliding fully
+        // off / dropping from 1.4 screens up) before the next arrives, which
+        // left a blank black band on every transition.
         tl.to(card, { yPercent: 0, opacity: 1, duration: TRANSITION, ease: "power2.out" }, at);
         tl.to(
           cards[i - 1],
-          { xPercent: -130, opacity: 0, duration: TRANSITION, ease: "power2.out" },
+          { xPercent: -40, opacity: 0, duration: TRANSITION, ease: "power2.out" },
           at
         );
       });
+
+      // Trailing hold so the last card has a resting scroll position too —
+      // without one the timeline ends the instant that card finishes fading
+      // in, so the section unpins mid-reveal and the final division reads as
+      // skipped.
+      tl.to({}, { duration: HOLD });
 
       // Track which card is actually the most-visible one on every frame,
       // rather than reverse-engineering it from scroll progress: the
@@ -105,12 +117,15 @@ export default function DivisionsSwipe({
   return (
     <div ref={sectionRef} className="relative h-screen overflow-hidden bg-background">
       <RotatingEarth />
-      <div className="pointer-events-none absolute inset-x-0 top-8 z-10 flex justify-center">
+      <div className="pointer-events-none absolute inset-x-0 top-24 z-10 flex justify-center">
         <p className="font-mono text-xs tracking-widest text-accent-gold">
           SOFTWARE — SCROLL TO EXPLORE
         </p>
       </div>
-      <div className="relative mx-auto flex h-full max-w-2xl items-center px-6">
+      {/* pt-20 pushes the vertically-centred card clear of the sticky nav,
+          which sits fixed over the top ~77px while this section is pinned
+          and otherwise clips the card's icon tile. */}
+      <div className="relative mx-auto flex h-full max-w-2xl items-center px-6 pt-20">
         {divisions.map(({ name, icon: Icon, description }, i) => (
           <div
             key={name}
