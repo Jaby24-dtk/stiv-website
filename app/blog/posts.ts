@@ -653,6 +653,262 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "inside-stiv-sales-lead-to-follow-up",
+    title: "Inside STIV Sales: what happens between a lead and a follow-up",
+    description:
+      "A walkthrough of how STIV Sales qualifies an inbound lead and prepares the next action — without taking judgment or the relationship away from the rep.",
+    date: "2026-09-03",
+    readTime: "4 min read",
+    category: "Product",
+    content: [
+      {
+        type: "p",
+        text: "Ask a Sales team what they actually want from an AI system and the honest answer is usually narrower than \"automate sales\" — it's \"stop the pipeline from going quiet between calls.\" That's the specific problem STIV Sales is built against, not lead scoring in the abstract.",
+      },
+      {
+        type: "p",
+        text: "The system reads your connected CRM and communication context, but it doesn't write to a prospect's inbox on its own judgment. Every step between a lead arriving and a message actually going out has a defined boundary, and it's worth walking through where those boundaries sit.",
+      },
+      {
+        type: "h2",
+        text: "Qualification happens before a rep ever sees the lead",
+      },
+      {
+        type: "p",
+        text: "When an inbound lead arrives, STIV Sales checks it against the qualification criteria your team has already set — company size, stated need, source, whatever your rules define as worth a rep's time. Leads that don't clear the bar aren't silently dropped; they're routed to whatever holding or nurture process you've defined, so a rep's queue only fills with leads that already match what you've told the system to prioritize.",
+      },
+      {
+        type: "h2",
+        text: "What gets drafted, and what doesn't",
+      },
+      {
+        type: "p",
+        text: "Between calls, the system prepares the next useful action on an open opportunity — a follow-up email, a check-in after a quiet stretch, a summary before a scheduled call. None of it assumes the relationship; all of it assumes a rep reads it first.",
+      },
+      {
+        type: "ul",
+        items: [
+          "A deal that's gone quiet past a threshold you set gets flagged, with a drafted re-engagement message attached — not just a notification that something stalled.",
+          "A follow-up after a call references what was actually discussed, pulled from connected notes or call records, not a generic template.",
+          "Pipeline reporting reflects what's actually moving deals forward, not just call volume or email counts.",
+          "Anything outside a rep's own active opportunities stays outside the system's scope — it isn't reassigning or touching another rep's pipeline.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "The gate that keeps a rep's name on every message",
+      },
+      {
+        type: "p",
+        text: "Every outbound email or proposal STIV Sales drafts routes through the same approval model covered in [[how-stivs-approval-gates-work|how STIV's approval gates work]] — a rep or manager signs off before a prospect sees anything. That's not a limitation bolted on for safety theater; it's the reason a prospect's experience of the relationship doesn't change. The message still comes from the person they've been talking to, written faster because the first draft didn't start from a blank page.",
+      },
+      {
+        type: "p",
+        text: "What STIV Sales is emphatically not built to do is replace the judgment calls that make someone good at sales — reading a prospect's hesitation, knowing when to push and when to wait, closing the deal in the room. It's built to make sure none of that judgment gets spent remembering to send a follow-up.",
+      },
+    ],
+  },
+  {
+    slug: "inside-stiv-operations-what-counts-as-a-bottleneck",
+    title: "Inside STIV Operations: what actually counts as a bottleneck",
+    description:
+      "STIV Operations doesn't guess at what's slow. Here's how it defines a bottleneck, what it does about one, and where a human still has to sign off.",
+    date: "2026-09-09",
+    readTime: "4 min read",
+    category: "Product",
+    content: [
+      {
+        type: "p",
+        text: "\"Bottleneck\" is one of those words that sounds precise and usually isn't — ask five people on an operations team to point at the one thing slowing everything down and you'll often get five different answers, most of them anecdotal. STIV Operations is built to replace that guessing with something closer to a definition your team actually agreed on.",
+      },
+      {
+        type: "p",
+        text: "It doesn't arrive with an opinion about how your workflows should run. It starts by watching the ones you've connected against thresholds and expectations you set — and only then does it start flagging, and eventually acting.",
+      },
+      {
+        type: "h2",
+        text: "A bottleneck is a defined deviation, not a vibe",
+      },
+      {
+        type: "p",
+        text: "Before STIV Operations flags anything, your team defines what a normal cycle time, handoff delay, or exception rate looks like for a given workflow. A bottleneck, in this system, is a specific deviation from that baseline — a step taking measurably longer than its own history, not a general sense that \"things feel slow this week.\" That specificity is what makes the output actionable instead of another dashboard nobody checks.",
+      },
+      {
+        type: "h2",
+        text: "What it clears without asking, and what it doesn't",
+      },
+      {
+        type: "ul",
+        items: [
+          "Busywork with a known, repeatable resolution — routing a stuck ticket, re-triggering a stalled step, chasing a missing field — gets cleared automatically once you've pre-approved that category of action.",
+          "A process breakdown that doesn't match a known pattern gets flagged with the relevant context attached, not silently worked around.",
+          "Any workflow change — a new routing rule, a changed threshold, a step removed or added — routes through an approval gate you define before it takes effect.",
+          "A record of what changed and why is kept for every action, so a process that got faster is traceable back to the specific change that did it.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Recommendations first, autonomy second",
+      },
+      {
+        type: "p",
+        text: "New workflows typically start in a recommendations-only mode: STIV Operations tells you what it would do and why, and a human decides whether to let it happen automatically going forward. That mirrors the same connect-learn-act-compound sequence covered in [[first-30-days-with-stiv|the first 30 days with STIV]] — trust in a given workflow gets earned by a track record, not granted upfront because the pitch sounded reasonable.",
+      },
+      {
+        type: "p",
+        text: "The honest limitation is that STIV Operations is only as good as the baseline your team defines. A workflow nobody has bothered to measure yet doesn't have a bottleneck STIV Operations can detect — it has an opportunity to define one, which is usually the more useful output of the first month anyway.",
+      },
+    ],
+  },
+  {
+    slug: "inside-stiv-executive-one-briefing",
+    title: "Inside STIV Executive: how one briefing replaces seven status meetings",
+    description:
+      "STIV Executive doesn't run a division — it synthesizes what the other six are already doing. Here's what actually goes into the briefing, and what stays out of it.",
+    date: "2026-09-15",
+    readTime: "4 min read",
+    category: "Product",
+    content: [
+      {
+        type: "p",
+        text: "Executive is the one STIV system that doesn't own a workflow of its own. It doesn't qualify leads, reconcile accounts, or redline contracts — it reads what every other connected division is already doing and turns that into one briefing a leader can actually use.",
+      },
+      {
+        type: "h2",
+        text: "What goes into a briefing",
+      },
+      {
+        type: "p",
+        text: "STIV Executive pulls approved signals from every deployed division — decisions made, risks flagged, approvals still pending — and organizes them the way a chief of staff would prepare a leadership update, not the way a raw activity log would dump it. The point isn't more visibility into every division's day-to-day; it's the smallest set of items that actually need a leader's attention.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Decisions already made, with enough context to understand them without re-litigating.",
+          "Risks and blockers surfaced before they turn into a surprise in a leadership meeting.",
+          "Open sign-offs waiting specifically on you, distinguished from ones waiting on someone else.",
+          "A running record of what was decided and why, so accountability doesn't depend on someone's memory of a meeting.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Why briefings don't skip the approval gate",
+      },
+      {
+        type: "p",
+        text: "STIV Executive's output is informational by default — it doesn't act on a division's behalf. If a briefing surfaces something that needs follow-through, that action still routes through the relevant division's own approval gate, the same one described in [[how-stivs-approval-gates-work|how STIV's approval gates work]]. Executive gives you the operating picture; it deliberately doesn't collapse seven divisions' worth of authority into one system that can act on all of them.",
+      },
+      {
+        type: "h2",
+        text: "Who this replaces, and what it doesn't",
+      },
+      {
+        type: "p",
+        text: "The realistic comparison isn't to a chief of staff's judgment — it's to the standing status meeting that exists mostly to assemble information that already exists somewhere, just not in one place. STIV Executive is built for the company that's already running division-specific systems, as covered in [[why-one-assistant-cant-run-your-company|why one AI assistant can't run your whole company]], and wants the view across them without a meeting to produce it.",
+      },
+      {
+        type: "p",
+        text: "It's also, notably, not a substitute for actually deploying the divisions underneath it. A briefing synthesized from divisions you haven't connected yet has nothing to synthesize — Executive gets more useful as more of the company runs through STIV, not less necessary.",
+      },
+    ],
+  },
+  {
+    slug: "a-general-counsels-case-for-stiv-legal",
+    title: "A General Counsel's case for STIV Legal",
+    description:
+      "The pitch to a General Counsel isn't \"AI reviews your contracts.\" It's a specific set of answers about what the system can touch, and who's still accountable for it.",
+    date: "2026-09-21",
+    readTime: "4 min read",
+    category: "Guide",
+    content: [
+      {
+        type: "p",
+        text: "A General Counsel evaluating STIV Legal isn't asking whether a model can summarize a contract — most can. The actual questions are about exposure: what is this system allowed to see, what can it commit the company to without a lawyer's sign-off, and where does the liability sit if it gets something wrong.",
+      },
+      {
+        type: "h2",
+        text: "It works from your playbook, not a generic sense of \"good contracts\"",
+      },
+      {
+        type: "p",
+        text: "STIV Legal reviews agreements against approved positions, fallback language, and escalation rules your team defines — the same mechanism covered in [[inside-stiv-legal-contract-review|our walkthrough of what happens between upload and redline]]. That's a deliberate design choice for a General Counsel's purposes: the system isn't applying its own sense of what a solid indemnification clause looks like, it's applying yours, which means its output is auditable against a standard your team actually wrote down.",
+      },
+      {
+        type: "h2",
+        text: "What never leaves the building without a lawyer",
+      },
+      {
+        type: "ul",
+        items: [
+          "No redline goes to a counterparty and no document gets executed without an authorized reviewer's sign-off — the approval gate applies uniformly, not case by case.",
+          "Agreement types outside the defined playbook aren't reviewed at all, rather than improvised against.",
+          "Access is scoped to Legal's connected documents specifically — a Sales or Support system, if you run one, doesn't get standing visibility into contract terms.",
+          "Every review, redline, and decision lands in a timestamped, reversible audit trail — the same one described in [[soc-2-data-residency-and-stivs-security-architecture|our security architecture piece]].",
+        ],
+      },
+      {
+        type: "h2",
+        text: "The math a General Counsel actually cares about",
+      },
+      {
+        type: "p",
+        text: "Single Division pricing at $1,500/mo isn't weighed against a paralegal's judgment — it's weighed against the hours a lawyer currently spends reading routine terms in an NDA or MSA that were probably fine, before getting to the two or three clauses that actually needed their attention. The system doesn't change who's accountable for what gets signed; it changes how much of the routine reading happens before a lawyer's attention is spent.",
+      },
+      {
+        type: "p",
+        text: "The honest limitation is the same one that applies everywhere else on this site: a playbook nobody has finished writing yet isn't a playbook STIV Legal can review against. The upfront work of defining approved positions and escalation rules is real, and it's also the same work that would make any first-pass review consistent — STIV Legal just applies it uniformly, every time, without needing to be reminded.",
+      },
+    ],
+  },
+  {
+    slug: "what-happens-when-a-stiv-agent-gets-it-wrong",
+    title: "What happens when a STIV agent gets it wrong",
+    description:
+      "Not every mistake gets caught before it ships. Here's what STIV's reversibility guarantee actually means once something already went out the door.",
+    date: "2026-09-27",
+    readTime: "4 min read",
+    category: "Security",
+    content: [
+      {
+        type: "p",
+        text: "Most of what's written about STIV's approval model describes the version where everything works: an agent drafts, a human reviews, a mistake gets caught before it ships. That's the common case, but it isn't the only one worth being honest about. Sometimes something ships and turns out to be wrong anyway — an approved report used a stale reconciliation, a redline missed a clause a playbook hadn't anticipated. What happens then is the more interesting question.",
+      },
+      {
+        type: "h2",
+        text: "Reversible means something specific, not just an adjective",
+      },
+      {
+        type: "p",
+        text: "Every action in STIV's audit trail is logged, timestamped, and reversible — described in general terms in [[soc-2-data-residency-and-stivs-security-architecture|our security architecture piece]]. In practice, \"reversible\" means the system retains what changed, what it was before, and who approved it, so correcting a mistake doesn't mean reconstructing what happened from memory or a scattered email thread. The correction itself becomes a new, equally logged entry — not a quiet edit to the original record.",
+      },
+      {
+        type: "h2",
+        text: "The difference between a caught mistake and a shipped one",
+      },
+      {
+        type: "ul",
+        items: [
+          "A caught mistake — rejected or edited before it goes out — is covered by the approval gate itself, and the three outcomes described in [[what-a-rejected-approval-looks-like|what a rejected approval actually looks like]].",
+          "A shipped mistake means a human already approved something that turned out to be wrong — the gate did its job of requiring sign-off, and the sign-off itself was the point where the error passed through.",
+          "The fix in both cases routes through the same accountable review process — nobody quietly patches an output without the correction landing in the record.",
+          "A pattern of shipped mistakes on the same clause, line item, or ticket type gets treated as a playbook gap to close, not an isolated incident to apologize for.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Why this doesn't undermine the approval model",
+      },
+      {
+        type: "p",
+        text: "A system that never makes a mistake that reaches a human isn't a realistic claim, and STIV doesn't make it. The claim that matters is narrower: nothing an agent does is untraceable or unrecoverable, and a wrong output is a correctable, logged event rather than a silent failure discovered weeks later. That's a materially different guarantee than \"this won't happen,\" and it's the one that's actually verifiable.",
+      },
+      {
+        type: "p",
+        text: "If a vendor's answer to \"what happens when it's wrong\" is a claim that it won't be, that's worth more suspicion than a straight answer about how the correction gets made and recorded. The approval gate reduces how often something wrong ships; the audit trail is what makes it survivable on the occasions it still does.",
+      },
+    ],
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

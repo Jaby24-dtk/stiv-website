@@ -54,6 +54,11 @@ STIV is architected around SOC 2 control objectives from day one, with data resi
 - [STIV vs. hiring more headcount: how to actually compare the two](https://www.iamstivai.com/blog/stiv-vs-hiring-more-headcount): The honest version of this comparison isn't AI versus humans. It's what a division's next dollar buys, and what it doesn't.
 - [What a rejected — or edited — approval actually looks like](https://www.iamstivai.com/blog/what-a-rejected-approval-looks-like): The approval gate isn't a yes/no switch. Here's what happens when a human edits or rejects what an agent drafted, and where that decision goes.
 - [A CFO's case for STIV Finance](https://www.iamstivai.com/blog/a-cfos-case-for-stiv-finance): The pitch to a CFO isn't "AI for finance." It's a specific set of guarantees about where the numbers come from and who's accountable for them.
+- [Inside STIV Sales: what happens between a lead and a follow-up](https://www.iamstivai.com/blog/inside-stiv-sales-lead-to-follow-up): A walkthrough of how STIV Sales qualifies an inbound lead and prepares the next action — without taking judgment or the relationship away from the rep.
+- [Inside STIV Operations: what actually counts as a bottleneck](https://www.iamstivai.com/blog/inside-stiv-operations-what-counts-as-a-bottleneck): STIV Operations doesn't guess at what's slow. Here's how it defines a bottleneck, what it does about one, and where a human still has to sign off.
+- [Inside STIV Executive: how one briefing replaces seven status meetings](https://www.iamstivai.com/blog/inside-stiv-executive-one-briefing): STIV Executive doesn't run a division — it synthesizes what the other six are already doing. Here's what actually goes into the briefing, and what stays out of it.
+- [A General Counsel's case for STIV Legal](https://www.iamstivai.com/blog/a-general-counsels-case-for-stiv-legal): The pitch to a General Counsel isn't "AI reviews your contracts." It's a specific set of answers about what the system can touch, and who's still accountable for it.
+- [What happens when a STIV agent gets it wrong](https://www.iamstivai.com/blog/what-happens-when-a-stiv-agent-gets-it-wrong): Not every mistake gets caught before it ships. Here's what STIV's reversibility guarantee actually means once something already went out the door.
 
 ## Software, by division
 
