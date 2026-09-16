@@ -909,6 +909,246 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "inside-stiv-marketing-brief-to-campaign",
+    title: "Inside STIV Marketing: what happens between a brief and a campaign that ships",
+    description:
+      "A walkthrough of how STIV Marketing turns a campaign brief into on-brand copy and a launch — and where a marketer's sign-off still sits in the middle of it.",
+    date: "2026-10-02",
+    readTime: "4 min read",
+    category: "Product",
+    content: [
+      {
+        type: "p",
+        text: "Marketing is the division people are most skeptical an AI system can touch without producing something generic — copy that's technically on-brief and completely forgettable. STIV Marketing is built around that skepticism being correct by default, and narrowing it deliberately rather than assuming a model can just absorb \"brand voice\" from a style guide PDF.",
+      },
+      {
+        type: "h2",
+        text: "It studies your brand before it drafts anything public",
+      },
+      {
+        type: "p",
+        text: "Before STIV Marketing produces copy a customer will ever see, it studies your past campaigns, approved messaging, and brand guidelines the same way every division studies your playbooks during the learn stage described in [[first-30-days-with-stiv|the first 30 days with STIV]]. The first real output is meant to already sound like your team, not like a generic template with your logo swapped in.",
+      },
+      {
+        type: "h2",
+        text: "What it plans, and what it hands off",
+      },
+      {
+        type: "ul",
+        items: [
+          "Campaign plans and content calendars draft against goals and channels your team sets, not a generic best-practices template.",
+          "Copy — ad variants, landing pages, email sequences — drafts in your brand voice, pulling from what's already performed well rather than starting from a blank page.",
+          "Performance reporting ties spend and output back to what's actually driving pipeline, cross-referencing the same signals STIV Sales uses to report on what's moving deals, covered in [[inside-stiv-sales-lead-to-follow-up|our walkthrough of STIV Sales]].",
+          "Anything outside a defined campaign — a new brand direction, a positioning change — doesn't get improvised; it gets flagged for a human to decide first.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Nothing goes external without a marketer's eyes",
+      },
+      {
+        type: "p",
+        text: "Every piece of copy, every campaign launch, and every spend decision routes through the same approval model covered in [[how-stivs-approval-gates-work|how STIV's approval gates work]]. That's a harder constraint for Marketing than it sounds — a redline a lawyer catches is invisible to a customer, but a tone-deaf ad isn't. The gate exists specifically so the first time a customer sees a campaign, a human has already decided it's ready.",
+      },
+      {
+        type: "p",
+        text: "What STIV Marketing doesn't do is set strategy or invent a brand's voice from nothing. It's built to move a defined campaign from brief to draft faster, not to decide what the campaign should say in the first place — that judgment call stays exactly where it was.",
+      },
+    ],
+  },
+  {
+    slug: "inside-stiv-finance-transaction-to-reconciled-book",
+    title: "Inside STIV Finance: what happens between a transaction and a reconciled book",
+    description:
+      "A CFO's case covers the guarantees. Here's the mechanism underneath them — how STIV Finance actually reconciles accounts and drafts a report a controller can defend.",
+    date: "2026-10-08",
+    readTime: "4 min read",
+    category: "Product",
+    content: [
+      {
+        type: "p",
+        text: "[[a-cfos-case-for-stiv-finance|A CFO's case for STIV Finance]] covers why traceability matters more than speed. This is the walkthrough of how that traceability actually gets built — what happens between a transaction landing in a connected account and a number showing up in a report someone signs their name to.",
+      },
+      {
+        type: "h2",
+        text: "Reconciliation starts from your chart of accounts, not a guess",
+      },
+      {
+        type: "p",
+        text: "STIV Finance reconciles connected account data against the chart of accounts and categorization rules your team already uses — it doesn't infer a categorization scheme from the transactions themselves. A transaction that doesn't cleanly match an existing rule gets flagged for a human to categorize once, rather than silently guessed at and buried in a report.",
+      },
+      {
+        type: "h2",
+        text: "What gets flagged before a report is drafted",
+      },
+      {
+        type: "ul",
+        items: [
+          "Variances outside a threshold your team sets get surfaced with the specific transactions behind them, not just a percentage that moved.",
+          "Anything that doesn't reconcile cleanly — a missing invoice, a duplicate charge, a timing mismatch — is flagged and held rather than smoothed over in the total.",
+          "A drafted report cites the source transactions behind every figure, so a controller reviewing it is checking traceable numbers, not trusting a generated summary.",
+          "Access stays scoped to Finance's connected accounts specifically — the same per-division scoping covered in [[how-stiv-connects-without-a-migration|how STIV connects without a migration]].",
+        ],
+      },
+      {
+        type: "h2",
+        text: "The draft, not the close",
+      },
+      {
+        type: "p",
+        text: "None of this finalizes a close on its own. Every reconciliation and every drafted report routes through the approval gate a controller defines, the same model described in [[how-stivs-approval-gates-work|how STIV's approval gates work]] — STIV Finance prepares the traceable version of the numbers; a human still decides the book is actually ready to close.",
+      },
+      {
+        type: "p",
+        text: "The honest limitation is the one that applies to every division: a chart of accounts or categorization rule nobody has defined yet isn't something STIV Finance can reconcile against correctly. The upfront work of making those rules explicit is real, and it's also what makes the reconciliation consistent every month after, not just accurate the first time someone checks it closely.",
+      },
+    ],
+  },
+  {
+    slug: "a-cmos-case-for-stiv-marketing",
+    title: "A CMO's case for STIV Marketing",
+    description:
+      "The pitch to a CMO isn't \"AI writes your ads.\" It's a specific answer to what stays consistent with your brand, and what a marketer still has to sign off on before anything ships.",
+    date: "2026-10-14",
+    readTime: "4 min read",
+    category: "Guide",
+    content: [
+      {
+        type: "p",
+        text: "A CMO evaluating STIV Marketing isn't asking whether a model can write ad copy — every tool claims that now. The actual question is narrower: does the output sound like this brand specifically, and what's the process that keeps it that way once the novelty of a demo wears off.",
+      },
+      {
+        type: "h2",
+        text: "Brand voice is a constraint, not a suggestion",
+      },
+      {
+        type: "p",
+        text: "As covered in [[inside-stiv-marketing-brief-to-campaign|our walkthrough of STIV Marketing]], the system studies past campaigns and approved messaging before it drafts anything a customer will see. For a CMO, the practical implication is that STIV Marketing isn't trained to write good ads in general — it's trained on what's already worked for this brand specifically, which is a narrower and more defensible claim.",
+      },
+      {
+        type: "h2",
+        text: "What stays under a marketer's control",
+      },
+      {
+        type: "ul",
+        items: [
+          "Every piece of external copy — ads, landing pages, email — routes through an approval gate before it ships, the same model described in [[how-stivs-approval-gates-work|how STIV's approval gates work]].",
+          "Positioning and brand direction aren't things the system decides; it drafts within direction your team has already set.",
+          "Spend decisions on a campaign route through the same gate as the copy itself — nothing allocates budget without sign-off.",
+          "Performance reporting ties back to pipeline impact, not vanity metrics, cross-checked against what STIV Sales reports as actually moving deals.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "The month-one math",
+      },
+      {
+        type: "p",
+        text: "Single Division pricing at $1,500/mo is worth weighing against a specific cost: the hours a marketing team spends on first-draft copy, campaign briefs, and reporting assembly that happen before the actual creative or strategic judgment gets applied. It isn't priced as a replacement for a CMO's read on brand or market — it's priced as clearing the repetitive drafting work in front of that judgment, the same trade covered in [[stiv-vs-hiring-more-headcount|STIV vs. hiring more headcount]].",
+      },
+      {
+        type: "p",
+        text: "The honest limitation is that a brand with no consistent voice yet — a startup still figuring out how it wants to sound — doesn't have much for STIV Marketing to learn from. It gets more useful the more consistent your past output already is, not less.",
+      },
+    ],
+  },
+  {
+    slug: "a-coos-case-for-stiv-operations",
+    title: "A COO's case for STIV Operations",
+    description:
+      "The pitch to a COO isn't \"AI finds your bottlenecks.\" It's a specific answer to what gets automated without asking, and what still requires a sign-off before a workflow changes.",
+    date: "2026-10-20",
+    readTime: "4 min read",
+    category: "Guide",
+    content: [
+      {
+        type: "p",
+        text: "A COO evaluating STIV Operations isn't asking whether software can spot a slow step — most monitoring tools can flag that something is taking longer than usual. The actual question is what happens next: what gets fixed automatically, what gets escalated, and who's accountable if an automated fix turns out to be the wrong one.",
+      },
+      {
+        type: "h2",
+        text: "It automates against a baseline you defined, not an opinion",
+      },
+      {
+        type: "p",
+        text: "As covered in [[inside-stiv-operations-what-counts-as-a-bottleneck|our walkthrough of STIV Operations]], a bottleneck is a measured deviation from a baseline your team set, not a generic sense that something feels slow. For a COO, that specificity is the point — the system isn't applying an outside opinion about how your operation should run, it's enforcing consistency against thresholds your own team already agreed on.",
+      },
+      {
+        type: "h2",
+        text: "What changes without a meeting, and what doesn't",
+      },
+      {
+        type: "ul",
+        items: [
+          "Busywork with a known, pre-approved resolution clears automatically — routing, re-triggering, chasing missing data — without waiting on a human each time.",
+          "Any actual change to a workflow — a new rule, a changed threshold — routes through the approval gate covered in [[how-stivs-approval-gates-work|how STIV's approval gates work]] before it takes effect.",
+          "A full record of what changed, when, and why is kept for every workflow, so an efficiency gain is traceable to a specific decision, not an unexplained trend on a dashboard.",
+          "Access stays scoped to the workflows you've connected — it doesn't reach into Finance or Legal's systems to make an operational call.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "The month-one math",
+      },
+      {
+        type: "p",
+        text: "Single Division pricing at $1,500/mo is weighed against the cost of the manual monitoring and busywork-clearing an operations team is already doing — not against replacing the judgment call of redesigning a broken process, which still sits with your team. [[how-to-measure-whether-a-stiv-division-is-working|What to actually track]] in the first quarter is the same regardless of division: approval rate trend, time-to-first-value, and whether audit trail incidents are catching real issues instead of being ignored.",
+      },
+      {
+        type: "p",
+        text: "The honest limitation, as covered in the Operations walkthrough, is that a workflow nobody has measured yet isn't one STIV Operations can improve — it's one worth measuring first, which is often the more valuable output of month one than any automation that follows it.",
+      },
+    ],
+  },
+  {
+    slug: "what-happens-when-you-leave-stiv",
+    title: "What happens when you leave STIV: data export, access revocation, and the record that stays yours",
+    description:
+      "Evaluating a vendor by how hard it is to stay isn't the honest test. Here's what actually happens to your data, access, and audit trail the day you decide to leave.",
+    date: "2026-10-26",
+    readTime: "4 min read",
+    category: "Security",
+    content: [
+      {
+        type: "p",
+        text: "Most vendor evaluations focus on the day you sign up. The more honest test of whether a vendor trusts its own product is what happens the day you decide to leave — and whether that process is designed to be easy or designed to be a reason to stay.",
+      },
+      {
+        type: "h2",
+        text: "Access revokes immediately, not on a support ticket",
+      },
+      {
+        type: "p",
+        text: "As covered in [[how-stiv-connects-without-a-migration|how STIV connects without a migration]], revoking a division's access to your inbox, CRM, accounting, or docs is immediate and doesn't require a support ticket or a contract amendment. The same is true at offboarding: disconnecting a division or ending a contract cuts off access to connected systems on the timeline you choose, not on a vendor's processing schedule.",
+      },
+      {
+        type: "h2",
+        text: "What you take with you",
+      },
+      {
+        type: "ul",
+        items: [
+          "Every drafted output, reconciled record, and reviewed contract STIV touched stays exportable — nothing is locked into a proprietary format you can't read elsewhere.",
+          "The full audit trail — every decision, approval, edit, and rejection, logged and timestamped as described in [[soc-2-data-residency-and-stivs-security-architecture|our security architecture piece]] — exports with it, not just the outputs themselves.",
+          "Playbooks, approval rules, and thresholds your team defined are yours to keep and reuse, whether that's with a different vendor or a rebuilt internal process.",
+          "Nothing about export requires renegotiating the contract you're ending — it's part of what you were licensing the whole time, not a paid add-on at the exit.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Why this is worth stating plainly",
+      },
+      {
+        type: "p",
+        text: "A vendor that makes leaving hard is quietly betting that switching costs, not ongoing value, are what keeps a customer renewing. STIV's approval-gated model already means your team, not the system, made every consequential decision along the way — the audit trail proves that on the way out as clearly as it does while you're a customer. If the product is worth keeping, that should be provable by what it's done, not by how expensive it is to check.",
+      },
+      {
+        type: "p",
+        text: "In practice, few customers who reach this stage are leaving because the mechanism failed — the approval gate and audit trail described throughout this site are the same on day 400 as they are on day one. But a company that's only willing to explain its exit process when asked directly isn't one worth trusting with the connect-and-learn stage in the first place.",
+      },
+    ],
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
