@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter_Tight, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
@@ -167,6 +168,7 @@ export default function RootLayout({
 
         <CookieConsent />
         <AnalyticsEvents />
+        <Analytics />
       </body>
     </html>
   );
