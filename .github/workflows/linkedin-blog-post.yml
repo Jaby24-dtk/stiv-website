@@ -1,0 +1,40 @@
+name: Post new blogs to LinkedIn
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "app/blog/posts.ts"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Log the LinkedIn payload instead of sending it"
+        type: boolean
+        default: true
+      before:
+        description: "Git ref to diff from (defaults to HEAD^)"
+        required: false
+      after:
+        description: "Git ref to diff to (defaults to HEAD)"
+        required: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Post new posts.ts entries to LinkedIn
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_ORG_URN: ${{ secrets.LINKEDIN_ORG_URN }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+          GIT_BEFORE: ${{ github.event.inputs.before || github.event.before }}
+          GIT_AFTER: ${{ github.event.inputs.after || github.sha }}
+        run: node scripts/post-new-blogs-to-linkedin.mjs
