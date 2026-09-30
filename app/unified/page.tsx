@@ -5,12 +5,12 @@ import PageHeader from "../components/PageHeader";
 import Reveal from "../components/Reveal";
 
 export const metadata: Metadata = {
-  title: "STIV Unified",
+  title: { absolute: "STIV Unified — One AI Assistant for Every Division" },
   description:
     "STIV Unified combines all seven divisions into one exclusive assistant — a bespoke build on your business, dedicated infrastructure, and a dedicated success manager. Custom pricing, by application.",
   alternates: { canonical: "/unified" },
   openGraph: {
-    title: "STIV Unified — STIV",
+    title: "STIV Unified — One AI Assistant for Every Division",
     description:
       "STIV Unified combines all seven divisions into one exclusive assistant — a bespoke build on your business, dedicated infrastructure, and a dedicated success manager. Custom pricing, by application.",
     url: "/unified",

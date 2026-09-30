@@ -5,14 +5,14 @@ import IconTile from "../components/IconTile";
 import Reveal from "../components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Careers",
+  title: "Careers — Join Our Team in Singapore",
   description:
-    "STIV is a small, exacting team building premium software for the enterprise. See where we're looking for talent.",
+    "STIV is a small, exacting team in Singapore building premium, purpose-built AI software for the enterprise. See the roles we're hiring for and how to apply.",
   alternates: { canonical: "/careers" },
   openGraph: {
-    title: "Careers — STIV",
+    title: "Careers at STIV — Join Our Team in Singapore — STIV",
     description:
-      "STIV is a small, exacting team building premium software for the enterprise. See where we're looking for talent.",
+    "STIV is a small, exacting team in Singapore building premium, purpose-built AI software for the enterprise. See the roles we're hiring for and how to apply.",
     url: "/careers",
   },
 };

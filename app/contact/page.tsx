@@ -7,14 +7,14 @@ import Reveal from "../components/Reveal";
 import DemoForm from "../components/DemoForm";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Request a Private Enterprise Briefing",
   description:
-    "Apply for a private STIV briefing, or reach the right team for careers, privacy, or legal.",
+    "Apply for a private STIV briefing to see premium, purpose-built AI software for your enterprise divisions, or reach our careers, privacy, or legal teams.",
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact — STIV",
+    title: "Contact STIV",
     description:
-      "Apply for a private STIV briefing, or reach the right team for careers, privacy, or legal.",
+    "Apply for a private STIV briefing to see premium, purpose-built AI software for your enterprise divisions, or reach our careers, privacy, or legal teams.",
     url: "/contact",
   },
 };

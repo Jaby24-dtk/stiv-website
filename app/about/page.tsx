@@ -6,14 +6,14 @@ import IconTile from "../components/IconTile";
 import Reveal from "../components/Reveal";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Us — Premium Software for Every Division",
   description:
-    "STIV builds exclusive, purpose-built software for every division of your enterprise — founded in Singapore, 2026.",
+    "STIV builds exclusive, purpose-built software for every division of your enterprise, from Executive to Support. Founded in Singapore in 2026, available by application.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About — STIV",
+    title: "About STIV — Premium Enterprise Software — STIV",
     description:
-      "STIV builds exclusive, purpose-built software for every division of your enterprise — founded in Singapore, 2026.",
+    "STIV builds exclusive, purpose-built software for every division of your enterprise, from Executive to Support. Founded in Singapore in 2026, available by application.",
     url: "/about",
   },
 };

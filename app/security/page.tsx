@@ -7,12 +7,12 @@ import Reveal from "../components/Reveal";
 import { serializeJsonLd } from "../lib/json-ld";
 
 export const metadata: Metadata = {
-  title: "Security & Trust",
+  title: "Security & Trust: Approval Gates and Audit Trails",
   description:
     "How STIV secures agent access, keeps humans in the loop, and stays audit-ready — encryption, approval gates, audit trails, and SOC 2 control objectives.",
   alternates: { canonical: "/security" },
   openGraph: {
-    title: "Security & Trust — STIV",
+    title: "Security & Trust: Approval Gates and Audit Trails — STIV",
     description:
       "How STIV secures agent access, keeps humans in the loop, and stays audit-ready — encryption, approval gates, audit trails, and SOC 2 control objectives.",
     url: "/security",

@@ -6,12 +6,14 @@ import Reveal from "../components/Reveal";
 import { posts } from "./posts";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Notes from STIV on building premium enterprise software.",
+  title: "Blog: Notes on Enterprise AI Software",
+  description:
+    "Notes from STIV on building premium enterprise AI software: division-by-division walkthroughs, perspectives for executives, and lessons from running AI with approval gates.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog — STIV",
-    description: "Notes from STIV on building premium enterprise software.",
+    title: "Blog: Notes on Enterprise AI Software — STIV",
+    description:
+    "Notes from STIV on building premium enterprise AI software: division-by-division walkthroughs, perspectives for executives, and lessons from running AI with approval gates.",
     url: "/blog",
   },
 };

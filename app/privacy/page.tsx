@@ -4,12 +4,14 @@ import PageHeader from "../components/PageHeader";
 import { LegalBody, LegalSection } from "../components/LegalSection";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "How STIV collects, uses, and protects your information.",
+  title: "Privacy Policy — How We Protect Your Data",
+  description:
+    "How STIV collects, uses, stores, and protects your information when you visit our website, apply for a briefing, or use STIV's division software, and the rights you have.",
   alternates: { canonical: "/privacy" },
   openGraph: {
-    title: "Privacy Policy — STIV",
-    description: "How STIV collects, uses, and protects your information.",
+    title: "Privacy Policy — How We Protect Your Data — STIV",
+    description:
+    "How STIV collects, uses, stores, and protects your information when you visit our website, apply for a briefing, or use STIV's division software, and the rights you have.",
     url: "/privacy",
   },
 };
