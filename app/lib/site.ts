@@ -5,6 +5,7 @@ export const CONTACT_EMAIL = "director@iamstivai.com";
 export const IMPACT_URL = "https://impact.iamstivai.com";
 export const LINKEDIN_URL = "https://www.linkedin.com/company/stiv-pte-ltd";
 export const CRUNCHBASE_URL = "https://www.crunchbase.com/organization/stiv-9fde";
+export const G2_URL = "https://www.g2.com/products/stiv/reviews";
 
 export const DEFAULT_TITLE =
   "STIV — Approval-Governed AI Software for Enterprise Teams";
