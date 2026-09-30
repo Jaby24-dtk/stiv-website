@@ -108,6 +108,11 @@ export default function UnifiedScene() {
                   stageRefs.current[i] = el;
                 }}
                 className="absolute inset-0"
+                // Server-render the state GSAP sets on mount (first stage
+                // shown) so the four stacked stages never flash on top of
+                // each other before hydration. The text itself stays in the
+                // HTML for search engines and AI crawlers.
+                style={i === 0 ? undefined : { opacity: 0 }}
               >
                 <p className="font-mono text-xs tracking-widest text-accent-gold">
                   {stage.eyebrow}
