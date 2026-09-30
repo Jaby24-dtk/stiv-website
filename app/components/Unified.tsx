@@ -1,5 +1,5 @@
 import Link from "next/link";
-import UnifiedScene from "./DynamicUnifiedScene";
+import UnifiedScene from "./UnifiedScene";
 import Reveal from "./Reveal";
 import Magnetic from "./Magnetic";
 
