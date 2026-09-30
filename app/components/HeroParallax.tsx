@@ -66,7 +66,7 @@ export default function HeroParallax() {
       <div
         ref={grid}
         aria-hidden
-        className="bg-grid pointer-events-none absolute inset-[-10%] -z-20 will-change-transform"
+        className="bg-grid pointer-events-none absolute inset-x-[-10%] inset-y-[-6rem] -z-20 will-change-transform"
       />
       <div
         ref={glow}

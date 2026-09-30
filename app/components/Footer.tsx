@@ -47,7 +47,7 @@ export default function Footer() {
             <div className="flex items-center gap-2.5">
               <Image
                 src="/stiv-logo-mark.png"
-                alt="STIV"
+                alt=""
                 width={28}
                 height={28}
                 className="h-7 w-7 rounded-lg object-contain"

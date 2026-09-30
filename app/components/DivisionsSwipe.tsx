@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import IconTile from "./IconTile";
 import ScrambleText from "./ScrambleText";
-import RotatingEarth from "./RotatingEarth";
+import RotatingEarth from "./DynamicRotatingEarth";
 import { ensureGsapPlugins, gsap } from "./gsapConfig";
 
 type Division = {

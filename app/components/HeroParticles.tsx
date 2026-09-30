@@ -27,6 +27,7 @@ export default function HeroParticles() {
     let nodes: Node[] = [];
     const mouse = { x: -9999, y: -9999 };
     let raf = 0;
+    let running = false;
 
     function resize() {
       const el = canvasRef.current;
@@ -112,16 +113,30 @@ export default function HeroParticles() {
         ctx!.fill();
       }
 
-      raf = requestAnimationFrame(step);
+      if (running) raf = requestAnimationFrame(step);
     }
 
+    // Only animate while the hero is on screen — the O(n²) link pass
+    // otherwise keeps burning main-thread time after the user scrolls away.
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !running) {
+        running = true;
+        step();
+      } else if (!entry.isIntersecting) {
+        running = false;
+        cancelAnimationFrame(raf);
+      }
+    });
+    observer.observe(canvas);
+
     resize();
-    step();
     window.addEventListener("resize", resize);
     window.addEventListener("mousemove", onMouseMove, { passive: true });
     window.addEventListener("mouseleave", onMouseLeave, { passive: true });
 
     return () => {
+      running = false;
+      observer.disconnect();
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMouseMove);

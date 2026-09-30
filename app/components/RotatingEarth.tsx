@@ -37,10 +37,14 @@ function Globe() {
   );
 }
 
-export default function RotatingEarth() {
+export default function RotatingEarth({ active }: { active: boolean }) {
   return (
-    <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center opacity-70">
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={[1, 1.5]}>
+    <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-70">
+      <Canvas
+        camera={{ position: [0, 0, 5], fov: 45 }}
+        dpr={[1, 1.5]}
+        frameloop={active ? "always" : "never"}
+      >
         <ambientLight intensity={0.5} />
         <pointLight position={[4, 3, 4]} intensity={60} color="#ffffff" />
         <pointLight position={[-4, -2, -2]} intensity={30} color="#8a8a8a" />

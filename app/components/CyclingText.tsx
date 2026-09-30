@@ -62,6 +62,14 @@ export default function CyclingText({
           key={word}
           data-word={i}
           className={`whitespace-nowrap ${className}`}
+          // Server-render the same stacked state GSAP sets on mount (only the
+          // first word in flow). Otherwise all seven words render inline,
+          // wrap onto several lines, and the hero collapses on hydration.
+          style={
+            i === 0
+              ? { position: "relative" }
+              : { position: "absolute", left: 0, top: 0, opacity: 0 }
+          }
         >
           {word}
         </span>
