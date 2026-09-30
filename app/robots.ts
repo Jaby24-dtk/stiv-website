@@ -37,6 +37,8 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
-    host: SITE_URL,
+    // No `host`: it emits a non-standard "Host:" line (Yandex-only) that
+    // Bing's robots.txt tester reports as an error. The canonical www
+    // domain is already set by redirects and canonical tags.
   };
 }
