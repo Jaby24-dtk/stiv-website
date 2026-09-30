@@ -22,19 +22,28 @@ export async function generateMetadata({
   const division = getDivisionBySlug(slug);
   if (!division) return {};
 
+  // Search engines flag titles/descriptions that are too short (Bing wants
+  // ~50-60 / ~150-160 chars), so pad the shorter division summaries.
+  const description =
+    division.summary.length < 130
+      ? `${division.summary} Built by STIV, available by application.`
+      : division.summary;
+
   return {
-    title: `${division.name} — STIV Software`,
-    description: division.summary,
+    title: {
+      absolute: `STIV ${division.name}: AI Software for ${division.name} Teams`,
+    },
+    description,
     alternates: { canonical: `/software/${division.slug}` },
     openGraph: {
       title: `STIV for ${division.name} — STIV`,
-      description: division.summary,
+      description,
       url: `/software/${division.slug}`,
     },
     twitter: {
       card: "summary_large_image",
       title: `STIV for ${division.name} — STIV`,
-      description: division.summary,
+      description,
     },
   };
 }

@@ -6,13 +6,14 @@ import Reveal from "../components/Reveal";
 import { divisions } from "../lib/divisions";
 
 export const metadata: Metadata = {
-  title: "System Status",
-  description: "STIV's uptime commitment across all seven division systems.",
+  title: "System Status and Uptime Commitment",
+  description:
+    "Current system status for STIV and our uptime commitment across all seven division systems: Executive, Sales, Marketing, Finance, Operations, Legal, and Support.",
   alternates: { canonical: "/status" },
   openGraph: {
-    title: "System Status — STIV",
+    title: "System Status and Uptime Commitment — STIV",
     description:
-      "STIV's uptime commitment across all seven division systems.",
+    "Current system status for STIV and our uptime commitment across all seven division systems: Executive, Sales, Marketing, Finance, Operations, Legal, and Support.",
     url: "/status",
   },
 };

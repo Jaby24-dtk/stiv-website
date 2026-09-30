@@ -6,12 +6,12 @@ import IconTile from "../components/IconTile";
 import Reveal from "../components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Integrations",
+  title: "Integrations for Inbox, CRM, Accounting & Docs",
   description:
     "STIV connects to your inbox, CRM, accounting, and docs — no migration required. Standard integrations on Single Division, custom integrations on Full Suite and Unified.",
   alternates: { canonical: "/integrations" },
   openGraph: {
-    title: "Integrations — STIV",
+    title: "Integrations for Inbox, CRM, Accounting & Docs — STIV",
     description:
       "STIV connects to your inbox, CRM, accounting, and docs — no migration required. Standard integrations on Single Division, custom integrations on Full Suite and Unified.",
     url: "/integrations",
