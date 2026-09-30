@@ -55,7 +55,7 @@ export default function AuroraBackground({
           width: "50%",
           height: "50%",
           background:
-            "radial-gradient(circle, rgba(255,255,255,0.55), transparent 70%)",
+            "radial-gradient(closest-side, rgba(255,255,255,0.6), rgba(255,255,255,0.24) 50%, transparent)",
         }}
       />
       <div
@@ -66,7 +66,7 @@ export default function AuroraBackground({
           width: "45%",
           height: "45%",
           background:
-            "radial-gradient(circle, rgba(200,200,200,0.5), transparent 70%)",
+            "radial-gradient(closest-side, rgba(200,200,200,0.52), rgba(200,200,200,0.2) 50%, transparent)",
         }}
       />
       <div
@@ -77,7 +77,7 @@ export default function AuroraBackground({
           width: "55%",
           height: "55%",
           background:
-            "radial-gradient(circle, rgba(120,120,120,0.5), transparent 70%)",
+            "radial-gradient(closest-side, rgba(120,120,120,0.52), rgba(120,120,120,0.2) 50%, transparent)",
         }}
       />
     </div>

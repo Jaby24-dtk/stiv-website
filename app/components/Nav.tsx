@@ -37,7 +37,7 @@ export default function Nav() {
         <Link href="/" className="header-invert flex min-h-11 items-center gap-2.5">
           <Image
             src="/stiv-logo-mark.png"
-            alt="STIV"
+            alt=""
             width={32}
             height={32}
             className="h-8 w-8 rounded-lg object-contain"

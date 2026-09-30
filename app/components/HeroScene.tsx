@@ -1,13 +1,12 @@
 "use client";
 
-import { useRef, useState, Suspense } from "react";
+import { useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Sparkles, Environment, Lightformer } from "@react-three/drei";
 import * as THREE from "three";
 
 function Crystal() {
   const meshRef = useRef<THREE.Mesh>(null);
-  const [target, setTarget] = useState({ x: 0, y: 0 });
 
   useFrame((state, delta) => {
     const mesh = meshRef.current;
@@ -15,10 +14,6 @@ function Crystal() {
 
     mesh.rotation.y += delta * 0.18;
     mesh.rotation.x += delta * 0.06;
-
-    const px = (state.pointer.x - target.x) * 0.4;
-    const py = (state.pointer.y - target.y) * 0.4;
-    setTarget((t) => ({ x: t.x + px * delta * 2, y: t.y + py * delta * 2 }));
 
     mesh.rotation.z = THREE.MathUtils.lerp(
       mesh.rotation.z,
@@ -49,10 +44,14 @@ function Crystal() {
   );
 }
 
-export default function HeroScene() {
+export default function HeroScene({ active }: { active: boolean }) {
   return (
-    <div className="pointer-events-none absolute inset-0 -z-10">
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={[1, 1.5]}>
+    <div className="pointer-events-none absolute inset-0">
+      <Canvas
+        camera={{ position: [0, 0, 5], fov: 45 }}
+        dpr={[1, 1.5]}
+        frameloop={active ? "always" : "never"}
+      >
         <Suspense fallback={null}>
           <ambientLight intensity={0.6} />
           <pointLight position={[4, 4, 4]} intensity={80} color="#ffffff" />
