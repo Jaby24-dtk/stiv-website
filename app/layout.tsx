@@ -15,6 +15,7 @@ import {
   LEGAL_NAME,
   LINKEDIN_URL,
   CRUNCHBASE_URL,
+  G2_URL,
   ORGANIZATION_ID,
   SITE_NAME,
   SITE_URL,
@@ -125,7 +126,7 @@ const siteJsonLd = {
         availableLanguage: "English",
         areaServed: "Worldwide",
       },
-      sameAs: [LINKEDIN_URL, CRUNCHBASE_URL],
+      sameAs: [LINKEDIN_URL, CRUNCHBASE_URL, G2_URL],
       hasPart: {
         "@type": "WebSite",
         name: "STIV Community Impact",
