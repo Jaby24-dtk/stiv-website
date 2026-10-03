@@ -5,13 +5,14 @@ import type { NextConfig } from "next";
 // site's animation styles still require inline element support; nonce-based
 // CSP would force every route into dynamic rendering and remove the CDN/static
 // performance advantage. Structured-data HTML is serialized from static,
-// trusted site data rather than user input.
+// trusted site data rather than user input. img-src allows any HTTPS host
+// because BabyLoveGrowth blog articles embed images from their own CDNs.
 const cspHeader = `
   default-src 'self';
   script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.clarity.ms;
   script-src-attr 'none';
   style-src 'self' 'unsafe-inline';
-  img-src 'self' data: blob: https://www.google-analytics.com https://*.clarity.ms https://c.bing.com;
+  img-src 'self' data: blob: https: https://www.google-analytics.com https://*.clarity.ms https://c.bing.com;
   font-src 'self';
   connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.clarity.ms;
   object-src 'none';
@@ -24,6 +25,11 @@ const cspHeader = `
   .trim();
 
 const nextConfig: NextConfig = {
+  images: {
+    // BabyLoveGrowth article cover images. "**" (not "*") is needed to match
+    // multi-part hosts; narrow it to the article CDN host once it's confirmed.
+    remotePatterns: [{ protocol: "https", hostname: "**" }],
+  },
   async redirects() {
     return [
       {

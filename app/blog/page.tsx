@@ -4,6 +4,18 @@ import { ArrowRight } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import Reveal from "../components/Reveal";
 import { posts } from "./posts";
+import { getRemoteArticles } from "./lib/remote-posts";
+
+export const revalidate = 86400; // Daily, matching the BabyLoveGrowth client cache.
+
+type ListEntry = {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  category: string;
+  readTime?: string;
+};
 
 export const metadata: Metadata = {
   title: "Blog: Notes on Enterprise AI Software",
@@ -18,7 +30,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const remoteArticles = await getRemoteArticles();
+  const entries: ListEntry[] = [
+    ...posts,
+    ...remoteArticles.map((article) => ({
+      slug: article.slug,
+      title: article.title,
+      description: article.meta_description || article.excerpt,
+      date: article.published_at,
+      category: "Insights",
+    })),
+  ].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
   return (
     <>
       <PageHeader
@@ -29,7 +53,7 @@ export default function BlogPage() {
 
       <section className="px-6 py-24 lg:px-8">
         <div className="mx-auto flex max-w-3xl flex-col divide-y divide-white/10 border-t border-white/10">
-          {posts.map((post, i) => {
+          {entries.map((post, i) => {
             const formattedDate = new Date(post.date).toLocaleDateString(
               "en-US",
               { year: "numeric", month: "long", day: "numeric" },
@@ -49,10 +73,14 @@ export default function BlogPage() {
                     <time dateTime={post.date} className="text-muted">
                       {formattedDate}
                     </time>
-                    <span aria-hidden className="text-white/20">
-                      ·
-                    </span>
-                    <span className="text-muted">{post.readTime}</span>
+                    {post.readTime && (
+                      <>
+                        <span aria-hidden className="text-white/20">
+                          ·
+                        </span>
+                        <span className="text-muted">{post.readTime}</span>
+                      </>
+                    )}
                   </div>
                   <h2 className="text-2xl font-semibold tracking-tight transition-colors group-hover:text-accent-gold sm:text-3xl">
                     {post.title}
