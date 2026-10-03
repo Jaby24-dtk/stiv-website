@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
@@ -8,9 +9,25 @@ import Reveal from "../../components/Reveal";
 import { getPostBySlug, posts } from "../posts";
 import { serializeJsonLd } from "../../lib/json-ld";
 import { ORGANIZATION_ID, SITE_URL, WEBSITE_ID } from "../../lib/site";
+import {
+  getRemoteArticle,
+  getRemoteArticles,
+  sanitizeArticleHtml,
+} from "../lib/remote-posts";
+import {
+  readingTimeMinutes,
+  type BlogArticle,
+} from "babylovegrowth-next-js-blog";
+import "../blog-content.css";
 
-export function generateStaticParams() {
-  return posts.map((post) => ({ slug: post.slug }));
+export const revalidate = 86400; // Daily, matching the BabyLoveGrowth client cache.
+
+export async function generateStaticParams() {
+  const remoteArticles = await getRemoteArticles();
+  return [
+    ...posts.map((post) => ({ slug: post.slug })),
+    ...remoteArticles.map((article) => ({ slug: article.slug })),
+  ];
 }
 
 const INLINE_LINK = /\[\[([a-z0-9-]+)\|([^\]]+)\]\]/g;
@@ -51,7 +68,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  if (!post) return {};
+  if (!post) {
+    const article = await getRemoteArticle(slug);
+    return article ? remoteArticleMetadata(article) : {};
+  }
 
   return {
     title: post.title,
@@ -82,7 +102,11 @@ export default async function BlogPostPage({
 }) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  if (!post) notFound();
+  if (!post) {
+    const article = await getRemoteArticle(slug);
+    if (!article) notFound();
+    return <RemoteArticle article={article} />;
+  }
 
   const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
     year: "numeric",
@@ -189,6 +213,139 @@ export default async function BlogPostPage({
               );
             })}
           </div>
+
+          <div className="mt-14 flex items-center justify-between border-t border-white/10 pt-8">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-foreground/90 transition-colors hover:text-accent-gold"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to blog
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
+            >
+              Request private access
+            </Link>
+          </div>
+        </Reveal>
+      </article>
+    </>
+  );
+}
+
+function remoteArticleMetadata(article: BlogArticle): Metadata {
+  const description = article.meta_description || article.excerpt;
+  return {
+    title: article.title,
+    description,
+    alternates: { canonical: `/blog/${article.slug}` },
+    openGraph: {
+      type: "article",
+      title: `${article.title} — STIV`,
+      description,
+      url: `/blog/${article.slug}`,
+      publishedTime: article.published_at,
+      modifiedTime: article.updated_at,
+      authors: [SITE_URL],
+      tags: article.keywords,
+      ...(article.hero_image_url
+        ? { images: [{ url: article.hero_image_url }] }
+        : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${article.title} — STIV`,
+      description,
+    },
+  };
+}
+
+function RemoteArticle({ article }: { article: BlogArticle }) {
+  const description = article.meta_description || article.excerpt;
+  const formattedDate = new Date(article.published_at).toLocaleDateString(
+    "en-US",
+    { year: "numeric", month: "long", day: "numeric" },
+  );
+  const readTime = `${readingTimeMinutes(article.content_html)} min read`;
+  const url = `${SITE_URL}/blog/${article.slug}`;
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${url}#article`,
+        headline: article.title,
+        description,
+        datePublished: article.published_at,
+        dateModified: article.updated_at,
+        inLanguage: article.languageCode || "en",
+        keywords: article.keywords,
+        author: { "@id": ORGANIZATION_ID },
+        publisher: { "@id": ORGANIZATION_ID },
+        isPartOf: { "@id": WEBSITE_ID },
+        image: article.hero_image_url || `${SITE_URL}/opengraph-image`,
+        mainEntityOfPage: url,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Blog",
+            item: `${SITE_URL}/blog`,
+          },
+          { "@type": "ListItem", position: 3, name: article.title, item: url },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleJsonLd) }}
+      />
+      {article.faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: serializeJsonLd(article.faqJsonLd),
+          }}
+        />
+      )}
+      <PageHeader eyebrow="INSIGHTS" title={article.title} description={description} />
+
+      <article className="px-6 py-16 lg:px-8">
+        <Reveal className="mx-auto max-w-2xl">
+          <div className="flex items-center gap-3 text-sm text-muted">
+            <time dateTime={article.published_at}>{formattedDate}</time>
+            <span aria-hidden>·</span>
+            <span>{readTime}</span>
+          </div>
+
+          {article.hero_image_url && (
+            <Image
+              src={article.hero_image_url}
+              alt=""
+              width={1200}
+              height={630}
+              sizes="(min-width: 672px) 672px, 100vw"
+              className="mt-10 h-auto w-full rounded-xl border border-white/10"
+            />
+          )}
+
+          <div
+            className="blog-content mt-10"
+            dangerouslySetInnerHTML={{
+              __html: sanitizeArticleHtml(article.content_html),
+            }}
+          />
 
           <div className="mt-14 flex items-center justify-between border-t border-white/10 pt-8">
             <Link
