@@ -4,6 +4,7 @@ import {
   type BlogArticle,
   type BlogArticleSummary,
 } from "babylovegrowth-next-js-blog";
+import sanitizeHtml from "sanitize-html";
 import { getPostBySlug } from "../posts";
 
 // Articles published from BabyLoveGrowth sit alongside the hand-written posts
@@ -43,7 +44,43 @@ export async function getRemoteArticle(
   }
 }
 
-/** Drop script tags from the vendor HTML; the site CSP allows inline scripts. */
+/**
+ * Allowlist-sanitize vendor article HTML before it is rendered with
+ * dangerouslySetInnerHTML. The site CSP permits inline scripts, so anything
+ * active (script, iframe/srcdoc, object, event handlers, javascript: URLs,
+ * inline styles) must be stripped here rather than relying on the CSP.
+ */
 export function sanitizeArticleHtml(html: string): string {
-  return html.replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi, "");
+  return sanitizeHtml(html, {
+    allowedTags: [
+      ...sanitizeHtml.defaults.allowedTags.filter(
+        (tag) => !["nav", "main", "header", "footer"].includes(tag),
+      ),
+      "img",
+    ],
+    allowedAttributes: {
+      a: ["href", "title", "target", "rel"],
+      img: ["src", "alt", "title", "width", "height", "loading"],
+      th: ["colspan", "rowspan", "scope"],
+      td: ["colspan", "rowspan"],
+      time: ["datetime"],
+      "*": ["id"],
+    },
+    allowedSchemes: ["https", "http", "mailto"],
+    allowedSchemesByTag: { img: ["https"] },
+    allowProtocolRelative: false,
+    transformTags: {
+      a: (tagName, attribs) => ({
+        tagName,
+        attribs:
+          attribs.target === "_blank"
+            ? { ...attribs, rel: "noopener noreferrer" }
+            : attribs,
+      }),
+      img: (tagName, attribs) => ({
+        tagName,
+        attribs: { ...attribs, loading: "lazy" },
+      }),
+    },
+  });
 }
