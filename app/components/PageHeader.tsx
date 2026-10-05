@@ -10,7 +10,7 @@ export default function PageHeader({
   description?: string;
 }) {
   return (
-    <div className="relative overflow-hidden px-[7%] pb-6 pt-32 text-center lg:pt-40">
+    <div className="page-header relative overflow-hidden px-[7%] pb-20 pt-32 text-center lg:pt-40">
       <AuroraBackground variant="subtle" />
       <div className="relative mx-auto max-w-[980px]">
         <p className="text-[1.3125rem] font-semibold tracking-[-0.01em] text-[#9aa3af]">
