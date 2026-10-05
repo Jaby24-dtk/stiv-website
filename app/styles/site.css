@@ -1,0 +1,612 @@
+/* Additions on top of the ported reference stylesheet (stiv.css):
+   the real STIV logo, the eight-link nav, the footer link columns, the
+   seven-division constellation and the Command Center capability sections.
+   Written in the same visual language as the reference. */
+
+/* ── Logo ─────────────────────────────────────────────── */
+.logo-mark {
+  object-fit: contain;
+  flex-shrink: 0;
+  display: inline-block;
+}
+.wordmark {
+  gap: 12px;
+}
+.stiv-home .terminal-bar > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.stiv-home .network-center .logo-mark {
+  z-index: 1;
+  margin-bottom: 6px;
+}
+
+/* ── Nav: eight links collapse to the menu earlier ────── */
+.site-nav a {
+  white-space: nowrap;
+}
+@media (min-width: 761px) and (max-width: 1180px) {
+  .menu {
+    display: block;
+    padding: 5px;
+  }
+  .nav-cta {
+    margin-left: auto;
+  }
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 88px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 25px 4.5%;
+    background: #0b0d11;
+    border-bottom: 1px solid #333b46;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.0625rem;
+  }
+  .site-nav.open {
+    display: flex;
+  }
+}
+
+/* ── Footer columns ───────────────────────────────────── */
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 35px;
+  padding: 10px 0 40px;
+}
+.footer-columns ul {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.footer-columns a {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  font-size: 0.8125rem;
+  color: #9aa3af;
+  transition: color 0.3s;
+}
+.footer-columns a:hover,
+.footer-bottom button:hover,
+.footer-top a:hover {
+  color: var(--accent);
+}
+.footer-bottom button {
+  font-size: 0.75rem;
+  color: #798491;
+  min-height: 0;
+  background: transparent;
+}
+@media (max-width: 760px) {
+  .footer-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+}
+
+/* ── Seven-division constellation ─────────────────────── */
+.stiv-home .constellation-7 {
+  height: 540px;
+}
+.stiv-home .constellation-7 .node {
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  margin-left: 0;
+}
+.stiv-home .constellation-7 .n1 { left: 0; top: 20px; }
+.stiv-home .constellation-7 .n2 { left: 0; top: calc(50% - 52px); }
+.stiv-home .constellation-7 .n3 { left: 0; bottom: 40px; }
+.stiv-home .constellation-7 .n4 { right: 0; top: 20px; }
+.stiv-home .constellation-7 .n5 { right: 0; top: calc(50% - 52px); }
+.stiv-home .constellation-7 .n6 { right: 0; bottom: 40px; }
+.stiv-home .constellation-7 .n7 { left: 50%; bottom: -8px; margin-left: -105px; }
+@media (max-width: 760px) {
+  .stiv-home .constellation-7 {
+    height: 420px;
+  }
+  .stiv-home .constellation-7 .n1 { left: 0; top: 0; }
+  .stiv-home .constellation-7 .n2 { left: 0; top: 95px; }
+  .stiv-home .constellation-7 .n3 { left: 0; top: 190px; bottom: auto; }
+  .stiv-home .constellation-7 .n4 { right: 0; top: 0; }
+  .stiv-home .constellation-7 .n5 { right: 0; top: 95px; }
+  .stiv-home .constellation-7 .n6 { right: 0; top: 190px; bottom: auto; }
+  .stiv-home .constellation-7 .n7 { left: 26.5%; top: 290px; bottom: auto; margin-left: 0; }
+}
+.stiv-home .unity-foot a:hover strong {
+  color: var(--accent);
+}
+
+/* ── Inside the Command Center ────────────────────────── */
+/* Capability groups as tabs (all panels stay in the HTML for search) */
+.stiv-home .cc-tabs {
+  margin-top: 45px;
+}
+.stiv-home .cc-tablist {
+  margin-top: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.stiv-home .cc-tablist::-webkit-scrollbar {
+  display: none;
+}
+.stiv-home .cc-tablist .scenario-tab {
+  white-space: nowrap;
+}
+.stiv-home .cc-panel {
+  padding-top: 28px;
+}
+.stiv-home .cc-panel[hidden] {
+  display: none;
+}
+.stiv-home .cc-panel-desc {
+  font-size: 0.9375rem;
+  color: #aeb7c2;
+}
+.stiv-home .cc-panel ul {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 45px;
+}
+.stiv-home .cc-panel li {
+  border-top: 1px solid #2c333d;
+  padding: 0.875rem 0;
+}
+.stiv-home .cc-panel li strong {
+  display: block;
+  font-weight: 450;
+  font-size: 0.9375rem;
+  letter-spacing: -0.015em;
+  color: #d9dfe5;
+}
+.stiv-home .cc-panel li small {
+  display: block;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: #8d98a5;
+  margin-top: 2px;
+}
+
+.stiv-home .cc-split {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 75px;
+  margin-top: 100px;
+  align-items: start;
+}
+.stiv-home .cc-sub {
+  font-size: clamp(1.875rem, 3vw, 2.75rem);
+  letter-spacing: -0.048em;
+  line-height: 1.15;
+  margin-top: 18px;
+}
+.stiv-home .cc-sub-lead {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #aeb7c2;
+  margin-top: 1.25rem;
+  max-width: 26rem;
+}
+
+/* Monitors: one line each, detail on click */
+.stiv-home .cc-monitors {
+  border-top: 1px solid #3b4552;
+}
+.stiv-home .cc-monitors details {
+  padding: 14px 0;
+}
+.stiv-home .cc-monitors summary {
+  align-items: center;
+}
+.stiv-home .cc-monitors summary strong {
+  font-size: 0.9375rem;
+}
+.stiv-home .cc-monitors .cadence {
+  font-family: var(--font-meta);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  white-space: nowrap;
+  border: 1px solid #38424d;
+  border-radius: 3px;
+  padding: 2px 8px;
+}
+.stiv-home .cc-monitors details p {
+  padding: 8px 0 0;
+  font-size: 0.875rem;
+}
+
+/* Workspace: module chips with a single caption line */
+.stiv-home .cc-module-group + .cc-module-group {
+  margin-top: 22px;
+}
+.stiv-home .cc-module-group .eyebrow {
+  display: block;
+  color: #778594;
+}
+.stiv-home .cc-module-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.stiv-home .cc-module-chips button {
+  font-size: 0.8125rem;
+  color: #b3c3d3;
+  border: 1px solid #39424e;
+  background: #131a22;
+  padding: 7px 12px;
+  transition: border-color 0.3s, color 0.3s;
+}
+.stiv-home .cc-module-chips button:hover,
+.stiv-home .cc-module-chips button.selected {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.stiv-home .cc-module-note {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #2c333d;
+  font-size: 0.875rem;
+  min-height: 3.5em;
+}
+
+/* "See all connections" toggle */
+.stiv-home .cc-more {
+  max-width: 1050px;
+  margin: 0 auto 30px;
+  border-top: 1px solid #2b323c;
+}
+.stiv-home .cc-more summary strong {
+  font-size: 0.9375rem;
+}
+.stiv-home .cc-more .cc-chips {
+  margin: 22px 0 6px;
+}
+
+/* Channel and system chips under the integration network */
+.stiv-home .cc-chips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+.stiv-home .cc-chips p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.stiv-home .cc-chips p span {
+  font-size: 0.8125rem;
+  color: #b3c3d3;
+  border: 1px solid #39424e;
+  background: #131a22;
+  padding: 7px 12px;
+}
+.stiv-home .caption-link {
+  color: #b6bfc9;
+  border-bottom: 1px solid #677383;
+  margin-left: 6px;
+}
+.stiv-home .caption-link:hover {
+  color: var(--accent);
+}
+
+/* Workforce detail link (one per role; only the selected one shows) */
+.stiv-home .role-link {
+  margin-top: 22px;
+}
+.stiv-home .role-link[hidden] {
+  display: none;
+}
+
+/* ── FAQ ──────────────────────────────────────────────── */
+.stiv-home .faq-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 75px;
+  align-items: start;
+}
+.stiv-home .faq-list details p {
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+@media (max-width: 1100px) {
+  .stiv-home .cc-split,
+  .stiv-home .faq-layout {
+    gap: 40px;
+  }
+}
+@media (max-width: 760px) {
+  .stiv-home .cc-tabs {
+    margin-top: 30px;
+  }
+  .stiv-home .cc-panel ul {
+    grid-template-columns: 1fr;
+  }
+  .stiv-home .cc-split,
+  .stiv-home .faq-layout {
+    display: block;
+    margin-top: 70px;
+  }
+  .stiv-home .faq-layout {
+    margin-top: 0;
+  }
+  .stiv-home .faq-list,
+  .stiv-home .cc-monitors,
+  .stiv-home .cc-workspace > div + div {
+    margin-top: 30px;
+  }
+  .stiv-home .cc-chips {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+/* Fallback (non-3D) core image: fade its dark backdrop into the page so it
+   never reads as a lighter rectangle. */
+.stiv-home .small-core,
+.stiv-home .final-core {
+  -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+}
+
+/* Governance heading above the control list */
+.stiv-home .gov-heading {
+  font-size: 1.375rem;
+  letter-spacing: -0.035em;
+  color: #d9dfe5;
+  margin: 0 0 6px;
+}
+
+/* Solution links under the AI workforce */
+.stiv-home .solution-links {
+  align-items: baseline;
+  margin-top: 50px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.stiv-home .solution-links .eyebrow {
+  color: #778594;
+}
+
+/* ── Light sections ─────────────────────────────────────
+   Alternating porcelain sections in the same family as the dark theme:
+   the warm off-white from the dark palette's text becomes the background,
+   charcoal becomes the text, and the pale steel-blue accent deepens so it
+   keeps contrast on a light ground. Rules that use the theme variables
+   pick these up automatically; hard-coded reference colours are
+   overridden below. */
+.stiv-home .light {
+  --text: #14171c;
+  --muted: #5b6470;
+  --line: #d8d6cf;
+  --accent: #2f5675;
+  background: #f4f3ef;
+  color: #14171c;
+  border-top-color: #e2e0da;
+}
+.stiv-home .light + .light {
+  border-top-color: #e2e0da;
+}
+.stiv-home .light .eyebrow {
+  color: #5f6a77;
+}
+.stiv-home .light .section-top .eyebrow:last-child {
+  color: #8a939e;
+}
+.stiv-home .light h2 span,
+.stiv-home .light h3 span {
+  color: #7b8591;
+}
+.stiv-home .light p,
+.stiv-home .light .lead {
+  color: #4f5864;
+}
+.stiv-home .light .caption {
+  color: #6f7883;
+}
+.stiv-home .light .text-link,
+.stiv-home .light .caption-link {
+  color: #14171c;
+  border-bottom-color: #9aa3ad;
+}
+.stiv-home .light .text-link:hover,
+.stiv-home .light .caption-link:hover,
+.stiv-home .light .company-links a:hover {
+  color: var(--accent);
+}
+.stiv-home .light .primary {
+  background: #14171c;
+  color: #f4f3ef;
+  box-shadow: 0 4px 18px rgba(20, 23, 28, 0.18);
+}
+.stiv-home .light .primary:hover {
+  background: var(--accent);
+}
+.stiv-home .light .quiet {
+  border-color: #b9b7b0;
+  color: #14171c;
+}
+.stiv-home .light .quiet:hover {
+  background: rgba(20, 23, 28, 0.04);
+}
+
+/* Platform constellation */
+.stiv-home .light .connections {
+  stroke: #a8b4c1;
+}
+.stiv-home .light .node {
+  background: rgba(255, 255, 255, 0.86);
+  border-color: #d2d0c9;
+  color: #7b8591;
+  box-shadow: 0 10px 30px rgba(20, 23, 28, 0.06);
+}
+.stiv-home .light .node small {
+  color: #6f7883;
+}
+.stiv-home .light .node:hover,
+.stiv-home .light .node.active {
+  background: #ffffff;
+  border-color: var(--accent);
+}
+/* The fallback core artwork is shot on black; inverting it on light
+   sections gives a polished-chrome sculpture on porcelain. */
+.stiv-home .light .small-core {
+  filter: invert(1) hue-rotate(180deg) saturate(0.6) contrast(1.05);
+  mix-blend-mode: multiply;
+}
+.stiv-home .light .connection-note {
+  color: #4f5864;
+}
+.stiv-home .light .unity-foot strong {
+  color: #14171c;
+}
+
+/* Tabs (Command Center capabilities) */
+.stiv-home .light .scenario-selector {
+  border-bottom-color: #d8d6cf;
+}
+.stiv-home .light .scenario-tab {
+  color: #6f7883;
+}
+.stiv-home .light .scenario-tab > span {
+  color: #9aa3ad;
+}
+.stiv-home .light .scenario-tab:hover,
+.stiv-home .light .scenario-tab[aria-selected="true"] {
+  color: #14171c;
+}
+.stiv-home .light .scenario-tab[aria-selected="true"] {
+  border-color: var(--accent);
+}
+.stiv-home .light .scenario-tab[aria-selected="true"] > span {
+  color: var(--accent);
+}
+.stiv-home .light .cc-panel-desc,
+.stiv-home .light .cc-sub-lead {
+  color: #4f5864;
+}
+.stiv-home .light .cc-panel li,
+.stiv-home .light .task,
+.stiv-home .light .cc-module-note {
+  border-top-color: #dedcd5;
+}
+.stiv-home .light .cc-panel li strong,
+.stiv-home .light summary strong {
+  color: #14171c;
+}
+.stiv-home .light .cc-panel li small {
+  color: #6f7883;
+}
+
+/* Accordions (monitors, FAQ, "see all") */
+.stiv-home .light details {
+  border-bottom-color: #dedcd5;
+}
+.stiv-home .light .cc-monitors {
+  border-top-color: #c9c7c0;
+}
+.stiv-home .light summary {
+  color: #8a939e;
+}
+.stiv-home .light summary:after {
+  color: var(--accent);
+}
+.stiv-home .light .cc-monitors .cadence {
+  border-color: #c3d0dc;
+  background: #e8eef3;
+}
+
+/* Chips (modules, channels, systems) */
+.stiv-home .light .cc-module-chips button,
+.stiv-home .light .cc-chips p span {
+  background: #ffffff;
+  border-color: #d2d0c9;
+  color: #3d4550;
+}
+.stiv-home .light .cc-module-chips button:hover,
+.stiv-home .light .cc-module-chips button.selected {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.stiv-home .light .cc-module-group .eyebrow,
+.stiv-home .light .solution-links .eyebrow {
+  color: #8a939e;
+}
+
+/* AI workforce */
+.stiv-home .light .workforce-tab {
+  border-bottom-color: #dedcd5;
+  color: #14171c;
+}
+.stiv-home .light .workforce-tab span {
+  color: #9aa3ad;
+}
+.stiv-home .light .workforce-tab[aria-selected="true"],
+.stiv-home .light .workforce-tab:hover {
+  color: var(--accent);
+}
+.stiv-home .light .workforce-detail {
+  background: radial-gradient(ellipse at 70% 5%, #e3ebf2, transparent 65%), #ffffff;
+  border-color: #d8d6cf;
+  box-shadow: 0 30px 70px rgba(20, 23, 28, 0.07);
+}
+.stiv-home .light .detail-symbol {
+  color: #5c7c98;
+}
+.stiv-home .light .task {
+  color: #3d4550;
+}
+.stiv-home .light .detail-footer {
+  color: #9aa3ad;
+}
+
+/* Integrations */
+.stiv-home .light .system-group button {
+  border-bottom-color: #d2d0c9;
+  color: #14171c;
+}
+.stiv-home .light .system-group button span {
+  color: #9aa3ad;
+}
+.stiv-home .light .system-group button:hover,
+.stiv-home .light .system-group button.selected {
+  color: var(--accent);
+}
+.stiv-home .light .network-ring {
+  border-color: #c9c7c0;
+  background: radial-gradient(circle, rgba(47, 86, 117, 0.07), transparent 65%);
+}
+.stiv-home .light .network-ring:before {
+  border-color: rgba(47, 86, 117, 0.3);
+}
+.stiv-home .light .network-ring:after {
+  border-color: #d2d0c9;
+}
+.stiv-home .light .cc-more {
+  border-top-color: #dedcd5;
+}
+
+/* Pricing */
+.stiv-home .light .licenses h3 small {
+  color: #6f7883;
+}
+.stiv-home .light .company-links {
+  color: #3d4550;
+}

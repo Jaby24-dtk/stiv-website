@@ -1,0 +1,664 @@
+/* Apple-style layer (loaded last). Keeps the STIV palette and fonts but
+   adopts apple.com's presentation patterns: slim translucent nav, centered
+   layouts, semibold headlines with a grey second line, pill buttons, large
+   rounded tiles, a horizontal card carousel and a quiet light footer. */
+
+/* ── Nav: 48px, always translucent ────────────────────── */
+.site-header {
+  height: 48px;
+  padding: 0 max(22px, calc((100vw - 1024px) / 2));
+  gap: 22px;
+  background: rgba(8, 9, 11, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.site-header.scrolled {
+  background: rgba(8, 9, 11, 0.8);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.site-header .wordmark {
+  font-size: 1.0625rem;
+  letter-spacing: 0.12em;
+  gap: 8px;
+}
+.site-header .wordmark .logo-mark {
+  width: 22px !important;
+  height: 22px !important;
+}
+.site-nav {
+  font-size: 0.75rem;
+  gap: 1.75rem;
+  color: rgba(240, 239, 234, 0.8);
+}
+.site-nav a:hover {
+  color: #ffffff;
+}
+.nav-cta {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 980px;
+  border: 0;
+  background: #f0efea;
+  color: #101216;
+}
+.nav-cta:hover {
+  background: #bfd9ef;
+}
+.menu {
+  font-size: 18px;
+}
+html {
+  scroll-padding-top: 60px;
+}
+@media (max-width: 1180px) {
+  .site-nav {
+    top: 48px !important;
+  }
+}
+@media (max-width: 760px) {
+  .site-header {
+    height: 48px;
+    padding: 0 16px;
+  }
+}
+
+/* ── Buttons: pills ───────────────────────────────────── */
+.button {
+  border-radius: 980px;
+  padding: 0.75rem 1.4rem;
+  min-height: 44px;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.button:hover {
+  transform: none;
+}
+.stiv-home .priorities .button,
+.stiv-home .request-actions .button {
+  font-size: 0.8125rem;
+  min-height: 36px;
+  padding: 0.5rem 1rem;
+}
+.quiet {
+  border-color: currentColor;
+}
+.text-link,
+.stiv-home .learn-more {
+  border-bottom: 0;
+  padding-bottom: 0;
+  color: var(--accent);
+}
+.text-link:hover,
+.stiv-home .learn-more:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.text-link::after {
+  content: " ›";
+}
+
+/* ── Type: semibold headlines, grey second line ───────── */
+.stiv-home h1,
+.stiv-home h2 {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+.stiv-home h1 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1.04;
+}
+.stiv-home h2 {
+  font-size: clamp(2.5rem, 5.2vw, 4.5rem);
+  line-height: 1.06;
+}
+.stiv-home h3,
+.stiv-home h4 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.stiv-home .unity h2 span {
+  font-size: 1em;
+  letter-spacing: -0.035em;
+}
+.stiv-home .lead {
+  font-size: 1.3125rem;
+  line-height: 1.45;
+  letter-spacing: -0.012em;
+  max-width: 40rem;
+}
+.stiv-home .kicker {
+  font-family: var(--font-text);
+  font-size: 1.3125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #9aa3af;
+  margin: 0 0 14px;
+  text-align: center;
+}
+.stiv-home .light .kicker {
+  color: #7b8591;
+}
+
+/* ── Sections: no rules, centered headers ─────────────── */
+.stiv-home .section {
+  border-top: 0;
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+.stiv-home .section > .reveal > h2,
+.stiv-home .section > h2,
+.stiv-home .section > .lead,
+.stiv-home .section > .reveal > .lead,
+.stiv-home .split-heading {
+  text-align: center;
+}
+.stiv-home .section > .reveal > .lead,
+.stiv-home .section > .lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+.stiv-home .split-heading {
+  display: block;
+}
+.stiv-home .split-heading h2 {
+  max-width: none;
+}
+.stiv-home .split-heading .lead {
+  max-width: 40rem;
+  margin: 1.75rem auto 0;
+}
+.stiv-home .caption {
+  text-align: center;
+}
+
+/* ── Hero: centered, sculpture below ──────────────────── */
+.stiv-home .hero {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding-top: 130px;
+  min-height: 900px;
+}
+.stiv-home .hero-copy {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.stiv-home .hero-kicker {
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  font-size: 1.3125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #bfd9ef;
+  margin-bottom: 14px;
+}
+.stiv-home .hero p:not(.hero-kicker) {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  max-width: 40rem;
+  margin: 1.5rem auto 0;
+  color: #c3c8cf;
+}
+.stiv-home .hero .actions {
+  justify-content: center;
+  margin-top: 2rem;
+}
+.stiv-home .hero-art:after {
+  background:
+    linear-gradient(180deg, #08090b 0%, rgba(8, 9, 11, 0.86) 38%, rgba(8, 9, 11, 0) 70%),
+    linear-gradient(0deg, #08090b, rgba(8, 9, 11, 0) 18%);
+}
+.stiv-home .hero-core {
+  left: 50%;
+  right: auto;
+  top: auto;
+  bottom: -330px;
+  margin-top: 0;
+  margin-left: -525px;
+  width: 1050px;
+}
+.stiv-home .core-stage-hero {
+  left: 50%;
+  right: auto;
+  translate: -50% 0;
+  top: auto;
+  bottom: -14%;
+  width: min(80vw, 980px);
+  height: 64%;
+}
+@media (max-width: 760px) {
+  .stiv-home .hero {
+    padding-top: 110px;
+    min-height: 760px;
+    height: auto;
+  }
+  .stiv-home .hero h1 {
+    font-size: clamp(2.75rem, 12vw, 4rem);
+  }
+  .stiv-home .hero p:not(.hero-kicker) {
+    font-size: 1.1875rem;
+    max-width: 22rem;
+  }
+  .stiv-home .hero-kicker {
+    font-size: 1.0625rem;
+  }
+  .stiv-home .hero-core {
+    width: 640px;
+    margin-left: -320px;
+    bottom: -200px;
+    right: auto;
+  }
+  .stiv-home .kicker,
+  .stiv-home .lead {
+    font-size: 1.0625rem;
+  }
+  .stiv-home .section {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+}
+
+/* ── Rounded tiles ────────────────────────────────────── */
+.stiv-home .terminal,
+.stiv-home .dashboard,
+.stiv-home .approval-preview {
+  border-radius: 28px;
+}
+.stiv-home .node {
+  border-radius: 18px;
+}
+.stiv-home .knowledge-core {
+  border-radius: 22px;
+}
+.stiv-home .knowledge-inputs span,
+.stiv-home .cc-module-chips button,
+.stiv-home .cc-chips p span {
+  border-radius: 980px;
+}
+.stiv-home .demo-label,
+.stiv-home .sample {
+  border-radius: 980px;
+  padding: 3px 10px;
+}
+.inspect-dialog,
+.stiv-home .inspect-dialog {
+  border-radius: 28px;
+}
+
+/* Segmented control for the capability tabs */
+.stiv-home .cc-tabs {
+  text-align: center;
+}
+.stiv-home .cc-tablist {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border: 0;
+  border-radius: 980px;
+  background: #e6e4de;
+  max-width: 100%;
+}
+.stiv-home .cc-tablist .scenario-tab {
+  padding: 0.55rem 1.1rem;
+  border: 0;
+  border-radius: 980px;
+  font-size: 0.9375rem;
+  color: #4f5864;
+}
+.stiv-home .cc-tablist .scenario-tab > span {
+  display: none;
+}
+.stiv-home .light .cc-tablist .scenario-tab[aria-selected="true"] {
+  background: #ffffff;
+  color: #14171c;
+  box-shadow: 0 2px 8px rgba(20, 23, 28, 0.08);
+}
+.stiv-home .cc-panel {
+  text-align: left;
+  max-width: 900px;
+  margin: 28px auto 0;
+  padding: 36px 44px;
+  background: #ffffff;
+  border-radius: 28px;
+}
+.stiv-home .cc-panel-desc {
+  text-align: center;
+}
+
+/* Monitors + workspace as bento tiles */
+.stiv-home .cc-split {
+  margin-top: 28px;
+  padding: 52px;
+  background: #ffffff;
+  border-radius: 28px;
+  gap: 56px;
+}
+.stiv-home .cc-tabs + .cc-split {
+  margin-top: 90px;
+}
+.stiv-home .light .cc-monitors {
+  border-top: 0;
+}
+.stiv-home .light .cc-monitors details:last-child {
+  border-bottom: 0;
+}
+@media (max-width: 760px) {
+  .stiv-home .cc-panel,
+  .stiv-home .cc-split {
+    padding: 28px 22px;
+    border-radius: 22px;
+  }
+  .stiv-home .cc-tablist .scenario-tab {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+}
+
+/* ── Carousel: "Get to know your AI workforce." ───────── */
+.stiv-home .carousel-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+.stiv-home .section .carousel-head h2,
+.stiv-home #workforce .kicker {
+  text-align: left;
+}
+.stiv-home .carousel-arrows {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.stiv-home .carousel-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e6e4de;
+  color: #14171c;
+  font-size: 22px;
+  line-height: 1;
+  transition: background 0.3s, opacity 0.3s;
+}
+.stiv-home .carousel-arrow:hover {
+  background: #dbd9d2;
+}
+.stiv-home .carousel-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.stiv-home .carousel {
+  list-style: none;
+  margin: 44px calc(-1 * max(7%, calc((100vw - 1400px) / 2))) 0;
+  padding: 0 max(7%, calc((100vw - 1400px) / 2)) 30px;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 max(7%, calc((100vw - 1400px) / 2));
+  scrollbar-width: none;
+}
+.stiv-home .carousel::-webkit-scrollbar {
+  display: none;
+}
+.stiv-home .role-card {
+  flex: 0 0 min(372px, 82vw);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
+  padding: 34px 32px 30px;
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow: 0 4px 24px rgba(20, 23, 28, 0.05);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.stiv-home .role-card:hover {
+  transform: scale(1.012);
+  box-shadow: 0 12px 40px rgba(20, 23, 28, 0.09);
+}
+.stiv-home .role-symbol {
+  font-size: 46px;
+  line-height: 1;
+  color: #5c7c98;
+}
+.stiv-home .role-trait {
+  margin-top: 34px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #8a939e;
+}
+.stiv-home .role-card h3 {
+  font-size: 1.875rem;
+  margin-top: 6px;
+  color: #14171c;
+}
+.stiv-home .role-card > p {
+  margin-top: 14px;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+.stiv-home .role-tasks {
+  list-style: none;
+  margin: auto 0 0;
+  padding: 26px 0 0;
+}
+.stiv-home .role-tasks li {
+  font-size: 0.9375rem;
+  color: #3d4550;
+  padding: 10px 0;
+  border-top: 1px solid #ecebe6;
+}
+.stiv-home .learn-more {
+  margin-top: 18px;
+  font-size: 1.0625rem;
+}
+.stiv-home .solution-links {
+  justify-content: center;
+  border-top: 0;
+  margin-top: 30px;
+  padding-top: 0;
+}
+@media (max-width: 760px) {
+  .stiv-home .carousel {
+    margin-left: -7%;
+    margin-right: -7%;
+    padding-left: 7%;
+    padding-right: 7%;
+    scroll-padding: 0 7%;
+  }
+  .stiv-home .carousel-arrows {
+    display: none;
+  }
+  .stiv-home .role-card {
+    min-height: 480px;
+  }
+}
+
+/* ── Pricing: three tiles ─────────────────────────────── */
+.stiv-home .licenses {
+  border: 0;
+  padding: 0;
+  gap: 20px;
+}
+.stiv-home .licenses > div,
+.stiv-home .licenses > div + div {
+  border: 0;
+  padding: 40px 36px;
+  border-radius: 28px;
+  background: #ffffff;
+  text-align: center;
+}
+.stiv-home .licenses .eyebrow {
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.stiv-home .licenses h3 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+.stiv-home .company-links {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@media (max-width: 760px) {
+  .stiv-home .licenses > div,
+  .stiv-home .licenses > div + div {
+    padding: 30px 24px;
+  }
+}
+
+/* ── FAQ: centered column ─────────────────────────────── */
+.stiv-home .faq-layout {
+  display: block;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.stiv-home .faq-layout h2 {
+  text-align: center;
+}
+.stiv-home .faq-list {
+  margin-top: 50px;
+  padding: 12px 40px;
+  background: #ffffff;
+  border-radius: 28px;
+}
+.stiv-home .faq-list details:last-child {
+  border-bottom: 0;
+}
+@media (max-width: 760px) {
+  .stiv-home .faq-list {
+    padding: 6px 22px;
+  }
+}
+
+/* ── Footer: quiet, light, small print ────────────────── */
+.site-footer {
+  background: #f4f3ef;
+  color: #6e6e73;
+  border-top: 0;
+  padding: 36px max(22px, calc((100vw - 980px) / 2)) 28px;
+  font-size: 0.75rem;
+}
+.site-footer .wordmark {
+  color: #14171c;
+  font-size: 1.0625rem;
+}
+.site-footer .footer-top {
+  padding-bottom: 22px;
+  border-bottom: 1px solid #d8d6cf;
+}
+.site-footer .footer-top > span {
+  color: #86868b;
+}
+.site-footer .eyebrow {
+  font-family: var(--font-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #14171c;
+}
+.site-footer .footer-columns {
+  padding: 22px 0 26px;
+}
+.site-footer .footer-columns a {
+  color: #515154;
+  font-size: 0.75rem;
+  min-height: 26px;
+}
+.site-footer .footer-columns a:hover,
+.site-footer .footer-top a:hover,
+.site-footer .footer-bottom button:hover {
+  color: #14171c;
+  text-decoration: underline;
+}
+.site-footer .footer-bottom {
+  border-top: 1px solid #d8d6cf;
+  color: #86868b;
+}
+.site-footer .footer-bottom p,
+.site-footer .footer-bottom button {
+  color: #86868b;
+}
+
+/* Two-column sections keep their label aligned with the copy column */
+.stiv-home #security .kicker,
+.stiv-home #knowledge .kicker {
+  text-align: left;
+}
+@media (max-width: 1100px) and (min-width: 761px) {
+  .stiv-home .licenses > div,
+  .stiv-home .licenses > div + div {
+    padding: 32px 20px;
+  }
+}
+
+/* Final CTA: keep the reference's tall top padding — the 3D core sits in
+   that space above the eyebrow and headline. (.section's 130px above
+   would otherwise pull the copy up underneath the sculpture.) */
+.stiv-home .final.section {
+  padding-top: 330px;
+  padding-bottom: 140px;
+}
+@media (max-width: 760px) {
+  .stiv-home .final.section {
+    padding-top: 330px;
+    padding-bottom: 90px;
+  }
+}
+
+/* ── Spacing: sections of the same tone flow into each other ──
+   Two light (or two dark) sections back to back would otherwise stack
+   their bottom + top padding into one large empty band. */
+.stiv-home .section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+.stiv-home .light + .light,
+.stiv-home .section:not(.light) + .section:not(.light):not(.final) {
+  padding-top: 20px;
+}
+@media (max-width: 760px) {
+  .stiv-home .section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  .stiv-home .light + .light,
+  .stiv-home .section:not(.light) + .section:not(.light):not(.final) {
+    padding-top: 12px;
+  }
+}
+/* Same-tone neighbours overlap by 1px so no sub-pixel seam shows. */
+.stiv-home .light + .light {
+  margin-top: -1px;
+}
+
+/* ── Inner pages: consistent section rhythm ───────────────
+   Inner pages stack same-tone <section>s directly under <main>; give
+   each 64px and let neighbours share the gap instead of doubling it
+   (and drop the hairline dividers, Apple-style). Homepage sections live
+   inside .stiv-home, so they are not affected. */
+#content > section {
+  padding-top: 64px !important;
+  padding-bottom: 80px !important;
+}
+#content > section + section {
+  padding-top: 0 !important;
+  border-top: 0 !important;
+}
+@media (max-width: 760px) {
+  #content > section {
+    padding-top: 44px !important;
+    padding-bottom: 44px !important;
+  }
+}

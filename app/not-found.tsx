@@ -20,7 +20,7 @@ export default function NotFound() {
         <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/"
-            className="shine-sweep group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
+            className="group inline-flex items-center gap-2 rounded-full bg-[#f0efea] hover:bg-[#bfd9ef] px-6 py-3 text-sm font-medium text-[#101216] transition-transform hover:-translate-y-0.5"
           >
             Back to homepage
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

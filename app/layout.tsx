@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter_Tight, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Nav from "./components/Nav";
@@ -22,16 +21,6 @@ import {
   WEBSITE_ID,
 } from "./lib/site";
 
-const interTight = Inter_Tight({
-  variable: "--font-tight",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: SITE_NAME,
@@ -41,8 +30,13 @@ export const metadata: Metadata = {
   },
   description: DEFAULT_DESCRIPTION,
   keywords: [
+    "STIV AI",
+    "AI command center",
     "enterprise AI software",
     "AI agents for business",
+    "AI chief of staff",
+    "enterprise AI governance",
+    "workflow automation",
     "division-specific software",
     "enterprise automation",
     "human-in-the-loop AI",
@@ -154,17 +148,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${interTight.variable} ${geistMono.variable} h-full antialiased dark`}
+      className="h-full antialiased dark"
     >
+      <head>
+        <link rel="preload" href="/fonts/stiv-display.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/stiv-text.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteJsonLd) }}
         />
-        <div className="grain-overlay" aria-hidden />
         <div className="flex flex-1 flex-col">
           <Nav />
-          <main className="flex-1">{children}</main>
+          <main id="content" className="flex-1">{children}</main>
           <Footer />
         </div>
 

@@ -98,7 +98,7 @@ export default function IntegrationsPage() {
             {tiers.map(({ name, plan, description }) => (
               <div
                 key={name}
-                className="flex items-start gap-3 rounded-2xl border border-white/10 bg-panel/40 p-6"
+                className="flex items-start gap-3 rounded-3xl border border-white/10 bg-panel/40 p-6"
               >
                 <Check className="mt-1 h-4 w-4 shrink-0 text-accent-gold" />
                 <div>
@@ -127,7 +127,7 @@ export default function IntegrationsPage() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
+              className="inline-flex items-center gap-2 rounded-full bg-[#f0efea] hover:bg-[#bfd9ef] px-6 py-3 text-sm font-medium text-[#101216] transition-transform hover:-translate-y-0.5"
             >
               Ask about your specific stack
               <ArrowRight className="h-4 w-4" />

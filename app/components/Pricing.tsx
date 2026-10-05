@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Check } from "lucide-react";
-import Tilt from "./Tilt";
 import AuroraBackground from "./AuroraBackground";
 import Reveal from "./Reveal";
 import { serializeJsonLd } from "../lib/json-ld";
@@ -117,22 +116,17 @@ export default function Pricing({
           </Reveal>
         )}
 
-        <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className={`${showHeading ? "mt-14" : ""} grid grid-cols-1 gap-6 lg:grid-cols-3`}>
           {tiers.map((tier, tierIndex) => {
             const isPopular = tier.badge === "Most popular";
             const isUnified = tier.badge === "By application";
 
             return (
               <Reveal key={tier.name} delay={tierIndex * 100} className="h-full">
-              <Tilt
-                max={5}
-                glare={false}
-                className="h-full rounded-2xl"
-              >
                 <div
-                  className={`relative flex h-full flex-col rounded-2xl p-8 ${
+                  className={`relative flex h-full flex-col rounded-3xl p-8 ${
                     isPopular
-                      ? "glass-panel glow-ring shadow-[0_0_60px_-20px_rgba(255,255,255,0.45)]"
+                      ? "glass-panel glow-ring"
                       : isUnified
                         ? "glass-panel border border-accent-gold/25"
                         : "border border-white/10 bg-panel/40"
@@ -140,9 +134,9 @@ export default function Pricing({
                 >
                   {tier.badge && (
                     <span
-                      className={`absolute -top-3 left-8 rounded-full px-3 py-1 text-xs font-semibold ${
+                      className={`absolute -top-3 left-8 rounded-[3px] px-2.5 py-1 font-mono text-[11px] tracking-[0.06em] ${
                         isPopular
-                          ? "bg-gradient-to-r from-accent-bronze to-accent-gold text-slate-950"
+                          ? "bg-[#f0efea] text-[#101216]"
                           : "border border-accent-gold/40 bg-background text-accent-gold"
                       }`}
                     >
@@ -154,7 +148,7 @@ export default function Pricing({
                   <p className="mt-2 text-base text-muted">{tier.description}</p>
 
                   <div className="mt-6 flex items-baseline gap-1">
-                    <span className="text-5xl font-semibold tracking-tight">
+                    <span className="text-5xl tracking-[-0.05em]">
                       {tier.price}
                     </span>
                     {tier.period && (
@@ -176,16 +170,15 @@ export default function Pricing({
 
                   <Link
                     href="/contact"
-                    className={`mt-8 inline-flex min-h-11 items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:scale-[1.02] ${
+                    className={`mt-8 inline-flex min-h-11 items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition-transform hover:-translate-y-0.5 ${
                       isPopular
-                        ? "shine-sweep bg-gradient-to-r from-accent-bronze to-accent-gold text-slate-950"
+                        ? "bg-[#f0efea] hover:bg-[#bfd9ef] text-slate-950"
                         : "border border-white/15 text-foreground/90 hover:bg-white/5"
                     }`}
                   >
                     {tier.cta}
                   </Link>
                 </div>
-              </Tilt>
               </Reveal>
             );
           })}
