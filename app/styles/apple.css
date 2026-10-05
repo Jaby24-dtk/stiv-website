@@ -602,3 +602,17 @@ html {
     padding: 32px 20px;
   }
 }
+
+/* Final CTA: keep the reference's tall top padding — the 3D core sits in
+   that space above the eyebrow and headline. (.section's 130px above
+   would otherwise pull the copy up underneath the sculpture.) */
+.stiv-home .final.section {
+  padding-top: 330px;
+  padding-bottom: 140px;
+}
+@media (max-width: 760px) {
+  .stiv-home .final.section {
+    padding-top: 330px;
+    padding-bottom: 90px;
+  }
+}
