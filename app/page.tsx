@@ -392,7 +392,7 @@ export default function Home() {
             <span>STIV handles the rest.</span>
           </h2>
           <p className="lead">
-            The Command Center is your AI chief of staff. Five kinds of work, one conversation —
+            The Command Center is your AI chief of staff and AI executive assistant. Five kinds of work, one conversation —
             STIV reads, weighs, drafts and acts across your divisions, and every send, post or
             external action waits for your approval.
           </p>

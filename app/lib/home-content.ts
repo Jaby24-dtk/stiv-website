@@ -246,7 +246,7 @@ export const modules: { group: string; items: { name: string; detail: string }[]
   {
     group: "Insight",
     items: [
-      { name: "Insights", detail: "Patterns and signals across divisions" },
+      { name: "Insights", detail: "Business intelligence: patterns and signals across divisions" },
       { name: "Statistics", detail: "Activity and throughput at a glance" },
       { name: "Reports", detail: "Branded reports exported to PDF and Word" },
     ],
@@ -294,7 +294,7 @@ export const faqs = [
   {
     question: "What is STIV AI?",
     answer:
-      "STIV AI is the enterprise AI command center built by STIV, a software company founded in 2026 and headquartered in Singapore. It connects purpose-built AI for seven divisions — Executive, Sales, Marketing, Finance, Operations, Legal and Support — to your people, knowledge and systems, with human approval on every consequential action.",
+      "STIV AI is an agentic AI platform — the enterprise AI command center built by STIV, a software company founded in 2026 and headquartered in Singapore. It connects purpose-built AI for seven divisions — Executive, Sales, Marketing, Finance, Operations, Legal and Support — to your people, knowledge and systems, with human approval on every consequential action.",
   },
   {
     question: "What does the STIV Command Center do?",
