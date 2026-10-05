@@ -103,7 +103,7 @@ export const roles: Role[] = [
     name: "Operations AI",
     trait: "Continuity",
     description:
-      "Watches recurring workflows for delays and repeated manual steps, then prepares bounded process actions for review.",
+      "Workflow automation that watches recurring processes for delays and repeated manual steps, then prepares bounded process actions for review.",
     tasks: ["Workflow monitoring", "Bottleneck identification", "Change record"],
     symbol: "≋",
     href: "/software/operations",
@@ -187,7 +187,7 @@ export const outcomes: Outcome[] = [
   },
   {
     outcome: "Execute",
-    description: "Ask STIV to act — every send or post still waits for your approval.",
+    description: "Workflow automation on request — every send or post still waits for your approval.",
     capabilities: [
       { label: "Send", example: "Team updates over email, WhatsApp or Telegram" },
       { label: "Schedule", example: "Follow-ups and meetings with the right contact" },
@@ -292,9 +292,9 @@ export const channels = [
 
 export const faqs = [
   {
-    question: "What is STIV?",
+    question: "What is STIV AI?",
     answer:
-      "STIV is a software company, founded in 2026 and headquartered in Singapore, that builds an AI command center for the whole organization. It connects purpose-built AI for seven divisions — Executive, Sales, Marketing, Finance, Operations, Legal and Support — to your people, knowledge and systems, with human approval on every consequential action.",
+      "STIV AI is the enterprise AI command center built by STIV, a software company founded in 2026 and headquartered in Singapore. It connects purpose-built AI for seven divisions — Executive, Sales, Marketing, Finance, Operations, Legal and Support — to your people, knowledge and systems, with human approval on every consequential action.",
   },
   {
     question: "What does the STIV Command Center do?",
@@ -323,6 +323,7 @@ export const faqs = [
   },
   {
     question: "Where is STIV based?",
-    answer: "STIV is headquartered in Singapore and was founded in 2026.",
+    answer:
+      "STIV is headquartered in Singapore and was founded in 2026. It serves enterprise teams worldwide, with data residency options for regulated organizations.",
   },
 ];

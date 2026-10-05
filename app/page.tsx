@@ -80,7 +80,7 @@ export default function Home() {
           />
         </div>
         <div className="hero-copy">
-          <div className="eyebrow intro">STIV / THE ORGANIZATIONAL INTELLIGENCE LAYER</div>
+          <div className="eyebrow intro">STIV AI / THE ENTERPRISE AI COMMAND CENTER</div>
           <h1 className="intro">
             Intelligence,
             <br />
@@ -104,7 +104,7 @@ export default function Home() {
           <a href="#platform">
             SCROLL TO DISCOVER <span className="scroll-line" />
           </a>
-          <span>EST. 2026 / SINGAPORE</span>
+          <span>SINGAPORE HQ / WORLDWIDE</span>
         </div>
       </section>
 
@@ -121,7 +121,7 @@ export default function Home() {
             <span>Across your entire organization.</span>
           </h2>
           <p className="lead">
-            Specialists that understand their work.
+            AI agents that understand their work.
             <br />A command layer that brings it all together.
           </p>
         </div>
@@ -392,8 +392,9 @@ export default function Home() {
             <span>STIV handles the rest.</span>
           </h2>
           <p className="lead">
-            Five kinds of work, one conversation. STIV reads, weighs, drafts and acts across your
-            divisions — and every send, post or external action waits for your approval.
+            The Command Center is your AI chief of staff. Five kinds of work, one conversation —
+            STIV reads, weighs, drafts and acts across your divisions, and every send, post or
+            external action waits for your approval.
           </p>
         </div>
 
@@ -520,6 +521,13 @@ export default function Home() {
             ))}
             <span className="detail-footer">PART OF THE STIV INTELLIGENCE SYSTEM</span>
           </div>
+        </div>
+        <div className="company-links solution-links reveal">
+          <span className="eyebrow">SOLUTIONS</span>
+          <Link href="/solutions/ai-finance-automation">AI finance automation</Link>
+          <Link href="/solutions/ai-contract-review">AI contract review</Link>
+          <Link href="/solutions/ai-sales-follow-up">AI sales follow-up</Link>
+          <Link href="/solutions/enterprise-ai-governance">Enterprise AI governance</Link>
         </div>
       </section>
 
@@ -650,6 +658,8 @@ export default function Home() {
               <span>Not around it.</span>
             </h2>
             <p className="lead">
+              Human-in-the-loop by design.
+              <br />
               Intelligence moves the work forward.
               <br />
               Your people define the boundaries.
@@ -672,6 +682,7 @@ export default function Home() {
                 <span>Human review required</span>
               </div>
             </div>
+            <h3 className="gov-heading">Enterprise AI governance, built in.</h3>
             <details open>
               <summary>
                 01 <strong>Permissions &amp; role-based access</strong>
@@ -716,7 +727,7 @@ export default function Home() {
       <section className="section company" id="pricing">
         <div className="section-top">
           <span className="eyebrow">09 / BUILT FOR REAL ORGANIZATIONS</span>
-          <span className="eyebrow">SINGAPORE / EST. 2026</span>
+          <span className="eyebrow">SINGAPORE HQ / WORLDWIDE</span>
         </div>
         <div className="split-heading reveal">
           <h2>
@@ -725,8 +736,9 @@ export default function Home() {
             <span>Think across the enterprise.</span>
           </h2>
           <p className="lead">
-            STIV builds purpose-built software for each division. STIV Unified connects them in a
-            bespoke command layer, with dedicated infrastructure and onboarding.
+            STIV builds purpose-built AI software for each division, for enterprise teams worldwide.
+            STIV Unified connects them in a bespoke command layer, with dedicated infrastructure
+            and onboarding.
           </p>
         </div>
         <div className="licenses reveal">

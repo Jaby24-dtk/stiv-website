@@ -373,3 +373,22 @@
   -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
   mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
 }
+
+/* Governance heading above the control list */
+.stiv-home .gov-heading {
+  font-size: 1.375rem;
+  letter-spacing: -0.035em;
+  color: #d9dfe5;
+  margin: 0 0 6px;
+}
+
+/* Solution links under the AI workforce */
+.stiv-home .solution-links {
+  align-items: baseline;
+  margin-top: 50px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.stiv-home .solution-links .eyebrow {
+  color: #778594;
+}

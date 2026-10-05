@@ -30,9 +30,13 @@ export const metadata: Metadata = {
   },
   description: DEFAULT_DESCRIPTION,
   keywords: [
+    "STIV AI",
     "AI command center",
     "enterprise AI software",
     "AI agents for business",
+    "AI chief of staff",
+    "enterprise AI governance",
+    "workflow automation",
     "division-specific software",
     "enterprise automation",
     "human-in-the-loop AI",
