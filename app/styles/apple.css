@@ -616,3 +616,29 @@ html {
     padding-bottom: 90px;
   }
 }
+
+/* ── Spacing: sections of the same tone flow into each other ──
+   Two light (or two dark) sections back to back would otherwise stack
+   their bottom + top padding into one large empty band. */
+.stiv-home .section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+.stiv-home .light + .light,
+.stiv-home .section:not(.light) + .section:not(.light):not(.final) {
+  padding-top: 20px;
+}
+@media (max-width: 760px) {
+  .stiv-home .section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  .stiv-home .light + .light,
+  .stiv-home .section:not(.light) + .section:not(.light):not(.final) {
+    padding-top: 12px;
+  }
+}
+/* Same-tone neighbours overlap by 1px so no sub-pixel seam shows. */
+.stiv-home .light + .light {
+  margin-top: -1px;
+}
