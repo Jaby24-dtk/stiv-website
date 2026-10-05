@@ -129,54 +129,51 @@
 }
 
 /* ── Inside the Command Center ────────────────────────── */
-.stiv-home .cc-outcomes {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  margin-top: 60px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+/* Capability groups as tabs (all panels stay in the HTML for search) */
+.stiv-home .cc-tabs {
+  margin-top: 45px;
 }
-.stiv-home .cc-outcome {
-  padding: 32px 24px 34px;
+.stiv-home .cc-tablist {
+  margin-top: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
-.stiv-home .cc-outcome + .cc-outcome {
-  border-left: 1px solid var(--line);
+.stiv-home .cc-tablist::-webkit-scrollbar {
+  display: none;
 }
-.stiv-home .cc-outcome:first-child {
-  padding-left: 0;
+.stiv-home .cc-tablist .scenario-tab {
+  white-space: nowrap;
 }
-.stiv-home .cc-outcome h3 {
-  font-size: 1.875rem;
-  margin-top: 18px;
-  letter-spacing: -0.045em;
+.stiv-home .cc-panel {
+  padding-top: 28px;
 }
-.stiv-home .cc-outcome-desc {
-  font-size: 0.875rem;
-  line-height: 1.7;
-  margin-top: 10px;
-  min-height: 3.4em;
+.stiv-home .cc-panel[hidden] {
+  display: none;
 }
-.stiv-home .cc-outcome ul {
+.stiv-home .cc-panel-desc {
+  font-size: 0.9375rem;
+  color: #aeb7c2;
+}
+.stiv-home .cc-panel ul {
   list-style: none;
-  margin: 22px 0 0;
+  margin: 18px 0 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 45px;
 }
-.stiv-home .cc-outcome li {
+.stiv-home .cc-panel li {
   border-top: 1px solid #2c333d;
-  padding: 0.75rem 0;
+  padding: 0.875rem 0;
 }
-.stiv-home .cc-outcome li strong,
-.stiv-home .cc-module strong,
-.stiv-home .cc-monitors strong {
+.stiv-home .cc-panel li strong {
   display: block;
   font-weight: 450;
   font-size: 0.9375rem;
   letter-spacing: -0.015em;
   color: #d9dfe5;
 }
-.stiv-home .cc-outcome li small,
-.stiv-home .cc-module small,
-.stiv-home .cc-monitors small {
+.stiv-home .cc-panel li small {
   display: block;
   font-size: 0.8125rem;
   line-height: 1.6;
@@ -188,7 +185,7 @@
   display: grid;
   grid-template-columns: 1fr 1.4fr;
   gap: 75px;
-  margin-top: 110px;
+  margin-top: 100px;
   align-items: start;
 }
 .stiv-home .cc-sub {
@@ -204,21 +201,21 @@
   margin-top: 1.25rem;
   max-width: 26rem;
 }
+
+/* Monitors: one line each, detail on click */
 .stiv-home .cc-monitors {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   border-top: 1px solid #3b4552;
 }
-.stiv-home .cc-monitors li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  padding: 16px 0;
-  border-bottom: 1px solid #2b323c;
+.stiv-home .cc-monitors details {
+  padding: 14px 0;
 }
-.stiv-home .cc-monitors li > span {
+.stiv-home .cc-monitors summary {
+  align-items: center;
+}
+.stiv-home .cc-monitors summary strong {
+  font-size: 0.9375rem;
+}
+.stiv-home .cc-monitors .cadence {
   font-family: var(--font-meta);
   font-size: 0.6875rem;
   letter-spacing: 0.06em;
@@ -226,26 +223,59 @@
   white-space: nowrap;
   border: 1px solid #38424d;
   border-radius: 3px;
-  padding: 3px 8px;
+  padding: 2px 8px;
+}
+.stiv-home .cc-monitors details p {
+  padding: 8px 0 0;
+  font-size: 0.875rem;
 }
 
-.stiv-home .cc-modules {
-  margin-top: 110px;
+/* Workspace: module chips with a single caption line */
+.stiv-home .cc-module-group + .cc-module-group {
+  margin-top: 22px;
 }
-.stiv-home .cc-module-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 35px;
-  margin-top: 45px;
-}
-.stiv-home .cc-module {
-  border-top: 1px solid #2c333d;
-  padding: 0.875rem 0;
-}
-.stiv-home .cc-module-grid .eyebrow {
+.stiv-home .cc-module-group .eyebrow {
   display: block;
-  margin-bottom: 12px;
   color: #778594;
+}
+.stiv-home .cc-module-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.stiv-home .cc-module-chips button {
+  font-size: 0.8125rem;
+  color: #b3c3d3;
+  border: 1px solid #39424e;
+  background: #131a22;
+  padding: 7px 12px;
+  transition: border-color 0.3s, color 0.3s;
+}
+.stiv-home .cc-module-chips button:hover,
+.stiv-home .cc-module-chips button.selected {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.stiv-home .cc-module-note {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #2c333d;
+  font-size: 0.875rem;
+  min-height: 3.5em;
+}
+
+/* "See all connections" toggle */
+.stiv-home .cc-more {
+  max-width: 1050px;
+  margin: 0 auto 30px;
+  border-top: 1px solid #2b323c;
+}
+.stiv-home .cc-more summary strong {
+  font-size: 0.9375rem;
+}
+.stiv-home .cc-more .cc-chips {
+  margin: 22px 0 6px;
 }
 
 /* Channel and system chips under the integration network */
@@ -253,8 +283,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
-  max-width: 1050px;
-  margin: 10px auto 30px;
 }
 .stiv-home .cc-chips p {
   display: flex;
@@ -299,39 +327,17 @@
 }
 
 @media (max-width: 1100px) {
-  .stiv-home .cc-outcomes {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  .stiv-home .cc-outcome:nth-child(4) {
-    border-left: 0;
-    padding-left: 0;
-  }
-  .stiv-home .cc-outcome:nth-child(n + 4) {
-    border-top: 1px solid var(--line);
-  }
-  .stiv-home .cc-module-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
   .stiv-home .cc-split,
   .stiv-home .faq-layout {
     gap: 40px;
   }
 }
 @media (max-width: 760px) {
-  .stiv-home .cc-outcomes {
+  .stiv-home .cc-tabs {
+    margin-top: 30px;
+  }
+  .stiv-home .cc-panel ul {
     grid-template-columns: 1fr;
-    margin-top: 35px;
-  }
-  .stiv-home .cc-outcome,
-  .stiv-home .cc-outcome:first-child {
-    padding: 26px 0;
-  }
-  .stiv-home .cc-outcome + .cc-outcome {
-    border-left: 0;
-    border-top: 1px solid var(--line);
-  }
-  .stiv-home .cc-outcome-desc {
-    min-height: 0;
   }
   .stiv-home .cc-split,
   .stiv-home .faq-layout {
@@ -341,23 +347,9 @@
   .stiv-home .faq-layout {
     margin-top: 0;
   }
-  .stiv-home .faq-list {
-    margin-top: 35px;
-  }
-  .stiv-home .cc-monitors {
-    margin-top: 30px;
-  }
-  .stiv-home .cc-monitors li {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-  .stiv-home .cc-modules {
-    margin-top: 70px;
-  }
-  .stiv-home .cc-module-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
+  .stiv-home .faq-list,
+  .stiv-home .cc-monitors,
+  .stiv-home .cc-workspace > div + div {
     margin-top: 30px;
   }
   .stiv-home .cc-chips {

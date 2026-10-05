@@ -264,6 +264,40 @@ export function initHome(root, { roles }) {
     }),
   );
 
+  // Command Center capability tabs
+  const ccTabs = $$("[data-cc-tab]");
+  function selectCc(i) {
+    ccTabs.forEach((b, j) => {
+      b.setAttribute("aria-selected", String(j === i));
+      b.tabIndex = j === i ? 0 : -1;
+      const panel = $("#cc-panel-" + j);
+      if (panel) panel.hidden = j !== i;
+    });
+  }
+  ccTabs.forEach((b, i) => {
+    on(b, "click", () => selectCc(i));
+    on(b, "keydown", (e) => {
+      let j = i;
+      if (e.key === "ArrowRight") j = (i + 1) % ccTabs.length;
+      else if (e.key === "ArrowLeft") j = (i + ccTabs.length - 1) % ccTabs.length;
+      else if (e.key === "Home") j = 0;
+      else if (e.key === "End") j = ccTabs.length - 1;
+      else return;
+      e.preventDefault();
+      selectCc(j);
+      ccTabs[j].focus();
+    });
+  });
+
+  // Workspace module chips
+  $$("[data-module-note]").forEach((b) =>
+    on(b, "click", () => {
+      $$("[data-module-note]").forEach((x) => x.classList.remove("selected"));
+      b.classList.add("selected");
+      $("#module-note").textContent = b.dataset.moduleNote;
+    }),
+  );
+
   // Orchestration demo
   const run = $("#run"),
     steps = $("#steps"),

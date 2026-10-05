@@ -392,20 +392,39 @@ export default function Home() {
             <span>STIV handles the rest.</span>
           </h2>
           <p className="lead">
-            The Command Center is your AI chief of staff and AI executive assistant. Five kinds of work, one conversation —
-            STIV reads, weighs, drafts and acts across your divisions, and every send, post or
-            external action waits for your approval.
+            Your AI chief of staff and AI executive assistant. Five kinds of work, one
+            conversation — and nothing goes out without your approval.
           </p>
         </div>
 
-        <div className="cc-outcomes reveal">
+        <div className="cc-tabs reveal">
+          <div className="scenario-selector cc-tablist" role="tablist" aria-label="What you can ask STIV to do">
+            {outcomes.map((o, i) => (
+              <button
+                key={o.outcome}
+                type="button"
+                className="scenario-tab"
+                id={`cc-tab-${i}`}
+                role="tab"
+                aria-selected={i === 0}
+                aria-controls={`cc-panel-${i}`}
+                tabIndex={i === 0 ? 0 : -1}
+                data-cc-tab={i}
+              >
+                <span>{pad(i + 1)}</span> {o.outcome}
+              </button>
+            ))}
+          </div>
           {outcomes.map((o, i) => (
-            <div key={o.outcome} className="cc-outcome">
-              <span className="eyebrow">
-                {pad(i + 1)} / {o.outcome.toUpperCase()}
-              </span>
-              <h3>{o.outcome}</h3>
-              <p className="cc-outcome-desc">{o.description}</p>
+            <div
+              key={o.outcome}
+              className="cc-panel"
+              id={`cc-panel-${i}`}
+              role="tabpanel"
+              aria-labelledby={`cc-tab-${i}`}
+              hidden={i !== 0}
+            >
+              <p className="cc-panel-desc">{o.description}</p>
               <ul>
                 {o.capabilities.map((c) => (
                   <li key={c.label}>
@@ -421,44 +440,48 @@ export default function Home() {
         <div className="cc-split reveal">
           <div>
             <span className="eyebrow">ALWAYS WATCHING</span>
-            <h3 className="cc-sub">
-              It works while you don’t.
-            </h3>
+            <h3 className="cc-sub">It works while you don’t.</h3>
             <p className="cc-sub-lead">
-              STIV runs on a schedule, not just on request — so the important things reach you
-              before you go looking for them.
+              Nine jobs run on a schedule, so what matters reaches you first.
             </p>
           </div>
-          <ol className="cc-monitors">
+          <div className="cc-monitors">
             {monitors.map((m) => (
-              <li key={m.what}>
-                <div>
+              <details key={m.what}>
+                <summary>
                   <strong>{m.what}</strong>
-                  <small>{m.detail}</small>
-                </div>
-                <span>{m.cadence.toUpperCase()}</span>
-              </li>
+                  <span className="cadence">{m.cadence.toUpperCase()}</span>
+                </summary>
+                <p>{m.detail}</p>
+              </details>
             ))}
-          </ol>
+          </div>
         </div>
 
-        <div className="cc-modules reveal">
-          <div className="cc-modules-head">
+        <div className="cc-split cc-workspace reveal">
+          <div>
             <span className="eyebrow">THE WORKSPACE</span>
             <h3 className="cc-sub">Everything leadership runs, in one place.</h3>
+            <p className="cc-sub-lead">
+              From tasks and approvals to business intelligence and reports.
+            </p>
           </div>
-          <div className="cc-module-grid">
+          <div>
             {modules.map((g) => (
-              <div key={g.group}>
+              <div key={g.group} className="cc-module-group">
                 <span className="eyebrow">{g.group.toUpperCase()}</span>
-                {g.items.map((m) => (
-                  <div key={m.name} className="cc-module">
-                    <strong>{m.name}</strong>
-                    <small>{m.detail}</small>
-                  </div>
-                ))}
+                <div className="cc-module-chips">
+                  {g.items.map((m) => (
+                    <button key={m.name} type="button" data-module-note={`${m.name} — ${m.detail}`}>
+                      {m.name}
+                    </button>
+                  ))}
+                </div>
               </div>
             ))}
+            <p className="cc-module-note" id="module-note" aria-live="polite">
+              Select a module to see what it does.
+            </p>
           </div>
         </div>
       </section>
@@ -618,24 +641,29 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="cc-chips reveal">
-          <div>
-            <span className="eyebrow">CHANNELS</span>
-            <p>
-              {channels.map((c) => (
-                <span key={c}>{c}</span>
-              ))}
-            </p>
+        <details className="cc-more reveal">
+          <summary>
+            <strong>See all {channels.length} channels and {connectedSystems.length} connected business systems</strong>
+          </summary>
+          <div className="cc-chips">
+            <div>
+              <span className="eyebrow">CHANNELS</span>
+              <p>
+                {channels.map((c) => (
+                  <span key={c}>{c}</span>
+                ))}
+              </p>
+            </div>
+            <div>
+              <span className="eyebrow">SINGLE SIGN-ON INTO BUSINESS SYSTEMS</span>
+              <p>
+                {connectedSystems.map((c) => (
+                  <span key={c}>{c}</span>
+                ))}
+              </p>
+            </div>
           </div>
-          <div>
-            <span className="eyebrow">SINGLE SIGN-ON INTO BUSINESS SYSTEMS</span>
-            <p>
-              {connectedSystems.map((c) => (
-                <span key={c}>{c}</span>
-              ))}
-            </p>
-          </div>
-        </div>
+        </details>
         <p className="caption">
           Standard and custom integrations are scoped during onboarding. Availability depends on
           your systems and license. <Link href="/integrations" className="caption-link">See integrations</Link>
