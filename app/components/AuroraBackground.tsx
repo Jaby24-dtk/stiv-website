@@ -8,7 +8,7 @@ export default function AuroraBackground({
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0"
+      className="aurora-wash pointer-events-none absolute inset-0"
       style={{
         background:
           variant === "full"

@@ -643,22 +643,70 @@ html {
   margin-top: -1px;
 }
 
-/* ── Inner pages: consistent section rhythm ───────────────
-   Inner pages stack same-tone <section>s directly under <main>; give
-   each 64px and let neighbours share the gap instead of doubling it
-   (and drop the hairline dividers, Apple-style). Homepage sections live
-   inside .stiv-home, so they are not affected. */
+/* ── Inner pages: section rhythm + alternating light/dark ───
+   Every inner page is a dark page header followed by content blocks.
+   Blocks alternate light / dark like the homepage (1st, 3rd, 5th light).
+   Homepage sections live inside .stiv-home, so they are not affected. */
 #content > section {
-  padding-top: 64px !important;
+  padding-top: 72px !important;
   padding-bottom: 80px !important;
-}
-#content > section + section {
-  padding-top: 0 !important;
   border-top: 0 !important;
 }
 @media (max-width: 760px) {
   #content > section {
-    padding-top: 44px !important;
-    padding-bottom: 44px !important;
+    padding-top: 52px !important;
+    padding-bottom: 56px !important;
   }
+}
+
+:is(.page-header + *, .page-header + * + * + *, .page-header + * + * + * + * + *) {
+  --background: #f4f3ef;
+  --foreground: #14171c;
+  --muted: #5b6470;
+  --panel: #ffffff;
+  --panel-light: #f0efe9;
+  --accent-gold: #2f5675;
+  --accent-bronze: #8a939e;
+  --accent: #2f5675;
+  background: #f4f3ef;
+  color: #14171c;
+  /* full-bleed: narrow blocks (legal pages) still paint edge to edge */
+  box-shadow: 0 0 0 100vmax #f4f3ef;
+  clip-path: inset(0 -100vmax);
+}
+:is(.page-header + *, .page-header + * + * + *, .page-header + * + * + * + * + *) {
+  & .aurora-wash { display: none; }
+  & .border-white\/5,
+  & .border-white\/10 { border-color: #dedcd5; }
+  & .border-white\/15 { border-color: #d2d0c9; }
+  & .hover\:border-white\/25:hover,
+  & .hover\:border-white\/30:hover { border-color: #b9b7b0; }
+  & .divide-white\/10 > * { border-color: #dedcd5; }
+  & .bg-white\/5,
+  & .hover\:bg-white\/5:hover { background-color: rgba(20, 23, 28, 0.04); }
+  & .bg-white\/\[0\.025\] { background-color: rgba(20, 23, 28, 0.025); }
+  & .bg-panel\/40,
+  & .bg-panel\/60 { background-color: #ffffff; }
+  & .hover\:bg-panel\/70:hover { background-color: #fbfbf9; }
+  & .text-white\/20 { color: rgba(20, 23, 28, 0.22); }
+  & .text-emerald-300 { color: #1f7a4d; }
+  & .text-amber-200 { color: #8a5a00; }
+  & .text-gradient { color: #4a6a86; }
+  & .border-\[\#39424e\] { border-color: #d2d0c9; }
+  & .bg-\[\#131a22\] { background-color: #ffffff; }
+  & .glass-panel { background: #ffffff; border-color: #d8d6cf; }
+  & .glow-ring { box-shadow: 0 24px 60px rgba(20, 23, 28, 0.08); }
+  /* Primary buttons invert to charcoal on porcelain */
+  & .bg-\[\#f0efea\] { background-color: #14171c; }
+  & .text-\[\#101216\] { color: #f4f3ef; }
+  & .hover\:bg-\[\#bfd9ef\]:hover { background-color: #2f5675; }
+  & .text-slate-950 { color: #f4f3ef; }
+  & input,
+  & select,
+  & textarea { color: #14171c; }
+}
+
+/* A light block running into the light footer gets a hairline */
+.site-footer {
+  border-top: 1px solid #d8d6cf;
 }
