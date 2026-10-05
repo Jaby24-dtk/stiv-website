@@ -223,9 +223,11 @@ export function initHome(root, { roles }) {
     $("#role-title").textContent = r.name;
     $("#role-description").textContent = r.description;
     $(".detail-symbol").textContent = r.symbol;
-    const link = $("#role-link");
-    link.setAttribute("href", r.href);
-    link.textContent = "Explore " + r.name;
+    // One server-rendered Link per role; toggle visibility so each keeps
+    // its own href for Next.js client navigation.
+    $$("[data-role-link]").forEach((a) => {
+      a.hidden = Number(a.dataset.roleLink) !== i;
+    });
     $("#role-tasks").replaceChildren(
       ...r.tasks.map((t) => {
         const e = document.createElement("span");

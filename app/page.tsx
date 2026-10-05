@@ -507,9 +507,17 @@ export default function Home() {
                 </span>
               ))}
             </div>
-            <Link className="text-link role-link" id="role-link" href={firstRole.href}>
-              Explore {firstRole.name}
-            </Link>
+            {roles.map((r, i) => (
+              <Link
+                key={r.href}
+                className="text-link role-link"
+                data-role-link={i}
+                href={r.href}
+                hidden={i !== 0}
+              >
+                Explore {r.name}
+              </Link>
+            ))}
             <span className="detail-footer">PART OF THE STIV INTELLIGENCE SYSTEM</span>
           </div>
         </div>

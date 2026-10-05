@@ -278,9 +278,12 @@
   color: var(--accent);
 }
 
-/* Workforce detail link */
+/* Workforce detail link (one per role; only the selected one shows) */
 .stiv-home .role-link {
   margin-top: 22px;
+}
+.stiv-home .role-link[hidden] {
+  display: none;
 }
 
 /* ── FAQ ──────────────────────────────────────────────── */
