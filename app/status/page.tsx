@@ -47,7 +47,7 @@ export default function StatusPage() {
             ))}
           </div>
 
-          <div className="mt-10 rounded-lg border border-white/10 bg-panel/40 p-6">
+          <div className="mt-10 rounded-3xl border border-white/10 bg-panel/40 p-6">
             <p className="text-sm leading-relaxed text-muted">
               STIV operates against a 99.5% uptime commitment; the list above
               reflects that commitment rather than a live monitoring feed.

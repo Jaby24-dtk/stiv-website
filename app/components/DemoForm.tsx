@@ -262,7 +262,7 @@ export default function DemoForm({
       <button
         type="submit"
         disabled={status.type === "sending"}
-        className="group mt-2 inline-flex min-h-11 items-center justify-center gap-2 self-start rounded-[4px] bg-[#f0efea] hover:bg-[#bfd9ef] px-6 py-3 text-sm font-medium text-[#101216] transition-transform hover:-translate-y-0.5 disabled:cursor-wait disabled:opacity-70"
+        className="group mt-2 inline-flex min-h-11 items-center justify-center gap-2 self-start rounded-full bg-[#f0efea] hover:bg-[#bfd9ef] px-6 py-3 text-sm font-medium text-[#101216] transition-transform hover:-translate-y-0.5 disabled:cursor-wait disabled:opacity-70"
       >
         {status.type === "sending" ? "Submitting…" : "Apply for a private briefing"}
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

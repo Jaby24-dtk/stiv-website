@@ -133,7 +133,7 @@ export default async function SolutionPage({
             {solution.outcomes.map((outcome) => (
               <div
                 key={outcome}
-                className="flex items-start gap-3 rounded-lg border border-white/10 bg-panel/40 p-5"
+                className="flex items-start gap-3 rounded-3xl border border-white/10 bg-panel/40 p-5"
               >
                 <Check className="mt-1 h-4 w-4 shrink-0 text-accent-gold" />
                 <p className="text-sm leading-relaxed text-muted">{outcome}</p>
@@ -200,14 +200,14 @@ export default async function SolutionPage({
             <Link
               href="/contact"
               data-analytics-cta={`solution_${solution.slug}`}
-              className="inline-flex items-center gap-2 rounded-[4px] bg-[#f0efea] hover:bg-[#bfd9ef] px-6 py-3 text-sm font-medium text-[#101216]"
+              className="inline-flex items-center gap-2 rounded-full bg-[#f0efea] hover:bg-[#bfd9ef] px-6 py-3 text-sm font-medium text-[#101216]"
             >
               Discuss this workflow
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href={`/software/${solution.divisionSlug}`}
-              className="inline-flex items-center gap-2 rounded-[4px] border border-white/15 px-6 py-3 text-sm font-semibold"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold"
             >
               Explore STIV {solution.divisionName}
             </Link>

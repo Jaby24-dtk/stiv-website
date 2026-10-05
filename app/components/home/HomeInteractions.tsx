@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { roles } from "../../lib/home-content";
 import { initCore, initHome, shouldEnhanceCore } from "./home-runtime";
 
 // Wires the server-rendered homepage markup to its interactions. Renders an
@@ -13,7 +12,7 @@ export default function HomeInteractions() {
     const root = anchor.current?.closest<HTMLElement>(".stiv-home");
     if (!root) return;
 
-    const cleanupHome = initHome(root, { roles });
+    const cleanupHome = initHome(root);
 
     let cleanupCore: (() => void) | undefined;
     let cancelled = false;

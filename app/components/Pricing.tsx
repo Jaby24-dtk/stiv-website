@@ -124,7 +124,7 @@ export default function Pricing({
             return (
               <Reveal key={tier.name} delay={tierIndex * 100} className="h-full">
                 <div
-                  className={`relative flex h-full flex-col rounded-lg p-8 ${
+                  className={`relative flex h-full flex-col rounded-3xl p-8 ${
                     isPopular
                       ? "glass-panel glow-ring"
                       : isUnified
@@ -170,7 +170,7 @@ export default function Pricing({
 
                   <Link
                     href="/contact"
-                    className={`mt-8 inline-flex min-h-11 items-center justify-center rounded-[4px] px-5 py-2.5 text-sm font-medium transition-transform hover:-translate-y-0.5 ${
+                    className={`mt-8 inline-flex min-h-11 items-center justify-center rounded-full px-5 py-2.5 text-sm font-medium transition-transform hover:-translate-y-0.5 ${
                       isPopular
                         ? "bg-[#f0efea] hover:bg-[#bfd9ef] text-slate-950"
                         : "border border-white/15 text-foreground/90 hover:bg-white/5"

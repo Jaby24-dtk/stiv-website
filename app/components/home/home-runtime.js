@@ -177,7 +177,7 @@ function buildItems() {
 const esc = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
-export function initHome(root, { roles }) {
+export function initHome(root) {
   const ac = new AbortController();
   const signal = ac.signal;
   const timers = new Set();
@@ -209,51 +209,22 @@ export function initHome(root, { roles }) {
     }),
   );
 
-  // Workforce tabs (markup is server-rendered; this wires selection)
-  const tabs = $("#workforce-tabs");
-  const tabButtons = [...tabs.children];
-  function selectRole(i) {
-    const r = roles[i];
-    tabButtons.forEach((b, j) => {
-      b.setAttribute("aria-selected", String(j === i));
-      b.tabIndex = j === i ? 0 : -1;
-    });
-    $("#workforce-detail").setAttribute("aria-labelledby", "role-" + i);
-    $("#role-label").textContent = r.trait.toUpperCase();
-    $("#role-title").textContent = r.name;
-    $("#role-description").textContent = r.description;
-    $(".detail-symbol").textContent = r.symbol;
-    // One server-rendered Link per role; toggle visibility so each keeps
-    // its own href for Next.js client navigation.
-    $$("[data-role-link]").forEach((a) => {
-      a.hidden = Number(a.dataset.roleLink) !== i;
-    });
-    $("#role-tasks").replaceChildren(
-      ...r.tasks.map((t) => {
-        const e = document.createElement("span");
-        e.className = "task";
-        e.textContent = t;
-        return e;
-      }),
-    );
-  }
-  tabButtons.forEach((b, i) => {
-    on(b, "click", () => selectRole(i));
-    on(b, "mouseenter", () => {
-      if (matchMedia("(hover:hover)").matches) selectRole(i);
-    });
-    on(b, "keydown", (e) => {
-      let j = i;
-      if (e.key === "ArrowRight" || e.key === "ArrowDown") j = (i + 1) % roles.length;
-      else if (e.key === "ArrowLeft" || e.key === "ArrowUp") j = (i + roles.length - 1) % roles.length;
-      else if (e.key === "Home") j = 0;
-      else if (e.key === "End") j = roles.length - 1;
-      else return;
-      e.preventDefault();
-      selectRole(j);
-      tabButtons[j].focus();
-    });
-  });
+  // Workforce carousel arrows (cards are server-rendered; native scroll-snap)
+  const carousel = $("#workforce-carousel");
+  const step = () => {
+    const card = carousel.querySelector(".role-card");
+    return card ? card.getBoundingClientRect().width + 20 : 320;
+  };
+  const prev = $("[data-carousel-prev]"),
+    next = $("[data-carousel-next]");
+  const syncArrows = () => {
+    prev.disabled = carousel.scrollLeft <= 4;
+    next.disabled = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 4;
+  };
+  on(prev, "click", () => carousel.scrollBy({ left: -step(), behavior: reduced ? "auto" : "smooth" }));
+  on(next, "click", () => carousel.scrollBy({ left: step(), behavior: reduced ? "auto" : "smooth" }));
+  on(carousel, "scroll", syncArrows);
+  syncArrows();
 
   // Integrations
   $$("[data-integration]").forEach((b) =>

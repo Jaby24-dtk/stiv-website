@@ -200,7 +200,7 @@ export default async function BlogPostPage({
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-[4px] border border-white/15 px-5 py-2.5 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
             >
               Request private access
             </Link>

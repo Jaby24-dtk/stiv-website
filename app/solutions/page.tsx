@@ -33,7 +33,7 @@ export default function SolutionsPage() {
             <Reveal key={solution.slug} delay={index * 80}>
               <Link
                 href={`/solutions/${solution.slug}`}
-                className="group flex h-full flex-col rounded-lg border border-white/10 bg-panel/40 p-7 transition-colors hover:border-white/25 hover:bg-panel/70"
+                className="group flex h-full flex-col rounded-3xl border border-white/10 bg-panel/40 p-7 transition-colors hover:border-white/25 hover:bg-panel/70"
               >
                 <p className="font-mono text-xs tracking-widest text-accent-gold">
                   {solution.eyebrow}

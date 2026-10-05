@@ -68,7 +68,7 @@ export default function UnifiedPage() {
             ))}
           </ul>
 
-          <div className="mt-10 rounded-lg border border-white/10 bg-panel/40 p-6">
+          <div className="mt-10 rounded-3xl border border-white/10 bg-panel/40 p-6">
             <h3 className="font-medium">What doesn&apos;t change</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
               The approval model stays the same. Every consequential action —
@@ -89,7 +89,7 @@ export default function UnifiedPage() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-[4px] bg-[#f0efea] hover:bg-[#bfd9ef] px-6 py-3 text-sm font-medium text-[#101216] transition-transform hover:-translate-y-0.5"
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#f0efea] hover:bg-[#bfd9ef] px-6 py-3 text-sm font-medium text-[#101216] transition-transform hover:-translate-y-0.5"
             >
               Apply for Unified
               <ArrowRight className="h-4 w-4" />

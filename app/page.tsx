@@ -52,8 +52,6 @@ const faqJsonLd = {
 const pad = (n: number) => String(n).padStart(2, "0");
 
 export default function Home() {
-  const firstRole = roles[0];
-
   return (
     <div className="stiv-home">
       <script
@@ -80,7 +78,7 @@ export default function Home() {
           />
         </div>
         <div className="hero-copy">
-          <div className="eyebrow intro">STIV AI / THE ENTERPRISE AI COMMAND CENTER</div>
+          <p className="hero-kicker intro">STIV AI · The enterprise AI command center</p>
           <h1 className="intro">
             Intelligence,
             <br />
@@ -91,29 +89,19 @@ export default function Home() {
             <br className="desktop" /> knowledge, systems and AI workforce.
           </p>
           <div className="actions intro">
-            <a className="button primary" href="#experience">
-              Experience STIV
-            </a>
-            <Link className="button quiet" href="/contact">
+            <Link className="button primary" href="/contact">
               Book a Demo
             </Link>
+            <a className="button quiet" href="#experience">
+              Experience STIV
+            </a>
           </div>
-        </div>
-        <div className="hero-bottom">
-          <span>BUILT FOR THE WAY YOUR ORGANIZATION THINKS.</span>
-          <a href="#platform">
-            SCROLL TO DISCOVER <span className="scroll-line" />
-          </a>
-          <span>SINGAPORE HQ / WORLDWIDE</span>
         </div>
       </section>
 
       {/* ── 01 Platform ──────────────────────────────────────── */}
       <section className="section unity light" id="platform">
-        <div className="section-top">
-          <span className="eyebrow">01 / THE PLATFORM</span>
-          <span className="eyebrow">SEVEN DIVISIONS. ONE DIRECTION.</span>
-        </div>
+        <p className="kicker">Platform</p>
         <div className="reveal">
           <h2>
             One intelligence.
@@ -169,10 +157,7 @@ export default function Home() {
 
       {/* ── 02 Orchestration demo ────────────────────────────── */}
       <section className="section experience" id="experience">
-        <div className="section-top">
-          <span className="eyebrow">02 / ORCHESTRATION IN ACTION</span>
-          <span className="eyebrow">INTERACTIVE PRODUCT DEMONSTRATION</span>
-        </div>
+        <p className="kicker">Orchestration in action</p>
         <div className="split-heading reveal">
           <h2>Watch STIV work.</h2>
           <p className="lead">
@@ -257,10 +242,7 @@ export default function Home() {
 
       {/* ── 03 Command Center ────────────────────────────────── */}
       <section className="section command" id="command-center">
-        <div className="section-top">
-          <span className="eyebrow">03 / THE STIV COMMAND CENTER</span>
-          <span className="eyebrow">THE BIG PICTURE. EVERY DETAIL.</span>
-        </div>
+        <p className="kicker">STIV Command Center</p>
         <h2 className="reveal">
           Your organization.
           <br />
@@ -381,10 +363,7 @@ export default function Home() {
 
       {/* ── 04 Inside the Command Center ─────────────────────── */}
       <section className="section cc light" id="capabilities">
-        <div className="section-top">
-          <span className="eyebrow">04 / INSIDE THE COMMAND CENTER</span>
-          <span className="eyebrow">ASK IN PLAIN LANGUAGE</span>
-        </div>
+        <p className="kicker">Inside the Command Center</p>
         <div className="split-heading reveal">
           <h2>
             Ask once.
@@ -488,63 +467,42 @@ export default function Home() {
 
       {/* ── 05 AI workforce ──────────────────────────────────── */}
       <section className="section light" id="workforce">
-        <div className="section-top">
-          <span className="eyebrow">05 / YOUR AI WORKFORCE</span>
-          <span className="eyebrow">SPECIALIZED BY DESIGN</span>
-        </div>
-        <h2 className="reveal">
-          Meet your
-          <br />
-          <span>AI workforce.</span>
-        </h2>
-        <div className="workforce-layout reveal">
-          <div className="workforce-list" role="tablist" aria-label="AI divisions" id="workforce-tabs">
-            {roles.map((r, i) => (
-              <button
-                key={r.name}
-                type="button"
-                className="workforce-tab"
-                id={`role-${i}`}
-                role="tab"
-                aria-controls="workforce-detail"
-                aria-selected={i === 0}
-                tabIndex={i === 0 ? 0 : -1}
-              >
-                <span>{pad(i + 1)}</span>
-                {r.name}
-              </button>
-            ))}
+        <p className="kicker">AI workforce</p>
+        <div className="carousel-head reveal">
+          <h2>
+            Get to know your
+            <br />
+            <span>AI workforce.</span>
+          </h2>
+          <div className="carousel-arrows">
+            <button type="button" className="carousel-arrow" data-carousel-prev aria-label="Previous divisions">
+              ‹
+            </button>
+            <button type="button" className="carousel-arrow" data-carousel-next aria-label="Next divisions">
+              ›
+            </button>
           </div>
-          <div className="workforce-detail" id="workforce-detail" role="tabpanel" tabIndex={0} aria-labelledby="role-0">
-            <div className="detail-symbol" aria-hidden="true">
-              {firstRole.symbol}
-            </div>
-            <span className="eyebrow" id="role-label">
-              {firstRole.trait.toUpperCase()}
-            </span>
-            <h3 id="role-title">{firstRole.name}</h3>
-            <p id="role-description">{firstRole.description}</p>
-            <div id="role-tasks">
-              {firstRole.tasks.map((t) => (
-                <span key={t} className="task">
-                  {t}
-                </span>
-              ))}
-            </div>
-            {roles.map((r, i) => (
-              <Link
-                key={r.href}
-                className="text-link role-link"
-                data-role-link={i}
-                href={r.href}
-                hidden={i !== 0}
-              >
-                Explore {r.name}
+        </div>
+        <ul className="carousel reveal" id="workforce-carousel" aria-label="STIV AI divisions">
+          {roles.map((r) => (
+            <li key={r.name} className="role-card">
+              <div className="role-symbol" aria-hidden="true">
+                {r.symbol}
+              </div>
+              <span className="role-trait">{r.trait}</span>
+              <h3>{r.name}</h3>
+              <p>{r.description}</p>
+              <ul className="role-tasks">
+                {r.tasks.map((t) => (
+                  <li key={t}>{t}</li>
+                ))}
+              </ul>
+              <Link className="learn-more" href={r.href}>
+                Learn more<span className="sr-only"> about {r.name}</span> ›
               </Link>
-            ))}
-            <span className="detail-footer">PART OF THE STIV INTELLIGENCE SYSTEM</span>
-          </div>
-        </div>
+            </li>
+          ))}
+        </ul>
         <div className="company-links solution-links reveal">
           <span className="eyebrow">SOLUTIONS</span>
           <Link href="/solutions/ai-finance-automation">AI finance automation</Link>
@@ -556,10 +514,7 @@ export default function Home() {
 
       {/* ── 06 Memory ────────────────────────────────────────── */}
       <section className="section knowledge" id="knowledge">
-        <div className="section-top">
-          <span className="eyebrow">06 / STIV MEMORY</span>
-          <span className="eyebrow">CONTEXT BECOMES CAPABILITY</span>
-        </div>
+        <p className="kicker">STIV Memory</p>
         <div className="knowledge-layout">
           <div className="reveal">
             <h2>
@@ -601,10 +556,7 @@ export default function Home() {
 
       {/* ── 07 Integrations ──────────────────────────────────── */}
       <section className="section light" id="integrations">
-        <div className="section-top">
-          <span className="eyebrow">07 / CONNECTED INTELLIGENCE</span>
-          <span className="eyebrow">NO MIGRATION REQUIRED</span>
-        </div>
+        <p className="kicker">Integrations</p>
         <div className="split-heading reveal">
           <h2>
             Your systems.
@@ -672,10 +624,7 @@ export default function Home() {
 
       {/* ── 08 Human control ─────────────────────────────────── */}
       <section className="section security" id="security">
-        <div className="section-top">
-          <span className="eyebrow">08 / HUMAN CONTROL</span>
-          <span className="eyebrow">AUTONOMY WITH ACCOUNTABILITY</span>
-        </div>
+        <p className="kicker">Human control</p>
         <div className="security-layout">
           <div className="reveal">
             <h2>
@@ -753,10 +702,7 @@ export default function Home() {
 
       {/* ── 09 Pricing ───────────────────────────────────────── */}
       <section className="section company light" id="pricing">
-        <div className="section-top">
-          <span className="eyebrow">09 / BUILT FOR REAL ORGANIZATIONS</span>
-          <span className="eyebrow">SINGAPORE HQ / WORLDWIDE</span>
-        </div>
+        <p className="kicker">Pricing</p>
         <div className="split-heading reveal">
           <h2>
             Start with a division.
@@ -821,10 +767,7 @@ export default function Home() {
 
       {/* ── 10 FAQ ───────────────────────────────────────────── */}
       <section className="section faq light" id="faq">
-        <div className="section-top">
-          <span className="eyebrow">10 / QUESTIONS</span>
-          <span className="eyebrow">ANSWERED PLAINLY</span>
-        </div>
+        <p className="kicker">FAQ</p>
         <div className="faq-layout">
           <h2 className="reveal">
             Questions,

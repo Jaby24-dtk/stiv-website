@@ -15,7 +15,7 @@ export default function IconTile({
 
   return (
     <div
-      className={`relative flex shrink-0 items-center justify-center rounded-[4px] border border-[#39424e] bg-[#131a22] ${dimensions.box}`}
+      className={`relative flex shrink-0 items-center justify-center rounded-full border border-[#39424e] bg-[#131a22] ${dimensions.box}`}
     >
       <Icon className={`${dimensions.icon} text-accent-gold`} strokeWidth={1.75} />
     </div>
