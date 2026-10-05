@@ -109,7 +109,7 @@ export default function Home() {
       </section>
 
       {/* ── 01 Platform ──────────────────────────────────────── */}
-      <section className="section unity" id="platform">
+      <section className="section unity light" id="platform">
         <div className="section-top">
           <span className="eyebrow">01 / THE PLATFORM</span>
           <span className="eyebrow">SEVEN DIVISIONS. ONE DIRECTION.</span>
@@ -380,7 +380,7 @@ export default function Home() {
       </section>
 
       {/* ── 04 Inside the Command Center ─────────────────────── */}
-      <section className="section cc" id="capabilities">
+      <section className="section cc light" id="capabilities">
         <div className="section-top">
           <span className="eyebrow">04 / INSIDE THE COMMAND CENTER</span>
           <span className="eyebrow">ASK IN PLAIN LANGUAGE</span>
@@ -487,7 +487,7 @@ export default function Home() {
       </section>
 
       {/* ── 05 AI workforce ──────────────────────────────────── */}
-      <section className="section" id="workforce">
+      <section className="section light" id="workforce">
         <div className="section-top">
           <span className="eyebrow">05 / YOUR AI WORKFORCE</span>
           <span className="eyebrow">SPECIALIZED BY DESIGN</span>
@@ -600,7 +600,7 @@ export default function Home() {
       </section>
 
       {/* ── 07 Integrations ──────────────────────────────────── */}
-      <section className="section" id="integrations">
+      <section className="section light" id="integrations">
         <div className="section-top">
           <span className="eyebrow">07 / CONNECTED INTELLIGENCE</span>
           <span className="eyebrow">NO MIGRATION REQUIRED</span>
@@ -752,7 +752,7 @@ export default function Home() {
       </section>
 
       {/* ── 09 Pricing ───────────────────────────────────────── */}
-      <section className="section company" id="pricing">
+      <section className="section company light" id="pricing">
         <div className="section-top">
           <span className="eyebrow">09 / BUILT FOR REAL ORGANIZATIONS</span>
           <span className="eyebrow">SINGAPORE HQ / WORLDWIDE</span>
@@ -820,7 +820,7 @@ export default function Home() {
       </section>
 
       {/* ── 10 FAQ ───────────────────────────────────────────── */}
-      <section className="section faq" id="faq">
+      <section className="section faq light" id="faq">
         <div className="section-top">
           <span className="eyebrow">10 / QUESTIONS</span>
           <span className="eyebrow">ANSWERED PLAINLY</span>

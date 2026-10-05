@@ -384,3 +384,229 @@
 .stiv-home .solution-links .eyebrow {
   color: #778594;
 }
+
+/* ── Light sections ─────────────────────────────────────
+   Alternating porcelain sections in the same family as the dark theme:
+   the warm off-white from the dark palette's text becomes the background,
+   charcoal becomes the text, and the pale steel-blue accent deepens so it
+   keeps contrast on a light ground. Rules that use the theme variables
+   pick these up automatically; hard-coded reference colours are
+   overridden below. */
+.stiv-home .light {
+  --text: #14171c;
+  --muted: #5b6470;
+  --line: #d8d6cf;
+  --accent: #2f5675;
+  background: #f4f3ef;
+  color: #14171c;
+  border-top-color: #e2e0da;
+}
+.stiv-home .light + .light {
+  border-top-color: #e2e0da;
+}
+.stiv-home .light .eyebrow {
+  color: #5f6a77;
+}
+.stiv-home .light .section-top .eyebrow:last-child {
+  color: #8a939e;
+}
+.stiv-home .light h2 span,
+.stiv-home .light h3 span {
+  color: #7b8591;
+}
+.stiv-home .light p,
+.stiv-home .light .lead {
+  color: #4f5864;
+}
+.stiv-home .light .caption {
+  color: #6f7883;
+}
+.stiv-home .light .text-link,
+.stiv-home .light .caption-link {
+  color: #14171c;
+  border-bottom-color: #9aa3ad;
+}
+.stiv-home .light .text-link:hover,
+.stiv-home .light .caption-link:hover,
+.stiv-home .light .company-links a:hover {
+  color: var(--accent);
+}
+.stiv-home .light .primary {
+  background: #14171c;
+  color: #f4f3ef;
+  box-shadow: 0 4px 18px rgba(20, 23, 28, 0.18);
+}
+.stiv-home .light .primary:hover {
+  background: var(--accent);
+}
+.stiv-home .light .quiet {
+  border-color: #b9b7b0;
+  color: #14171c;
+}
+.stiv-home .light .quiet:hover {
+  background: rgba(20, 23, 28, 0.04);
+}
+
+/* Platform constellation */
+.stiv-home .light .connections {
+  stroke: #a8b4c1;
+}
+.stiv-home .light .node {
+  background: rgba(255, 255, 255, 0.86);
+  border-color: #d2d0c9;
+  color: #7b8591;
+  box-shadow: 0 10px 30px rgba(20, 23, 28, 0.06);
+}
+.stiv-home .light .node small {
+  color: #6f7883;
+}
+.stiv-home .light .node:hover,
+.stiv-home .light .node.active {
+  background: #ffffff;
+  border-color: var(--accent);
+}
+/* The fallback core artwork is shot on black; inverting it on light
+   sections gives a polished-chrome sculpture on porcelain. */
+.stiv-home .light .small-core {
+  filter: invert(1) hue-rotate(180deg) saturate(0.6) contrast(1.05);
+  mix-blend-mode: multiply;
+}
+.stiv-home .light .connection-note {
+  color: #4f5864;
+}
+.stiv-home .light .unity-foot strong {
+  color: #14171c;
+}
+
+/* Tabs (Command Center capabilities) */
+.stiv-home .light .scenario-selector {
+  border-bottom-color: #d8d6cf;
+}
+.stiv-home .light .scenario-tab {
+  color: #6f7883;
+}
+.stiv-home .light .scenario-tab > span {
+  color: #9aa3ad;
+}
+.stiv-home .light .scenario-tab:hover,
+.stiv-home .light .scenario-tab[aria-selected="true"] {
+  color: #14171c;
+}
+.stiv-home .light .scenario-tab[aria-selected="true"] {
+  border-color: var(--accent);
+}
+.stiv-home .light .scenario-tab[aria-selected="true"] > span {
+  color: var(--accent);
+}
+.stiv-home .light .cc-panel-desc,
+.stiv-home .light .cc-sub-lead {
+  color: #4f5864;
+}
+.stiv-home .light .cc-panel li,
+.stiv-home .light .task,
+.stiv-home .light .cc-module-note {
+  border-top-color: #dedcd5;
+}
+.stiv-home .light .cc-panel li strong,
+.stiv-home .light summary strong {
+  color: #14171c;
+}
+.stiv-home .light .cc-panel li small {
+  color: #6f7883;
+}
+
+/* Accordions (monitors, FAQ, "see all") */
+.stiv-home .light details {
+  border-bottom-color: #dedcd5;
+}
+.stiv-home .light .cc-monitors {
+  border-top-color: #c9c7c0;
+}
+.stiv-home .light summary {
+  color: #8a939e;
+}
+.stiv-home .light summary:after {
+  color: var(--accent);
+}
+.stiv-home .light .cc-monitors .cadence {
+  border-color: #c3d0dc;
+  background: #e8eef3;
+}
+
+/* Chips (modules, channels, systems) */
+.stiv-home .light .cc-module-chips button,
+.stiv-home .light .cc-chips p span {
+  background: #ffffff;
+  border-color: #d2d0c9;
+  color: #3d4550;
+}
+.stiv-home .light .cc-module-chips button:hover,
+.stiv-home .light .cc-module-chips button.selected {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.stiv-home .light .cc-module-group .eyebrow,
+.stiv-home .light .solution-links .eyebrow {
+  color: #8a939e;
+}
+
+/* AI workforce */
+.stiv-home .light .workforce-tab {
+  border-bottom-color: #dedcd5;
+  color: #14171c;
+}
+.stiv-home .light .workforce-tab span {
+  color: #9aa3ad;
+}
+.stiv-home .light .workforce-tab[aria-selected="true"],
+.stiv-home .light .workforce-tab:hover {
+  color: var(--accent);
+}
+.stiv-home .light .workforce-detail {
+  background: radial-gradient(ellipse at 70% 5%, #e3ebf2, transparent 65%), #ffffff;
+  border-color: #d8d6cf;
+  box-shadow: 0 30px 70px rgba(20, 23, 28, 0.07);
+}
+.stiv-home .light .detail-symbol {
+  color: #5c7c98;
+}
+.stiv-home .light .task {
+  color: #3d4550;
+}
+.stiv-home .light .detail-footer {
+  color: #9aa3ad;
+}
+
+/* Integrations */
+.stiv-home .light .system-group button {
+  border-bottom-color: #d2d0c9;
+  color: #14171c;
+}
+.stiv-home .light .system-group button span {
+  color: #9aa3ad;
+}
+.stiv-home .light .system-group button:hover,
+.stiv-home .light .system-group button.selected {
+  color: var(--accent);
+}
+.stiv-home .light .network-ring {
+  border-color: #c9c7c0;
+  background: radial-gradient(circle, rgba(47, 86, 117, 0.07), transparent 65%);
+}
+.stiv-home .light .network-ring:before {
+  border-color: rgba(47, 86, 117, 0.3);
+}
+.stiv-home .light .network-ring:after {
+  border-color: #d2d0c9;
+}
+.stiv-home .light .cc-more {
+  border-top-color: #dedcd5;
+}
+
+/* Pricing */
+.stiv-home .light .licenses h3 small {
+  color: #6f7883;
+}
+.stiv-home .light .company-links {
+  color: #3d4550;
+}
