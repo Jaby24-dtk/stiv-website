@@ -1,0 +1,372 @@
+/* Additions on top of the ported reference stylesheet (stiv.css):
+   the real STIV logo, the eight-link nav, the footer link columns, the
+   seven-division constellation and the Command Center capability sections.
+   Written in the same visual language as the reference. */
+
+/* ── Logo ─────────────────────────────────────────────── */
+.logo-mark {
+  object-fit: contain;
+  flex-shrink: 0;
+  display: inline-block;
+}
+.wordmark {
+  gap: 12px;
+}
+.stiv-home .terminal-bar > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.stiv-home .network-center .logo-mark {
+  z-index: 1;
+  margin-bottom: 6px;
+}
+
+/* ── Nav: eight links collapse to the menu earlier ────── */
+.site-nav a {
+  white-space: nowrap;
+}
+@media (min-width: 761px) and (max-width: 1180px) {
+  .menu {
+    display: block;
+    padding: 5px;
+  }
+  .nav-cta {
+    margin-left: auto;
+  }
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 88px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 25px 4.5%;
+    background: #0b0d11;
+    border-bottom: 1px solid #333b46;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.0625rem;
+  }
+  .site-nav.open {
+    display: flex;
+  }
+}
+
+/* ── Footer columns ───────────────────────────────────── */
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 35px;
+  padding: 10px 0 40px;
+}
+.footer-columns ul {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.footer-columns a {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  font-size: 0.8125rem;
+  color: #9aa3af;
+  transition: color 0.3s;
+}
+.footer-columns a:hover,
+.footer-bottom button:hover,
+.footer-top a:hover {
+  color: var(--accent);
+}
+.footer-bottom button {
+  font-size: 0.75rem;
+  color: #798491;
+  min-height: 0;
+  background: transparent;
+}
+@media (max-width: 760px) {
+  .footer-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+}
+
+/* ── Seven-division constellation ─────────────────────── */
+.stiv-home .constellation-7 {
+  height: 540px;
+}
+.stiv-home .constellation-7 .node {
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  margin-left: 0;
+}
+.stiv-home .constellation-7 .n1 { left: 0; top: 20px; }
+.stiv-home .constellation-7 .n2 { left: 0; top: calc(50% - 52px); }
+.stiv-home .constellation-7 .n3 { left: 0; bottom: 40px; }
+.stiv-home .constellation-7 .n4 { right: 0; top: 20px; }
+.stiv-home .constellation-7 .n5 { right: 0; top: calc(50% - 52px); }
+.stiv-home .constellation-7 .n6 { right: 0; bottom: 40px; }
+.stiv-home .constellation-7 .n7 { left: 50%; bottom: -8px; margin-left: -105px; }
+@media (max-width: 760px) {
+  .stiv-home .constellation-7 {
+    height: 420px;
+  }
+  .stiv-home .constellation-7 .n1 { left: 0; top: 0; }
+  .stiv-home .constellation-7 .n2 { left: 0; top: 95px; }
+  .stiv-home .constellation-7 .n3 { left: 0; top: 190px; bottom: auto; }
+  .stiv-home .constellation-7 .n4 { right: 0; top: 0; }
+  .stiv-home .constellation-7 .n5 { right: 0; top: 95px; }
+  .stiv-home .constellation-7 .n6 { right: 0; top: 190px; bottom: auto; }
+  .stiv-home .constellation-7 .n7 { left: 26.5%; top: 290px; bottom: auto; margin-left: 0; }
+}
+.stiv-home .unity-foot a:hover strong {
+  color: var(--accent);
+}
+
+/* ── Inside the Command Center ────────────────────────── */
+.stiv-home .cc-outcomes {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 60px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.stiv-home .cc-outcome {
+  padding: 32px 24px 34px;
+}
+.stiv-home .cc-outcome + .cc-outcome {
+  border-left: 1px solid var(--line);
+}
+.stiv-home .cc-outcome:first-child {
+  padding-left: 0;
+}
+.stiv-home .cc-outcome h3 {
+  font-size: 1.875rem;
+  margin-top: 18px;
+  letter-spacing: -0.045em;
+}
+.stiv-home .cc-outcome-desc {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin-top: 10px;
+  min-height: 3.4em;
+}
+.stiv-home .cc-outcome ul {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+}
+.stiv-home .cc-outcome li {
+  border-top: 1px solid #2c333d;
+  padding: 0.75rem 0;
+}
+.stiv-home .cc-outcome li strong,
+.stiv-home .cc-module strong,
+.stiv-home .cc-monitors strong {
+  display: block;
+  font-weight: 450;
+  font-size: 0.9375rem;
+  letter-spacing: -0.015em;
+  color: #d9dfe5;
+}
+.stiv-home .cc-outcome li small,
+.stiv-home .cc-module small,
+.stiv-home .cc-monitors small {
+  display: block;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: #8d98a5;
+  margin-top: 2px;
+}
+
+.stiv-home .cc-split {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 75px;
+  margin-top: 110px;
+  align-items: start;
+}
+.stiv-home .cc-sub {
+  font-size: clamp(1.875rem, 3vw, 2.75rem);
+  letter-spacing: -0.048em;
+  line-height: 1.15;
+  margin-top: 18px;
+}
+.stiv-home .cc-sub-lead {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #aeb7c2;
+  margin-top: 1.25rem;
+  max-width: 26rem;
+}
+.stiv-home .cc-monitors {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #3b4552;
+}
+.stiv-home .cc-monitors li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid #2b323c;
+}
+.stiv-home .cc-monitors li > span {
+  font-family: var(--font-meta);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  white-space: nowrap;
+  border: 1px solid #38424d;
+  border-radius: 3px;
+  padding: 3px 8px;
+}
+
+.stiv-home .cc-modules {
+  margin-top: 110px;
+}
+.stiv-home .cc-module-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 35px;
+  margin-top: 45px;
+}
+.stiv-home .cc-module {
+  border-top: 1px solid #2c333d;
+  padding: 0.875rem 0;
+}
+.stiv-home .cc-module-grid .eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  color: #778594;
+}
+
+/* Channel and system chips under the integration network */
+.stiv-home .cc-chips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  max-width: 1050px;
+  margin: 10px auto 30px;
+}
+.stiv-home .cc-chips p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.stiv-home .cc-chips p span {
+  font-size: 0.8125rem;
+  color: #b3c3d3;
+  border: 1px solid #39424e;
+  background: #131a22;
+  padding: 7px 12px;
+}
+.stiv-home .caption-link {
+  color: #b6bfc9;
+  border-bottom: 1px solid #677383;
+  margin-left: 6px;
+}
+.stiv-home .caption-link:hover {
+  color: var(--accent);
+}
+
+/* Workforce detail link */
+.stiv-home .role-link {
+  margin-top: 22px;
+}
+
+/* ── FAQ ──────────────────────────────────────────────── */
+.stiv-home .faq-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 75px;
+  align-items: start;
+}
+.stiv-home .faq-list details p {
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+@media (max-width: 1100px) {
+  .stiv-home .cc-outcomes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .stiv-home .cc-outcome:nth-child(4) {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .stiv-home .cc-outcome:nth-child(n + 4) {
+    border-top: 1px solid var(--line);
+  }
+  .stiv-home .cc-module-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .stiv-home .cc-split,
+  .stiv-home .faq-layout {
+    gap: 40px;
+  }
+}
+@media (max-width: 760px) {
+  .stiv-home .cc-outcomes {
+    grid-template-columns: 1fr;
+    margin-top: 35px;
+  }
+  .stiv-home .cc-outcome,
+  .stiv-home .cc-outcome:first-child {
+    padding: 26px 0;
+  }
+  .stiv-home .cc-outcome + .cc-outcome {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .stiv-home .cc-outcome-desc {
+    min-height: 0;
+  }
+  .stiv-home .cc-split,
+  .stiv-home .faq-layout {
+    display: block;
+    margin-top: 70px;
+  }
+  .stiv-home .faq-layout {
+    margin-top: 0;
+  }
+  .stiv-home .faq-list {
+    margin-top: 35px;
+  }
+  .stiv-home .cc-monitors {
+    margin-top: 30px;
+  }
+  .stiv-home .cc-monitors li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .stiv-home .cc-modules {
+    margin-top: 70px;
+  }
+  .stiv-home .cc-module-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 30px;
+  }
+  .stiv-home .cc-chips {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+/* Fallback (non-3D) core image: fade its dark backdrop into the page so it
+   never reads as a lighter rectangle. */
+.stiv-home .small-core,
+.stiv-home .final-core {
+  -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+}

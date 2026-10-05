@@ -1,85 +1,20 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-
+// The "Intelligence, orchestrated." design uses flat charcoal surfaces
+// with a single soft radial wash instead of animated aurora blobs.
 export default function AuroraBackground({
   variant = "full",
 }: {
   variant?: "full" | "subtle";
 }) {
-  const opacity = variant === "full" ? 1 : 0.8;
-  const rootRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    let raf = 0;
-
-    function apply() {
-      const el = rootRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const centerOffset =
-        rect.top + rect.height / 2 - window.innerHeight / 2;
-      const translate = centerOffset * 0.09;
-      el.style.transform = `translate3d(0, ${translate}px, 0)`;
-    }
-
-    function onScroll() {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(apply);
-    }
-
-    apply();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
   return (
     <div
-      ref={rootRef}
-      className="aurora-field will-change-transform"
-      style={{ opacity }}
       aria-hidden
-    >
-      <div
-        className="aurora-blob aurora-blob-a"
-        style={{
-          top: "-10%",
-          left: "-5%",
-          width: "50%",
-          height: "50%",
-          background:
-            "radial-gradient(closest-side, rgba(255,255,255,0.6), rgba(255,255,255,0.24) 50%, transparent)",
-        }}
-      />
-      <div
-        className="aurora-blob aurora-blob-b"
-        style={{
-          top: "10%",
-          right: "-10%",
-          width: "45%",
-          height: "45%",
-          background:
-            "radial-gradient(closest-side, rgba(200,200,200,0.52), rgba(200,200,200,0.2) 50%, transparent)",
-        }}
-      />
-      <div
-        className="aurora-blob aurora-blob-c"
-        style={{
-          bottom: "-15%",
-          left: "20%",
-          width: "55%",
-          height: "55%",
-          background:
-            "radial-gradient(closest-side, rgba(120,120,120,0.52), rgba(120,120,120,0.2) 50%, transparent)",
-        }}
-      />
-    </div>
+      className="pointer-events-none absolute inset-0"
+      style={{
+        background:
+          variant === "full"
+            ? "radial-gradient(ellipse at 50% 0%, rgba(29,43,59,0.45), transparent 65%)"
+            : "radial-gradient(ellipse at 50% 0%, rgba(29,43,59,0.3), transparent 60%)",
+      }}
+    />
   );
 }

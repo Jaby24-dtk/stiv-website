@@ -8,9 +8,9 @@ export const CRUNCHBASE_URL = "https://www.crunchbase.com/organization/stiv-9fde
 export const G2_URL = "https://www.g2.com/products/stiv/reviews";
 
 export const DEFAULT_TITLE =
-  "STIV — Approval-Governed AI Software for Enterprise Teams";
+  "STIV — Intelligence, Orchestrated | AI Command Center";
 export const DEFAULT_DESCRIPTION =
-  "Purpose-built AI software for seven enterprise divisions, connected to your tools with human approval gates and a complete audit trail.";
+  "One AI command center connecting your people, knowledge, systems and AI workforce — seven purpose-built divisions, with human approval on every consequential action.";
 
 export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;

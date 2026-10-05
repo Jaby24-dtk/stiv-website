@@ -156,7 +156,7 @@ export default async function DivisionPage({
             ))}
           </ul>
 
-          <div className="mt-10 flex items-start gap-3 rounded-2xl border border-white/10 bg-panel/40 p-6">
+          <div className="mt-10 flex items-start gap-3 rounded-lg border border-white/10 bg-panel/40 p-6">
             <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent-gold" />
             <p className="text-sm leading-relaxed text-muted">
               {division.approvalNote}
@@ -175,7 +175,7 @@ export default async function DivisionPage({
             </div>
             <Link
               href="/contact"
-              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-6 py-3 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-[4px] bg-[#f0efea] hover:bg-[#bfd9ef] px-6 py-3 text-sm font-medium text-[#101216] transition-transform hover:-translate-y-0.5"
             >
               Request private access
               <ArrowRight className="h-4 w-4" />

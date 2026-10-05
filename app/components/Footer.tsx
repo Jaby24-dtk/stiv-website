@@ -1,102 +1,88 @@
-import Image from "next/image";
 import Link from "next/link";
 import CookiePreferencesLink from "./CookiePreferencesLink";
-import { LINKEDIN_URL } from "../lib/site";
+import Logo from "./Logo";
+import { IMPACT_URL, LINKEDIN_URL } from "../lib/site";
 
 const columns = [
   {
-    title: "Product",
+    title: "PLATFORM",
     links: [
-      { label: "Software", href: "/#divisions" },
+      { label: "Command Center", href: "/#command-center" },
+      { label: "Divisions", href: "/#workforce" },
+      { label: "STIV Unified", href: "/unified" },
       { label: "Solutions", href: "/solutions" },
-      { label: "Unified", href: "/unified" },
       { label: "Integrations", href: "/integrations" },
-      { label: "How it works", href: "/#how-it-works" },
-      { label: "Security", href: "/security" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Status", href: "/status" },
     ],
   },
   {
-    title: "Company",
+    title: "TRUST",
+    links: [
+      { label: "Security", href: "/security" },
+      { label: "Status", href: "/status" },
+      { label: "Subprocessors", href: "/subprocessors" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+    ],
+  },
+  {
+    title: "COMPANY",
     links: [
       { label: "About", href: "/about" },
       { label: "Careers", href: "/careers" },
-      { label: "Blog", href: "/blog" },
-      { label: "LinkedIn", href: LINKEDIN_URL },
-      { label: "Community Impact", href: "https://impact.iamstivai.com" },
-      { label: "Contact", href: "/contact" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
-      { label: "Subprocessors", href: "/subprocessors" },
+      { label: "Insights", href: "/blog" },
+      { label: "Community Impact", href: IMPACT_URL },
+      { label: "Book a Demo", href: "/contact" },
     ],
   },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 px-6 py-16 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
-          <div className="col-span-2 sm:col-span-1">
-            <div className="flex items-center gap-2.5">
-              <Image
-                src="/stiv-logo-mark.png"
-                alt=""
-                width={28}
-                height={28}
-                className="h-7 w-7 rounded-lg object-contain"
-              />
-              <span className="text-base font-semibold">STIV</span>
-            </div>
-            <p className="mt-4 max-w-xs text-sm text-muted">
-              Premium software, division by division. Est. 2026, Singapore.
-            </p>
-            <p className="mt-3 max-w-xs text-xs leading-relaxed text-muted">
-              STIV Pte. Ltd. · UEN 202630466E
-              <br />
-              50 Raffles Place #30-00, Singapore Land Towers, Singapore 048623
-            </p>
-          </div>
+    <footer className="site-footer">
+      <div className="footer-top">
+        <Link className="wordmark" href="/" aria-label="STIV home">
+          <Logo size={30} />
+          STIV
+        </Link>
+        <span>INTELLIGENCE, ORCHESTRATED.</span>
+        <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+      </div>
 
-          {columns.map((col) => (
-            <div key={col.title}>
-              <p className="text-sm font-medium">{col.title}</p>
-              <ul className="mt-4 flex flex-col gap-3">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      {...(link.href.startsWith("https://")
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                      className="-mx-2 inline-flex min-h-11 min-w-11 items-center px-2 text-sm text-muted transition-colors hover:text-foreground"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-xs sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-muted">
-            © {new Date().getFullYear()} STIV. All rights reserved.
-          </p>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <p className="text-muted">
-              Made for teams who&apos;d rather build than babysit process.
-            </p>
-            <CookiePreferencesLink />
+      <div className="footer-columns">
+        {columns.map((col) => (
+          <div key={col.title}>
+            <p className="eyebrow">{col.title}</p>
+            <ul>
+              {col.links.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    {...(link.href.startsWith("https://")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
+        ))}
+      </div>
+
+      <div className="footer-bottom">
+        <p>
+          STIV Pte. Ltd. · UEN 202630466E
+          <br />
+          50 Raffles Place #30-00, Singapore Land Towers, Singapore 048623
+        </p>
+        <div>
+          <CookiePreferencesLink />
         </div>
+        <span>© {new Date().getFullYear()} STIV</span>
       </div>
     </footer>
   );

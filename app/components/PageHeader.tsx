@@ -10,17 +10,20 @@ export default function PageHeader({
   description?: string;
 }) {
   return (
-    <div className="relative overflow-hidden border-b border-white/10 bg-grid px-6 pb-16 pt-16 lg:px-8 lg:pt-20">
+    <div className="relative overflow-hidden border-b border-[#20242a] px-[7%] pb-20 pt-36 lg:pt-44">
       <AuroraBackground variant="subtle" />
-      <div className="relative mx-auto max-w-3xl text-center">
-        <p className="font-mono text-xs tracking-widest text-accent-gold">
-          {eyebrow}
-        </p>
-        <h1 className="mt-3 text-5xl font-semibold tracking-tight sm:text-6xl">
+      <div className="relative mx-auto max-w-[1400px]">
+        <div className="mb-10 flex items-baseline justify-between gap-5">
+          <p className="eyebrow">{eyebrow.toUpperCase()}</p>
+          <p className="eyebrow hidden text-[#778594] sm:block">
+            STIV / INTELLIGENCE, ORCHESTRATED.
+          </p>
+        </div>
+        <h1 className="max-w-4xl text-[clamp(2.75rem,6vw,5.5rem)] leading-[1.06] tracking-[-0.058em]">
           {title}
         </h1>
         {description && (
-          <p className="mt-4 text-xl leading-relaxed text-muted">
+          <p className="mt-7 max-w-2xl text-[1.0625rem] leading-[1.8] tracking-[-0.016em] text-[#aeb7c2]">
             {description}
           </p>
         )}

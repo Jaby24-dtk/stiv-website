@@ -84,7 +84,7 @@ export default function CookieConsent() {
 
       {consent === null && (
         <div className="fixed inset-x-0 bottom-0 z-[60] px-6 pb-6 lg:px-8">
-          <div className="mx-auto flex max-w-3xl flex-col gap-4 rounded-2xl border border-white/10 bg-background/98 p-6 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between">
+          <div className="mx-auto flex max-w-3xl flex-col gap-4 rounded-lg border border-white/10 bg-background/98 p-6 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm leading-relaxed text-muted">
               We use analytics cookies to understand how the site is used.
               Non-essential cookies aren&apos;t set until you accept. See our{" "}
@@ -97,14 +97,14 @@ export default function CookieConsent() {
               <button
                 type="button"
                 onClick={() => setConsent("denied")}
-                className="min-h-11 rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
+                className="min-h-11 rounded-[4px] border border-[#41464e] px-4 py-2 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
               >
                 Decline
               </button>
               <button
                 type="button"
                 onClick={() => setConsent("granted")}
-                className="min-h-11 rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
+                className="min-h-11 rounded-[4px] bg-[#f0efea] hover:bg-[#bfd9ef] px-4 py-2 text-sm font-medium text-[#101216] transition-transform hover:-translate-y-0.5"
               >
                 Accept
               </button>

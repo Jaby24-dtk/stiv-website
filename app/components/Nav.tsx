@@ -1,17 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import Logo from "./Logo";
 
 const links = [
-  { href: "/#divisions", label: "Software" },
+  { href: "/#platform", label: "Platform" },
+  { href: "/#command-center", label: "Command Center" },
+  { href: "/#workforce", label: "AI Workforce" },
   { href: "/solutions", label: "Solutions" },
-  { href: "/#unified", label: "Unified" },
-  { href: "/#how-it-works", label: "How it works" },
-  { href: "/#security", label: "Security" },
-  { href: "/#pricing", label: "Pricing" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/integrations", label: "Integrations" },
+  { href: "/security", label: "Security" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/about", label: "Company" },
 ];
 
 export default function Nav() {
@@ -19,111 +20,47 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > 35);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header
-      className={`sticky top-0 z-50 border-b transition-colors ${
-        scrolled
-          ? "border-white/10 bg-background/80 backdrop-blur-md"
-          : "border-transparent bg-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <Link href="/" className="header-invert flex min-h-11 items-center gap-2.5">
-          <Image
-            src="/stiv-logo-mark.png"
-            alt=""
-            width={32}
-            height={32}
-            className="h-8 w-8 rounded-lg object-contain"
-            priority
-          />
-          <span className="text-xl font-semibold tracking-tight text-white">
-            STIV
-          </span>
+    <>
+      <a className="skip" href="#content">
+        Skip to content
+      </a>
+      <header className={`site-header${scrolled || open ? " scrolled" : ""}`}>
+        <Link className="wordmark" href="/" aria-label="STIV home">
+          <Logo priority />
+          STIV
         </Link>
-
-        <div className="header-invert hidden items-center gap-5 xl:flex 2xl:gap-8">
+        <nav
+          id="links"
+          className={`site-nav${open ? " open" : ""}`}
+          aria-label="Main navigation"
+        >
           {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="nav-link text-white/70 transition-colors hover:text-white"
-            >
+            <Link key={link.href} href={link.href} onClick={() => setOpen(false)}>
               {link.label}
             </Link>
           ))}
-        </div>
-
-        <div className="hidden items-center gap-3 xl:flex">
-          <Link
-            href="/status"
-            className="hidden min-h-11 items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-muted transition-colors hover:border-white/20 hover:text-foreground 2xl:flex"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-accent-gold" />
-            Built for 99.5% uptime
-          </Link>
-          <Link
-            href="/contact"
-            className="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-sm font-semibold text-slate-950 transition-transform hover:scale-[1.03]"
-          >
-            Request private access
-          </Link>
-        </div>
-
+        </nav>
+        <Link className="nav-cta" href="/contact">
+          Book a Demo
+        </Link>
         <button
           type="button"
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 xl:hidden"
+          className="menu"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          aria-controls="mobile-navigation"
+          aria-controls="links"
           onClick={() => setOpen((o) => !o)}
         >
-          <div className="flex h-8 w-8 flex-col items-center justify-center gap-1.5">
-            <span
-              className={`h-px w-5 bg-foreground transition-transform ${open ? "translate-y-[3.5px] rotate-45" : ""}`}
-            />
-            <span
-              className={`h-px w-5 bg-foreground transition-opacity ${open ? "opacity-0" : ""}`}
-            />
-            <span
-              className={`h-px w-5 bg-foreground transition-transform ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`}
-            />
-          </div>
+          {open ? "×" : "☰"}
         </button>
-      </nav>
-
-      {open && (
-        <div
-          id="mobile-navigation"
-          className="border-t border-white/10 bg-background px-6 py-4 xl:hidden"
-        >
-          <div className="flex flex-col gap-1">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="flex min-h-11 items-center rounded-lg px-3 text-sm text-muted hover:bg-white/5 hover:text-foreground"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="mt-2 inline-flex min-h-11 items-center justify-center rounded-full bg-gradient-to-r from-accent-bronze to-accent-gold px-4 py-2 text-center text-sm font-semibold text-slate-950"
-            >
-              Request private access
-            </Link>
-          </div>
-        </div>
-      )}
-    </header>
+      </header>
+    </>
   );
 }

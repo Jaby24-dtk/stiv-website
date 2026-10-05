@@ -15,15 +15,9 @@ export default function IconTile({
 
   return (
     <div
-      className={`relative flex shrink-0 items-center justify-center rounded-xl ${dimensions.box}`}
-      style={{
-        background:
-          "linear-gradient(135deg, rgba(110,110,110,0.9), rgba(255,255,255,0.9))",
-        boxShadow:
-          "0 8px 24px -8px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.15)",
-      }}
+      className={`relative flex shrink-0 items-center justify-center rounded-[4px] border border-[#39424e] bg-[#131a22] ${dimensions.box}`}
     >
-      <Icon className={`${dimensions.icon} text-slate-950`} strokeWidth={2.25} />
+      <Icon className={`${dimensions.icon} text-accent-gold`} strokeWidth={1.75} />
     </div>
   );
 }

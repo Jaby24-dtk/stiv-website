@@ -91,7 +91,7 @@ export default function CareersPage() {
           </p>
           <a
             href="mailto:careers@iamstivai.com"
-            className="mt-2 inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
+            className="mt-2 inline-flex items-center gap-2 rounded-[4px] border border-white/15 px-6 py-3 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
           >
             careers@iamstivai.com
           </a>

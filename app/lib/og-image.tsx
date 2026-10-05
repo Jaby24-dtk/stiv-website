@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const ogImageSize = { width: 1200, height: 630 };
-export const ogImageAlt = "STIV — Premium software, division by division";
+export const ogImageAlt = "STIV — Intelligence, orchestrated.";
 export const ogImageContentType = "image/png";
 
 const DIVISIONS = [
@@ -36,9 +36,9 @@ export async function renderOgImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px 80px",
-          background: "#040508",
+          background: "#08090b",
           backgroundImage:
-            "linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0) 35%), linear-gradient(315deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 40%)",
+            "radial-gradient(ellipse at 80% 20%, rgba(29,43,59,0.65) 0%, rgba(8,9,11,0) 60%)",
           fontFamily: "Inter Tight",
         }}
       >
@@ -55,7 +55,7 @@ export async function renderOgImage() {
             style={{
               fontSize: 30,
               fontWeight: 700,
-              color: "#f2f2f2",
+              color: "#f0efea",
               letterSpacing: "-0.03em",
             }}
           >
@@ -70,11 +70,11 @@ export async function renderOgImage() {
               fontFamily: "Geist Mono",
               fontSize: 22,
               letterSpacing: "0.15em",
-              color: "#8a8a8a",
+              color: "#9aa3af",
               textTransform: "uppercase",
             }}
           >
-            EST. 2026 · SINGAPORE
+            THE ORGANIZATIONAL INTELLIGENCE LAYER
           </span>
           <div
             style={{
@@ -84,21 +84,17 @@ export async function renderOgImage() {
               fontWeight: 700,
               lineHeight: 1.08,
               letterSpacing: "-0.03em",
-              color: "#f2f2f2",
+              color: "#f0efea",
             }}
           >
-            <span>Premium software,</span>
+            <span>Intelligence,</span>
             <span
-              style={{
-                backgroundImage: "linear-gradient(90deg, #6e6e6e, #ffffff)",
-                backgroundClip: "text",
-                color: "transparent",
-              }}
+              style={{ color: "#c0cedc" }}
             >
-              division by division.
+              orchestrated.
             </span>
           </div>
-          <span style={{ display: "flex", fontSize: 24, color: "#8a8a8a" }}>
+          <span style={{ display: "flex", fontSize: 24, color: "#9aa3af" }}>
             {DIVISIONS.join("   ·   ")}
           </span>
         </div>
@@ -117,7 +113,7 @@ export async function renderOgImage() {
               display: "flex",
               fontFamily: "Geist Mono",
               fontSize: 20,
-              color: "#8a8a8a",
+              color: "#9aa3af",
               letterSpacing: "0.05em",
             }}
           >
@@ -128,11 +124,11 @@ export async function renderOgImage() {
               display: "flex",
               fontFamily: "Geist Mono",
               fontSize: 20,
-              color: "#8a8a8a",
+              color: "#9aa3af",
               letterSpacing: "0.05em",
             }}
           >
-            7 DIVISIONS · ONE STANDARD
+            AI COMMAND CENTER · 7 DIVISIONS
           </span>
         </div>
       </div>

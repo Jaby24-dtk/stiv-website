@@ -132,13 +132,13 @@ export default function SecurityPage() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
               href="/subprocessors"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
+              className="inline-flex items-center gap-2 rounded-[4px] border border-white/15 px-5 py-2.5 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
             >
               View subprocessors
             </Link>
             <Link
               href="/privacy"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
+              className="inline-flex items-center gap-2 rounded-[4px] border border-white/15 px-5 py-2.5 text-sm font-semibold text-foreground/90 transition-colors hover:border-white/30 hover:bg-white/5"
             >
               Privacy policy
             </Link>
