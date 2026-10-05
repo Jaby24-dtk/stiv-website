@@ -116,7 +116,7 @@ export default function Pricing({
           </Reveal>
         )}
 
-        <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className={`${showHeading ? "mt-14" : ""} grid grid-cols-1 gap-6 lg:grid-cols-3`}>
           {tiers.map((tier, tierIndex) => {
             const isPopular = tier.badge === "Most popular";
             const isUnified = tier.badge === "By application";

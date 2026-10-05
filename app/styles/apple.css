@@ -642,3 +642,23 @@ html {
 .stiv-home .light + .light {
   margin-top: -1px;
 }
+
+/* ── Inner pages: consistent section rhythm ───────────────
+   Inner pages stack same-tone <section>s directly under <main>; give
+   each 64px and let neighbours share the gap instead of doubling it
+   (and drop the hairline dividers, Apple-style). Homepage sections live
+   inside .stiv-home, so they are not affected. */
+#content > section {
+  padding-top: 64px !important;
+  padding-bottom: 80px !important;
+}
+#content > section + section {
+  padding-top: 0 !important;
+  border-top: 0 !important;
+}
+@media (max-width: 760px) {
+  #content > section {
+    padding-top: 44px !important;
+    padding-bottom: 44px !important;
+  }
+}
