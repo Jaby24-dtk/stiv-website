@@ -6,6 +6,29 @@ import IconTile from "../components/IconTile";
 import Reveal from "../components/Reveal";
 import DemoForm from "../components/DemoForm";
 
+const nextSteps = [
+  {
+    title: "We review your application",
+    description:
+      "Every request is read individually to understand the workflow you want to improve.",
+  },
+  {
+    title: "Private briefing",
+    description:
+      "A confidential working session built around your business and the division where STIV can help first.",
+  },
+  {
+    title: "Start with one division",
+    description:
+      "Deploy on a focused workflow with your approval rules, permissions, and audit trail in place from day one.",
+  },
+  {
+    title: "Expand when it proves itself",
+    description:
+      "Add divisions, or unify them under STIV Unified, once the results support it.",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Request a Private Enterprise Briefing",
   description:
@@ -14,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact STIV",
     description:
-    "Apply for a private STIV briefing to see premium, purpose-built AI software for your enterprise divisions, or reach our careers, privacy, or legal teams.",
+      "Apply for a private STIV briefing to see premium, purpose-built AI software for your enterprise divisions, or reach our careers, privacy, or legal teams.",
     url: "/contact",
   },
 };
@@ -63,7 +86,8 @@ export default function ContactPage() {
             </h2>
             <p className="mt-2 text-base text-muted">
               Every request is reviewed individually. Qualified applicants are
-              invited to a confidential working session tailored to their company.
+              invited to a confidential working session tailored to their
+              company.
             </p>
 
             <DemoForm source="contact_page" />
@@ -75,7 +99,14 @@ export default function ContactPage() {
             </h2>
             <div className="mt-8 flex flex-col gap-8">
               {otherChannels.map(
-                ({ icon: Icon, title, description, email, href, linkLabel }) => (
+                ({
+                  icon: Icon,
+                  title,
+                  description,
+                  email,
+                  href,
+                  linkLabel,
+                }) => (
                   <div key={title}>
                     <div className="flex items-center gap-3">
                       <IconTile icon={Icon} size="sm" />
@@ -101,6 +132,37 @@ export default function ContactPage() {
               )}
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="border-t border-white/10 px-6 py-20 lg:px-8">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-3xl font-semibold tracking-tight">
+            What happens after you apply
+          </h2>
+          <ol className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {nextSteps.map(({ title, description }, index) => (
+              <li key={title}>
+                <Reveal delay={index * 70}>
+                  <p className="font-mono text-xs text-accent-gold">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mt-3 text-lg font-medium">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {description}
+                  </p>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-12 text-sm text-muted">
+            STIV is in use at I-BG Consultancy &amp; Trading and Aethrade. Read
+            how we handle data on the{" "}
+            <Link href="/security" className="text-accent-gold underline underline-offset-2">
+              security page
+            </Link>
+            .
+          </p>
         </div>
       </section>
     </>

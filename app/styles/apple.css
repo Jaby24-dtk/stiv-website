@@ -710,3 +710,51 @@ html {
 .site-footer {
   border-top: 1px solid #d8d6cf;
 }
+
+/* Hero: customer line under the actions */
+.stiv-home .hero p.hero-proof {
+  margin-top: 1.75rem;
+  font-size: 0.9375rem;
+  color: #8f98a3;
+}
+.stiv-home .hero p.hero-proof strong {
+  font-weight: 600;
+  color: #e6e8eb;
+}
+@media (max-width: 760px) {
+  .stiv-home .hero p.hero-proof {
+    font-size: 0.875rem;
+  }
+}
+
+/* Footer: official profile links */
+.site-footer .footer-profiles {
+  display: flex;
+  gap: 18px;
+}
+.site-footer .footer-profiles a {
+  font-size: 0.8125rem;
+}
+
+/* Hero: keep the sculpture below the actions and customer line on
+   laptop-height screens, and keep the two buttons on one line on phones */
+@media (min-width: 761px) {
+  .stiv-home .hero {
+    min-height: 1000px;
+  }
+  .stiv-home .core-stage-hero {
+    bottom: -24%;
+  }
+  .stiv-home .hero-core {
+    bottom: -400px;
+  }
+}
+.stiv-home .hero .button {
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .stiv-home .hero .button {
+    font-size: 1rem;
+    padding: 0.7rem 1.15rem;
+  }
+}

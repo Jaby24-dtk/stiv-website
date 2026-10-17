@@ -96,6 +96,10 @@ export default function Home() {
               Experience STIV
             </a>
           </div>
+          <p className="hero-proof intro">
+            In use at <strong>I-BG Consultancy &amp; Trading</strong> and{" "}
+            <strong>Aethrade</strong>
+          </p>
         </div>
       </section>
 
@@ -509,6 +513,11 @@ export default function Home() {
           <Link href="/solutions/ai-contract-review">AI contract review</Link>
           <Link href="/solutions/ai-sales-follow-up">AI sales follow-up</Link>
           <Link href="/solutions/enterprise-ai-governance">Enterprise AI governance</Link>
+          <Link href="/solutions/ai-chief-of-staff">AI chief of staff</Link>
+          <Link href="/solutions/ai-marketing-operations">AI marketing operations</Link>
+          <Link href="/solutions/ai-operations-automation">AI operations automation</Link>
+          <Link href="/solutions/ai-customer-support">AI customer support</Link>
+          <Link href="/compare">How STIV compares</Link>
         </div>
       </section>
 

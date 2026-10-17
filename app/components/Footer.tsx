@@ -1,7 +1,7 @@
 import Link from "next/link";
 import CookiePreferencesLink from "./CookiePreferencesLink";
 import Logo from "./Logo";
-import { IMPACT_URL, LINKEDIN_URL } from "../lib/site";
+import { CRUNCHBASE_URL, G2_URL, IMPACT_URL, LINKEDIN_URL } from "../lib/site";
 
 const columns = [
   {
@@ -11,6 +11,7 @@ const columns = [
       { label: "Divisions", href: "/#workforce" },
       { label: "STIV Unified", href: "/unified" },
       { label: "Solutions", href: "/solutions" },
+      { label: "How STIV Compares", href: "/compare" },
       { label: "Integrations", href: "/integrations" },
       { label: "Pricing", href: "/pricing" },
     ],
@@ -46,9 +47,17 @@ export default function Footer() {
           STIV
         </Link>
         <span>INTELLIGENCE, ORCHESTRATED.</span>
-        <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
+        <div className="footer-profiles">
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+          <a href={G2_URL} target="_blank" rel="noopener noreferrer">
+            G2
+          </a>
+          <a href={CRUNCHBASE_URL} target="_blank" rel="noopener noreferrer">
+            Crunchbase
+          </a>
+        </div>
       </div>
 
       <div className="footer-columns">

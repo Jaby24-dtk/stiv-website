@@ -6,14 +6,14 @@ import Reveal from "../components/Reveal";
 import { solutions } from "../lib/solutions";
 
 export const metadata: Metadata = {
-  title: "Enterprise AI Solutions for Finance, Legal & Sales",
+  title: "Enterprise AI Solutions for Every Division",
   description:
-    "Explore STIV solutions for finance automation, contract review, sales follow-up, and enterprise AI governance, each with human approval gates and full audit trails.",
+    "STIV solutions for executive briefings, sales, marketing, finance, operations, legal, support, and AI governance, each with human approval gates and full audit trails.",
   alternates: { canonical: "/solutions" },
   openGraph: {
-    title: "Enterprise AI Solutions for Finance, Legal & Sales — STIV",
+    title: "Enterprise AI Solutions for Every Division — STIV",
     description:
-    "Explore STIV solutions for finance automation, contract review, sales follow-up, and enterprise AI governance, each with human approval gates and full audit trails.",
+    "STIV solutions for executive briefings, sales, marketing, finance, operations, legal, support, and AI governance, each with human approval gates and full audit trails.",
     url: "/solutions",
   },
 };
