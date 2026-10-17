@@ -32,6 +32,7 @@ const columns = [
       { label: "About", href: "/about" },
       { label: "Careers", href: "/careers" },
       { label: "Insights", href: "/blog" },
+      { label: "Guides", href: "/guides" },
       { label: "Community Impact", href: IMPACT_URL },
       { label: "Book a Demo", href: "/contact" },
     ],

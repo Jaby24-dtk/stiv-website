@@ -64,6 +64,11 @@ STIV is architected around SOC 2 control objectives from day one, with data resi
 - [A CMO's case for STIV Marketing](https://www.iamstivai.com/blog/a-cmos-case-for-stiv-marketing): The pitch to a CMO isn't "AI writes your ads." It's a specific answer to what stays consistent with your brand, and what a marketer still has to sign off on before anything ships.
 - [A COO's case for STIV Operations](https://www.iamstivai.com/blog/a-coos-case-for-stiv-operations): The pitch to a COO isn't "AI finds your bottlenecks." It's a specific answer to what gets automated without asking, and what still requires a sign-off before a workflow changes.
 - [What happens when you leave STIV: data export, access revocation, and the record that stays yours](https://www.iamstivai.com/blog/what-happens-when-you-leave-stiv): Evaluating a vendor by how hard it is to stay isn't the honest test. Here's what actually happens to your data, access, and audit trail the day you decide to leave.
+- [How to measure ROI on AI agents (without inventing the numbers)](https://www.iamstivai.com/blog/how-to-measure-roi-on-ai-agents): Measure AI agent ROI by comparing one workflow before and after: time to complete, review time, error rate, and cost. Here's the method, and the mistakes that make the numbers meaningless.
+- [AI agents vs. RPA: which one fits your back-office work?](https://www.iamstivai.com/blog/ai-agents-vs-rpa): RPA follows fixed scripts on stable processes; AI agents handle work that needs reading and judgment. How to tell which one a workflow needs, and when to use both.
+- [How to write a contract playbook an AI can actually follow](https://www.iamstivai.com/blog/how-to-write-a-contract-playbook-for-ai-review): AI contract review is only as good as the playbook behind it. What to put in it — standard positions, fallbacks, and walk-away points — and how to write each clause rule so a reviewer can check the output fast.
+- [How to automate sales follow-up without sounding like a bot](https://www.iamstivai.com/blog/how-to-automate-sales-follow-up): Automated follow-up fails when it ignores context. How to automate the preparation of sales follow-ups — not the judgment — so every message stays specific, timely, and approved by the rep.
+- [What to include in an AI governance policy](https://www.iamstivai.com/blog/ai-governance-policy-what-to-include): An AI governance policy sets who may use AI for what, on which data, with which approvals, and how it's audited. A practical outline you can adapt, section by section.
 
 ## Software, by division
 
@@ -86,6 +91,13 @@ STIV is architected around SOC 2 control objectives from day one, with data resi
 - [AI operations automation](https://www.iamstivai.com/solutions/ai-operations-automation)
 - [AI customer support](https://www.iamstivai.com/solutions/ai-customer-support)
 - [How STIV compares](https://www.iamstivai.com/compare): AI command center vs AI chat assistants, workflow automation, and department AI tools.
+
+## Guides
+
+- [What is an AI command center?](https://www.iamstivai.com/guides/what-is-an-ai-command-center)
+- [What is human-in-the-loop AI?](https://www.iamstivai.com/guides/human-in-the-loop-ai)
+- [AI agents for business: what they can and can't do](https://www.iamstivai.com/guides/ai-agents-for-business)
+- [How to roll out AI agents in your company](https://www.iamstivai.com/guides/how-to-roll-out-ai-agents)
 
 ## Pages
 

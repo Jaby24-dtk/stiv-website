@@ -770,6 +770,7 @@ export default function Home() {
           <Link href="/about">Our company</Link>
           <Link href="/solutions">Enterprise solutions</Link>
           <Link href="/blog">Insights</Link>
+          <Link href="/guides">Guides</Link>
           <Link href="/contact">Request a private briefing</Link>
         </div>
       </section>

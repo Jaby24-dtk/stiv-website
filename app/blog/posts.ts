@@ -1149,6 +1149,322 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "how-to-measure-roi-on-ai-agents",
+    title: "How to measure ROI on AI agents (without inventing the numbers)",
+    description:
+      "Measure AI agent ROI by comparing one workflow before and after: time to complete, review time, error rate, and cost. Here's the method, and the mistakes that make the numbers meaningless.",
+    date: "2026-10-17",
+    readTime: "5 min read",
+    category: "Guide",
+    content: [
+      {
+        type: "p",
+        text: "To measure ROI on AI agents, pick one workflow, record how it performs today, run the agent on it with human review, and compare the same measures afterwards: time to complete, time spent reviewing, error rate, and what the workflow costs. ROI is the value of the hours and errors saved, minus the cost of the software and the review time it adds.",
+      },
+      {
+        type: "p",
+        text: "That sounds obvious, but most AI ROI figures you'll see skip the first step. Without a baseline, every number afterwards is a guess.",
+      },
+      {
+        type: "h2",
+        text: "Record the baseline before anything changes",
+      },
+      {
+        type: "ul",
+        items: [
+          "Volume: how many times the workflow runs per week or month.",
+          "Cycle time: from request to finished work, not just hands-on time.",
+          "Hands-on time: hours people actually spend preparing the work.",
+          "Error rate: how often work is corrected, returned, or causes a problem later.",
+          "Cost: hours multiplied by a loaded hourly cost, plus any tools already used.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Two to four weeks of baseline is usually enough for a weekly or daily workflow. If nobody can say how long the work takes today, that discovery is itself useful — it's often where the first real savings come from.",
+      },
+      {
+        type: "h2",
+        text: "Count review time honestly",
+      },
+      {
+        type: "p",
+        text: "With a human approval gate, people still spend time on the workflow: reading drafts, editing, approving. That time belongs in the 'after' number. A finance reconciliation that used to take six hours and now takes forty minutes of review saved about five hours, not six. Leaving review time out is the most common way AI ROI gets overstated.",
+      },
+      {
+        type: "h2",
+        text: "Watch the edit rate, not just the speed",
+      },
+      {
+        type: "p",
+        text: "The share of agent outputs approved without changes is the best early signal of whether the workflow is working. A rising edit-free rate means the playbook is clear and the agent is following it; a flat or falling one means reviewers are quietly redoing the work, and the time saved is smaller than it looks. As covered in [[what-a-rejected-approval-looks-like|what a rejected approval looks like]], every edit is also feedback that makes the next draft better.",
+      },
+      {
+        type: "h2",
+        text: "Mistakes that make the numbers meaningless",
+      },
+      {
+        type: "ul",
+        items: [
+          "Measuring a demo workflow instead of one the team actually runs every week.",
+          "Comparing against a bad week, or against an estimate nobody recorded.",
+          "Counting hours 'freed' as savings without saying what those hours went to.",
+          "Ignoring the cost of setup, connection, and playbook writing in the first months.",
+        ],
+      },
+      {
+        type: "p",
+        text: "For STIV specifically, [[how-to-measure-whether-a-stiv-division-is-working|this piece on measuring a division]] covers which signals to read in the first 90 days. The method above applies to any AI agent, from any vendor: one workflow, a real baseline, honest review time, and a number you'd be comfortable defending to a CFO.",
+      },
+    ],
+  },
+  {
+    slug: "ai-agents-vs-rpa",
+    title: "AI agents vs. RPA: which one fits your back-office work?",
+    description:
+      "RPA follows fixed scripts on stable processes; AI agents handle work that needs reading and judgment. How to tell which one a workflow needs, and when to use both.",
+    date: "2026-10-17",
+    readTime: "4 min read",
+    category: "Guide",
+    content: [
+      {
+        type: "p",
+        text: "RPA (robotic process automation) repeats exact steps a person would click through, and works best on stable, rule-based processes with structured inputs. AI agents read unstructured information, apply a playbook, and prepare work that needs some judgment. If the steps never change and the input is always the same shape, RPA fits. If someone has to read, interpret, or decide, an AI agent fits better.",
+      },
+      {
+        type: "h2",
+        text: "Where RPA is the right tool",
+      },
+      {
+        type: "ul",
+        items: [
+          "Copying the same fields between two systems that have no integration.",
+          "Running a fixed sequence of screens on a schedule.",
+          "High-volume, low-variation tasks where every case looks the same.",
+        ],
+      },
+      {
+        type: "p",
+        text: "RPA's weakness is change. A moved button, a renamed field, or an unusual case breaks the script, and someone has to fix it. Teams that rely heavily on RPA often spend a meaningful share of their time maintaining bots rather than building new ones.",
+      },
+      {
+        type: "h2",
+        text: "Where AI agents are the right tool",
+      },
+      {
+        type: "ul",
+        items: [
+          "Reading emails, contracts, invoices, or tickets that don't follow one format.",
+          "Comparing a document against a playbook and flagging what deviates.",
+          "Drafting a response, report, or follow-up for a person to approve.",
+          "Spotting patterns across many cases, such as a cluster of similar tickets.",
+        ],
+      },
+      {
+        type: "p",
+        text: "AI agents tolerate variation, but they need guardrails: clear permissions, a written playbook, and human approval for anything consequential. Without those, an agent's flexibility becomes a risk instead of an advantage.",
+      },
+      {
+        type: "h2",
+        text: "A quick test for any workflow",
+      },
+      {
+        type: "ul",
+        items: [
+          "Could you write every step as a flowchart with no 'it depends'? Use RPA or simple automation.",
+          "Does a person read something and decide what to do? Use an AI agent with approval.",
+          "Both? Let the agent prepare and decide, then let fixed automation carry out the approved result.",
+        ],
+      },
+      {
+        type: "p",
+        text: "STIV sits on the agent side of this line: division-specific agents that prepare and propose, with every consequential action routed through an approval gate, as explained in [[how-stivs-approval-gates-work|how approval gates work]]. It doesn't replace a stable RPA bot that already works — it covers the judgment-heavy work those bots were never able to handle.",
+      },
+    ],
+  },
+  {
+    slug: "how-to-write-a-contract-playbook-for-ai-review",
+    title: "How to write a contract playbook an AI can actually follow",
+    description:
+      "AI contract review is only as good as the playbook behind it. What to put in it — standard positions, fallbacks, and walk-away points — and how to write each clause rule so a reviewer can check the output fast.",
+    date: "2026-10-17",
+    readTime: "5 min read",
+    category: "Guide",
+    content: [
+      {
+        type: "p",
+        text: "A contract playbook for AI review lists, for each clause type you care about, your standard position, the fallbacks you'll accept, and the points where a lawyer must step in. Written that way, an AI can compare an incoming agreement against it, flag what deviates, and propose redlines — and a lawyer can check the result in minutes instead of reading the whole contract cold.",
+      },
+      {
+        type: "p",
+        text: "Most legal teams already have a playbook. It's usually in someone's head, a few old emails, and a template that drifted. Writing it down properly is the real work of AI contract review.",
+      },
+      {
+        type: "h2",
+        text: "What each clause rule needs",
+      },
+      {
+        type: "ul",
+        items: [
+          "Clause type: limitation of liability, indemnity, termination, governing law, payment terms, confidentiality, and so on.",
+          "Standard position: the wording you send out and prefer to sign.",
+          "Acceptable fallbacks: the alternatives you'll accept without escalation, in order.",
+          "Walk-away or escalate: what always goes to a lawyer, regardless of deal size.",
+          "Context: deal types or counterparties where the rule changes.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Write rules a reviewer can check",
+      },
+      {
+        type: "p",
+        text: "'Liability should be reasonable' can't be checked. 'Liability capped at fees paid in the prior 12 months; uncapped only for confidentiality breaches; anything else escalates' can. The more precise the rule, the more the AI's output becomes a quick yes or no for the reviewer rather than a fresh legal analysis.",
+      },
+      {
+        type: "h2",
+        text: "Start narrow",
+      },
+      {
+        type: "p",
+        text: "Begin with the agreement your team sees most — usually NDAs or a standard services agreement — and the five to ten clauses that cause most of the negotiation. Run real agreements through it with a lawyer approving every redline. The clauses where reviewers keep editing the AI's suggestion are the ones where the playbook needs another sentence.",
+      },
+      {
+        type: "h2",
+        text: "What stays with lawyers",
+      },
+      {
+        type: "ul",
+        items: [
+          "Anything outside the playbook, or with no precedent.",
+          "Strategic concessions tied to the wider relationship.",
+          "Final approval of every redline and every executed document.",
+        ],
+      },
+      {
+        type: "p",
+        text: "STIV Legal works this way: it reviews against your playbook, redlines only the parts that deviate, and routes every redline and executed document through an approval gate before anything is sent. [[inside-stiv-legal-contract-review|This walkthrough]] shows what happens between upload and redline. But the playbook is the asset — it's worth writing even before you choose any tool.",
+      },
+    ],
+  },
+  {
+    slug: "how-to-automate-sales-follow-up",
+    title: "How to automate sales follow-up without sounding like a bot",
+    description:
+      "Automated follow-up fails when it ignores context. How to automate the preparation of sales follow-ups — not the judgment — so every message stays specific, timely, and approved by the rep.",
+    date: "2026-10-17",
+    readTime: "4 min read",
+    category: "Guide",
+    content: [
+      {
+        type: "p",
+        text: "To automate sales follow-up without sounding like a bot, automate the preparation, not the relationship: let software notice when a follow-up is due, gather the context from the last conversation, and draft a specific message — then have the rep approve or edit it before it goes out. Prospects can tell a generic sequence from a message that remembers what they said.",
+      },
+      {
+        type: "h2",
+        text: "Why sequences sound robotic",
+      },
+      {
+        type: "ul",
+        items: [
+          "They're written once for everyone, so they can't mention what this prospect asked.",
+          "They're triggered by time, not by what happened in the deal.",
+          "They keep sending after the situation has changed.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "What to automate instead",
+      },
+      {
+        type: "ul",
+        items: [
+          "Spotting deals that have gone quiet against the timing your team expects.",
+          "Pulling the last call notes, emails, and open questions into one view.",
+          "Drafting a follow-up that answers the prospect's actual open point.",
+          "Qualifying new inbound leads against your criteria before a rep spends time on them.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Keep the rep in control",
+      },
+      {
+        type: "p",
+        text: "The rep approves, edits, or skips each draft. That one step does two things: it stops a wrong or badly timed message from reaching a prospect, and it keeps the rep's voice in the relationship. Reviewing a good draft with the context next to it takes a fraction of the time of writing from scratch, so the rep still gets most of the time back.",
+      },
+      {
+        type: "h2",
+        text: "Signs it's working",
+      },
+      {
+        type: "ul",
+        items: [
+          "Fewer deals go quiet without anyone noticing.",
+          "Reps send most drafts with light edits rather than rewriting them.",
+          "Replies reference the message's content, not just 'thanks, will review'.",
+        ],
+      },
+      {
+        type: "p",
+        text: "This is how STIV Sales is built: it qualifies inbound leads, flags quiet deals, and drafts follow-ups, and every outbound email or proposal goes through an approval gate before it reaches a prospect. [[inside-stiv-sales-lead-to-follow-up|This walkthrough]] covers the steps between a lead arriving and a follow-up going out.",
+      },
+    ],
+  },
+  {
+    slug: "ai-governance-policy-what-to-include",
+    title: "What to include in an AI governance policy",
+    description:
+      "An AI governance policy sets who may use AI for what, on which data, with which approvals, and how it's audited. A practical outline you can adapt, section by section.",
+    date: "2026-10-17",
+    readTime: "5 min read",
+    category: "Security",
+    content: [
+      {
+        type: "p",
+        text: "An AI governance policy should cover which AI systems are approved, what each may be used for, which data they can access, which actions need human approval, how activity is logged and reviewed, and who is accountable when something goes wrong. Keep it short enough that teams actually read it, and specific enough that someone can tell whether a given use is allowed.",
+      },
+      {
+        type: "h2",
+        text: "A practical outline",
+      },
+      {
+        type: "ul",
+        items: [
+          "Scope: which teams, systems, and kinds of AI the policy covers, including AI agents that take actions, not just chat tools.",
+          "Approved systems: the list of AI tools and vendors cleared for use, and how a new one gets approved.",
+          "Permitted uses: what each system may be used for, by role or division.",
+          "Data access: which data each system may read or write, and what must never be shared with it.",
+          "Approval rules: which actions require a person to approve before they happen, and who that person is.",
+          "Logging and review: what is recorded, how long it's kept, and who reviews it and how often.",
+          "Incidents: how a wrong or harmful output is reported, contained, and corrected.",
+          "Accountability: the named owner for each AI system and for the policy itself.",
+          "Review cycle: when the policy is revisited, at least yearly and whenever a new kind of AI is adopted.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "The section most policies get wrong",
+      },
+      {
+        type: "p",
+        text: "Approval rules are usually written as a principle — 'humans remain in control' — rather than a rule someone can follow. Write them as a list: external emails, financial entries, contract redlines, and access changes need approval from the owning role; internal summaries and drafts for review don't. If an employee can't tell from the policy whether their case needs approval, the policy isn't finished.",
+      },
+      {
+        type: "h2",
+        text: "Make the policy enforceable, not just written",
+      },
+      {
+        type: "p",
+        text: "A policy only works if the systems enforce it. Prefer AI tools where permissions can be scoped by role, approval gates can be configured per action type, and every recommendation and decision is logged in one place you can export. Otherwise the policy describes what should happen and the audit only finds out later what did.",
+      },
+      {
+        type: "p",
+        text: "STIV is designed around that model — role-scoped access, configurable approval gates, and one audit trail across divisions — and [[soc-2-data-residency-and-stivs-security-architecture|this piece on our security architecture]] covers the details. Check any specific regulatory requirements for your industry and country with your legal team; this outline is a starting structure, not legal advice.",
+      },
+    ],
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
