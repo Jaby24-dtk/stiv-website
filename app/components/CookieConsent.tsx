@@ -88,7 +88,7 @@ export default function CookieConsent() {
             <p className="text-sm leading-relaxed text-muted">
               We use analytics cookies to understand how the site is used.
               Non-essential cookies aren&apos;t set until you accept. See our{" "}
-              <Link href="/privacy" className="inline-flex min-h-11 items-center text-foreground underline">
+              <Link href="/privacy" className="py-3 text-foreground underline underline-offset-2">
                 Privacy Policy
               </Link>
               .

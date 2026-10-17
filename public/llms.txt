@@ -81,6 +81,11 @@ STIV is architected around SOC 2 control objectives from day one, with data resi
 - [AI contract review](https://www.iamstivai.com/solutions/ai-contract-review)
 - [AI sales follow-up](https://www.iamstivai.com/solutions/ai-sales-follow-up)
 - [Enterprise AI governance](https://www.iamstivai.com/solutions/enterprise-ai-governance)
+- [AI chief of staff](https://www.iamstivai.com/solutions/ai-chief-of-staff)
+- [AI marketing operations](https://www.iamstivai.com/solutions/ai-marketing-operations)
+- [AI operations automation](https://www.iamstivai.com/solutions/ai-operations-automation)
+- [AI customer support](https://www.iamstivai.com/solutions/ai-customer-support)
+- [How STIV compares](https://www.iamstivai.com/compare): AI command center vs AI chat assistants, workflow automation, and department AI tools.
 
 ## Pages
 
