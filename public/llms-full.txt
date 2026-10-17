@@ -58,6 +58,10 @@ and access is by application.
 - AI operations automation: https://www.iamstivai.com/solutions/ai-operations-automation
 - AI customer support: https://www.iamstivai.com/solutions/ai-customer-support
 - How STIV compares (AI command center vs assistants vs automation): https://www.iamstivai.com/compare
+- Guide — What is an AI command center?: https://www.iamstivai.com/guides/what-is-an-ai-command-center
+- Guide — What is human-in-the-loop AI?: https://www.iamstivai.com/guides/human-in-the-loop-ai
+- Guide — AI agents for business: what they can and can't do: https://www.iamstivai.com/guides/ai-agents-for-business
+- Guide — How to roll out AI agents in your company: https://www.iamstivai.com/guides/how-to-roll-out-ai-agents
 
 ## Implementation model
 

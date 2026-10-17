@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { posts } from "./blog/posts";
 import { divisions } from "./lib/divisions";
+import { guides } from "./lib/guides";
 import { solutions } from "./lib/solutions";
 import { SITE_URL } from "./lib/site";
 
@@ -20,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/about", changeFrequency: "monthly", priority: 0.8 },
     { path: "/solutions", changeFrequency: "weekly", priority: 0.8 },
     { path: "/compare", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/guides", changeFrequency: "monthly", priority: 0.7 },
     { path: "/pricing", changeFrequency: "monthly", priority: 0.8 },
     { path: "/unified", changeFrequency: "monthly", priority: 0.7 },
     { path: "/security", changeFrequency: "monthly", priority: 0.7 },
@@ -45,6 +47,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: `/solutions/${solution.slug}`,
       changeFrequency: "monthly" as const,
       priority: 0.8,
+    })),
+    ...guides.map((guide) => ({
+      path: `/guides/${guide.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
     ...posts.map((post) => ({
       path: `/blog/${post.slug}`,
