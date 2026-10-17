@@ -94,6 +94,9 @@ export default function Pricing({
 }: {
   showHeading?: boolean;
 }) {
+  // Without the section h2, tier names sit directly under the page h1.
+  const TierHeading = showHeading ? "h3" : "h2";
+
   return (
     <section
       id="pricing"
@@ -144,7 +147,7 @@ export default function Pricing({
                     </span>
                   )}
 
-                  <h3 className="text-xl font-medium">{tier.name}</h3>
+                  <TierHeading className="text-xl font-medium">{tier.name}</TierHeading>
                   <p className="mt-2 text-base text-muted">{tier.description}</p>
 
                   <div className="mt-6 flex items-baseline gap-1">

@@ -419,7 +419,7 @@
   color: #4f5864;
 }
 .stiv-home .light .caption {
-  color: #6f7883;
+  color: #636d79;
 }
 .stiv-home .light .text-link,
 .stiv-home .light .caption-link {
@@ -454,11 +454,11 @@
 .stiv-home .light .node {
   background: rgba(255, 255, 255, 0.86);
   border-color: #d2d0c9;
-  color: #7b8591;
+  color: #636d79;
   box-shadow: 0 10px 30px rgba(20, 23, 28, 0.06);
 }
 .stiv-home .light .node small {
-  color: #6f7883;
+  color: #636d79;
 }
 .stiv-home .light .node:hover,
 .stiv-home .light .node.active {
@@ -483,7 +483,7 @@
   border-bottom-color: #d8d6cf;
 }
 .stiv-home .light .scenario-tab {
-  color: #6f7883;
+  color: #636d79;
 }
 .stiv-home .light .scenario-tab > span {
   color: #9aa3ad;
@@ -512,7 +512,7 @@
   color: #14171c;
 }
 .stiv-home .light .cc-panel li small {
-  color: #6f7883;
+  color: #636d79;
 }
 
 /* Accordions (monitors, FAQ, "see all") */
@@ -605,7 +605,7 @@
 
 /* Pricing */
 .stiv-home .light .licenses h3 small {
-  color: #6f7883;
+  color: #636d79;
 }
 .stiv-home .light .company-links {
   color: #3d4550;
