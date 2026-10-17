@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import { Marked } from "marked";
 import PageHeader from "../../components/PageHeader";
 import Reveal from "../../components/Reveal";
 import { getPostBySlug, posts } from "../posts";
@@ -12,6 +13,18 @@ import { ORGANIZATION_ID, SITE_URL, WEBSITE_ID } from "../../lib/site";
 export function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
 }
+
+// Growtiv posts: drop raw HTML from the Markdown, open external links in a new tab.
+const markdown = new Marked({
+  renderer: {
+    html: () => "",
+    link({ href, tokens }) {
+      const text = this.parser.parseInline(tokens);
+      const external = /^https?:\/\//.test(href) && !href.startsWith(SITE_URL);
+      return `<a href="${href}"${external ? ' target="_blank" rel="noopener noreferrer"' : ""}>${text}</a>`;
+    },
+  },
+});
 
 const INLINE_LINK = /\[\[([a-z0-9-]+)\|([^\]]+)\]\]/g;
 
@@ -66,6 +79,7 @@ export async function generateMetadata({
       authors: [SITE_URL],
       section: post.category,
       tags: ["enterprise AI", "business automation", post.category],
+      ...(post.image ? { images: [{ url: post.image, alt: post.imageAlt ?? post.title }] } : {}),
     },
     twitter: {
       card: "summary_large_image",
@@ -105,7 +119,7 @@ export default async function BlogPostPage({
         author: { "@id": ORGANIZATION_ID },
         publisher: { "@id": ORGANIZATION_ID },
         isPartOf: { "@id": WEBSITE_ID },
-        image: `${SITE_URL}/opengraph-image`,
+        image: post.image ?? `${SITE_URL}/opengraph-image`,
         mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
       },
       {
@@ -126,6 +140,19 @@ export default async function BlogPostPage({
           },
         ],
       },
+      ...(post.faq?.length
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": `${SITE_URL}/blog/${post.slug}#faq`,
+              mainEntity: post.faq.map((f) => ({
+                "@type": "Question",
+                name: f.question,
+                acceptedAnswer: { "@type": "Answer", text: f.answer },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 
@@ -149,6 +176,21 @@ export default async function BlogPostPage({
             <span>{post.readTime}</span>
           </div>
 
+          {post.image && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={post.image}
+              alt={post.imageAlt ?? ""}
+              className="mt-10 aspect-video w-full rounded-2xl object-cover"
+            />
+          )}
+
+          {post.markdown ? (
+            <div
+              className="blog-prose mt-10"
+              dangerouslySetInnerHTML={{ __html: markdown.parse(post.markdown) as string }}
+            />
+          ) : (
           <div className="mt-10 flex flex-col gap-6">
             {post.content.map((block, i) => {
               if (block.type === "h2") {
@@ -189,6 +231,7 @@ export default async function BlogPostPage({
               );
             })}
           </div>
+          )}
 
           <div className="mt-14 flex items-center justify-between border-t border-white/10 pt-8">
             <Link
