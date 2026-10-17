@@ -4,16 +4,18 @@ import { ArrowRight } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import Reveal from "../components/Reveal";
 import { posts } from "./posts";
+import { DEFAULT_OG_IMAGE } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Blog: Notes on Enterprise AI Software",
   description:
-    "Notes from STIV on building premium enterprise AI software: division-by-division walkthroughs, perspectives for executives, and lessons from running AI with approval gates.",
+    "Notes from STIV on enterprise AI software: division-by-division walkthroughs, perspectives for executives, and lessons from running AI with approval gates.",
   alternates: { canonical: "/blog" },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Blog: Notes on Enterprise AI Software — STIV",
     description:
-    "Notes from STIV on building premium enterprise AI software: division-by-division walkthroughs, perspectives for executives, and lessons from running AI with approval gates.",
+    "Notes from STIV on enterprise AI software: division-by-division walkthroughs, perspectives for executives, and lessons from running AI with approval gates.",
     url: "/blog",
   },
 };

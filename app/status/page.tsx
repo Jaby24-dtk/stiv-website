@@ -4,6 +4,7 @@ import PageHeader from "../components/PageHeader";
 import IconTile from "../components/IconTile";
 import Reveal from "../components/Reveal";
 import { divisions } from "../lib/divisions";
+import { DEFAULT_OG_IMAGE } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "System Status and Uptime Commitment",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     "Current system status for STIV and our uptime commitment across all seven division systems: Executive, Sales, Marketing, Finance, Operations, Legal, and Support.",
   alternates: { canonical: "/status" },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "System Status and Uptime Commitment — STIV",
     description:
     "Current system status for STIV and our uptime commitment across all seven division systems: Executive, Sales, Marketing, Finance, Operations, Legal, and Support.",

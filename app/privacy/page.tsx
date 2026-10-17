@@ -2,16 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "../components/PageHeader";
 import { LegalBody, LegalSection } from "../components/LegalSection";
+import { DEFAULT_OG_IMAGE } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — How We Protect Your Data",
   description:
-    "How STIV collects, uses, stores, and protects your information when you visit our website, apply for a briefing, or use STIV's division software, and the rights you have.",
+    "How STIV collects, uses, stores and protects your information when you visit our site, apply for a briefing or use our software, and the rights you have.",
   alternates: { canonical: "/privacy" },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Privacy Policy — How We Protect Your Data — STIV",
     description:
-    "How STIV collects, uses, stores, and protects your information when you visit our website, apply for a briefing, or use STIV's division software, and the rights you have.",
+    "How STIV collects, uses, stores and protects your information when you visit our site, apply for a briefing or use our software, and the rights you have.",
     url: "/privacy",
   },
 };

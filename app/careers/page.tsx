@@ -3,6 +3,7 @@ import { Code2, Handshake, Headset, ShieldCheck } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import IconTile from "../components/IconTile";
 import Reveal from "../components/Reveal";
+import { DEFAULT_OG_IMAGE } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Careers — Join Our Team in Singapore",
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
     "STIV is a small, exacting team in Singapore building premium, purpose-built AI software for the enterprise. See the roles we're hiring for and how to apply.",
   alternates: { canonical: "/careers" },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Careers at STIV — Join Our Team in Singapore — STIV",
     description:
     "STIV is a small, exacting team in Singapore building premium, purpose-built AI software for the enterprise. See the roles we're hiring for and how to apply.",

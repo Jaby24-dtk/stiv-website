@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import Reveal from "../components/Reveal";
 import { serializeJsonLd } from "../lib/json-ld";
-import { SITE_URL } from "../lib/site";
+import { DEFAULT_OG_IMAGE, SITE_URL } from "../lib/site";
 
 const description =
   "How an AI command center compares with AI chat assistants, workflow automation tools, and single-department AI tools, and when each one is the right fit.";
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/compare" },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "AI Command Center vs AI Assistants vs Workflow Automation — STIV",
     description,
     url: "/compare",

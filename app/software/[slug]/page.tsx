@@ -7,7 +7,7 @@ import IconTile from "../../components/IconTile";
 import Reveal from "../../components/Reveal";
 import { divisions, getDivisionBySlug } from "../../lib/divisions";
 import { serializeJsonLd } from "../../lib/json-ld";
-import { ORGANIZATION_ID, SITE_URL } from "../../lib/site";
+import { DEFAULT_OG_IMAGE, ORGANIZATION_ID, SITE_URL } from "../../lib/site";
 
 export function generateStaticParams() {
   return divisions.map((division) => ({ slug: division.slug }));
@@ -23,11 +23,9 @@ export async function generateMetadata({
   if (!division) return {};
 
   // Search engines flag titles/descriptions that are too short (Bing wants
-  // ~50-60 / ~150-160 chars), so pad the shorter division summaries.
-  const description =
-    division.summary.length < 130
-      ? `${division.summary} Built by STIV, available by application.`
-      : division.summary;
+  // ~50-60 / ~150-160 chars), so pad the shorter division summaries without going over 160.
+  const padded = `${division.summary} Built by STIV, by application.`;
+  const description = padded.length <= 160 ? padded : division.summary;
 
   return {
     title: {
@@ -36,6 +34,7 @@ export async function generateMetadata({
     description,
     alternates: { canonical: `/software/${division.slug}` },
     openGraph: {
+      images: [DEFAULT_OG_IMAGE],
       title: `STIV for ${division.name} — STIV`,
       description,
       url: `/software/${division.slug}`,

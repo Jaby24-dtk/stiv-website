@@ -4,16 +4,18 @@ import { ArrowRight, Layers, ShieldCheck, Gem, Users } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import IconTile from "../components/IconTile";
 import Reveal from "../components/Reveal";
+import { DEFAULT_OG_IMAGE } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "About Us — Premium Software for Every Division",
   description:
-    "STIV builds exclusive, purpose-built software for every division of your enterprise, from Executive to Support. Founded in Singapore in 2026, available by application.",
+    "STIV builds purpose-built software for every division of your enterprise, from Executive to Support. Founded in Singapore in 2026, available by application.",
   alternates: { canonical: "/about" },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "About STIV — Premium Enterprise Software — STIV",
     description:
-    "STIV builds exclusive, purpose-built software for every division of your enterprise, from Executive to Support. Founded in Singapore in 2026, available by application.",
+    "STIV builds purpose-built software for every division of your enterprise, from Executive to Support. Founded in Singapore in 2026, available by application.",
     url: "/about",
   },
 };
