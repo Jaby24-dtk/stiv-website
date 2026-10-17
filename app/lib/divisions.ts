@@ -29,7 +29,7 @@ export const divisions: Division[] = [
     description:
       "Synthesizes every division's activity into a single briefing — decisions, risks, and what needs your sign-off.",
     summary:
-      "STIV's Executive system pulls every division's activity into one briefing, so leadership sees decisions, risks, and open sign-offs without checking seven separate systems.",
+      "STIV's Executive system pulls every division's activity into one briefing, so leaders see decisions, risks and open sign-offs without checking seven systems.",
     capabilities: [
       "Pulls a daily or weekly briefing together from every connected division, so nothing requires checking seven separate systems.",
       "Flags risks and blockers before they become surprises in a leadership meeting.",

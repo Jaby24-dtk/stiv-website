@@ -2,16 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "../components/PageHeader";
 import { LegalBody, LegalSection } from "../components/LegalSection";
+import { DEFAULT_OG_IMAGE } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Service for STIV Software",
   description:
-    "The terms that govern your use of STIV's website and division software, including accounts, acceptable use, fees, confidentiality, liability, and how the agreement can end.",
+    "The terms for using STIV's website and division software: accounts, acceptable use, fees, confidentiality, liability, and how the agreement can end.",
   alternates: { canonical: "/terms" },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Terms of Service for STIV Software — STIV",
     description:
-    "The terms that govern your use of STIV's website and division software, including accounts, acceptable use, fees, confidentiality, liability, and how the agreement can end.",
+    "The terms for using STIV's website and division software: accounts, acceptable use, fees, confidentiality, liability, and how the agreement can end.",
     url: "/terms",
   },
 };

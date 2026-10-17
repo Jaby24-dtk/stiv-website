@@ -4,16 +4,18 @@ import { Mail, Users, Landmark, FileText, ArrowRight, Check } from "lucide-react
 import PageHeader from "../components/PageHeader";
 import IconTile from "../components/IconTile";
 import Reveal from "../components/Reveal";
+import { DEFAULT_OG_IMAGE } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Integrations for Inbox, CRM, Accounting & Docs",
   description:
-    "STIV connects to your inbox, CRM, accounting, and docs — no migration required. Standard integrations on Single Division, custom integrations on Full Suite and Unified.",
+    "STIV connects to your inbox, CRM, accounting and docs with no migration. Standard integrations on Single Division; custom ones on Full Suite and Unified.",
   alternates: { canonical: "/integrations" },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Integrations for Inbox, CRM, Accounting & Docs — STIV",
     description:
-      "STIV connects to your inbox, CRM, accounting, and docs — no migration required. Standard integrations on Single Division, custom integrations on Full Suite and Unified.",
+      "STIV connects to your inbox, CRM, accounting and docs with no migration. Standard integrations on Single Division; custom ones on Full Suite and Unified.",
     url: "/integrations",
   },
 };

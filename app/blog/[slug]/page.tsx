@@ -8,7 +8,7 @@ import PageHeader from "../../components/PageHeader";
 import Reveal from "../../components/Reveal";
 import { getPostBySlug, posts } from "../posts";
 import { serializeJsonLd } from "../../lib/json-ld";
-import { ORGANIZATION_ID, SITE_URL, WEBSITE_ID } from "../../lib/site";
+import { DEFAULT_OG_IMAGE, ORGANIZATION_ID, SITE_URL, WEBSITE_ID } from "../../lib/site";
 
 export function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
@@ -79,7 +79,7 @@ export async function generateMetadata({
       authors: [SITE_URL],
       section: post.category,
       tags: ["enterprise AI", "business automation", post.category],
-      ...(post.image ? { images: [{ url: post.image, alt: post.imageAlt ?? post.title }] } : {}),
+      images: [post.image ? { url: post.image, alt: post.imageAlt ?? post.title } : DEFAULT_OG_IMAGE],
     },
     twitter: {
       card: "summary_large_image",

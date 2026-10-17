@@ -3,16 +3,18 @@ import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import Reveal from "../components/Reveal";
+import { DEFAULT_OG_IMAGE } from "../lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: "STIV Unified — One AI Assistant for Every Division" },
   description:
-    "STIV Unified combines all seven divisions into one exclusive assistant — a bespoke build on your business, dedicated infrastructure, and a dedicated success manager. Custom pricing, by application.",
+    "STIV Unified combines all seven divisions into one exclusive assistant, with a bespoke build, dedicated infrastructure and a success manager. By application.",
   alternates: { canonical: "/unified" },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "STIV Unified — One AI Assistant for Every Division",
     description:
-      "STIV Unified combines all seven divisions into one exclusive assistant — a bespoke build on your business, dedicated infrastructure, and a dedicated success manager. Custom pricing, by application.",
+      "STIV Unified combines all seven divisions into one exclusive assistant, with a bespoke build, dedicated infrastructure and a success manager. By application.",
     url: "/unified",
   },
 };

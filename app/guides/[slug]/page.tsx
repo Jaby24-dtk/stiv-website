@@ -6,7 +6,7 @@ import PageHeader from "../../components/PageHeader";
 import Reveal from "../../components/Reveal";
 import { getGuideBySlug, guides } from "../../lib/guides";
 import { serializeJsonLd } from "../../lib/json-ld";
-import { ORGANIZATION_ID, SITE_URL } from "../../lib/site";
+import { DEFAULT_OG_IMAGE, ORGANIZATION_ID, SITE_URL } from "../../lib/site";
 
 export function generateStaticParams() {
   return guides.map(({ slug }) => ({ slug }));
@@ -25,6 +25,7 @@ export async function generateMetadata({
     description: guide.description,
     alternates: { canonical: `/guides/${guide.slug}` },
     openGraph: {
+      images: [DEFAULT_OG_IMAGE],
       title: `${guide.title} — STIV`,
       description: guide.description,
       url: `/guides/${guide.slug}`,

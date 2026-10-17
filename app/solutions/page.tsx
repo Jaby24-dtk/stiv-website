@@ -4,16 +4,18 @@ import { ArrowRight } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import Reveal from "../components/Reveal";
 import { solutions } from "../lib/solutions";
+import { DEFAULT_OG_IMAGE } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Enterprise AI Solutions for Every Division",
   description:
-    "STIV solutions for executive briefings, sales, marketing, finance, operations, legal, support, and AI governance, each with human approval gates and full audit trails.",
+    "STIV solutions for executive briefings, sales, marketing, finance, operations, legal, support and AI governance, with approval gates and full audit trails.",
   alternates: { canonical: "/solutions" },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Enterprise AI Solutions for Every Division — STIV",
     description:
-    "STIV solutions for executive briefings, sales, marketing, finance, operations, legal, support, and AI governance, each with human approval gates and full audit trails.",
+    "STIV solutions for executive briefings, sales, marketing, finance, operations, legal, support and AI governance, with approval gates and full audit trails.",
     url: "/solutions",
   },
 };

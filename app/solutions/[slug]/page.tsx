@@ -6,7 +6,7 @@ import PageHeader from "../../components/PageHeader";
 import Reveal from "../../components/Reveal";
 import { serializeJsonLd } from "../../lib/json-ld";
 import { getSolutionBySlug, solutions } from "../../lib/solutions";
-import { ORGANIZATION_ID, SITE_URL } from "../../lib/site";
+import { DEFAULT_OG_IMAGE, ORGANIZATION_ID, SITE_URL } from "../../lib/site";
 
 export function generateStaticParams() {
   return solutions.map(({ slug }) => ({ slug }));
@@ -25,6 +25,7 @@ export async function generateMetadata({
     description: solution.description,
     alternates: { canonical: `/solutions/${solution.slug}` },
     openGraph: {
+      images: [DEFAULT_OG_IMAGE],
       title: `${solution.title} — STIV`,
       description: solution.description,
       url: `/solutions/${solution.slug}`,

@@ -5,6 +5,7 @@ import PageHeader from "../components/PageHeader";
 import IconTile from "../components/IconTile";
 import Reveal from "../components/Reveal";
 import { serializeJsonLd } from "../lib/json-ld";
+import { DEFAULT_OG_IMAGE } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Security & Trust: Approval Gates and Audit Trails",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     "How STIV secures agent access, keeps humans in the loop, and stays audit-ready — encryption, approval gates, audit trails, and SOC 2 control objectives.",
   alternates: { canonical: "/security" },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Security & Trust: Approval Gates and Audit Trails — STIV",
     description:
       "How STIV secures agent access, keeps humans in the loop, and stays audit-ready — encryption, approval gates, audit trails, and SOC 2 control objectives.",

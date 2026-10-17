@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import Reveal from "../components/Reveal";
 import { guides } from "../lib/guides";
+import { DEFAULT_OG_IMAGE } from "../lib/site";
 
 const description =
   "Plain answers to common questions about AI command centers, AI agents for business, human-in-the-loop AI, and rolling out AI agents across a company.";
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/guides" },
   openGraph: {
+    images: [DEFAULT_OG_IMAGE],
     title: "Guides to AI Agents and AI Command Centers — STIV",
     description,
     url: "/guides",
