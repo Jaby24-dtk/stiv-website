@@ -11,7 +11,7 @@ const cspHeader = `
   script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.clarity.ms;
   script-src-attr 'none';
   style-src 'self' 'unsafe-inline';
-  img-src 'self' data: blob: https://www.google-analytics.com https://*.clarity.ms https://c.bing.com;
+  img-src 'self' data: blob: https://npxvxtncrkorplmcvygp.supabase.co https://www.google-analytics.com https://*.clarity.ms https://c.bing.com;
   font-src 'self';
   connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.clarity.ms;
   object-src 'none';

@@ -1,3 +1,5 @@
+import { loadMarkdownPosts } from "./markdown-posts";
+
 export type BlogContentBlock =
   | { type: "p"; text: string }
   | { type: "h2"; text: string }
@@ -11,9 +13,14 @@ export type BlogPost = {
   readTime: string;
   category: string;
   content: BlogContentBlock[];
+  // Set on posts published by Growtiv as Markdown files (see markdown-posts.ts).
+  markdown?: string;
+  image?: string;
+  imageAlt?: string;
+  faq?: { question: string; answer: string }[];
 };
 
-export const posts: BlogPost[] = [
+const curatedPosts: BlogPost[] = [
   {
     slug: "why-one-assistant-cant-run-your-company",
     title: "Why one AI assistant can't run your whole company",
@@ -1465,6 +1472,15 @@ export const posts: BlogPost[] = [
       },
     ],
   },
+];
+
+const curatedSlugs = new Set(curatedPosts.map((post) => post.slug));
+
+export const posts: BlogPost[] = [
+  ...curatedPosts,
+  ...loadMarkdownPosts()
+    .filter((post) => !curatedSlugs.has(post.slug))
+    .sort((a, b) => a.date.localeCompare(b.date)),
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

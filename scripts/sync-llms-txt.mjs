@@ -1,8 +1,9 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { readdir, readFile, writeFile } from "node:fs/promises";
 
 const SITE_URL = "https://www.iamstivai.com";
 const POSTS_SOURCE = "app/blog/posts.ts";
 const LLMS_TXT = "public/llms.txt";
+const MARKDOWN_DIR = "content/blog";
 
 const STRING = `"((?:[^"\\\\]|\\\\.)*)"`;
 const POST_HEADER = new RegExp(
@@ -22,6 +23,29 @@ function extractPosts(source) {
   }));
 }
 
+// Growtiv-published posts: JSON-encoded front-matter values in content/blog/*.md.
+async function extractMarkdownPosts(known) {
+  const files = await readdir(MARKDOWN_DIR).catch(() => []);
+  const posts = [];
+  for (const file of files.filter((f) => f.endsWith(".md")).sort()) {
+    const source = await readFile(`${MARKDOWN_DIR}/${file}`, "utf8");
+    const front = source.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? "";
+    const field = (key) => {
+      const raw = front.match(new RegExp(`^${key}:\\s*(.*)$`, "m"))?.[1];
+      if (!raw) return "";
+      try {
+        return JSON.parse(raw);
+      } catch {
+        return raw;
+      }
+    };
+    const slug = field("slug") || file.replace(/\.md$/, "");
+    if (known.has(slug)) continue;
+    posts.push({ slug, title: field("title") || slug, description: field("description") || field("excerpt"), date: field("date") });
+  }
+  return posts.sort((a, b) => String(a.date).localeCompare(String(b.date)));
+}
+
 function renderBlogSection(posts) {
   const lines = posts.map(
     (post) => `- [${post.title}](${SITE_URL}/blog/${post.slug}): ${post.description}`,
@@ -30,7 +54,8 @@ function renderBlogSection(posts) {
 }
 
 const postsSource = await readFile(POSTS_SOURCE, "utf8");
-const posts = extractPosts(postsSource);
+const curated = extractPosts(postsSource);
+const posts = [...curated, ...(await extractMarkdownPosts(new Set(curated.map((p) => p.slug))))];
 
 if (posts.length === 0) {
   throw new Error(`No posts parsed from ${POSTS_SOURCE} — check the regex against its current format.`);
