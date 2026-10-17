@@ -138,7 +138,7 @@ html {
   text-align: center;
 }
 .stiv-home .light .kicker {
-  color: #7b8591;
+  color: #636d79;
 }
 
 /* ── Sections: no rules, centered headers ─────────────── */
@@ -559,7 +559,7 @@ html {
   border-bottom: 1px solid #d8d6cf;
 }
 .site-footer .footer-top > span {
-  color: #86868b;
+  color: #6e6e73;
 }
 .site-footer .eyebrow {
   font-family: var(--font-text);
@@ -584,11 +584,11 @@ html {
 }
 .site-footer .footer-bottom {
   border-top: 1px solid #d8d6cf;
-  color: #86868b;
+  color: #6e6e73;
 }
 .site-footer .footer-bottom p,
 .site-footer .footer-bottom button {
-  color: #86868b;
+  color: #6e6e73;
 }
 
 /* Two-column sections keep their label aligned with the copy column */
