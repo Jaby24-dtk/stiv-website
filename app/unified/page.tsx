@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import Reveal from "../components/Reveal";
+import FaqBlock from "../components/FaqBlock";
 import { DEFAULT_OG_IMAGE } from "../lib/site";
 
 export const metadata: Metadata = {
@@ -39,6 +40,41 @@ const changes = [
     title: "Singular accountability",
     description:
       "One team, dedicated infrastructure, and white-glove onboarding, rather than seven systems each with their own operational surface.",
+  },
+];
+
+// Every answer restates facts already published on this page, the homepage FAQ,
+// pricing and security pages — no new claims.
+const faqs = [
+  {
+    question: "What is STIV Unified?",
+    answer:
+      "STIV Unified combines all seven STIV divisions — Executive, Sales, Marketing, Finance, Operations, Legal and Support — into a single exclusive assistant for one company, with a bespoke build on your business, dedicated infrastructure and a dedicated success manager.",
+  },
+  {
+    question: "How is STIV Unified different from licensing individual divisions?",
+    answer:
+      "STIV licenses software division by division, so a company invests only in the systems its teams actually run. Unified is for companies that have outgrown seven separate systems and want one command layer that sees the whole company at once, answerable only to them.",
+  },
+  {
+    question: "Does STIV Unified still require human approval?",
+    answer:
+      "Yes. The approval model stays the same as for a single division: every consequential action — emails, contracts, payments — routes through a human-defined approval gate, with a full audit trail and sign-off requirements intact.",
+  },
+  {
+    question: "Is STIV Unified hosted on shared infrastructure?",
+    answer:
+      "No. Unified is a deployment built and hosted for one company rather than shared tenancy. Like all of STIV, it is architected around SOC 2 control objectives, with data encrypted in transit and at rest and data residency options for regulated teams.",
+  },
+  {
+    question: "How much does STIV Unified cost?",
+    answer:
+      "STIV Unified is custom-priced and offered by application. For comparison, Single Division is $1,500/mo and Full Suite — all seven divisions — is $8,200/mo.",
+  },
+  {
+    question: "Which integrations come with STIV Unified?",
+    answer:
+      "Unified includes custom integrations tailored to your specific stack across all seven divisions — inbox, CRM, accounting and docs — with no migration required.",
   },
 ];
 
@@ -81,6 +117,8 @@ export default function UnifiedPage() {
               requirements.
             </p>
           </div>
+
+          <FaqBlock faqs={faqs} />
 
           <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
             <div>
