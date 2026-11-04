@@ -4,6 +4,7 @@ import { Mail, Users, Landmark, FileText, ArrowRight, Check } from "lucide-react
 import PageHeader from "../components/PageHeader";
 import IconTile from "../components/IconTile";
 import Reveal from "../components/Reveal";
+import FaqBlock from "../components/FaqBlock";
 import { DEFAULT_OG_IMAGE } from "../lib/site";
 
 export const metadata: Metadata = {
@@ -59,6 +60,36 @@ const tiers = [
     plan: "Full Suite & STIV Unified",
     description:
       "Included with Full Suite and STIV Unified — integrations tailored to your specific stack across all seven divisions.",
+  },
+];
+
+// Every answer restates facts already published on this page, pricing, security
+// and the homepage FAQ — no new claims.
+const faqs = [
+  {
+    question: "Do we need to migrate our data to use STIV?",
+    answer:
+      "No. STIV reads your existing tools instead of replacing them. You link your inbox, CRM, accounting and docs, and agents work from what's already there — no migration and no parallel system.",
+  },
+  {
+    question: "Which tools can STIV connect to?",
+    answer:
+      "STIV connects to your inbox, CRM, accounting and docs, plus calendars, files and messaging. Sales and Marketing agents use pipeline and deal history from your CRM, Finance agents reconcile against your existing ledger, and contracts and playbooks are read in place.",
+  },
+  {
+    question: "What's the difference between standard and custom integrations?",
+    answer:
+      "Standard integrations are included with Single Division at $1,500/mo and connect one division's inbox, CRM, accounting or docs as applicable. Custom integrations, tailored to your specific stack across all seven divisions, are included with Full Suite ($8,200/mo) and STIV Unified.",
+  },
+  {
+    question: "Can a connected agent act on our systems without approval?",
+    answer:
+      "No. Every integration, standard or custom, runs under the same approval-gated model: agents read what's connected, and every consequential action — emails, contracts, payments — routes through an approval gate you define, with every decision logged.",
+  },
+  {
+    question: "Can one agent see another division's data?",
+    answer:
+      "No. Each agent's access is scoped to only what its role requires — a Sales agent cannot read Finance's data, and vice versa. Data is encrypted in transit and at rest.",
   },
 ];
 
@@ -125,6 +156,8 @@ export default function IntegrationsPage() {
             </Link>
             .
           </p>
+
+          <FaqBlock faqs={faqs} />
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
