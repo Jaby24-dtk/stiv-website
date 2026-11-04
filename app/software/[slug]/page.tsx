@@ -6,6 +6,7 @@ import PageHeader from "../../components/PageHeader";
 import IconTile from "../../components/IconTile";
 import Reveal from "../../components/Reveal";
 import { divisions, getDivisionBySlug } from "../../lib/divisions";
+import { solutions } from "../../lib/solutions";
 import { serializeJsonLd } from "../../lib/json-ld";
 import { DEFAULT_OG_IMAGE, ORGANIZATION_ID, SITE_URL } from "../../lib/site";
 
@@ -56,6 +57,10 @@ export default async function DivisionPage({
   const division = getDivisionBySlug(slug);
   if (!division) notFound();
 
+  // Published FAQs from this division's solution pages: answers AI assistants can quote directly.
+  const related = solutions.filter((s) => s.divisionSlug === division.slug);
+  const faqs = related.flatMap((s) => s.faqs);
+
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -83,6 +88,18 @@ export default async function DivisionPage({
           },
         },
       },
+      ...(faqs.length
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: faqs.map(({ question, answer }) => ({
+                "@type": "Question",
+                name: question,
+                acceptedAnswer: { "@type": "Answer", text: answer },
+              })),
+            },
+          ]
+        : []),
       {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -161,6 +178,48 @@ export default async function DivisionPage({
               {division.approvalNote}
             </p>
           </div>
+
+          {faqs.length > 0 && (
+            <div className="mt-14">
+              <h2 className="text-2xl font-semibold tracking-tight">
+                Questions, answered
+              </h2>
+              <div className="mt-6 divide-y divide-white/10 border-y border-white/10">
+                {faqs.map(({ question, answer }) => (
+                  <details key={question} className="group py-4">
+                    <summary className="flex cursor-pointer list-none items-start justify-between gap-4 text-base font-medium">
+                      {question}
+                      <span
+                        aria-hidden
+                        className="mt-0.5 text-accent-gold transition-transform group-open:rotate-45"
+                      >
+                        +
+                      </span>
+                    </summary>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">
+                      {answer}
+                    </p>
+                  </details>
+                ))}
+              </div>
+              {related.length > 0 && (
+                <p className="mt-4 text-sm text-muted">
+                  More detail:{" "}
+                  {related.map((s, i) => (
+                    <span key={s.slug}>
+                      <Link
+                        href={`/solutions/${s.slug}`}
+                        className="text-foreground/90 underline-offset-4 hover:text-accent-gold hover:underline"
+                      >
+                        {s.title}
+                      </Link>
+                      {i < related.length - 1 ? " · " : ""}
+                    </span>
+                  ))}
+                </p>
+              )}
+            </div>
+          )}
 
           <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
             <div>
